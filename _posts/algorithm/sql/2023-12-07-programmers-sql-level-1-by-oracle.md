@@ -1,7 +1,7 @@
 ---
 title: "[프로그래머스/오라클(ORACLE)]레벨1 모든 문제"
-categories: [알고리즘,프로그래머스]
-tags: [알고리즘,프로그래머스,sql,오라클,ORACLE,레벨1]
+categories: [알고리즘, 프로그래머스]
+tags: [알고리즘, 프로그래머스, sql, 오라클, ORACLE, 레벨1]
 ---
 
 # [프로그래머스/오라클(ORACLE)]레벨1 모든 문제
