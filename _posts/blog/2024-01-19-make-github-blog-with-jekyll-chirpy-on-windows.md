@@ -28,43 +28,43 @@ tags: [Jekyll, Chirpy, GitHub 블로그, Ruby 설치, Node.js 설치]
 
 Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드시 Ruby를 설치해야 합니다. [Jekyll 공식 문서](https://jekyllrb.com/docs/installation/){: target="_blank" }에 의하면 **최소 Ruby 2.5.0 버전 또는 그 이상이 요구**됩니다.
 
-![03-ruby-download](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/03-ruby-download.png)
+![03-download-ruby](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/03-download-ruby.png)
 
 [RubyInstaller 사이트](https://rubyinstaller.org/downloads/){: target="_blank" } > `Ruby+Devkit 3.2.2-1 (x86)` 다운로드
 
 저는 64bit(x64) 운영체제를 사용하고 있고 문서에서도 3.2.X (x64)를 권장하고있지만, Jekyll이 32bit(x86)라서 32bit(x86)를 설치했습니다.
 
-![04-ruby-install(1)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/04-ruby-install(1).png)
+![04-install-ruby(1)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/04-install-ruby(1).png)
 
 `rubyinstaller-devkit-3.2.2-1-x86.exe`파일 실행 > `Install for me only (recommended)`
 
-![05-ruby-install(2)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/05-ruby-install(2).png)
+![05-install-ruby(2)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/05-install-ruby(2).png)
 
 `I accept the Lincense` 체크 > `Next`
 
-![06-ruby-install(3)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/06-ruby-install(3).png)
+![06-install-ruby(3)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/06-install-ruby(3).png)
 
 `Add Ruby executables to your PATH`, `Associate .rb and .rbw files with this Ruby installation` 체크 > `Install`
 
 - Add Ruby executables to your PATH: 환경 변수 PATH에 ruby 디렉토리 추가
 - Associate .rb and .rbw files with this Ruby installation: 명령 프롬프트 또는 스크립트에서 .rb 및 .rbw 파일을 실행할 때 시스템이 해당 Ruby를 사용하도록 연동
 
-![07-ruby-install(4)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/07-ruby-install(4).png)
+![07-install-ruby(4)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/07-install-ruby(4).png)
 
 `Ruby RI and HTML documentation`, `MSYS2 development toolcahin 2023-04-01` 체크 > `Next`
 
 - Ruby RI and HTML documentation: Ruby의 도움말 시스템인 Ruby Interative Reference와 HTML 설명서
 - MSYS2 development toolcahin 2023-04-01: Windows에서 유닉스 스타일의 개발 환경을 제공하기 위한 툴체인과 개발 환경을 제공하는 도구
 
-![08-ruby-install(5)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/08-ruby-install(5).png)
+![08-install-ruby(5)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/08-install-ruby(5).png)
 
 `Run 'ridk install' to setup MSYS2 and development toolchain. MSYS2 is required to install gems with C extensions.` 체크 > `Finish`
 
-![09-ruby-install(6)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/09-ruby-install(6).png)
+![09-install-ruby(6)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/09-install-ruby(6).png)
 
 `Enter`
 
-![10-ruby-install(7)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/10-ruby-install(7).png)
+![10-install-ruby(7)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/10-install-ruby(7).png)
 
 `Enter`
 
@@ -79,39 +79,39 @@ Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드�
 
 [Node.js 홈페이지](https://nodejs.org/en){: target="_blank" } > `20.11.0 LTS` 다운로드
 
-![13-node-install(1).=](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/13-node-install(1).png)
+![13-install-node(1).=](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/13-install-node(1).png)
 
 `node-v20.11.0-x64.msi` 파일 실행 > `Next`
 
-![14-node-install(2)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/14-node-install(2).png)
+![14-install-node(2)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/14-install-node(2).png)
 
 `I accept the terms in the License Agreement` 체크 > `Next`
 
-![15-node-install(3)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/15-node-install(3).png)
+![15-install-node(3)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/15-install-node(3).png)
 
 `Next`
 
-![16-node-install(4)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/16-node-install(4).png)
+![16-install-node(4)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/16-install-node(4).png)
 
 `Next`
 
-![17-node-install(5)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/17-node-install(5).png)
+![17-install-node(5)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/17-install-node(5).png)
 
 `Automatically install the necessary tools. Note that this will also install Chocolatey. The script will pop-up in a new window after the installation completes.` 체크 > `Next`
 
-![18-node-install(6)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/18-node-install(6).png)
+![18-install-node(6)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/18-install-node(6).png)
 
 `Install`
 
-![19-node-install(7)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/19-node-install(7).png)
+![19-install-node(7)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/19-install-node(7).png)
 
 `Finish`
 
-![20-node-install(8)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/20-node-install(8).png)
+![20-install-node(8)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/20-install-node(8).png)
 
 `Enter`
 
-![21-node-install(9)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/21-node-install(9).png)
+![21-install-node(9)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/21-install-node(9).png)
 
 `Enter`
 
