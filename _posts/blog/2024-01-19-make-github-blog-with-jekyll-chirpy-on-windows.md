@@ -222,7 +222,7 @@ $ git commit -m "커밋 메시지"
 $ git push
 ```
 
-지금껏 구축한 환경들을 repository에 푸시합니다. 
+지금껏 구축한 환경들을 repository에 push합니다. 
 
 ![31-check-workflows](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/31-check-workflows.png)
 
