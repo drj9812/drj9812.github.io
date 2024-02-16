@@ -122,7 +122,7 @@ $ gem install jekyll
 $ gem install bundler
 ```
 
-Jekyll과 bundler를 설치합니다. 
+Jekyll과 bundler를 설치합니다.
 
 > 일반적으로 Ruby를 설치하게되면 Ruby의 패키지 관리자인 RubyGems도 함께 설치되는데, 이때 RubyGems의 `gem`명령어를 통해 설치되고 관리되는 Ruby의 패키지(Jekyll, bundler)를 gem이라고 부릅니다. bundler는 Ruby에서 사용되는 종속성 관리 도구입니다.
 {: .prompt-info }
