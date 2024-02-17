@@ -14,7 +14,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: drj9812 # the main title
+title: 스밀라 # the main title
 
 tagline: 잘못된 정보가 있을 수 있습니다 # it will display as the sub-title
 
@@ -34,7 +34,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: drj9812
+  name: 스밀라
   email: drj9812@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
