@@ -29,44 +29,36 @@ tags: [Jekyll, Chirpy, GitHub 블로그, Ruby 설치, Node.js 설치]
 Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드시 Ruby를 설치해야 합니다. [Jekyll 공식 문서](https://jekyllrb.com/docs/installation/){: target="_blank" }에 의하면 **최소 Ruby 2.5.0 버전 또는 그 이상이 요구**됩니다.
 
 ![03-download-ruby](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/03-download-ruby.png)
-
-[RubyInstaller 사이트](https://rubyinstaller.org/downloads/){: target="_blank" } > `Ruby+Devkit 3.2.2-1 (x86)` 다운로드
+*[RubyInstaller 사이트](https://rubyinstaller.org/downloads/){: target="_blank" } > `Ruby+Devkit 3.2.2-1 (x86)` 다운로드*
 
 저는 64bit(x64) 운영체제를 사용하고 있고 문서에서도 3.2.X (x64)를 권장하고있지만, Jekyll이 32bit(x86)라서 32bit(x86)를 설치했습니다.
 
 ![04-install-ruby(1)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/04-install-ruby(1).png)
-
-`rubyinstaller-devkit-3.2.2-1-x86.exe`파일 실행 > `Install for me only (recommended)`
+*`rubyinstaller-devkit-3.2.2-1-x86.exe` 파일 실행 > `Install for me only (recommended)`*
 
 ![05-install-ruby(2)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/05-install-ruby(2).png)
-
-`I accept the Lincense` 체크 > `Next`
+*`I accept the Lincense` 체크 > `Next`*
 
 ![06-install-ruby(3)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/06-install-ruby(3).png)
-
-`Add Ruby executables to your PATH`, `Associate .rb and .rbw files with this Ruby installation` 체크 > `Install`
+*`Add Ruby executables to your PATH`, `Associate .rb and .rbw files with this Ruby installation` 체크 > `Install`*
 
 - Add Ruby executables to your PATH: 환경 변수 PATH에 ruby 디렉토리 추가
 - Associate .rb and .rbw files with this Ruby installation: 명령 프롬프트 또는 스크립트에서 .rb 및 .rbw 파일을 실행할 때 시스템이 해당 Ruby를 사용하도록 연동
 
 ![07-install-ruby(4)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/07-install-ruby(4).png)
-
-`Ruby RI and HTML documentation`, `MSYS2 development toolcahin 2023-04-01` 체크 > `Next`
+*`Ruby RI and HTML documentation`, `MSYS2 development toolcahin 2023-04-01` 체크 > `Next`*
 
 - Ruby RI and HTML documentation: Ruby의 도움말 시스템인 Ruby Interative Reference와 HTML 설명서
 - MSYS2 development toolcahin 2023-04-01: Windows에서 유닉스 스타일의 개발 환경을 제공하기 위한 툴체인과 개발 환경을 제공하는 도구
 
 ![08-install-ruby(5)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/08-install-ruby(5).png)
-
-`Run 'ridk install' to setup MSYS2 and development toolchain. MSYS2 is required to install gems with C extensions.` 체크 > `Finish`
+*`Run 'ridk install' to setup MSYS2 and development toolchain. MSYS2 is required to install gems with C extensions.` 체크 > `Finish`*
 
 ![09-install-ruby(6)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/09-install-ruby(6).png)
-
-`Enter`
+*`Enter`*
 
 ![10-install-ruby(7)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/10-install-ruby(7).png)
-
-`Enter`
+*`Enter`*
 
 ### Node.js 설치
 
@@ -76,44 +68,34 @@ Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드�
 [Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 Node.js를 설치하고 `bash tools/init` 명령어를 실행해야합니다. tools 폴더에 있는 `init` 파일을 실행하는 명령어인데, 이 `init` 파일 내부에 `npm i && npm run build` 명령어를 실행하는 부분이 있습니다. 이때, npm은 `npm` 명령어를 통해 Node.js의 패키지를 관리하는 Node Package Manager의 약자입니다. npm은 Node.js를 설치하면 함께 설치됩니다.
 
 ![12-node-homepage](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/12-node-homepage.png)
-
-[Node.js 홈페이지](https://nodejs.org/en){: target="_blank" } > `20.11.0 LTS` 다운로드
+*[Node.js 홈페이지](https://nodejs.org/en){: target="_blank" } > `20.11.0 LTS` 다운로드*
 
 ![13-install-node(1).=](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/13-install-node(1).png)
-
-`node-v20.11.0-x64.msi` 파일 실행 > `Next`
+*`node-v20.11.0-x64.msi` 파일 실행 > `Next`*
 
 ![14-install-node(2)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/14-install-node(2).png)
-
-`I accept the terms in the License Agreement` 체크 > `Next`
+*`I accept the terms in the License Agreement` 체크 > `Next`*
 
 ![15-install-node(3)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/15-install-node(3).png)
-
-`Next`
+*`Next`*
 
 ![16-install-node(4)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/16-install-node(4).png)
-
-`Next`
+*`Next`*
 
 ![17-install-node(5)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/17-install-node(5).png)
-
-`Automatically install the necessary tools. Note that this will also install Chocolatey. The script will pop-up in a new window after the installation completes.` 체크 > `Next`
+*`Automatically install the necessary tools. Note that this will also install Chocolatey. The script will pop-up in a new window after the installation completes.` 체크 > `Next`*
 
 ![18-install-node(6)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/18-install-node(6).png)
-
-`Install`
+*`Install`*
 
 ![19-install-node(7)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/19-install-node(7).png)
-
-`Finish`
+*`Finish`*
 
 ![20-install-node(8)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/20-install-node(8).png)
-
-`Enter`
+*`Enter`*
 
 ![21-install-node(9)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/21-install-node(9).png)
-
-`Enter`
+*`Enter`*
 
 ### Jekyll, bundler 설치
 
@@ -152,16 +134,13 @@ $ bundler -v
 {: .prompt-tip }
 
 ![24-create-fork](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/24-create-fork.png)
-
-`username.github.io` 형식으로 `Repository name` 설정 > `Create fork`
+*`username.github.io` 형식으로 `Repository name` 설정 > `Create fork`*
 
 ![25-change-repo-name](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/25-change-repo-name.png)
-
-fork한 repository > `Settings` > `General` > `Default branch`를 `master`에서 `main`으로 변경
+*fork한 repository > `Settings` > `General` > `Default branch`를 `master`에서 `main`으로 변경*
 
 ![26-copy-repo-url](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/26-copy-repo-url.png)
-
-fork한 repository > `<> Code` > `Copy url to clipboard`
+*fork한 repository > `<> Code` > `Copy url to clipboard`*
 
 ```console
 $ cd clone할 디렉토리

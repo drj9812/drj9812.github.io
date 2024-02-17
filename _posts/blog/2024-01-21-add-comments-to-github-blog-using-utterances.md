@@ -8,16 +8,13 @@ tags: [Jekyll, Chirpy, GitHub 블로그, 댓글 기능, utterances]
 ## utterances 설치
 
 ![01-utterances.homepage](/assets/img/posts/blog/add-comments-to-github-blog-using-utterances/01-utterances-homepage.png)
-
-[utterances 홈페이지](https://utteranc.es/){: target="_blank" } > [utterances app](https://github.com/apps/utterances){: target="_blank" }
+*[utterances 홈페이지](https://utteranc.es/){: target="_blank" } > [utterances app](https://github.com/apps/utterances){: target="_blank" }*
 
 ![02-install-utterances(1)](/assets/img/posts/blog/add-comments-to-github-blog-using-utterances/02-install-utterances(1).png)
-
-`Install`
+*`Install`*
 
 ![03-install-utterances(2)](/assets/img/posts/blog/add-comments-to-github-blog-using-utterances/03-install-utterances(2).png)
-
-`Only select repositories` > `Select repositories` > 적용할 repsository 선택
+*`Only select repositories` > `Select repositories` > 적용할 repsository 선택*
 
 ![04-install-utterances(3)](/assets/img/posts/blog/add-comments-to-github-blog-using-utterances/04-install-utterances(3).png)
 
@@ -78,8 +75,7 @@ $ git push
 ## 확인
 
 ![11-activate-issues](/assets/img/posts/blog/add-comments-to-github-blog-using-utterances/11-activate-issues.png)
-
-repository > `Settings` > `General` > `Features` 섹션에서 `Issues` 체크
+*repository > `Settings` > `General` > `Features` 섹션에서 `Issues` 체크*
 
 > **repository를 fork하여 생성한 경우 `Issue` 탭을 활성화시켜줘야 댓글이 저장됩니다.**
 {: .prompt-info }
