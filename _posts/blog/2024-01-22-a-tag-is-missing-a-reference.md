@@ -1,7 +1,7 @@
 ---
 title: "'a' tag is missing a reference 에러 해결"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub 블로그, error, 에러]
+tags: [Jekyll, Chirpy, GitHub 블로그, Error, 에러]
 ---
 
 # 'a' tag is missing a reference 에러 해결
