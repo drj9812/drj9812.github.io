@@ -72,6 +72,8 @@ public class ClassClass throws ClassNotFoundException {
 ### 클래스 정보 관련 메서드
 
 ```java
+package study;
+
 class Car {}
 
 public class ClassClass {
@@ -93,7 +95,7 @@ public class ClassClass {
 - `getPackageName()`: 패키지 이름
 
 
-### 클래스 멤버 관련 메서드
+### <a id=anchor1>클래스 멤버 관련 메서드</a>
 
 ```java
 package study;
@@ -152,4 +154,79 @@ public class ClassClass {
 {: .prompt-info }
 
 > Class 타입의 newInstance() 메소드는 deprecated
-{: .prompt-tip }
+{: .prompt-info }
+
+## Reflection API
+
+> reflection
+> 1. (거울 등에 비친) 상[모습]
+> 2. (빛·열·소리 등의) 반사, 반향
+> 3. (상태·속성 등의) 반영
+
+Reflection API는 JVM의 클래스 로더(시스템 클래스 로더)가 로드한 클래스 파일의 정보를 거울 삼아 객체를 생성하고 조작하는 기법이다. 이때의 거울이 클래스 파일의 정보를 담을 수 있는 `Class` 클래스다. 즉, 클래스의 구체적인 정보를 알지 못해도 클래스 파일에 클래스에 대한 정보가 담겨있기 때문에 `Class` 클래스를 통해 해당 정보에 접근할 수 있는 것이다.
+
+```java
+package study;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+
+class Car {
+    private int number;
+    
+    public void getNumber() {
+        System.out.println(number);
+    }
+    
+    Car() {}
+    
+    Car(int number) {
+    	this.number = number;
+    }
+    
+}
+
+public class ClassClass {
+    public static void main(String[] args) throws Exception {
+
+        Class cls = Class.forName("study.Car");
+    	
+	System.out.println(cls.getName()); // study.Car
+	System.out.println(cls.getSimpleName()); // Car
+	System.out.println(cls.getPackageName()); // study
+
+	    
+        for (Field field : cls.getDeclaredFields()) {
+            System.out.println(field); // private int study.Car.number
+        }
+        
+        for (Method method : cls.getDeclaredMethods()) {
+            System.out.println(method); // public void study.Car.getNumber()
+        }
+        
+        // Car car = (Car) cls.newInstance();
+        
+        Constructor<Car> constructor = cls.getDeclaredConstructor();
+        Car instance = constructor.newInstance(); // 기본 생성자를 통한 객체 생성
+        instance.getNumber(); // 0
+    }
+}
+```
+
+[클래스 멤버 관련 메서드](#anchor1)에서 사용한 위 코드에서 이미 Reflection API가 사용되었다. `import`를 보면 알 수 있듯이, `Field` 클래스, `Method` 클래스, `Constructor` 클래스가 `reflect` 패키지에 속한다. Reflection API가 이 `reflect` 패키지를 사용하는 것이다.
+
+ <div style="display: flex;">
+    <figure style="flex: 1; margin-left: 10px;">
+        <img src="/assets/img/posts/study/java/class-class/01-field-class.png" style="width: 100%;" alt="이미지 1">
+        <figcaption>Field.class</figcaption>
+    </figure>
+    <figure style="flex: 1; margin-right: 10px;">
+        <img src="/assets/img/posts/study/java/class-class/02-getdeclaredfields().png" style="width: 100%;" alt="이미지 2">
+        <figcaption>Class.class</figcaption>
+    </figure>
+</div>
+
+뿐만 아니라, 클래스의 멤버들을 가져올 때 사용되어지는 `get(Declared)Field(s)()`와 같은 메서드들은 `Class` 클래스에 속하지만, 역시 `Class` 클래스 내부에서 `reflect` 패키지를 사용하고 있다.
+
+Reflection API에 관한 자세한 정보는 이제부터 [Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" }에서 다루도록 하겠다.
