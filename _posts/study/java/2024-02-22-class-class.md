@@ -222,11 +222,11 @@ public class ClassClass {
 
  <div style="display: flex;">
     <figure style="flex: 1; margin-left: 10px;">
-        <img src="/assets/img/posts/study/java/class-class/01-field-class.png" style="width: 100%;" alt="이미지 1">
+        <img src="/assets/img/posts/study/java/class-class/01-field-class.png" style="width: 100%;" alt="01-field-class">
         <figcaption>Field.class</figcaption>
     </figure>
     <figure style="flex: 1; margin-right: 10px;">
-        <img src="/assets/img/posts/study/java/class-class/02-getdeclaredfields().png" style="width: 100%;" alt="이미지 2">
+        <img src="/assets/img/posts/study/java/class-class/02-getdeclaredfields().png" style="width: 100%;" alt="02-getdeclaredfields()">
         <figcaption>Class.class</figcaption>
     </figure>
 </div>
