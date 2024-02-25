@@ -1,10 +1,10 @@
 ---
-title: "'a' tag is missing a reference 에러 해결하기"
+title: "[GitHub]'a' tag is missing a reference 에러 해결하기"
 categories: [블로그, GitHub 블로그 만들기]
 tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, 에러, error]
 ---
 
-# 'a' tag is missing a reference 에러 해결하기
+# [GitHub]'a' tag is missing a reference 에러 해결하기
 
 ## 개요
 
@@ -16,7 +16,7 @@ tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, 에러, error]
 
 ### &lt;a&gt; 태그 참조 누락 확인
 
-Jekyll에서 md 파일로 작성된 파일은 html 파일로 변환되는데, 이때 md 파일 내에서 링크(URL 주소, 이미지)를 나타내는 구문이 html 파일 내에서 &lt;a&gt; 태그로 변환된다.
+Jekyll에서 MD 파일로 작성된 파일은 HTML 파일로 변환되는데, 이때 md 파일 내에서 링크(URL 주소, 이미지)를 나타내는 구문이 HTML 파일 내에서 &lt;a&gt; 태그로 변환된다.
 
 따라서, 문제가 발생한 파일의 &lt;a&gt; 태그와 관련된 모든 부분을 샅샅이 살펴보았으나 누락된 부분은 확인되지 않았다.
 

@@ -1,14 +1,14 @@
 ---
-title: "[Google Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기"
+title: "[Google | Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Google Search Console, 구글 서치 콘솔, 노출]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Google Search Console, 구글 Search Console, 노출]
 ---
 
-# [Google Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기
+# [Google | Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기
 
-## 구글 서치 콘솔(Google Search Console)이란?
+## Search Console이란?
 
-구글 서치 콘솔은 구글에서 무료로 제공하는 서비스로, 웹사이트 소유자와 웹 마스터가 자신의 웹사이트를 구글 검색 결과에 최적화하고 성능을 모니터링할 수 있도록 도와주는 플랫폼입니다. 구글 서치 콘솔에 웹사이트를 등록하지 않아도 구글에 노출이 될 수는 있지만, SEO(검색 엔진 최적화)를 충분히 신경쓰지 않는다면 우선순위에 밀릴 가능성이 높습니다. 구글 서치 콘솔은 그러한 불확실성을 제거하고, 더 나은 노출을 위한 조치를 취할 수 있는 인사이트를 제공합니다.
+Search Console은 구글에서 무료로 제공하는 서비스로, 웹사이트 소유자와 웹 마스터가 자신의 웹사이트를 구글 검색 결과에 최적화하고 성능을 모니터링할 수 있도록 도와주는 플랫폼입니다. Search Console에 웹사이트를 등록하지 않아도 구글에 노출이 될 수는 있지만, SEO(검색 엔진 최적화)를 충분히 신경쓰지 않는다면 우선순위에 밀릴 가능성이 높습니다. Search Console은 그러한 불확실성을 제거하고, 더 나은 노출을 위한 조치를 취할 수 있는 인사이트를 제공합니다.
 
 ## 구글 검색의 작동 방식
 
@@ -24,17 +24,17 @@ tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, G
 
 사용자가 구글에서 검색하면 구글에서는 사용자의 검색어와 관련된 정보를 반환합니다.
 
-## 구글 서치 콘솔 시작하기
+## Search Console 시작하기
 
 ### 소유권 확인
 
 ![01-start-google-searh-console](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/01-start-google-searh-console.png)
-*[구글 서치 콘솔 홈페이지](https://search.google.com/search-console/welcome?hl=ko){: target="_blank" } > URL 접두어 유형의 빈 칸에 블로그 주소 입력*
+*[Search Console 홈페이지](https://search.google.com/search-console/welcome?hl=ko){: target="_blank" } > URL 접두어 유형의 빈 칸에 블로그 주소 입력*
 
 ![02-download-html-file](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/02-download-html-file.png)
 *`google2c15bd520154035b.html` 파일 다운로드*
 
-구글 서치 콘솔에 등록할 웹사이트의 소유권을 확인하기 위한 작업입니다. 다른 방법들도 있지만, 구글에서는 이 방법을 권장하고 있습니다.
+구글 Search Console에 등록할 웹사이트의 소유권을 확인하기 위한 작업입니다. 다른 방법들도 있지만, 구글에서는 이 방법을 권장하고 있습니다.
 
 ![03-move-html-file](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/03-move-html-file.png)
 *다운로드한 파일을 루트 디렉토리로 이동*
@@ -53,11 +53,13 @@ $ git push
 ![05-verify-ownership(2)](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/05-verify-ownership(2).png)
 *`속성으로 이동`*
 
-### Sitemap 제출
+### 사이트맵 제출
 
-> 사이트맵은 사이트에 있는 페이지, 동영상 및 기타 파일과 각 관계에 관한 정보를 제공하는 파일입니다. Google과 같은 검색엔진은 이 파일을 읽고 사이트를 더 효율적으로 크롤링합니다. 사이트맵은 내가 사이트에서 중요하다고 생각하는 페이지와 파일을 검색엔진에 알리고 중요한 관련 정보를 제공합니다. 관련 정보의 예로는 페이지가 마지막으로 업데이트된 시간, 페이지의 대체 언어 버전이 있습니다.
+> **사이트맵(Sitemap)이란?**
 >
-> [사이트맵이란 무엇인가요? \| Google 검색 센터 \| 문서](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=ko){: target=" _blank" }
+> *사이트맵은 사이트에 있는 페이지, 동영상 및 기타 파일과 각 관계에 관한 정보를 제공하는 파일입니다. Google과 같은 검색엔진은 이 파일을 읽고 사이트를 더 효율적으로 크롤링합니다. 사이트맵은 내가 사이트에서 중요하다고 생각하는 페이지와 파일을 검색엔진에 알리고 중요한 관련 정보를 제공합니다. 관련 정보의 예로는 페이지가 마지막으로 업데이트된 시간, 페이지의 대체 언어 버전이 있습니다.*
+>
+> ["사이트맵 알아보기", Google 검색 센터, 2024-02-22](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=ko){: target=" _blank" }
 
 ![06-add-sitemap](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/06-add-sitemap.png)
 *`Sitemaps` > sitemap.xml 입력 > `제출`*
