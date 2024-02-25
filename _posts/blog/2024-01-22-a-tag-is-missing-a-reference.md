@@ -1,7 +1,7 @@
 ---
 title: "'a' tag is missing a reference 에러 해결"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub 블로그, Error, 에러]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Error, 에러]
 ---
 
 # 'a' tag is missing a reference 에러 해결
@@ -50,5 +50,6 @@ Jekyll에서 md 파일로 작성된 파일은 html 파일로 변환되는데, �
 
 다르게 말하자면, 문제가 없을 경우 생략해도 된다는 것인데 완벽하게는 아니지만 html-proofer가 하는 역할을 로컬 서버에서 미리 확인하는 것으로 어느정도 대체할 수 있다고 생각했기 때문에 이 Test Site 단계를 전부 주석 처리하여 실행되지 않도록 하였더니 더 이상 에러가 발생하지 않았다.
 
-## 참고
-- [Chirpy 글쓰기 가이드](https://chirpy.cotes.page/posts/write-a-new-post/#author-information){: target="_blank" }
+## 참고자료
+
+- [Cotes Chung, "Writing a New Post", Chirpy, 2024-01-31](https://chirpy.cotes.page/posts/write-a-new-post/#author-information){: target="_blank" }

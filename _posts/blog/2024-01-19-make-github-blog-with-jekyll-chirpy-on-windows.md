@@ -1,7 +1,7 @@
 ---
 title: "Jekyll의 Chirpy 테마를 사용하여 GitHub 블로그 만들기(Windows)"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub 블로그, Ruby 설치, Node.js 설치]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Ruby 설치, Node.js 설치]
 ---
 
 # Jekyll의 Chirpy 테마를 사용하여 GitHub 블로그 만들기(Windows)
@@ -43,7 +43,7 @@ Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드�
 *`Add Ruby executables to your PATH`, `Associate .rb and .rbw files with this Ruby installation` 체크 > `Install`*
 
 - Add Ruby executables to your PATH: 환경 변수 PATH에 ruby 디렉토리 추가
-- Associate .rb and .rbw files with this Ruby installation: 명령 프롬프트 또는 스크립트에서 .rb 및 .rbw 파일을 실행할 때 시스템이 해당 Ruby를 사용하도록 연동
+- Associate .rb and .rbw files with this Ruby installation: 명령 프롬프트 또는 스크립트에서 `.rb` 및 `.rbw` 파일을 실행할 때 시스템이 해당 Ruby를 사용하도록 연동
 
 ![07-install-ruby(4)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/07-install-ruby(4).png)
 *`Ruby RI and HTML documentation`, `MSYS2 development toolcahin 2023-04-01` 체크 > `Next`*
@@ -65,7 +65,7 @@ Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드�
 <a id=anchor1></a>
 ![11-chirpy-getting-started(2)](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/11-chirpy-getting-started(2).png)
 
-[Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 Node.js를 설치하고 `bash tools/init` 명령어를 실행해야합니다. tools 폴더에 있는 `init` 파일을 실행하는 명령어인데, 이 `init` 파일 내부에 `npm i && npm run build` 명령어를 실행하는 부분이 있습니다. 이때, npm은 `npm` 명령어를 통해 Node.js의 패키지를 관리하는 Node Package Manager의 약자입니다. npm은 Node.js를 설치하면 함께 설치됩니다.
+[Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 Node.js를 설치하고 `bash tools/init` 명령어를 실행해야합니다. `tools` 폴더에 있는 `init` 파일을 실행하는 명령어인데, 이 `init` 파일 내부에 `npm i && npm run build` 명령어를 실행하는 부분이 있습니다. 이때, npm은 `npm` 명령어를 통해 Node.js의 패키지를 관리하는 Node Package Manager의 약자입니다. npm은 Node.js를 설치하면 함께 설치됩니다.
 
 ![12-node-homepage](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/12-node-homepage.png)
 *[Node.js 홈페이지](https://nodejs.org/en){: target="_blank" } > `20.11.0 LTS` 다운로드*
@@ -130,7 +130,7 @@ $ bundler -v
 
 [jekyll-theme-chirpy repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" } > `Fork` > `Create a new Fork`
 
-> Fork 방식을 사용하면 커밋할 때마다 깃허브 잔디가 안 심어집니다. 잔디가 필요하신 분들은 repository를 fork하여 생성하지 말고, repository를 직접 생성한 다음 [Chirpy 테마 repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" }에서 소스코드를 zip파일 형식으로 다운받아 따라하시면 됩니다.
+> Fork 방식을 사용하면 커밋할 때마다 깃허브 잔디가 안 심어집니다. 잔디가 필요하신 분들은 repository를 fork하여 생성하지 말고, repository를 직접 생성한 다음 [Chirpy 테마 repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" }에서 소스코드를 zip 파일 형식으로 다운받아 따라하시면 됩니다.
 {: .prompt-tip }
 
 ![24-create-fork](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/24-create-fork.png)
@@ -166,14 +166,14 @@ $ bundle install
 $ npm install && npm run build
 ```
 
-[Node.js를 설치하기 앞서](#anchor1) `bash tools/init` 명령어를 실행해야한다고 했습니다. 하지만 리눅스 환경에서 동작하는 `bash tools/init` 명령어를 Windows에서 사용할 수 없기 때문에, tools 폴더 내의 `init` 파일을 열어 내용을 직접 처리해야 합니다. 아래는 처리해야할 목록입니다.
+[Node.js를 설치하기 앞서](#anchor1) `bash tools/init` 명령어를 실행해야한다고 했습니다. 하지만 리눅스 환경에서 동작하는 `bash tools/init` 명령어를 Windows에서 사용할 수 없기 때문에, `tools` 폴더 내의 `init` 파일을 열어 내용을 직접 처리해야 합니다. 아래는 처리해야할 목록입니다.
 
 1. **.github/workflows 디렉토리 내의 `pages-deploy.yml.hook` 파일을 `pages-deploy.yml`로 이름을 변경하고, `pages-deploy.yml` 파일을 제외한 모든 파일을 삭제**
-2. _post 폴더 내의 모든 파일 삭제
+2. `_post` 폴더 내의 모든 파일 삭제
 3. **`npm install && npm run build` 명령어 실행**
 4. **`.gitignore` 파일 내에 assets/js/dist 주석 처리**
 
-2번은 선택 사항입니다. _post 폴더 내부에는 블로그를 처음 시작하는 사람들을 위한 가이드 형식의 글들이 존재합니다. 참고로 _post 폴더는 앞으로 포스팅할 글들의 디렉토리입니다.
+2번은 선택 사항입니다. `_post` 폴더 내부에는 블로그를 처음 시작하는 사람들을 위한 가이드 형식의 글들이 존재합니다. 참고로 `_post` 폴더는 앞으로 포스팅할 글들의 디렉토리입니다.
 
 > `npm install && npm run build` 명령어를 실행하면 `package.json` 파일의 scripts 섹션에 정의된 build 스크립트인 `NODE_ENV=production npx rollup -c --bundleConfigAsCjs` 명령어가 실행되면서 6개의 자바스크립트 파일이 생성되는데, 이 파일들이 없으면 `assets/js/dist/*.min.js Not Found` 에러를 발생하면서 블로그 기능이 정상적으로 작동하지 않게 됩니다.
 {: .prompt-info }
@@ -184,7 +184,7 @@ $ npm install && npm run build
 $ bundle exec jekyll serve
 ```
 
-위 명령어로 생성된 블로그를 로컬 서버에 올리고 `Server address`에 나와있는 `http://127.0.0.1:4000/` 주소를 통해 블로그에 접속할 수 있습니다.  이 서버에서는 `_config.yml` 파일을 제외한 변경사항들이 반영되기 때문에, 배포하기 전에 이상이 없는지 먼저 확인하는 용도로 사용됩니다. cmd창을 닫거나,  `Ctrl` + `c` 조합을 사용해서 나가면 서버가 종료됩니다.
+위 명령어로 생성된 블로그를 로컬 서버에 올리고 `Server address`에 나와있는 `http://127.0.0.1:4000/` 주소를 통해 블로그에 접속할 수 있습니다.  이 서버에서는 `_config.yml` 파일을 제외한 변경 사항들이 반영되기 때문에, 배포하기 전에 이상이 없는지 먼저 확인하는 용도로 사용됩니다. cmd창을 닫거나,  `Ctrl` + `c` 조합을 사용해서 나가면 서버가 종료됩니다.
 
 > `_config.yml` 파일의 수정사항은 서버를 닫고 다시 열어야 반영됩니다.
 {: .prompt-tip }
@@ -213,10 +213,10 @@ fork한 repository > `All workflows` > `Actions`
 
 `username.github.io` 주소에 접속하여 실제로 페이지가 잘 배포됐는지 확인합니다.
 
-## 참고
+## 참고자료
 
-- [Jekyll 문서](https://jekyllrb.com/docs/){: target="_blank" }
-- [Jekyll 튜토리얼](https://jekyllrb-ko.github.io/tutorials/home/){: target="_blank" }
-- [Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }
-- [Jekyll Chirpy 테마 사용하여 블로그 만들기](https://www.irgroup.org/posts/jekyll-chirpy/){: target="_blank" }
-- [gem 기반으로 jekyll 블로그 만들기(chirpy 테마, windows)](https://a3magic3pocket.github.io/posts/jekyll-theme-chirpy-with-gem/){: target="_blank" }
+- ["DOCS", Jekyll, Date unknown](https://jekyllrb.com/docs/){: target="_blank" }
+- ["Tutorials", Jekyll, Date unknown](https://jekyllrb-ko.github.io/tutorials/home/){: target="_blank" }
+- [Cotes Chung, "Getting Started", Chirpy, 2024-01-23](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }
+- [하얀눈길, "Jekyll Chirpy 테마 사용하여 블로그 만들기", 하얀눈길 블로그, 2021-12-28](https://www.irgroup.org/posts/jekyll-chirpy/){: target="_blank" }
+- [의사줌치, "gem 기반으로 jekyll 블로그 만들기(chirpy 테마, windows)", 의사줌치, 2021-07-23](https://a3magic3pocket.github.io/posts/jekyll-theme-chirpy-with-gem/){: target="_blank" }

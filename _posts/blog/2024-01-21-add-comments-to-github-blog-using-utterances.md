@@ -1,7 +1,7 @@
 ---
 title: "utterances를 사용하여 GitHub 블로그에 댓글 기능 적용하기"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub 블로그, 댓글 기능, utterances]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, 댓글 기능, utterances]
 ---
 # utterances를 사용하여 GitHub 블로그에 댓글 기능 적용하기
 
@@ -57,7 +57,7 @@ uttreances는 블로그의 각 게시물에 대해 하나의 `Issues`를 사용�
 ![10-paste-script](/assets/img/posts/blog/add-comments-to-github-blog-using-utterances/10-paste-script.png)
 *_layouts/post.html*
 
-_layouts/post.html 파일에 들어가서 끝부분에 복사한 코드 붙혀넣기
+`_layouts/post.html` 파일에 들어가서 끝부분에 복사한 코드 붙혀넣기
 
 <br>
 
@@ -66,8 +66,6 @@ $ git add -A
 $ git commit -m "커밋 메시지"
 $ git push
 ```
-
-변경사항 push
 
 > push하기 전, `bundle exec jekyll serve` 명령어를 통해 로컬에서 먼저 확인해도 됩니다.
 {: .prompt-tip }
@@ -92,6 +90,6 @@ $ git push
 
 필요에 따라 위와 같이 댓글을 삭제할 수도 있습니다.
 
-## 참고
+## 참고자료
 
-- [Jekyll 테마에 utterances 댓글 연동하기](https://www.irgroup.org/posts/utternace-comments-system/){: target="_blank" }
+- [하얀눈길, "Jekyll 테마에 utterances 댓글 연동하기", 하얀눈길 블로그, 2021-12-28](https://www.irgroup.org/posts/utternace-comments-system/){: target="_blank" }

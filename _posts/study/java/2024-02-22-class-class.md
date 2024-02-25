@@ -6,6 +6,8 @@ tags: [Java, 자바, Class 클래스]
 
 # Class 클래스
 
+## Class 클래스란?
+
 자바의 모든 클래스와 인터페이스는 컴파일러에 의해 자바 파일(`.java`)에서 클래스 파일(`.class`)로 변환된다. 컴파일된 클래스 파일은 클래스와 인터페이스의 정보(클래스 이름, 필드, 메서드 등)를 유지한 채 시스템 클래스패스(system classpath)에 저장되는데, `Class` 클래스를 사용하면 JVM의 클래스 로더(시스템 클래스 로더)가 클래스 파일을 로드하고 그 결과로 클래스 파일에 담긴 정보들을 사용할 수 있게 된다. 만약 클래스 로더(시스템 클래스 로더)가 클래스 파일을 찾지 못한다면  `ClassNotFoundException` 에러가 발생한다.
 
 > Java API 기본 클래스는 JVM이 실행될 때, 시스템 클래스 로더가 아닌 부트스트랩 클래스 로더에 의해 JVM에 미리 내장되어 있다.
@@ -157,6 +159,8 @@ public class ClassClass {
 {: .prompt-info }
 
 ## Reflection API
+
+### Reflection API란?
 
 > reflection
 > 1. (거울 등에 비친) 상[모습]
