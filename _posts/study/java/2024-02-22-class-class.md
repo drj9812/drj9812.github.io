@@ -1,10 +1,10 @@
 ---
-title: Class 클래스
+title: "[Java]Class 클래스"
 categories: [공부, Class 클래스]
 tags: [Java, 자바, Class 클래스]
 ---
 
-# Class 클래스
+# [Java]Class 클래스
 
 ## Class 클래스란?
 

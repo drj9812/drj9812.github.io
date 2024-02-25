@@ -1,16 +1,16 @@
 ---
-title: "구글 서치 콘솔를 사용하여 GitHub 블로그를 구글 검색 엔진에 노출시키기"
+title: "[Google Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, 구글, 구글 서치 콘솔, 노출]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Google Search Console, 구글 서치 콘솔, 노출]
 ---
 
-# 구글 서치 콘솔를 사용하여 GitHub 블로그를 구글 검색 엔진에 노출시키기
+# [Google Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기
 
 ## 구글 서치 콘솔(Google Search Console)이란?
 
 구글 서치 콘솔은 구글에서 무료로 제공하는 서비스로, 웹사이트 소유자와 웹 마스터가 자신의 웹사이트를 구글 검색 결과에 최적화하고 성능을 모니터링할 수 있도록 도와주는 플랫폼입니다. 구글 서치 콘솔에 웹사이트를 등록하지 않아도 구글에 노출이 될 수는 있지만, SEO(검색 엔진 최적화)를 충분히 신경쓰지 않는다면 우선순위에 밀릴 가능성이 높습니다. 구글 서치 콘솔은 그러한 불확실성을 제거하고, 더 나은 노출을 위한 조치를 취할 수 있는 인사이트를 제공합니다.
 
-## 구글 서치 콘솔 작동 방식
+## 구글 검색의 작동 방식
 
 ### 1. 크롤링(Crawling)
 
@@ -73,4 +73,4 @@ Chirpy 테마의 경우 `_site` 폴더에 `sitemap.xml` 파일이 자동으로 �
 
 ## 참고자료
 
-- ["Google 검색의 작동 방식에 대한 상세 가이드", Google, 2024-02-23(UTC)](https://developers.google.com/search/docs/fundamentals/how-search-works?hl=ko){: target="_blank" }
+- ["Google 검색의 작동 방식에 대한 상세 가이드", Google, 2024-02-23](https://developers.google.com/search/docs/fundamentals/how-search-works?hl=ko){: target="_blank" }
