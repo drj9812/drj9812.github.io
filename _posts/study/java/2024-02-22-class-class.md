@@ -1,6 +1,6 @@
 ---
 title: "[Java]Class 클래스"
-categories: [공부, Class 클래스]
+categories: [공부, Java]
 tags: [Java, 자바, Class 클래스]
 ---
 

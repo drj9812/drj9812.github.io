@@ -1,14 +1,14 @@
 ---
 title: "[Google | Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Google Search Console, 구글 Search Console, 노출]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Search Console, 노출, 색인]
 ---
 
 # [Google | Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기
 
 ## Search Console이란?
 
-Search Console은 구글에서 무료로 제공하는 서비스로, 웹사이트 소유자와 웹 마스터가 자신의 웹사이트를 구글 검색 결과에 최적화하고 성능을 모니터링할 수 있도록 도와주는 플랫폼입니다. Search Console에 웹사이트를 등록하지 않아도 구글에 노출이 될 수는 있지만, SEO(검색 엔진 최적화)를 충분히 신경쓰지 않는다면 우선순위에 밀릴 가능성이 높습니다. Search Console은 그러한 불확실성을 제거하고, 더 나은 노출을 위한 조치를 취할 수 있는 인사이트를 제공합니다.
+Search Console은 구글에서 무료로 제공하는 서비스로, 웹사이트 소유자와 웹 마스터가 자신의 웹사이트를 구글 검색 결과에 최적화하고 성능을 모니터링할 수 있도록 도와주는 플랫폼입니다.  웹사이트를 Search Console에 등록하지 않아도 구글에 노출이 될 수는 있지만, SEO(검색 엔진 최적화)를 충분히 신경쓰지 않는다면 우선순위에서 밀릴 가능성이 높습니다. Search Console은 그러한 불확실성을 제거하고, 더 나은 노출을 위한 조치를 취할 수 있는 인사이트를 제공합니다.
 
 ## 구글 검색의 작동 방식
 
@@ -28,11 +28,11 @@ Search Console은 구글에서 무료로 제공하는 서비스로, 웹사이트
 
 ### 소유권 확인
 
-![01-start-google-searh-console](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/01-start-google-searh-console.png)
+![01-enter-url](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/01-enter-url.png)
 *[Search Console 홈페이지](https://search.google.com/search-console/welcome?hl=ko){: target="_blank" } > URL 접두어 유형의 빈 칸에 블로그 주소 입력*
 
 ![02-download-html-file](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/02-download-html-file.png)
-*`google2c15bd520154035b.html` 파일 다운로드*
+*HTML 파일 다운로드*
 
 구글 Search Console에 등록할 웹사이트의 소유권을 확인하기 위한 작업입니다. 다른 방법들도 있지만, 구글에서는 이 방법을 권장하고 있습니다.
 

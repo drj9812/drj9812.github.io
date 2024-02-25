@@ -1,7 +1,7 @@
 ---
 title: "[Google | Search Console]색인이 생성되지 않은 페이지 해결하기"
 categories: [블로그, GitHub 블로그 만들기]
-tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Google Search Console, 구글 서치 콘솔, 노출, 색인]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Search Console, 노출, 색인]
 ---
 
 # [Google | Search Console]색인이 생성되지 않은 페이지 해결하기
@@ -17,7 +17,7 @@ tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, G
 	<img src="/assets/img/posts/blog/google-not-indexing/03-reason-not-indexing(1).jpg" style="flex: 1; margin-right: 10px;">
 </div>
 
-Search Console에 들어가 확인해보니 `발견됨 - 현재 색인이 생성되지 않음`이라는 이유로 색인이 생성되지 않고 있었다.
+Search Console에 들어가서 확인해보니 `발견됨 - 현재 색인이 생성되지 않음`이라는 이유로 색인이 생성되지 않고 있었다.
 
 ## 원인 분석
 
@@ -61,11 +61,11 @@ Search Console에 들어가 확인해보니 `발견됨 - 현재 색인이 생성
 
 URL 검사를 통해서 색인 생성을 요청한 사이트의 페이지가 색인이 생성될 수 있는 페이지인지 테스트한다. `테스트된 페이지 보기` 버튼을 클릭하면 테스트된 페이지의 HTML 코드, 스크린샷, 추가 정보를 확인할 수도 있다.
 
-테스트에서도 문제가 보이지 않는다면, 정상적으로 구글에 색인 생성이 요청되었다. 이 과정을 노출하고자 하는 사이트의 모든 페이지에 반복한다.
+테스트에서 큰 문제가 보이지 않는다면, 구글에 색인 생성이 정상적으로 요청되었다는 것이다. 이 과정을 노출하고자 하는 사이트의 모든 페이지에 반복한다.
 
 ### 이미지 파일 확장자 변경
 
-## 참고 자료
+## 참고자료
 
 - ["페이지 색인 생성 보고서", Search Console 고객센터, Date unknown](https://support.google.com/webmasters/answer/7440203#discovered__unclear_status){: target="_blank" }
 - ["URL 검사 도구", Search Console 고객센터, Date unknown](https://support.google.com/webmasters/answer/9012289#not_tested){: target="_blank" }
