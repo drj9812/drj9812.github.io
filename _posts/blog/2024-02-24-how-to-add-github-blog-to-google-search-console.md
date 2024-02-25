@@ -45,7 +45,7 @@ $ git commit -m "커밋 메시지"
 $ git push
 ```
 
-구글이 파일을 확인할 수 있도록 원격 저장소에 push합니다.
+구글이 파일을 확인할 수 있도록 변경사항을 원격 저장소에 업로드합니다.
 
 ![04-verify-ownership(1)](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/04-verify-ownership(1).png)
 *`확인`*
