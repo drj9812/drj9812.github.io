@@ -168,10 +168,10 @@ $ npm install && npm run build
 
 [Node.js를 설치하기 앞서](#anchor1) `bash tools/init` 명령어를 실행해야한다고 했습니다. 하지만 리눅스 환경에서 동작하는 `bash tools/init` 명령어를 Windows에서 사용할 수 없기 때문에, `tools` 폴더 내의 `init` 파일을 열어 내용을 직접 처리해야 합니다. 아래는 처리해야할 목록입니다.
 
-1. **.github/workflows 디렉토리 내의 `pages-deploy.yml.hook` 파일을 `pages-deploy.yml`로 이름을 변경하고, `pages-deploy.yml` 파일을 제외한 모든 파일을 삭제**
+1. **`.github/workflows` 디렉토리 내의 `pages-deploy.yml.hook` 파일을 `pages-deploy.yml`로 이름을 변경하고, `pages-deploy.yml` 파일을 제외한 모든 파일을 삭제**
 2. `_post` 폴더 내의 모든 파일 삭제
 3. **`npm install && npm run build` 명령어 실행**
-4. **`.gitignore` 파일 내에 assets/js/dist 주석 처리**
+4. **`.gitignore` 파일의 `assets/js/dist` 부분 주석 처리**
 
 2번은 선택 사항입니다. `_post` 폴더 내부에는 블로그를 처음 시작하는 사람들을 위한 가이드 형식의 글들이 존재합니다. 참고로 `_post` 폴더는 앞으로 포스팅할 글들의 디렉토리입니다.
 

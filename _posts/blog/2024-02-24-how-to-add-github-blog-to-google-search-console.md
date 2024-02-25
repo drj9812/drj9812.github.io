@@ -64,7 +64,7 @@ $ git push
 ![06-add-sitemap](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/06-add-sitemap.png)
 *`Sitemaps` > sitemap.xml 입력 > `제출`*
 
-Chirpy 테마의 경우 `_site` 폴더에 `sitemap.xml` 파일이 자동으로 생성됩니다. 만약, `_site` 폴더 또는 루트 디렉토리에 `sitemap.xml` 파일이 존재하지 않는다면 [XML Sitemap Generator](https://www.xml-sitemaps.com/){: target="_blank" }와 같은 사이트를 이용하여 `sitemap.xml` 파일을 생성하고, 생성된 파일을 루트 디렉토리에 위치시킨 뒤 구글이 `sitemap.xml` 파일을 확인할 수 있도록 원격 저장소에 push합니다.
+Chirpy 테마의 경우 `_site` 폴더에 `sitemap.xml` 파일이 자동으로 생성됩니다. 만약, `_site` 폴더 또는 루트 디렉토리에 `sitemap.xml` 파일이 존재하지 않는다면 [XML Sitemap Generator](https://www.xml-sitemaps.com/){: target="_blank" }와 같은 사이트를 이용하여 `sitemap.xml` 파일을 생성하고, 생성된 파일을 루트 디렉토리에 위치시킨 뒤 구글이 `sitemap.xml` 파일을 확인할 수 있도록 원격 저장소에 업로드합니다.
 
 ![07-submit-sitemap](/assets/img/posts/blog/how-to-add-github-blog-to-google-search-console/07-submit-sitemap.png)
 *닫기*
