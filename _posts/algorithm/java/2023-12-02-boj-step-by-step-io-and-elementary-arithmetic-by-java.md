@@ -25,18 +25,18 @@ public class Main {
 ```java
 import java.util.Scanner;
 
-    public class Main {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
             
-            int a = sc.nextInt();
-            int b = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
             
-	    int result = a + b;
+	int result = a + b;
 
-            System.out.println(result);
-        }
+        System.out.println(result);
     }
+}
 ```
 
 ## 1001번 A-B(<https://www.acmicpc.net/problem/1001>{: target="_blank" })
@@ -46,18 +46,18 @@ import java.util.Scanner;
 ```java
 import java.util.Scanner;
 
-    public class Main {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in) ;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in) ;
             
-                int a = sc.nextInt();
-                int b = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
                 
-		int result = a - b;
+        int result = a - b;
 
-                System.out.println(result);
-            }
+        System.out.println(result);
     }
+}
 ```
 
 ## 10998번 A*B(<https://www.acmicpc.net/problem/10998>{: target="_blank" })
@@ -67,18 +67,18 @@ import java.util.Scanner;
 ```java
 import java.util.Scanner;
 
-    public class Main {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
             
-            int a = sc.nextInt();
-            int b = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
             
-            int result = a * b;
+        int result = a * b;
             
-            System.out.println(result);
-        }
+        System.out.println(result);
     }
+}
 ```
 
 ## 1008번 A/B(<https://www.acmicpc.net/problem/1008>{: target="_blank" })
@@ -200,17 +200,17 @@ public class P10430 {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int a = sc.nextInt();
-		int b = sc.nextInt();
+	int a = sc.nextInt();
+	int b = sc.nextInt();
 		
-		System.out.println( a * (b % 10) );
-		System.out.println( a * ((b % 100) / 10) );
-		System.out.println( a * (b / 100));
-		System.out.println( a * b);
-	}
+	System.out.println( a * (b % 10) );
+	System.out.println( a * ((b % 100) / 10) );
+	System.out.println( a * (b / 100));
+	System.out.println( a * b);
+    }
 }
 ```
 
@@ -223,20 +223,20 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer tkn = new StringTokenizer(br.readLine());
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	StringTokenizer tkn = new StringTokenizer(br.readLine());
 		
-		long a = Long.parseLong(tkn.nextToken());
-		long b = Long.parseLong(tkn.nextToken());
-		long c = Long.parseLong(tkn.nextToken());
+	long a = Long.parseLong(tkn.nextToken());
+	long b = Long.parseLong(tkn.nextToken());
+	long c = Long.parseLong(tkn.nextToken());
 		
-		long result = a + b + c;
+	long result = a + b + c;
 		
-		System.out.println(result);
+	System.out.println(result);
 
-		br.close();
-	}
+	br.close();
+    }
 }
 ```
 
@@ -254,6 +254,7 @@ public class Main {
     }
 }
 ```
+
 역슬래시(\\)는 이스케이프 문자로 사용되고 있습니다. 이스케이프 문자는 특정 문자를 나타내기 위해 역슬래시를 사용하는데, \ 자체를 출력하려면 \\\로 작성해야 합니다.
 
 ## 10172번 개(<https://www.acmicpc.net/problem/10172>{: target="_blank" })

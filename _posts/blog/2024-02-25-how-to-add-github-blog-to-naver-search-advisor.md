@@ -41,7 +41,7 @@ $ git push
 
 ### RSS 제출
 
-> **RSS(Rich Site Summary, Really Simple Syndication)란?**
+> *RSS(Rich Site Summary, Really Simple Syndication)*
 >
 > *RSS는 어떤 사이트에 새로운 콘텐츠가 올라왔을 때 해당 사이트에 방문하지 않고, RSS서비스를 통해 리더 한 곳에서 그 콘텐츠를 이용하기 위한 방법이다. 쉽게 생각하면, 여러 언론사 사이트를 모두 방문할 필요 없이 다양한 기사를 네이버뉴스 한 곳에서 볼 수 있는 것과 같다고 보면 된다.*
 >
@@ -49,7 +49,7 @@ $ git push
 
 ![08-not-valid-rss](/assets/img/posts/blog/how-to-add-github-blog-to-naver-search-advisor/08-not-valid-rss.jpg)
 
-Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.xml` 파일이 `assets` 폴더에 자동으로 생성되는데, 네이버의 서치어드바이저는 Atom 형식이 아닌 RSS 형식으로 작성된 RSS 피드 파일을 요구합니다. 그래서 RSS로 자동으로 생성된 이 `feed.xml` 파일의 URL을 제출할 경우, 위 사진처럼 `올바른 RSS 가 아닙니다.` 라는 문구가 뜨면서 제출에 실패하게 됩니다.
+Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.xml` 파일이 `assets` 폴더에 자동으로 생성되는데, 네이버의 서치어드바이저는 Atom 형식이 아닌 RSS 형식으로 작성된 RSS 피드 파일을 요구합니다. 그래서 RSS로 자동으로 생성된 이 `feed.xml` 파일의 URL을 제출할 경우, 위 사진처럼 `올바른 RSS 가 아닙니다.` 라는 창이 뜨면서 제출에 실패하게 됩니다.
 
 ![09-generate-rss(1)](/assets/img/posts/blog/how-to-add-github-blog-to-naver-search-advisor/09-generate-rss(1).jpg)
 *[https://jekyllcodex.org/without-plugin/rss-feed/](https://jekyllcodex.org/without-plugin/rss-feed/){: target="_blank" } > `feed.xml`*
@@ -80,7 +80,7 @@ $ git push
 네이버가 RSS 파일을 확인할 수 있도록 변경사항을 원격 저장소에 업로드합니다.
 
 ![14-submit-rss](/assets/img/posts/blog/how-to-add-github-blog-to-naver-search-advisor/14-submit-rss.jpg)
-*`요청` > `사이트맵 제출` > https://username.github.io/rss.xml 입력 > `확인`*
+*`요청` > `RSS 제출` > https://username.github.io/rss.xml 입력 > `확인`*
 
 ### 사이트맵 제출
 

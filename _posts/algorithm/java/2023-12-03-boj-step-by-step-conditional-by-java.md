@@ -14,22 +14,22 @@ tags: [알고리즘, 백준, Java, 자바, 단계별로 풀어보기, 조건문]
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int a = sc.nextInt();
-		int b = sc.nextInt();
+	int a = sc.nextInt();
+	int b = sc.nextInt();
 		
-		if (a > b) {
-			System.out.println(">");
+	if (a > b) {
+		System.out.println(">");
 
-		} else if (a < b) {
-			System.out.println("<");
+	} else if (a < b) {
+		System.out.println("<");
 
-		} else if (a == b) {
-			System.out.println("==");
-		}
+	} else if (a == b) {
+		System.out.println("==");
 	}
+    }
 }
 ```
 
@@ -41,27 +41,27 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int score = sc.nextInt();
+	int score = sc.nextInt();
 		
-		if (score >= 90) {
-			System.out.println("A");
+	if (score >= 90) {
+		System.out.println("A");
 
-		} else if (score >= 80) {
-			System.out.println("B");
+	} else if (score >= 80) {
+		System.out.println("B");
 
-		} else if (score >= 70) {
-			System.out.println("C");
+	} else if (score >= 70) {
+		System.out.println("C");
 
-		} else if (score >= 60) {
-			System.out.println("D");
+	} else if (score >= 60) {
+		System.out.println("D");
 
-		} else {
-			System.out.println("F");
-		}
+	} else {
+		System.out.println("F");
 	}
+    }
 }
 ```
 
@@ -73,18 +73,18 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 
-		int year = sc.nextInt();
+	int year = sc.nextInt();
 
-		if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
-			System.out.println(1);
+	if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+		System.out.println(1);
 			
-		} else {
-			System.out.println(0);
-		}
+	} else {
+		System.out.println(0);
 	}
+    }
 }
 ```
 
@@ -97,25 +97,25 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		 Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		 
-		 int x = sc.nextInt();
-		 int y = sc.nextInt();
+	int x = sc.nextInt();
+	int y = sc.nextInt();
 		 
-		 if (x > 0 && y > 0) {
-			 System.out.println(1);
+	if (x > 0 && y > 0) {
+		System.out.println(1);
 			 
-		 } else if (x < 0 && y > 0) {
-			 System.out.println(2);
+	} else if (x < 0 && y > 0) {
+		System.out.println(2);
 			 
-		 } else if (x < 0 && y < 0) {
-			 System.out.println(3);
+	} else if (x < 0 && y < 0) {
+		System.out.println(3);
 			 
-		 } else if (x > 0 && y < 0) {
-			 System.out.println(4);
-		 }
+	} else if (x > 0 && y < 0) {
+		System.out.println(4);
 	}
+    }
 }
 ```
 
@@ -128,26 +128,26 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 
-		int h = sc.nextInt();
-		int m = sc.nextInt();
+	int h = sc.nextInt();
+	int m = sc.nextInt();
 
-		if (m >= 45) { // h != 0 && m >= 45
-			m = m - 45;
+	if (m >= 45) { // h != 0 && m >= 45
+		m = m - 45;
 
-		} else if (h != 0) { // h != 0 && m < 45
-			h -= 1;
-			m += 15;
+	} else if (h != 0) { // h != 0 && m < 45
+		h -= 1;
+		m += 15;
 
-		} else if (h == 0) { // h == 0 && m < 45
-			h = 23;
-			m += 15;
-		}
-		
-		System.out.println(h + " " + m);
+	} else if (h == 0) { // h == 0 && m < 45
+		h = 23;
+		m += 15;
 	}
+
+	System.out.println(h + " " + m);
+    }
 }
 ```
 
@@ -160,26 +160,26 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 
-		int a = sc.nextInt();
-		int b = sc.nextInt();
-		sc.nextLine();
-		int c = sc.nextInt();
-		int sum = b + c;
+	int a = sc.nextInt();
+	int b = sc.nextInt();
+	sc.nextLine();
+	int c = sc.nextInt();
+	int sum = b + c;
 
-		if (sum >= 60) {
-			a += (sum) / 60;
-			sum = (sum) % 60;
+	if (sum >= 60) {
+		a += (sum) / 60;
+		sum = (sum) % 60;
 
-			if (a >= 24) {
-				a -= 24;
-			}
+		if (a >= 24) {
+			a -= 24;
 		}
-
-		System.out.println(a + " " + sum);
 	}
+
+	System.out.println(a + " " + sum);
+    }
 }
 ```
 

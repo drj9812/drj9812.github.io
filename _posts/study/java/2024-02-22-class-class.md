@@ -1,7 +1,7 @@
 ---
 title: "[Java]Class 클래스"
 categories: [공부, Java]
-tags: [Java, 자바, Class 클래스]
+tags: [Java, 자바, Class 클래스, Refleciton API]
 ---
 
 # [Java]Class 클래스
@@ -23,13 +23,13 @@ package study;
 class Car {}
 
 public class ClassClass {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-	    Car car = new Car();
+    Car car = new Car();
 	    
-	    Class cls = car.getClass();
-	    System.out.println(cls); // class study.Car
-	}
+    Class carClass = car.getClass();
+    System.out.println(carClass); // class study.Car
+    }
 }
 ```
 
@@ -41,11 +41,11 @@ package study;
 class Car {}
 
 public class ClassClass {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-	    Class cls = study.Car.class;
-	    System.out.println(cls); // class study.Car
-	}
+    Class carClass = study.Car.class;
+    System.out.println(carClass); // class study.Car
+    }
 }
 ```
 
@@ -57,17 +57,17 @@ package study;
 class Car {}
 
 public class ClassClass throws ClassNotFoundException {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-	    Class cls = Class.forName("study.Car");
-	    System.out.println(cls); // class study.Car
-	}
+    Class carClass = Class.forName("study.Car");
+    System.out.println(carClass); // class study.Car
+    }
 }
 ```
 
 - static 메서드
-- `forName()` 메서드는 인자로 fully qualified name을 요구
-- fully qualified name가 아닐 경우 예외가 발생할 수 있으므로 예외처리가 강제됨
+- `forName()` 메서드는 인자로 패키지명을 포함한 클래스명(fully qualified name)을 요구
+- fully qualified name이 아닐 경우 `ClassNotFoundException` 예외가 발생할 수 있으므로 예외처리가 강제됨
 
 ## Class 클래스 메서드
 
@@ -79,16 +79,14 @@ package study;
 class Car {}
 
 public class ClassClass {
-	
-	public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException {
 
-	    Class cls = Class.forName("study.Car");
+    Class carClass = Class.forName("study.Car");
 
-	    System.out.println(cls.getName()); // study.Car
-	    System.out.println(cls.getSimpleName()); // Car
-	    System.out.println(cls.getPackageName()); // study
-
-	}
+    System.out.println(carClass.getName()); // study.Car
+    System.out.println(carClass.getSimpleName()); // Car
+    System.out.println(carClass.getPackageName()); // study
+    }
 }
 ```
 
@@ -109,8 +107,8 @@ import java.lang.reflect.Constructor;
 class Car {
     private int number;
     
-    public void getNumber() {
-        System.out.println(number);
+    public int getNumber() {
+        return number;
     }
     
     Car() {}
@@ -118,32 +116,30 @@ class Car {
     Car(int number) {
     	this.number = number;
     }
-    
 }
 
 public class ClassClass {
     public static void main(String[] args) throws Exception {
-
-        Class cls = Class.forName("study.Car");
+        Class carClass = Class.forName("study.Car");
     	
-	System.out.println(cls.getName()); // study.Car
-	System.out.println(cls.getSimpleName()); // Car
-	System.out.println(cls.getPackageName()); // study
+	System.out.println(carClass.getName()); // study.Car
+	System.out.println(carClass.getSimpleName()); // Car
+	System.out.println(carClass.getPackageName()); // study
 
 	    
-        for (Field field : cls.getDeclaredFields()) {
+        for (Field field : carClass.getDeclaredFields()) {
             System.out.println(field); // private int study.Car.number
         }
         
-        for (Method method : cls.getDeclaredMethods()) {
+        for (Method method : carClass.getDeclaredMethods()) {
             System.out.println(method); // public void study.Car.getNumber()
         }
         
-        // Car car = (Car) cls.newInstance();
+        // Car car = (Car) carClass.newInstance();
         
-        Constructor<Car> constructor = cls.getDeclaredConstructor();
+        Constructor<Car> constructor = carClass.getDeclaredConstructor();
         Car instance = constructor.newInstance(); // 기본 생성자를 통한 객체 생성
-        instance.getNumber(); // 0
+        System.out.println(instance.getNumber()); // 0
     }
 }
 ```
@@ -162,12 +158,15 @@ public class ClassClass {
 
 ### Reflection API란?
 
-> reflection
-> 1. (거울 등에 비친) 상[모습]
-> 2. (빛·열·소리 등의) 반사, 반향
-> 3. (상태·속성 등의) 반영
+> *reflection*
+>
+> *1. (거울 등에 비친) 상[모습]*
+>
+> *2. (빛·열·소리 등의) 반사, 반향*
+>
+> *3. (상태·속성 등의) 반영*
 
-Reflection API는 JVM의 클래스 로더(시스템 클래스 로더)가 로드한 클래스 파일의 정보를 거울 삼아 객체를 생성하고 조작하는 기법이다. 이때의 거울이 클래스 파일의 정보를 담을 수 있는 `Class` 클래스다. 즉, 클래스의 구체적인 정보를 알지 못해도 클래스 파일에 클래스에 대한 정보가 담겨있기 때문에 `Class` 클래스를 통해 해당 정보에 접근할 수 있는 것이다.
+Reflection API는 JVM의 클래스 로더(시스템 클래스 로더)가 로드한 클래스 파일의 정보를 거울 삼아 **런타임에 동적으로 객체를 생성하고 조작하는 자바 프로그래밍 기술**이다. 이때의 거울이 클래스 파일의 정보를 담을 수 있는 `Class` 클래스다. 즉, 클래스의 구체적인 정보를 알지 못해도 클래스 파일에 클래스에 대한 정보가 담겨있기 때문에 `Class` 클래스를 통해 해당 정보에 접근할 수 있는 것이다.
 
 ```java
 package study;
@@ -179,8 +178,8 @@ import java.lang.reflect.Constructor;
 class Car {
     private int number;
     
-    public void getNumber() {
-        System.out.println(number);
+    public int getNumber() {
+        return number;
     }
     
     Car() {}
@@ -188,32 +187,30 @@ class Car {
     Car(int number) {
     	this.number = number;
     }
-    
 }
 
 public class ClassClass {
     public static void main(String[] args) throws Exception {
-
-        Class cls = Class.forName("study.Car");
+        Class carClass = Class.forName("study.Car");
     	
-	System.out.println(cls.getName()); // study.Car
-	System.out.println(cls.getSimpleName()); // Car
-	System.out.println(cls.getPackageName()); // study
+	System.out.println(carClass.getName()); // study.Car
+	System.out.println(carClass.getSimpleName()); // Car
+	System.out.println(carClass.getPackageName()); // study
 
 	    
-        for (Field field : cls.getDeclaredFields()) {
+        for (Field field : carClass.getDeclaredFields()) {
             System.out.println(field); // private int study.Car.number
         }
         
-        for (Method method : cls.getDeclaredMethods()) {
+        for (Method method : carClass.getDeclaredMethods()) {
             System.out.println(method); // public void study.Car.getNumber()
         }
         
-        // Car car = (Car) cls.newInstance();
+        // Car car = (Car) carClass.newInstance();
         
-        Constructor<Car> constructor = cls.getDeclaredConstructor();
+        Constructor<Car> constructor = carClass.getDeclaredConstructor();
         Car instance = constructor.newInstance(); // 기본 생성자를 통한 객체 생성
-        instance.getNumber(); // 0
+        System.out.println(instance.getNumber()); // 0
     }
 }
 ```
@@ -233,4 +230,5 @@ public class ClassClass {
 
 뿐만 아니라, 클래스의 멤버들을 가져올 때 사용되어지는 `get(Declared)Field(s)()`와 같은 메서드들은 `Class` 클래스에 속하지만, 역시 `Class` 클래스 내부에서 `reflect` 패키지를 사용하고 있다.
 
-Reflection API에 관한 자세한 정보는 이제부터 [Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" }에서 다루도록 하겠다.
+### 참조
+- [[Java]Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" }

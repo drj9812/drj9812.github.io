@@ -14,15 +14,15 @@ tags: [알고리즘, 백준, Java, 자바, 단계별로 풀어보기, 반복문]
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
+	int n = sc.nextInt();
 		
-		for (int i = 1; i < 10; i++) {
-			System.out.println(n + " * " + i + " = " + n * i);
-		}
+	for (int i = 1; i < 10; i++) {
+		System.out.println(n + " * " + i + " = " + n * i);
 	}
+    }
 }
 ```
 
@@ -34,19 +34,19 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int t = sc.nextInt();
+	int t = sc.nextInt();
 		
-		for (int i = 0; i < t; i++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			int result = a + b;
+	for (int i = 0; i < t; i++) {
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int result = a + b;
 			
-			System.out.println(result);
-		}
+		System.out.println(result);
 	}
+    }
 }
 ```
 
@@ -58,18 +58,18 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
-		int sum = 0;
+	int n = sc.nextInt();
+	int sum = 0;
 		
-		for (int i = 1; i <= n; i++) {
-			sum += i;
-		}
-		
-		System.out.println(sum);
+	for (int i = 1; i <= n; i++) {
+		sum += i;
 	}
+		
+	System.out.println(sum);
+    }
 }
 ```
 
@@ -82,26 +82,27 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int X = sc.nextInt();
-		int n = sc.nextInt();
-		int sum = 0;
+	int X = sc.nextInt();
+	int n = sc.nextInt();
+	int sum = 0;
 		
-		for (int i = 0; i < n; i++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
+	for (int i = 0; i < n; i++) {
+		int a = sc.nextInt();
+		int b = sc.nextInt();
 			
-			sum += a * b;
-		}
-		
-		if (X == sum) {
-			System.out.println("Yes");
-		} else {
-			System.out.println("No");
-		}
+		sum += a * b;
 	}
+		
+	if (X == sum) {
+		System.out.println("Yes");
+
+	} else {
+		System.out.println("No");
+	}
+    }
 }
 ```
 
@@ -114,17 +115,17 @@ public class Main {
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
+	int n = sc.nextInt();
 		
-		for (int i = 0; i < (n / 4); i++) {
-			System.out.print("long ");
-		}
-		
-		System.out.println("int");
+	for (int i = 0; i < (n / 4); i++) {
+		System.out.print("long ");
 	}
+		
+	System.out.println("int");
+    }
 }
 ```
 
@@ -138,28 +139,29 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer tkn;
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	StringTokenizer tkn;
 		
-		int t = Integer.parseInt(br.readLine());
-		int sum = 0;
+	int t = Integer.parseInt(br.readLine());
+	int sum = 0;
 		
-		for (int i = 0; i < t; i++) {
-			tkn = new StringTokenizer(br.readLine());
+	for (int i = 0; i < t; i++) {
+		tkn = new StringTokenizer(br.readLine());
 			
-			int a = Integer.parseInt(tkn.nextToken());
-			int b = Integer.parseInt(tkn.nextToken());
+		int a = Integer.parseInt(tkn.nextToken());
+		int b = Integer.parseInt(tkn.nextToken());
 			
-			sum = a + b;
+		sum = a + b;
 			
-			bw.write(sum + "\n");
-		}
-		bw.flush();
-		bw.close();
-		br.close();
+		bw.write(sum + "\n");
 	}
+
+	bw.flush();
+	bw.close();
+	br.close();
+    }
 }
 ```
 
@@ -174,28 +176,29 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer tkn;
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	StringTokenizer tkn;
 		
-		int t = Integer.parseInt(br.readLine());
-		int sum = 0;
+	int t = Integer.parseInt(br.readLine());
+	int sum = 0;
 		
-		for (int i = 1; i <= t; i++) {
-			tkn = new StringTokenizer(br.readLine());
+	for (int i = 1; i <= t; i++) {
+		tkn = new StringTokenizer(br.readLine());
 			
-			int a = Integer.parseInt(tkn.nextToken());
-			int b = Integer.parseInt(tkn.nextToken());
+		int a = Integer.parseInt(tkn.nextToken());
+		int b = Integer.parseInt(tkn.nextToken());
 			
-			sum = a + b;
+		sum = a + b;
 			
-			bw.write("Case #" + i + ": " + sum + "\n");
-		}
-		bw.flush();
-		bw.close();
-		br.close();		
+		bw.write("Case #" + i + ": " + sum + "\n");
 	}
+
+	bw.flush();
+	bw.close();
+	br.close();		
+    }
 }
 ```
 
@@ -208,28 +211,29 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer tkn;
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	StringTokenizer tkn;
 		
-		int t = Integer.parseInt(br.readLine());
-		int sum = 0;
+	int t = Integer.parseInt(br.readLine());
+	int sum = 0;
 		
-		for (int i = 1; i <= t; i++) {
-			tkn = new StringTokenizer(br.readLine());
+	for (int i = 1; i <= t; i++) {
+		tkn = new StringTokenizer(br.readLine());
 			
-			int a = Integer.parseInt(tkn.nextToken());
-			int b = Integer.parseInt(tkn.nextToken());
+		int a = Integer.parseInt(tkn.nextToken());
+		int b = Integer.parseInt(tkn.nextToken());
 			
-			sum = a + b;
+		sum = a + b;
 			
-			bw.write("Case #" + i + ": " + a + " + " + b + " = " + sum + "\n");
-		}
-		bw.flush();
-		bw.close();
-		br.close();
+		bw.write("Case #" + i + ": " + a + " + " + b + " = " + sum + "\n");
 	}
+
+	bw.flush();
+	bw.close();
+	br.close();
+    }
 }
 ```
 
@@ -241,22 +245,23 @@ public class Main {
 import java.io.*;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		int n = Integer.parseInt(br.readLine());
+	int n = Integer.parseInt(br.readLine());
 		
-		for (int i = 1; i <= n; i++) {
-			for (int j = 0; j < i; j++) {
-				bw.write("*");
-			}
-			bw.write("\n");
+	for (int i = 1; i <= n; i++) {
+		for (int j = 0; j < i; j++) {
+			bw.write("*");
 		}
-		bw.flush();
-		bw.close();
-		br.close();
+		bw.write("\n");
 	}
+
+	bw.flush();
+	bw.close();
+	br.close();
+    }
 }
 ```
 
@@ -268,30 +273,31 @@ public class Main {
 import java.io.*;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		int n = Integer.parseInt(br.readLine());
+	int n = Integer.parseInt(br.readLine());
 
-		for (int i = 0; i < n; i++) {
-			int spaces = n - i - 1;
-			int stars = i + 1;
+	for (int i = 0; i < n; i++) {
+		int spaces = n - i - 1;
+		int stars = i + 1;
 
-			for (int j = 0; j < spaces; j++) {
-				bw.write(" ");
-			}
-			
-			for (int k = 0; k < stars; k++) {
-				bw.write("*");
-			}
-			
-			bw.write("\n");
+		for (int j = 0; j < spaces; j++) {
+			bw.write(" ");
 		}
-		bw.flush();
-		bw.close();
-		br.close();
+			
+		for (int k = 0; k < stars; k++) {
+			bw.write("*");
+		}
+			
+		bw.write("\n");
 	}
+
+	bw.flush();
+	bw.close();
+	br.close();
+    }
 }
 ```
 
@@ -304,31 +310,32 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer tkn;
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	StringTokenizer tkn;
 
-		int sum = 0;
+	int sum = 0;
 
-		while (true) {
-			tkn = new StringTokenizer(br.readLine());
+	while (true) {
+		tkn = new StringTokenizer(br.readLine());
 
-			int a = Integer.parseInt(tkn.nextToken());
-			int b = Integer.parseInt(tkn.nextToken());
+		int a = Integer.parseInt(tkn.nextToken());
+		int b = Integer.parseInt(tkn.nextToken());
 
-			sum = a + b;
+		sum = a + b;
 
-			if (a == 0 && b == 0) {
-				break;
-			}
-			
-			bw.write(sum + "\n");
+		if (a == 0 && b == 0) {
+			break;
 		}
-		bw.flush();
-		bw.close();
-		br.close();
+			
+		bw.write(sum + "\n");
 	}
+
+	bw.flush();
+	bw.close();
+	br.close();
+    }
 }
 ```
 
@@ -341,28 +348,28 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer tkn;
+    public static void main(String[] args) throws IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	StringTokenizer tkn;
 
-		String input;
-		int sum = 0;
+	String input;
+	int sum = 0;
 
-		while ((input = br.readLine()) != null) {
-			tkn = new StringTokenizer(input);
+	while ((input = br.readLine()) != null) {
+		tkn = new StringTokenizer(input);
 
-			int a = Integer.parseInt(tkn.nextToken());
-			int b = Integer.parseInt(tkn.nextToken());
+		int a = Integer.parseInt(tkn.nextToken());
+		int b = Integer.parseInt(tkn.nextToken());
 
-			sum = a + b;
+		sum = a + b;
 
-			bw.write(sum + "\n");
-
-		}
-		br.close();
-		bw.flush();
-		bw.close();
+		bw.write(sum + "\n");
 	}
+
+	br.close();
+	bw.flush();
+	bw.close();
+    }
 }
 ```
