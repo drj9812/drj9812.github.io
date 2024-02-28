@@ -6,6 +6,12 @@ tags: [JPA, Reflection API, Proxy, 프록시]
 
 # Entity에 기본 생성자가 필요한 이유
 
+## 참조
+
+- [[JPA]JPA](https://drj9812.github.io/posts/jpa/){: target="_blank" }
+- [[JPA]Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" }
+- [[JPA]Hibernate Proxy(프록시)](https://drj9812.github.io/posts/hibernate-proxy/){: target="_blank" }
+
 ![01-compile-error](/assets/img/posts/study/jpa/why-jpa-entity-needs-no-args-constructor/01-compile-error.jpg)
 
 `@Entity` 어노테이션이 붙은 `Entity` 클래스에 기본 생성자를 정의하지 않으면 위 사진과 같이 컴파일 에러가 발생한다.

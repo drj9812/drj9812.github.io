@@ -6,6 +6,11 @@ tags: [JPA, Hibernate, Proxy, 프록시]
 
 # Hibernate 프록시(Proxy)
 
+## 참조
+
+- [[JPA]JPA](https://drj9812.github.io/posts/jpa/){: target="_blank" }
+- [[JPA]Entity에 기본 생성자가 필요한 이유](https://drj9812.github.io/posts/why-jpa-entity-needs-no-args-constructor/){: target="_blank" }
+
 ## 프록시란?
 
 JPA의 구현체 중 하나인 Hibernate에서 프록시는 다른 객체를 대신하여 그 역할을 수행하는 객체를 말한다. **프록시는 클라이언트와 실제 객체 사이에 위치하여 클라이언트의 요청을 대신 처리하거나, 필요한 경우에만 실제 객체를 생성하고 동작시킨다.** 주로 지연 로딩(Lazy Loading)을 구현하기 위해 등장하였다.
