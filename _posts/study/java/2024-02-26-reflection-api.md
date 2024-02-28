@@ -1,6 +1,6 @@
 ---
-title: Reflection API
-categories: [공부, Reflection API]
+title: "[Java]Reflection API"
+categories: [공부, Java]
 tags: [Java, 자바, Reflection API]
 ---
 
@@ -9,7 +9,6 @@ tags: [Java, 자바, Reflection API]
 ## 참조
 
 - [[Java]Class 클래스](https://drj9812.github.io/posts/class-class/){: target="_blank" }
-- [[Java]JPA](https://drj9812.github.io/posts/jpa/){: target="_blank" }
 
 ## Reflection API란?
 
@@ -83,7 +82,7 @@ public class Reflection {
 //    	int number = obj.getNumber(); 컴파일 에러
     	
 	// Reflection API
-        Class carClass = Class.forName("study.Car");
+        Class<?> carClass = Class.forName("study.Car");
         Method getNumber = carClass.getMethod("getNumber", null);
         
         int number = (int) getNumber.invoke(obj, null);
@@ -110,7 +109,7 @@ public class Reflection {
 - 객체의 속성이나 메서드에 접근할 때 추가적인 오버헤드가 발생하기 때문에 성능 저하가 발생할 수 있음
 - 메서드를 호출할 때, 메서드의 이름을 문자열로 지정하고, 매개변수 타입과 반환 타입을 알아내는 과정이 필요하기 때문에 추가적인 계산과 검색이 필요함
 - `private`나 `protected` 멤버에 접근할 때, 접근 권한을 확인하고 접근을 허용해야 하는데 이 과정에서 오버헤드가 발생할 수 있음
-- Refleciton을 사용하여 동적으로 접근하는 경우, 매번 Refleciton을 통해 메서드나 속성을 찾아야 하기 때문에이전에 호출한 메서드나 속성을 사용하는 캐싱의 이점을 활용할 수 없음
+- Refleciton을 사용하여 동적으로 접근하는 경우, 매번 Refleciton을 통해 메서드나 속성을 찾아야 하기 때문에 이전에 호출한 메서드나 속성을 사용하는 캐싱의 이점을 활용할 수 없음
 
 ### 컴파일 타입 오류 감지의 어려움
 

@@ -4,11 +4,11 @@ categories: [알고리즘, 백준]
 tags: [알고리즘, 백준, Java, 자바, 단계별로 풀어보기, 조건문]
 ---
 
-# [백준 | Java]단계별로 풀어보기 조건문 모든 문제
+# 백준 단계별로 풀어보기 조건문 모든 문제
 
 ## 1330번 두 수 비교하기(<https://www.acmicpc.net/problem/1330>{: target="_blank" })
 
-![1330(1)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/1330(1).png)
+![1330(1)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/1330(1).png)
 
 ```java
 import java.util.Scanner;
@@ -35,7 +35,7 @@ public class Main {
 
 ## 9498번 시험 성적(<https://www.acmicpc.net/problem/9498>{: target="_blank" })
 
-![9498(1)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/9498(1).png)
+![9498(1)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/9498(1).png)
 
 ```java
 import java.util.Scanner;
@@ -67,7 +67,7 @@ public class Main {
 
 ## 2753번 윤년(<https://www.acmicpc.net/problem/2753>{: target="_blank" })
 
-![2753(1)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/2753(1).png)
+![2753(1)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/2753(1).png)
 
 ```java
 import java.util.Scanner;
@@ -90,8 +90,8 @@ public class Main {
 
 ## 14681번 사분면 고르기(<https://www.acmicpc.net/problem/14681>{: target="_blank" })
 
-![14681(1)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/14681(1).png)
-![14681(2)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/14681(1).png)
+![14681(1)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/14681(1).png)
+![14681(2)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/14681(1).png)
 
 ```java
 import java.util.Scanner;
@@ -121,8 +121,8 @@ public class Main {
 
 ## 2884번 알람 시계(<https://www.acmicpc.net/problem/2884>{: target="_blank" })
 
-![2884(1)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/2884(1).png)
-![2884(2)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/2884(1).png)
+![2884(1)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/2884(1).png)
+![2884(2)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/2884(1).png)
 
 ```java
 import java.util.Scanner;
@@ -153,8 +153,8 @@ public class Main {
 
 ## 2525번 오븐 시계(<https://www.acmicpc.net/problem/2525>{: target="_blank" })
 
-![2525(1)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/2525(1).png)
-![2525(2)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/2525(1).png)
+![2525(1)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/2525(1).png)
+![2525(2)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/2525(1).png)
 
 ```java
 import java.util.Scanner;
@@ -185,8 +185,8 @@ public class Main {
 
 ## 2480번 주사위 세개(<https://www.acmicpc.net/problem/2480>{: target="_blank" })
 
-![2480(1)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/2480(1).png)
-![2480(2)](/assets/img/posts/algorithm/java/boj-step-by-step-conditional-by-java/2480(1).png)
+![2480(1)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/2480(1).png)
+![2480(2)](/assets/img/posts/algorithm/boj/java/step-by-step-conditional/2480(1).png)
 
 ```java
 import java.util.Scanner;

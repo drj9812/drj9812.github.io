@@ -4,7 +4,7 @@ categories: [공부, Java]
 tags: [Java, 자바, Class 클래스, Refleciton API]
 ---
 
-# [Java]Class 클래스
+# Class 클래스
 
 ## Class 클래스란?
 
@@ -27,7 +27,7 @@ public class ClassClass {
 
     Car car = new Car();
 	    
-    Class carClass = car.getClass();
+    Class<?> carClass = car.getClass();
     System.out.println(carClass); // class study.Car
     }
 }
@@ -43,7 +43,7 @@ class Car {}
 public class ClassClass {
     public static void main(String[] args) {
 
-    Class carClass = study.Car.class;
+    Class<?> carClass = study.Car.class;
     System.out.println(carClass); // class study.Car
     }
 }
@@ -59,7 +59,7 @@ class Car {}
 public class ClassClass throws ClassNotFoundException {
     public static void main(String[] args) {
 
-    Class carClass = Class.forName("study.Car");
+    Class<?> carClass = Class.forName("study.Car");
     System.out.println(carClass); // class study.Car
     }
 }
@@ -81,7 +81,7 @@ class Car {}
 public class ClassClass {
     public static void main(String[] args) throws ClassNotFoundException {
 
-    Class carClass = Class.forName("study.Car");
+    Class<?> carClass = Class.forName("study.Car");
 
     System.out.println(carClass.getName()); // study.Car
     System.out.println(carClass.getSimpleName()); // Car
@@ -111,16 +111,16 @@ class Car {
         return number;
     }
     
-    Car() {}
+    public Car() {}
     
-    Car(int number) {
+    public Car(int number) {
     	this.number = number;
     }
 }
 
 public class ClassClass {
     public static void main(String[] args) throws Exception {
-        Class carClass = Class.forName("study.Car");
+        Class<?> carClass = Class.forName("study.Car");
     	
 	System.out.println(carClass.getName()); // study.Car
 	System.out.println(carClass.getSimpleName()); // Car
@@ -137,9 +137,9 @@ public class ClassClass {
         
         // Car car = (Car) carClass.newInstance();
         
-        Constructor<Car> constructor = carClass.getDeclaredConstructor();
-        Car instance = constructor.newInstance(); // 기본 생성자를 통한 객체 생성
-        System.out.println(instance.getNumber()); // 0
+        Constructor<?> constructor = carClass.getDeclaredConstructor();
+        Car car = (Car) constructor.newInstance(); // 기본 생성자를 통한 객체 생성
+        System.out.println(car.getNumber()); // 0
     }
 }
 ```
@@ -182,16 +182,16 @@ class Car {
         return number;
     }
     
-    Car() {}
+    public Car() {}
     
-    Car(int number) {
+    public Car(int number) {
     	this.number = number;
     }
 }
 
 public class ClassClass {
     public static void main(String[] args) throws Exception {
-        Class carClass = Class.forName("study.Car");
+        Class<?> carClass = Class.forName("study.Car");
     	
 	System.out.println(carClass.getName()); // study.Car
 	System.out.println(carClass.getSimpleName()); // Car
@@ -208,9 +208,9 @@ public class ClassClass {
         
         // Car car = (Car) carClass.newInstance();
         
-        Constructor<Car> constructor = carClass.getDeclaredConstructor();
-        Car instance = constructor.newInstance(); // 기본 생성자를 통한 객체 생성
-        System.out.println(instance.getNumber()); // 0
+        Constructor<?> constructor = carClass.getDeclaredConstructor();
+        Car car = (Car) constructor.newInstance(); // 기본 생성자를 통한 객체 생성
+        System.out.println(car.getNumber()); // 0
     }
 }
 ```
@@ -228,7 +228,7 @@ public class ClassClass {
     </figure>
 </div>
 
-뿐만 아니라, 클래스의 멤버들을 가져올 때 사용되어지는 `get(Declared)Field(s)()`와 같은 메서드들은 `Class` 클래스에 속하지만, 역시 `Class` 클래스 내부에서 `reflect` 패키지를 사용하고 있다.
+뿐만 아니라, 클래스의 멤버들을 가져올 때 사용되어지는 `getDeclaredFields()`와 같은 메서드들은 `Class` 클래스에 속하지만, 역시 `Class` 클래스 내부에서 `reflect` 패키지를 사용하고 있다.
 
 ### 참조
 - [[Java]Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" }

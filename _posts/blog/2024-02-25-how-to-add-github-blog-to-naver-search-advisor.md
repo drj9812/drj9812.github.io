@@ -4,7 +4,7 @@ categories: [블로그, GitHub 블로그 만들기]
 tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Naver, 네이버, Search Advisor, 노출, 색인]
 ---
 
-# [Naver | Search Advisor]GitHub 블로그를 네이버 검색 엔진에 노출시키기
+# GitHub 블로그를 네이버 검색 엔진에 노출시키기
 
 ## Search Advisor 시작하기
 

@@ -4,7 +4,7 @@ categories: [블로그, GitHub 블로그 만들기]
 tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Search Console, 노출, 색인]
 ---
 
-# [Google | Search Console]색인이 생성되지 않은 페이지 해결하기
+# 색인이 생성되지 않은 페이지 해결하기
 
 ## 개요
 

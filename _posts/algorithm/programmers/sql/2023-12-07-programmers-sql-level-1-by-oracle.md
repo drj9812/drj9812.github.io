@@ -4,13 +4,13 @@ categories: [알고리즘, 프로그래머스]
 tags: [알고리즘, 프로그래머스, SQL, Oracle, 오라클, 레벨1]
 ---
 
-# [프로그래머스 | Oracle]레벨1 모든 문제
+# 프로그래머스 레벨1 모든 문제
 
 2023-12-07 기준 정답률 순입니다.
 
 ## 동물의 아이디와 이름(<https://school.programmers.co.kr/learn/courses/30/lessons/59403>{: target="_blank" })
 
-![동물의 아이디와 이름(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/동물의-아이디와-이름(1).png)
+![동물의 아이디와 이름(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/동물의-아이디와-이름(1).png)
 
 ```sql
 SELECT animal_id, name
@@ -20,8 +20,8 @@ SELECT animal_id, name
 
 ## 여러 기준으로 정렬하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59404>{: target="_blank" })
 
-![여러 기준으로 정렬하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/여러-기준으로-정렬하기(1).png)
-![여러 기준으로 정렬하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/여러-기준으로-정렬하기(2).png)
+![여러 기준으로 정렬하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/여러-기준으로-정렬하기(1).png)
+![여러 기준으로 정렬하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/여러-기준으로-정렬하기(2).png)
 
 ```sql
 SELECT animal_id, name, datetime
@@ -31,7 +31,7 @@ SELECT animal_id, name, datetime
 
 ## 역순 정렬하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59035>{: target="_blank" })
 
-![역순 정렬하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/역순-정렬하기(1).png)
+![역순 정렬하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/역순-정렬하기(1).png)
 
 ```sql
 SELECT name, datetime
@@ -41,8 +41,8 @@ SELECT name, datetime
 
 ## 어린 동물 찾기(<https://school.programmers.co.kr/learn/courses/30/lessons/59037>{: target="_blank" })
 
-![어린 동물 찾기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/어린-동물-찾기(1).png)
-![어린 동물 찾기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/어린-동물-찾기(2).png)
+![어린 동물 찾기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/어린-동물-찾기(1).png)
+![어린 동물 찾기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/어린-동물-찾기(2).png)
 
 ```sql
 SELECT animal_id, name
@@ -53,8 +53,8 @@ SELECT animal_id, name
 
 ## 상위 n개 레코드(<https://school.programmers.co.kr/learn/courses/30/lessons/59405>{: target="_blank" })
 
-![상위 n개 레코드(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/상위-n개-레코드(1).png)
-![상위 n개 레코드(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/상위-n개-레코드(2).png)
+![상위 n개 레코드(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/상위-n개-레코드(1).png)
+![상위 n개 레코드(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/상위-n개-레코드(2).png)
 
 ```sql
 SELECT name
@@ -66,8 +66,8 @@ SELECT name
 
 ## 아픈 동물 찾기(<https://school.programmers.co.kr/learn/courses/30/lessons/59036>{: target="_blank" })
 
-![아픈 동물 찾기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/아픈-동물-찾기(1).png)
-![아픈 동물 찾기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/아픈-동물-찾기(2).png)
+![아픈 동물 찾기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/아픈-동물-찾기(1).png)
+![아픈 동물 찾기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/아픈-동물-찾기(2).png)
 
 ```sql
 SELECT animal_id, name
@@ -78,8 +78,8 @@ SELECT animal_id, name
 
 ## 이름이 있는 동물의 아이디(<https://school.programmers.co.kr/learn/courses/30/lessons/59407>{: target="_blank" })
 
-![이름이 있는 동물의 아이디(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/이름이-있는-동물의-아이디(1).png)
-![이름이 있는 동물의 아이디(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/이름이-있는-동물의-아이디(2).png)
+![이름이 있는 동물의 아이디(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/이름이-있는-동물의-아이디(1).png)
+![이름이 있는 동물의 아이디(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/이름이-있는-동물의-아이디(2).png)
 
 
 ```sql
@@ -91,7 +91,7 @@ SELECT animal_id
 
 ## 나이 정보가 없는 회원 수 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131528>{: target="_blank" })
 
-![나이 정보가 없는 회원 수 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/나이-정보가-없는-회원-수-구하기(1).png)
+![나이 정보가 없는 회원 수 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/나이-정보가-없는-회원-수-구하기(1).png)
 
 ```sql
 SELECT COUNT(*) AS users
@@ -101,7 +101,7 @@ SELECT COUNT(*) AS users
 
 ## 가장 비싼 상품 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131697>{: target="_blank" })
 
-![가장 비싼 상품 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/가장-비싼-상품-구하기(1).png)
+![가장 비싼 상품 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/가장-비싼-상품-구하기(1).png)
 
 ```sql
 SELECT MAX(price) AS max_price
@@ -110,8 +110,8 @@ SELECT MAX(price) AS max_price
 
 ## 강원도에 위치한 생산공장 목록 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131112>{: target="_blank" })
 
-![강원도에 위치한 생산공장 목록 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/강원도에-위치한-생산공장-목록-출력하기(1).png)
-![강원도에 위치한 생산공장 목록 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/강원도에-위치한-생산공장-목록-출력하기(2).png)
+![강원도에 위치한 생산공장 목록 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/강원도에-위치한-생산공장-목록-출력하기(1).png)
+![강원도에 위치한 생산공장 목록 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/강원도에-위치한-생산공장-목록-출력하기(2).png)
 ```sql
 SELECT factory_id, factory_name, address 
   FROM food_factory
@@ -123,8 +123,8 @@ SELECT factory_id, factory_name, address
 
 ## 경기도에 위치한 식품창고 목록 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131114>{: target="_blank" })
 
-![경기도에 위치한 식품창고 목록 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/경기도에-위치한-식품창고-목록-출력하기(1).png)
-![경기도에 위치한 식품창고 목록 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/경기도에-위치한-식품창고-목록-출력하기(2).png)
+![경기도에 위치한 식품창고 목록 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/경기도에-위치한-식품창고-목록-출력하기(1).png)
+![경기도에 위치한 식품창고 목록 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/경기도에-위치한-식품창고-목록-출력하기(2).png)
 
 ```sql
 SELECT warehouse_id, warehouse_name, address, NVL(freezer_yn, 'N') AS freezer_yn
@@ -161,8 +161,8 @@ SELECT NVL2(NULL, 'Not NULL', 'NULL') AS result FROM dual;
 
 ## 흉부외과 또는 일반외과 의사 목록 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/132203>{: target="_blank" })
 
-![흉부외과 또는 일반외과 의사 목록 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/흉부외과-또는-일반외과-의사-목록-출력하기(1).png)
-![흉부외과 또는 일반외과 의사 목록 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/흉부외과-또는-일반외과-의사-목록-출력하기(2).png)
+![흉부외과 또는 일반외과 의사 목록 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/흉부외과-또는-일반외과-의사-목록-출력하기(1).png)
+![흉부외과 또는 일반외과 의사 목록 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/흉부외과-또는-일반외과-의사-목록-출력하기(2).png)
 
 ```sql
 SELECT dr_name, dr_id, mcdp_cd, TO_CHAR(hire_ymd, 'YYYY-MM-DD') AS hire_ymd
@@ -172,7 +172,7 @@ SELECT dr_name, dr_id, mcdp_cd, TO_CHAR(hire_ymd, 'YYYY-MM-DD') AS hire_ymd
 ```
 ## 이름이 없는 동물의 아이디(<https://school.programmers.co.kr/learn/courses/30/lessons/59039>{: target="_blank" })
 
-![이름이 없는 동물의 아이디(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/이름이-없는-동물의-아이디(1).png)
+![이름이 없는 동물의 아이디(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/이름이-없는-동물의-아이디(1).png)
 
 ```sql
 SELECT animal_id
@@ -183,8 +183,8 @@ SELECT animal_id
 
 ## 조건에 맞는 회원수 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131535>{: target="_blank" })
 
-![조건에 맞는 회원수 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/조건에-맞는-회원수-구하기(1).png)
-![조건에 맞는 회원수 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/조건에-맞는-회원수-구하기(2).png)
+![조건에 맞는 회원수 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/조건에-맞는-회원수-구하기(1).png)
+![조건에 맞는 회원수 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/조건에-맞는-회원수-구하기(2).png)
 
 ```sql
 SELECT COUNT(*) AS users
@@ -196,8 +196,8 @@ SELECT COUNT(*) AS users
 
 ## 12세 이하인 여자 환자 목록 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/132201>{: target="_blank" })
 
-![12세 이하인 여자 환자 목록 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/12세-이하인-여자-환자-목록-출력하기(1).png)
-![12세 이하인 여자 환자 목록 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/12세-이하인-여자-환자-목록-출력하기(2).png)
+![12세 이하인 여자 환자 목록 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/12세-이하인-여자-환자-목록-출력하기(1).png)
+![12세 이하인 여자 환자 목록 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/12세-이하인-여자-환자-목록-출력하기(2).png)
 
 ```sql
 SELECT pt_name, pt_no, gend_cd, age, NVL(tlno, 'NONE') AS tlno
@@ -208,8 +208,8 @@ SELECT pt_name, pt_no, gend_cd, age, NVL(tlno, 'NONE') AS tlno
 
 ## 인기있는 아이스크림(<https://school.programmers.co.kr/learn/courses/30/lessons/133024>{: target="_blank" })
 
-![인기있는 아이스크림(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/인기있는-아이스크림(1).png)
-![인기있는 아이스크림(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/인기있는-아이스크림(2).png)
+![인기있는 아이스크림(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/인기있는-아이스크림(1).png)
+![인기있는 아이스크림(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/인기있는-아이스크림(2).png)
 
 ```sql
 SELECT flavor
@@ -219,8 +219,8 @@ SELECT flavor
 
 ## 조건에 맞는 도서 리스트 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/144853>{: target="_blank" })
 
-![조건에 맞는 도서 리스트 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/조건에-맞는-도서-리스트-출력하기(1).png)
-![조건에 맞는 도서 리스트 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/조건에-맞는-도서-리스트-출력하기(2).png)
+![조건에 맞는 도서 리스트 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/조건에-맞는-도서-리스트-출력하기(1).png)
+![조건에 맞는 도서 리스트 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/조건에-맞는-도서-리스트-출력하기(2).png)
 
 ```sql
 SELECT book_id, TO_CHAR(published_date, 'YYYY-MM-DD') AS published_date
@@ -233,8 +233,8 @@ SELECT book_id, TO_CHAR(published_date, 'YYYY-MM-DD') AS published_date
 
 ## 평균 일일 대여 요금 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/151136>{: target="_blank" })
 
-![평균_일일_대여_요금_구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/평균-일일-대여-요금-구하기(1).png)
-![평균_일일_대여_요금_구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/평균-일일-대여-요금-구하기(2).png)
+![평균_일일_대여_요금_구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/평균-일일-대여-요금-구하기(1).png)
+![평균_일일_대여_요금_구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/평균-일일-대여-요금-구하기(2).png)
 
 ```sql
 SELECT ROUND(AVG(daily_fee)) AS average_fee
@@ -244,7 +244,7 @@ SELECT ROUND(AVG(daily_fee)) AS average_fee
 
 ## 모든 레코드 조회하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59034>{: target="_blank" })
 
-![모든 레코드 조회하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/모든-레코드-조회하기(1).png)
+![모든 레코드 조회하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/모든-레코드-조회하기(1).png)
 
 ```sql
 SELECT *
@@ -254,9 +254,9 @@ SELECT *
 
 ## 과일로 만든 아이스크림 고르기(<https://school.programmers.co.kr/learn/courses/30/lessons/133025>{: target="_blank" })
 
-![과일로 만든 아이스크림 고르기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/과일로-만든-아이스크림-고르기(1).png)
-![과일로 만든 아이스크림 고르기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/과일로-만든-아이스크림-고르기(2).png)
-![과일로 만든 아이스크림 고르기(3)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/과일로-만든-아이스크림-고르기(3).png)
+![과일로 만든 아이스크림 고르기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/과일로-만든-아이스크림-고르기(1).png)
+![과일로 만든 아이스크림 고르기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/과일로-만든-아이스크림-고르기(2).png)
+![과일로 만든 아이스크림 고르기(3)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/과일로-만든-아이스크림-고르기(3).png)
 
 ```sql
 SELECT i.flavor
@@ -271,8 +271,8 @@ HAVING SUM(f.total_order) >= 3000
 
 ## 최댓값 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59415>{: target="_blank" })
 
-![최댓값 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/최댓값-구하기(1).png)
-![최댓값 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/최댓값-구하기(2).png)
+![최댓값 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/최댓값-구하기(1).png)
+![최댓값 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/최댓값-구하기(2).png)
 
 ```sql
 SELECT MAX(datetime) AS 시간
@@ -281,8 +281,8 @@ SELECT MAX(datetime) AS 시간
 
 ## 특정 옵션이 포함된 자동차 리스트 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/157343>{: target="_blank" })
 
-![특정 옵션이 포함된 자동차 리스트 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/특정-옵션이-포함된-자동차-리스트-구하기(1).png)
-![특정 옵션이 포함된 자동차 리스트 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/특정-옵션이-포함된-자동차-리스트-구하기(2).png)
+![특정 옵션이 포함된 자동차 리스트 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/특정-옵션이-포함된-자동차-리스트-구하기(1).png)
+![특정 옵션이 포함된 자동차 리스트 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/특정-옵션이-포함된-자동차-리스트-구하기(2).png)
 
 ```sql
 SELECT *
@@ -293,8 +293,8 @@ SELECT *
 
 ## 자동차 대여 기록에서 장기/단기 대여 구분하기(<https://school.programmers.co.kr/learn/courses/30/lessons/151138>{: target="_blank" })
 
-![자동차 대여 기록에서 장기/단기 대여 구분하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/자동차-대여-기록에서-장기,단기-대여-구분하기(1).png)
-![자동차 대여 기록에서 장기/단기 대여 구분하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/자동차-대여-기록에서-장기,단기-대여-구분하기(2).png)
+![자동차 대여 기록에서 장기/단기 대여 구분하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/자동차-대여-기록에서-장기,단기-대여-구분하기(1).png)
+![자동차 대여 기록에서 장기/단기 대여 구분하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/자동차-대여-기록에서-장기,단기-대여-구분하기(2).png)
 
 ```sql
 SELECT history_id, car_id, TO_CHAR(start_date, 'YYYY-MM-DD') AS start_date, TO_CHAR(end_date, 'YYYY-MM-DD') AS end_date,
@@ -310,8 +310,8 @@ SELECT history_id, car_id, TO_CHAR(start_date, 'YYYY-MM-DD') AS start_date, TO_C
 
 ## 조건에 부합하는 중고거래 댓글 조회하기(<https://school.programmers.co.kr/learn/courses/30/lessons/164673>{: target="_blank" })
 
-![조건에 부합하는 중고거래 댓글 조회하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/조건에-부합하는-중고거래-댓글-조회하기(1).png)
-![조건에 부합하는 중고거래 댓글 조회하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-1-by-oracle/조건에-부합하는-중고거래-댓글-조회하기(2).png)
+![조건에 부합하는 중고거래 댓글 조회하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/조건에-부합하는-중고거래-댓글-조회하기(1).png)
+![조건에 부합하는 중고거래 댓글 조회하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-1/조건에-부합하는-중고거래-댓글-조회하기(2).png)
 
 ```sql
 SELECT b.title, b.board_id, r.reply_id, r.writer_id, r.contents, TO_CHAR(r.created_date, 'YYYY-MM-DD')

@@ -4,13 +4,13 @@ categories: [알고리즘, 프로그래머스]
 tags: [알고리즘, 프로그래머스, SQL, Oracle, 오라클, 레벨2]
 ---
 
-# [프로그래머스 | Oracle]레벨2 모든 문제
+# 프로그래머스 레벨2 모든 문제
 
 2023-12-08 기준 정답률 순입니다.
 
 ## 동물 수 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59406>{: target="_blank" })
 
-![동물 수 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/동물-수-구하기(1).png)
+![동물 수 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/동물-수-구하기(1).png)
 
 ```sql
 SELECT COUNT(*)
@@ -18,7 +18,7 @@ SELECT COUNT(*)
 ```
 ## 최솟값 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59038>{: target="_blank" })
 
-![최솟값 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/최솟값-구하기(1).png)
+![최솟값 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/최솟값-구하기(1).png)
 
 ```sql
 SELECT MIN(datetime) AS 시간
@@ -29,7 +29,7 @@ SELECT MIN(datetime) AS 시간
 
 ## 중복 제거하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59408>{: target="_blank" })
 
-![중복 제거하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/중복-제거하기(1).png)
+![중복 제거하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/중복-제거하기(1).png)
 
 ```sql
 SELECT COUNT(DISTINCT name) AS count 
@@ -45,8 +45,8 @@ SELECT COUNT(DISTINCT name) AS count
 
 ## 동명 동물 수 찾기(<https://school.programmers.co.kr/learn/courses/30/lessons/59041>{: target="_blank" })
 
-![동명 동물 수 찾기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/동명-동물-수-찾기(1).png)
-![동명 동물 수 찾기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/동명-동물-수-찾기(2).png)
+![동명 동물 수 찾기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/동명-동물-수-찾기(1).png)
+![동명 동물 수 찾기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/동명-동물-수-찾기(2).png)
 
 ```sql
 SELECT name, COUNT(name) AS count
@@ -58,8 +58,8 @@ HAVING COUNT(name) >= 2
 
 ## 이름에 el이 들어가는 동물 찾기(<https://school.programmers.co.kr/learn/courses/30/lessons/59047>{: target="_blank" })
 
-![이름에 el이 들어가는 동물 찾기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/이름에-el이-들어가는-동물-찾기(1).png)
-![이름에 el이 들어가는 동물 찾기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/이름에-el이-들어가는-동물-찾기(2).png)
+![이름에 el이 들어가는 동물 찾기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/이름에-el이-들어가는-동물-찾기(1).png)
+![이름에 el이 들어가는 동물 찾기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/이름에-el이-들어가는-동물-찾기(2).png)
 
 ```sql
 SELECT animal_id, name
@@ -74,8 +74,8 @@ SELECT animal_id, name
 
 ## NULL 처리하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59410>{: target="_blank" })
 
-![NULL 처리하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/NULL-처리하기(1).png)
-![NULL 처리하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/NULL-처리하기(2).png)
+![NULL 처리하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/NULL-처리하기(1).png)
+![NULL 처리하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/NULL-처리하기(2).png)
 
 ```sql
 SELECT animal_type, NVL(name, 'No name'), sex_upon_intake
@@ -90,8 +90,8 @@ SELECT animal_type, NVL2(name, name, 'No name'), sex_upon_intake
 
 ## DATETIME에서 DATE로 형 변환(<https://school.programmers.co.kr/learn/courses/30/lessons/59414>{: target="_blank" })
 
-![DATETIME에서 DATE로 형 변환(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/DATETIME에서-DATE로-형-변환(1).png)
-![DATETIME에서 DATE로 형 변환(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/DATETIME에서-DATE로-형-변환(2).png)
+![DATETIME에서 DATE로 형 변환(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/DATETIME에서-DATE로-형-변환(1).png)
+![DATETIME에서 DATE로 형 변환(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/DATETIME에서-DATE로-형-변환(2).png)
 
 ```sql
 SELECT animal_id, name, TO_CHAR(datetime, 'YYYY-MM-DD') AS 날짜
@@ -101,7 +101,7 @@ SELECT animal_id, name, TO_CHAR(datetime, 'YYYY-MM-DD') AS 날짜
 
 ## 가격이 제일 비싼 식품의 정보 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131115>{: target="_blank" })
 
-![가격이 제일 비싼 식품의 정보 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/가격이-제일-비싼-식품의-정보-출력하기(1).png)
+![가격이 제일 비싼 식품의 정보 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/가격이-제일-비싼-식품의-정보-출력하기(1).png)
 
 ```sql
 SELECT product_id, product_name, product_cd, category, price
@@ -112,8 +112,8 @@ SELECT product_id, product_name, product_cd, category, price
 
 ## 중성화 여부 파악하기(<https://school.programmers.co.kr/learn/courses/30/lessons/59409>{: target="_blank" })
 
-![중성화 여부 파악하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/중성화-여부-파악하기(1).png)
-![중성화 여부 파악하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/중성화-여부-파악하기(2).png)
+![중성화 여부 파악하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/중성화-여부-파악하기(1).png)
+![중성화 여부 파악하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/중성화-여부-파악하기(2).png)
 
 ```sql
 SELECT animal_id,
@@ -127,8 +127,8 @@ SELECT animal_id,
 
 ## 카테고리 별 상품 개수 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131529>{: target="_blank" })
 
-![카테고리 별 상품 개수 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/카테고리-별-상품-개수-구하기(1).png)
-![카테고리 별 상품 개수 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/카테고리-별-상품-개수-구하기(2).png)
+![카테고리 별 상품 개수 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/카테고리-별-상품-개수-구하기(1).png)
+![카테고리 별 상품 개수 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/카테고리-별-상품-개수-구하기(2).png)
 
 ```sql
 SELECT SUBSTR(product_code, 1, 2) AS category, COUNT(product_id) AS products
@@ -140,7 +140,7 @@ SELECT SUBSTR(product_code, 1, 2) AS category, COUNT(product_id) AS products
 
 ## 고양이와 개는 몇 마리 있을까(<https://school.programmers.co.kr/learn/courses/30/lessons/59040>{: target="_blank" })
 
-![고양이와 개는 몇 마리 있을까(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/고양이와-개는-몇-마리-있을까(1).png)
+![고양이와 개는 몇 마리 있을까(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/고양이와-개는-몇-마리-있을까(1).png)
 
 ```sql
 SELECT animal_type, COUNT(*) AS count
@@ -154,8 +154,8 @@ HAVING animal_type IN ('Cat', 'Dog')
 
 ## 입양 시각 구하기(1)(<https://school.programmers.co.kr/learn/courses/30/lessons/59412>{: target="_blank" })
 
-![입양 시각 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/입양-시각-구하기(1).png)
-![입양 시각 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/입양-시각-구하기(2).png)
+![입양 시각 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/입양-시각-구하기(1).png)
+![입양 시각 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/입양-시각-구하기(2).png)
 
 ```sql
 SELECT TO_CHAR(datetime, 'FMHH24') AS hour, COUNT(*) AS count
@@ -171,18 +171,18 @@ HAVING TO_CHAR(datetime, 'FMHH24') BETWEEN 9 AND 19
 
 `HAVING`절에서 `HAVING TO_CHAR(datetime, 'FMHH24') BETWEEN '9' AND '19'`라고 하지 않은 이유는 따옴표를 사용하여 문자열 비교를 하게된다면, 각 문자의 ASCII 코드 값을 비교하게 되는데 이때 각 문자의 첫 번째 문자부터 차례대로 비교하기 때문입니다.
 
-![입양 시각 구하기(3)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/입양-시각-구하기(3).png)
+![입양 시각 구하기(3)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/입양-시각-구하기(3).png)
 
 ASCII 코드에서 문자 '9'은 57이고, 문자 '1'은 49이기 때문에 `BETWEEN 57 AND 49`가 되어버려 위와 같이 원하는 출력 값을 원할 수 없게 됩니다.
 
-![입양 시각 구하기(4)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/입양-시각-구하기(4).png)
+![입양 시각 구하기(4)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/입양-시각-구하기(4).png)
 
 같은 이유로 `ORDER BY`절에서 `TO_CHAR(datetime, 'FMHH24') AS hour`와 같이 문자열을 기준으로 정렬하게 된다면 문자 '9'보다 문자 '1'이 더 크게 때문에 위와 같은 결과가 나오므로 `TO_NUMBER` 함수를 사용하여 숫자로 변환하여 정렬하였습니다.
 
 ## 진료과별 총 예약 횟수 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/132202>{: target="_blank" })
 
-![진료과별 총 예약 횟수 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/진료과별-총-예약-횟수-출력하기(1).png)
-![진료과별 총 예약 횟수 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/진료과별-총-예약-횟수-출력하기(2).png)
+![진료과별 총 예약 횟수 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/진료과별-총-예약-횟수-출력하기(1).png)
+![진료과별 총 예약 횟수 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/진료과별-총-예약-횟수-출력하기(2).png)
 
 ```sql
 SELECT mcdp_cd AS 진료과코드, COUNT(*) AS "5월예약건수"
@@ -196,8 +196,8 @@ SELECT mcdp_cd AS 진료과코드, COUNT(*) AS "5월예약건수"
 
 ## 자동차 종류 별 특정 옵션이 포함된 자동차 수 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/151137>{: target="_blank" })
 
-![자동차 종류 별 특정 옵션이 포함된 자동차 수 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/자동차-종류-별-특정-옵션이-포함된-자동차-수-구하기(1).png)
-![자동차 종류 별 특정 옵션이 포함된 자동차 수 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/자동차-종류-별-특정-옵션이-포함된-자동차-수-구하기(2).png)
+![자동차 종류 별 특정 옵션이 포함된 자동차 수 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/자동차-종류-별-특정-옵션이-포함된-자동차-수-구하기(1).png)
+![자동차 종류 별 특정 옵션이 포함된 자동차 수 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/자동차-종류-별-특정-옵션이-포함된-자동차-수-구하기(2).png)
 
 ```sql
 SELECT car_type, COUNT(*) AS cars
@@ -213,8 +213,8 @@ SELECT car_type, COUNT(*) AS cars
 
 ## 상품 별 오프라인 매출 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131533>{: target="_blank" })
 
-![상품 별 오프라인 매출 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/상품-별-오프라인-매출-구하기(1).png)
-![상품 별 오프라인 매출 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/상품-별-오프라인-매출-구하기(2).png)
+![상품 별 오프라인 매출 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/상품-별-오프라인-매출-구하기(1).png)
+![상품 별 오프라인 매출 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/상품-별-오프라인-매출-구하기(2).png)
 
 ```sql
 SELECT p.product_code, SUM(p.price * o.sales_amount) AS sales
@@ -227,8 +227,8 @@ SELECT p.product_code, SUM(p.price * o.sales_amount) AS sales
 
 ## 조건에 맞는 도서와 저자 리스트 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/144854>{: target="_blank" })
 
-![조건에 맞는 도서와 저자 리스트 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/조건에-맞는-도서와-저자-리스트-출력하기(1).png)
-![조건에 맞는 도서와 저자 리스트 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/조건에-맞는-도서와-저자-리스트-출력하기(2).png)
+![조건에 맞는 도서와 저자 리스트 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/조건에-맞는-도서와-저자-리스트-출력하기(1).png)
+![조건에 맞는 도서와 저자 리스트 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/조건에-맞는-도서와-저자-리스트-출력하기(2).png)
 
 ```sql
 SELECT b.book_id, a.author_name, TO_CHAR(b.published_date, 'YYYY-MM-DD') AS published_date
@@ -241,9 +241,9 @@ SELECT b.book_id, a.author_name, TO_CHAR(b.published_date, 'YYYY-MM-DD') AS publ
 
 ## 성분으로 구분한 아이스크림 총 주문량(<https://school.programmers.co.kr/learn/courses/30/lessons/133026>{: target="_blank" })
 
-![성분으로 구분한 아이스크림 총 주문량(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/성분으로-구분한-아이스크림-총-주문량(1).png)
-![성분으로 구분한 아이스크림 총 주문량(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/성분으로-구분한-아이스크림-총-주문량(2).png)
-![성분으로 구분한 아이스크림 총 주문량(3)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/성분으로-구분한-아이스크림-총-주문량(3).png)
+![성분으로 구분한 아이스크림 총 주문량(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/성분으로-구분한-아이스크림-총-주문량(1).png)
+![성분으로 구분한 아이스크림 총 주문량(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/성분으로-구분한-아이스크림-총-주문량(2).png)
+![성분으로 구분한 아이스크림 총 주문량(3)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/성분으로-구분한-아이스크림-총-주문량(3).png)
 
 ```sql
 SELECT i.ingredient_type, SUM(f.total_order) AS total_order
@@ -258,8 +258,8 @@ SELECT i.ingredient_type, SUM(f.total_order) AS total_order
 
 ## 루시와 엘라 찾기(<https://school.programmers.co.kr/learn/courses/30/lessons/59046>{: target="_blank" })
 
-![루시와 엘라 찾기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/루시와-엘라-찾기(1).png)
-![루시와 엘라 찾기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/루시와-엘라-찾기(1).png)
+![루시와 엘라 찾기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/루시와-엘라-찾기(1).png)
+![루시와 엘라 찾기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/루시와-엘라-찾기(1).png)
 
 ```sql
 SELECT animal_id, name, sex_upon_intake
@@ -270,8 +270,8 @@ SELECT animal_id, name, sex_upon_intake
 
 ## 가격대 별 상품 개수 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131530>{: target="_blank" })
 
-![가격대 별 상품 개수 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/가격대-별-상품-개수-구하기(1).png)
-![가격대 별 상품 개수 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/가격대-별-상품-개수-구하기(2).png)
+![가격대 별 상품 개수 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/가격대-별-상품-개수-구하기(1).png)
+![가격대 별 상품 개수 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/가격대-별-상품-개수-구하기(2).png)
 
 ```sql
 SELECT TRUNC(price, -4) AS "price_group", COUNT(*) AS products
@@ -284,8 +284,8 @@ SELECT TRUNC(price, -4) AS "price_group", COUNT(*) AS products
 
 ## 3월에 태어난 여성 회원 목록 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131120>{: target="_blank" })
 
-![3월에 태어난 여성 회원 목록 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/3월에-태어난-여성-회원-목록-출력하기(1).png)
-![3월에 태어난 여성 회원 목록 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/3월에-태어난-여성-회원-목록-출력하기(2).png)
+![3월에 태어난 여성 회원 목록 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/3월에-태어난-여성-회원-목록-출력하기(1).png)
+![3월에 태어난 여성 회원 목록 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/3월에-태어난-여성-회원-목록-출력하기(2).png)
 
 ```sql
 SELECT member_id, member_name, gender, TO_CHAR(date_of_birth, 'YYYY-MM-DD') AS date_of_birth
@@ -300,8 +300,8 @@ SELECT member_id, member_name, gender, TO_CHAR(date_of_birth, 'YYYY-MM-DD') AS d
 
 ## 재구매가 일어난 상품과 회원 리스트 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131536>{: target="_blank" })
 
-![재구매가 일어난 상품과 회원 리스트 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/재구매가-일어난-상품과-회원-리스트-구하기(1).png)
-![재구매가 일어난 상품과 회원 리스트 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/재구매가-일어난-상품과-회원-리스트-구하기(2).png)
+![재구매가 일어난 상품과 회원 리스트 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/재구매가-일어난-상품과-회원-리스트-구하기(1).png)
+![재구매가 일어난 상품과 회원 리스트 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/재구매가-일어난-상품과-회원-리스트-구하기(2).png)
 
 ```sql
 SELECT user_id, product_id
@@ -313,8 +313,8 @@ HAVING COUNT(product_id) >= 2
 
 ## 조건에 부합하는 중고거래 상태 조회하기(<https://school.programmers.co.kr/learn/courses/30/lessons/164672>{: target="_blank" })
 
-![조건에 부합하는 중고거래 상태 조회하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/조건에-부합하는-중고거래-상태-조회하기(1).png)
-![조건에 부합하는 중고거래 상태 조회하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/조건에-부합하는-중고거래-상태-조회하기(2).png)
+![조건에 부합하는 중고거래 상태 조회하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/조건에-부합하는-중고거래-상태-조회하기(1).png)
+![조건에 부합하는 중고거래 상태 조회하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/조건에-부합하는-중고거래-상태-조회하기(2).png)
 
 ```sql
 SELECT board_id, writer_id, title, price,
@@ -329,8 +329,8 @@ SELECT board_id, writer_id, title, price,
 
 ## 자동차 평균 대여 기간 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/157342>{: target="_blank" })
 
-![자동차 평균 대여 기간 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/자동차-평균-대여-기간-구하기(1).png)
-![자동차 평균 대여 기간 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-2-by-oracle/자동차-평균-대여-기간-구하기(2).png)
+![자동차 평균 대여 기간 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/자동차-평균-대여-기간-구하기(1).png)
+![자동차 평균 대여 기간 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-2/자동차-평균-대여-기간-구하기(2).png)
 
 ```sql
 SELECT car_id, ROUND(AVG(end_date - start_date + 1), 1) AS average_duration

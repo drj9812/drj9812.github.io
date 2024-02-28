@@ -4,14 +4,14 @@ categories: [알고리즘, 프로그래머스]
 tags: [알고리즘, 프로그래머스, SQL, Oracle, 오라클, 레벨3]
 ---
 
-# [프로그래머스 | Oracle]레벨3 모든 문제
+# 프로그래머스 레벨3 모든 문제
 
 2023-12-09 기준 정답률 순입니다.
 
 ## 오랜 기간 보호한 동물(1)(<https://school.programmers.co.kr/learn/courses/30/lessons/59044>{: target="_blank" })
 
-![오랜 기간 보호한 동물(1)(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/오랜-기간-보호한-동물(1)(1).png)
-![오랜 기간 보호한 동물(1)(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/오랜-기간-보호한-동물(1)(2).png)
+![오랜 기간 보호한 동물(1)(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/오랜-기간-보호한-동물(1)(1).png)
+![오랜 기간 보호한 동물(1)(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/오랜-기간-보호한-동물(1)(2).png)
 
 ```sql
 SELECT name, datetime
@@ -28,8 +28,8 @@ SELECT name, datetime
 
 ## 카테고리 별 도서 판매량 집계하기(<https://school.programmers.co.kr/learn/courses/30/lessons/144855>{: target="_blank" })
 
-![카테고리 별 도서 판매량 집계하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/카테고리-별-도서-판매량-집계하기(1).png)
-![카테고리 별 도서 판매량 집계하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/카테고리-별-도서-판매량-집계하기(2).png)
+![카테고리 별 도서 판매량 집계하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/카테고리-별-도서-판매량-집계하기(1).png)
+![카테고리 별 도서 판매량 집계하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/카테고리-별-도서-판매량-집계하기(2).png)
 
 ```sql
 SELECT b.category, SUM(bs.SALES) AS total_Sales
@@ -43,8 +43,8 @@ SELECT b.category, SUM(bs.SALES) AS total_Sales
 
 ## 있었는데요 없었습니다(<https://school.programmers.co.kr/learn/courses/30/lessons/59043>{: target="_blank" })
 
-![있었는데요 없었습니다(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/있었는데요-없었습니다(1).png)
-![있었는데요 없었습니다(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/있었는데요-없었습니다(2).png)
+![있었는데요 없었습니다(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/있었는데요-없었습니다(1).png)
+![있었는데요 없었습니다(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/있었는데요-없었습니다(2).png)
 
 ```sql
 SELECT i.animal_id, i.name
@@ -57,8 +57,8 @@ SELECT i.animal_id, i.name
 
 ## 오랜 기간 보호한 동물(2)(<https://school.programmers.co.kr/learn/courses/30/lessons/59411>{: target="_blank" })
 
-![오랜 기간 보호한 동물(2)(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/오랜-기간-보호한-동물(2)(1).png)
-![오랜 기간 보호한 동물(2)(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/오랜-기간-보호한-동물(2)(2).png)
+![오랜 기간 보호한 동물(2)(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/오랜-기간-보호한-동물(2)(1).png)
+![오랜 기간 보호한 동물(2)(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/오랜-기간-보호한-동물(2)(2).png)
 
 ```sql
 SELECT *
@@ -83,8 +83,8 @@ SELECT *
 
 ## 조건별로 분류하여 주문상태 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131113>{: target="_blank" })
 
-![조건별로 분류하여 주문상태 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조건별로-분류하여-주문상태-출력하기(1).png)
-![조건별로 분류하여 주문상태 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조건별로-분류하여-주문상태-출력하기(2).png)
+![조건별로 분류하여 주문상태 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조건별로-분류하여-주문상태-출력하기(1).png)
+![조건별로 분류하여 주문상태 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조건별로-분류하여-주문상태-출력하기(2).png)
 
 ```sql
 SELECT order_id,
@@ -100,8 +100,8 @@ SELECT order_id,
 
 ## 조건에 맞는 사용자와 총 거래금액 조회하기(<https://school.programmers.co.kr/learn/courses/30/lessons/164668>{: target="_blank" })
 
-![조건에 맞는 사용자와 총 거래금액 조회하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조건에-맞는-사용자와-총-거래금액-조회하기(1).png)
-![조건에 맞는 사용자와 총 거래금액 조회하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조건에-맞는-사용자와-총-거래금액-조회하기(2).png)
+![조건에 맞는 사용자와 총 거래금액 조회하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조건에-맞는-사용자와-총-거래금액-조회하기(1).png)
+![조건에 맞는 사용자와 총 거래금액 조회하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조건에-맞는-사용자와-총-거래금액-조회하기(2).png)
 
 ```sql
 SELECT u.user_id, u.nickname, b.total_sales
@@ -117,8 +117,8 @@ SELECT u.user_id, u.nickname, b.total_sales
 
 ## 대여 기록이 존재하는 자동차 리스트 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/157341>{: target="_blank" })
 
-![대여 기록이 존재하는 자동차 리스트 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/대여-기록이-존재하는-자동차-리스트-구하기(1).png)
-![대여 기록이 존재하는 자동차 리스트 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/대여-기록이-존재하는-자동차-리스트-구하기(2).png)
+![대여 기록이 존재하는 자동차 리스트 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/대여-기록이-존재하는-자동차-리스트-구하기(1).png)
+![대여 기록이 존재하는 자동차 리스트 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/대여-기록이-존재하는-자동차-리스트-구하기(2).png)
 
 ```sql
 SELECT car_id
@@ -133,8 +133,8 @@ ORDER BY car_id DESC;
 
 ## 즐겨찾기가 가장 많은 식당 정보 출력하기(<https://school.programmers.co.kr/learn/courses/30/lessons/131123>{: target="_blank" })
 
-![즐겨찾기가 가장 많은 식당 정보 출력하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/즐겨찾기가-가장-많은-식당-정보-출력하기(1).png)
-![즐겨찾기가 가장 많은 식당 정보 출력하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/즐겨찾기가-가장-많은-식당-정보-출력하기(2).png)
+![즐겨찾기가 가장 많은 식당 정보 출력하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/즐겨찾기가-가장-많은-식당-정보-출력하기(1).png)
+![즐겨찾기가 가장 많은 식당 정보 출력하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/즐겨찾기가-가장-많은-식당-정보-출력하기(2).png)
 
 ```sql
 SELECT food_type, rest_id, rest_name, favorites
@@ -147,8 +147,8 @@ SELECT food_type, rest_id, rest_name, favorites
 
 ## 없어진 기록 찾기(<https://school.programmers.co.kr/learn/courses/30/lessons/59042>{: target="_blank" })
 
-![없어진 기록 찾기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/없어진-기록-찾기(1).png)
-![없어진 기록 찾기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/없어진-기록-찾기(2).png)
+![없어진 기록 찾기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/없어진-기록-찾기(1).png)
+![없어진 기록 찾기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/없어진-기록-찾기(2).png)
 
 ```sql
 SELECT o.animal_id, o.name
@@ -161,8 +161,8 @@ SELECT o.animal_id, o.name
 
 ## 조건에 맞는 사용자 정보 조회하기(<https://school.programmers.co.kr/learn/courses/30/lessons/164670>{: target="_blank" })
 
-![조건에 맞는 사용자 정보 조회하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조건에-맞는-사용자-정보-조회하기(1).png)
-![조건에 맞는 사용자 정보 조회하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조건에-맞는-사용자-정보-조회하기(2).png)
+![조건에 맞는 사용자 정보 조회하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조건에-맞는-사용자-정보-조회하기(1).png)
+![조건에 맞는 사용자 정보 조회하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조건에-맞는-사용자-정보-조회하기(2).png)
 
 ```sql
 SELECT user_id,
@@ -183,8 +183,8 @@ SELECT user_id,
 
 ## 자동차 대여 기록에서 대여중 / 대여 가능 여부 구분하기(<https://school.programmers.co.kr/learn/courses/30/lessons/157340>{: target="_blank" })
 
-![자동차 대여 기록에서 대여중 / 대여 가능 여부 구분하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/자동차-대여-기록에서-대여중-대여-가능-여부-구분하기(1).png)
-![자동차 대여 기록에서 대여중 / 대여 가능 여부 구분하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/자동차-대여-기록에서-대여중-대여-가능-여부-구분하기(2).png)
+![자동차 대여 기록에서 대여중 / 대여 가능 여부 구분하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/자동차-대여-기록에서-대여중-대여-가능-여부-구분하기(1).png)
+![자동차 대여 기록에서 대여중 / 대여 가능 여부 구분하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/자동차-대여-기록에서-대여중-대여-가능-여부-구분하기(2).png)
 
 ```sql
 SELECT car_id,
@@ -204,8 +204,8 @@ SELECT car_id,
 
 ## 헤비 유저가 소유한 장소(<https://school.programmers.co.kr/learn/courses/30/lessons/77487>{: target="_blank" })
 
-![헤비 유저가 소유한 장소(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/헤비-유저가-소유한-장소(1).png)
-![헤비 유저가 소유한 장소(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/헤비-유저가-소유한-장소(2).png)
+![헤비 유저가 소유한 장소(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/헤비-유저가-소유한-장소(1).png)
+![헤비 유저가 소유한 장소(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/헤비-유저가-소유한-장소(2).png)
 
 ```sql
 SELECT id, name, host_id
@@ -219,8 +219,8 @@ SELECT id, name, host_id
 
 ## 조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기(<https://school.programmers.co.kr/learn/courses/30/lessons/164671>{: target="_blank" })
 
-![조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조회수가-가장-많은-중고거래-게시판의-첨부파일-조회하기(1).png)
-![조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/조회수가-가장-많은-중고거래-게시판의-첨부파일-조회하기(2).png)
+![조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조회수가-가장-많은-중고거래-게시판의-첨부파일-조회하기(1).png)
+![조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/조회수가-가장-많은-중고거래-게시판의-첨부파일-조회하기(2).png)
 
 ```sql
 SELECT '/home/grep/src/' ||
@@ -254,8 +254,8 @@ SELECT '/home/grep/src/' ||
 
 ## 대여 횟수가 많은 자동차들의 월별 대여 횟수 구하기(<https://school.programmers.co.kr/learn/courses/30/lessons/151139>{: target="_blank" })
 
-![대여 횟수가 많은 자동차들의 월별 대여 횟수 구하기(1)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/대여-횟수가-많은-자동차들의-월별-대여-횟수-구하기(1).png)
-![대여 횟수가 많은 자동차들의 월별 대여 횟수 구하기(2)](/assets/img/posts/algorithm/sql/programmers-sql-level-3-by-oracle/대여-횟수가-많은-자동차들의-월별-대여-횟수-구하기(2).png)
+![대여 횟수가 많은 자동차들의 월별 대여 횟수 구하기(1)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/대여-횟수가-많은-자동차들의-월별-대여-횟수-구하기(1).png)
+![대여 횟수가 많은 자동차들의 월별 대여 횟수 구하기(2)](/assets/img/posts/algorithm/programmers/sql/oracle/level-3/대여-횟수가-많은-자동차들의-월별-대여-횟수-구하기(2).png)
 
 ```sql
 SELECT EXTRACT(MONTH FROM start_date) AS month,

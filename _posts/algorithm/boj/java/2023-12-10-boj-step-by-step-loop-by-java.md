@@ -4,11 +4,11 @@ categories: [알고리즘, 백준]
 tags: [알고리즘, 백준, Java, 자바, 단계별로 풀어보기, 반복문]
 ---
 
-# [백준 | Java]단계별로 풀어보기 반복문 모든 문제
+# 백준 단계별로 풀어보기 반복문 모든 문제
 
 ## 2739번 구구단(<https://www.acmicpc.net/problem/2739>{: target="_blank" })
 
-![2739(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/2739(1).png)
+![2739(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/2739(1).png)
 
 ```java
 import java.util.Scanner;
@@ -28,7 +28,7 @@ public class Main {
 
 ## 10950번 A+B - 3(<https://www.acmicpc.net/problem/10950>{: target="_blank" })
 
-![10950(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/10950(1).png)
+![10950(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/10950(1).png)
 
 ```java
 import java.util.Scanner;
@@ -52,7 +52,7 @@ public class Main {
 
 ## 8393번 합(<https://www.acmicpc.net/problem/8393>{: target="_blank" })
 
-![8393(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/8393(1).png)
+![8393(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/8393(1).png)
 
 ```java
 import java.util.Scanner;
@@ -75,8 +75,8 @@ public class Main {
 
 ## 25304번 영수증(<https://www.acmicpc.net/problem/25304>{: target="_blank" })
 
-![25304(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/25304(1).png)
-![25304(2)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/25304(2).png)
+![25304(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/25304(1).png)
+![25304(2)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/25304(2).png)
 
 ```java
 import java.util.Scanner;
@@ -108,8 +108,8 @@ public class Main {
 
 ## 25314번 코딩은 체육과목 입니다(<https://www.acmicpc.net/problem/25314>{: target="_blank" })
 
-![25314(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/25314(1).png)
-![25314(2)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/25314(2).png)
+![25314(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/25314(1).png)
+![25314(2)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/25314(2).png)
 
 ```java
 import java.util.Scanner;
@@ -131,8 +131,8 @@ public class Main {
 
 ## 15552번 빠른 A+B(<https://www.acmicpc.net/problem/15552>{: target="_blank" })
 
-![15552(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/15552(1).png)
-![15552(2)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/15552(2).png)
+![15552(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/15552(1).png)
+![15552(2)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/15552(2).png)
 
 ```java
 import java.io.*;
@@ -169,7 +169,7 @@ public class Main {
 
 ## 11021번 A+B - 7(<https://www.acmicpc.net/problem/11021>{: target="_blank" })
 
-![11021(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/11021(1).png)
+![11021(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/11021(1).png)
 
 ```java
 import java.io.*;
@@ -204,7 +204,7 @@ public class Main {
 
 ## 11022번 A+B - 8(<https://www.acmicpc.net/problem/11022>{: target="_blank" })
 
-![11022(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/11022(1).png)
+![11022(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/11022(1).png)
 
 ```java
 import java.io.*;
@@ -239,7 +239,7 @@ public class Main {
 
 ## 2438번 별 찍기 - 1(<https://www.acmicpc.net/problem/2438>{: target="_blank" })
 
-![2438(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/2438(1).png)
+![2438(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/2438(1).png)
 
 ```java
 import java.io.*;
@@ -267,7 +267,7 @@ public class Main {
 
 ## 2439번 별 찍기 - 2(<https://www.acmicpc.net/problem/2439>{: target="_blank" })
 
-![2439(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/2439(1).png)
+![2439(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/2439(1).png)
 
 ```java
 import java.io.*;
@@ -303,7 +303,7 @@ public class Main {
 
 ## 10952번 A+B - 5(<https://www.acmicpc.net/problem/10952>{: target="_blank" })
 
-![10952(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/10952(1).png)
+![10952(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/10952(1).png)
 
 ```java
 import java.io.*;
@@ -341,7 +341,7 @@ public class Main {
 
 ## 10951번 A+B - 4(<https://www.acmicpc.net/problem/10951>{: target="_blank" })
 
-![10951(1)](/assets/img/posts/algorithm/java/boj-step-by-step-loop-by-java/10951(1).png)
+![10951(1)](/assets/img/posts/algorithm/boj/java/step-by-step-loop/10951(1).png)
 
 ```java
 import java.io.*;

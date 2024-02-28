@@ -4,7 +4,7 @@ categories: [블로그, GitHub 블로그 만들기]
 tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Ruby 설치, Node.js 설치]
 ---
 
-# [Jekyll | Chirpy]GitHub 블로그 만들기(Windows)
+# GitHub 블로그 만들기(Windows)
 
 > 기존에도 여러 글들을 참고하여 Jekyll의 Chirpy 테마를 적용한 블로그를 운영하고 있었는데, 빌드시에 발생하는 여러 에러들을 해결하지 못하여 다시 구축하게 되었습니다. 2024년 01월 19일을 기준으로 이 글을 정확히 따라한다면 Chirpy 테마를 적용하여 깃허브 블로그를 에러없이 구축할 수 있을 거라 생각합니다.
 
@@ -149,7 +149,7 @@ $ git clone 복사한 url
 
 fork한 repository의 소스코드들을 로컬에 복제합니다.
 
-## 로컬에서 서버 실행하기
+## 로컬 서버 실행
 
 ![27-bundle-install](/assets/img/posts/blog/make-github-blog-with-jekyll-chipry-on-windows/27-bundle-install.png)
 

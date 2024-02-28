@@ -4,11 +4,11 @@ categories: [알고리즘, 백준]
 tags: [알고리즘, 백준, Java, 자바, 단계별로 풀어보기, 입출력과 사칙연산]
 ---
 
-# [백준 | Java]단계별로 풀어보기 입출력과 사칙연산 모든 문제
+# 백준 단계별로 풀어보기 입출력과 사칙연산 모든 문제
 
 ## 2557번 Hello World(<https://www.acmicpc.net/problem/2557>{: target="_blank" })
 
-![2557(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/2557(1).png)
+![2557(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/2557(1).png)
 
 ```java
 public class Main {
@@ -20,7 +20,7 @@ public class Main {
 
 ## 1000번 A+B(<https://www.acmicpc.net/problem/1000>{: target="_blank" })
 
-![1000(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/1000(1).png)
+![1000(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/1000(1).png)
 
 ```java
 import java.util.Scanner;
@@ -41,7 +41,7 @@ public class Main {
 
 ## 1001번 A-B(<https://www.acmicpc.net/problem/1001>{: target="_blank" })
 
-![1001(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/1001(1).png)
+![1001(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/1001(1).png)
 
 ```java
 import java.util.Scanner;
@@ -62,7 +62,7 @@ public class Main {
 
 ## 10998번 A*B(<https://www.acmicpc.net/problem/10998>{: target="_blank" })
 
-![10998(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/10998(1).png)
+![10998(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/10998(1).png)
 
 ```java
 import java.util.Scanner;
@@ -83,7 +83,7 @@ public class Main {
 
 ## 1008번 A/B(<https://www.acmicpc.net/problem/1008>{: target="_blank" })
 
-![1008(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/1008(1).png)
+![1008(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/1008(1).png)
 
 ```java
 import java.util.Scanner;
@@ -104,7 +104,7 @@ public class Main {
 
 ## 10869번 사칙연산(<https://www.acmicpc.net/problem/10869>{: target="_blank" })
 
-![10869(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/10869(1).png)
+![10869(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/10869(1).png)
 
 ```java
 import java.util.Scanner;
@@ -133,7 +133,7 @@ public class Main {
 
 ## 10926번 ??!(<https://www.acmicpc.net/problem/10926>{: target="_blank" })
 
-![10926(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/10926(1).png)
+![10926(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/10926(1).png)
 
 ```java
 import java.util.Scanner;
@@ -152,7 +152,7 @@ public class Main {
 
 ## 18108번 1998년생인 내가 태국에서는 2541년생?!(<https://www.acmicpc.net/problem/18108>{: target="_blank" })
 
-![18108(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/18108(1).png)
+![18108(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/18108(1).png)
 
 ```java
 import java.util.Scanner;
@@ -171,7 +171,7 @@ public class Main {
 
 ## 10430번 나머지(<https://www.acmicpc.net/problem/10430>{: target="_blank" })
 
-![10430(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/10430(1).png)
+![10430(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/10430(1).png)
 
 ```java
 import java.util.Scanner;
@@ -194,7 +194,7 @@ public class P10430 {
 
 ## 2588번 곱셈(<https://www.acmicpc.net/problem/2588>{: target="_blank" })
 
-![2588(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/2588(1).png)
+![2588(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/2588(1).png)
 
 ```java
 import java.util.Scanner;
@@ -216,7 +216,7 @@ public class Main {
 
 ## 11382번 꼬마 정민(<https://www.acmicpc.net/problem/11382>{: target="_blank" })
 
-![11382(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/11382(1).png)
+![11382(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/11382(1).png)
 
 ```java
 import java.io.*;
@@ -242,7 +242,7 @@ public class Main {
 
 ## 10171번 고양이(<https://www.acmicpc.net/problem/10171>{: target="_blank" })
 
-![10171(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/10171(1).png)
+![10171(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/10171(1).png)
 
 ```java
 public class Main {
@@ -259,7 +259,7 @@ public class Main {
 
 ## 10172번 개(<https://www.acmicpc.net/problem/10172>{: target="_blank" })
 
-![10172(1)](/assets/img/posts/algorithm/java/boj-step-by-step-io-and-elementary-arithmetic-by-java/10172(1).png)
+![10172(1)](/assets/img/posts/algorithm/boj/java/step-by-step-io-and-elementary-arithmetic/10172(1).png)
 ```java
 public class P10172 {
     public static void main(String[] args) {

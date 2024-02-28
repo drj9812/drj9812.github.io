@@ -4,7 +4,7 @@ categories: [블로그, GitHub 블로그 만들기]
 tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Google, 구글, Search Console, 노출, 색인]
 ---
 
-# [Google | Search Console]GitHub 블로그를 구글 검색 엔진에 노출시키기
+# GitHub 블로그를 구글 검색 엔진에 노출시키기
 
 ## Search Console이란?
 
