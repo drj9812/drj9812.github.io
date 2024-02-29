@@ -165,7 +165,7 @@ public class Main {
 }
 ```
 
-문제의 설명대로 자바(Java)를 이용하여 문제를 풀 때, `Scanner`를 사용하면 시간초과되어 오답처리 될 수 있기 때문에 앞으로는 `BufferedWriter`까지는 아니더라도 `BufferedReader`를 사용하는 것을 권장합니다. 위 문제에서는 `println()`메서드로 출력하려했더니 시간초과되서 `BufferedWriter`를 사용했습니다.
+문제의 설명대로 자바를 이용하여 문제를 풀 때, `Scanner`를 사용하면 시간초과되어 오답처리 될 수 있기 때문에 앞으로는 `BufferedWriter`까지는 아니더라도 `BufferedReader`를 사용하는 것을 권장합니다. 위 문제에서는 `println()` 메서드로 출력하려 했더니 시간초과되서 `BufferedWriter`를 사용했습니다.
 
 ## 11021번 A+B - 7(<https://www.acmicpc.net/problem/11021>{: target="_blank" })
 

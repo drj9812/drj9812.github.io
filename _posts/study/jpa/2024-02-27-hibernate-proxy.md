@@ -28,18 +28,19 @@ import javax.persistence.Table;
 public class UserEntity {
 	
     @Id
-    private String email;
+    private String id;
+
     private String name;
 
     public UserEntity() {}
 
-    public UserEntity(String email, String name) {
-    	this.email = email;
+    public UserEntity(String id, String name) {
+    	this.id = id;
     	this.name = name;
     }
     
-    public String getEmail() {
-        return email;
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -56,6 +57,7 @@ import studio.aroundhub.entity_manager_factory.factory.CEntityManagerFactory;
 
 public class EntityManagerFactoryApplication {
     public static void main(String[] args) {
+
         CEntityManagerFactory.initialization();
         EntityManager entityManager = CEntityManagerFactory.createEntityManger();
 
@@ -64,10 +66,10 @@ public class EntityManagerFactoryApplication {
         try {
             entityTransaction.begin();
 
-            UserEntity findUser = entityManager.find(UserEntity.class, "drj9812@gmail.com");
+            UserEntity findUser = entityManager.find(UserEntity.class, "drj9812");
             
             System.out.println("getClass(): " + findUser.getClass());
-            System.out.println("getEmail(): " + findUser.getEmail());
+            System.out.println("getId(): " + findUser.getId());
             System.out.println("getName(): " + findUser.getName());
             
             entityTransaction.commit();
@@ -88,17 +90,17 @@ public class EntityManagerFactoryApplication {
 find() 전
 Hibernate: 
     select
-        userentity0_.email as email1_0_0_,
+        userentity0_.id as id1_0_0_,
         userentity0_.created_at as created_2_0_0_,
         userentity0_.name as name3_0_0_,
         userentity0_.updated_at as updated_4_0_0_ 
     from
         user userentity0_ 
     where
-        userentity0_.email=?
+        userentity0_.id=?
 find() 후
 getClass(): class studio.aroundhub.entity_manager_factory.entity.UserEntity
-getEmail(): drj9812@gmail.com
+getId(): drj9812
 getName(): 스밀라
 ```
 
@@ -112,6 +114,7 @@ import studio.aroundhub.entity_manager_factory.factory.CEntityManagerFactory;
 
 public class EntityManagerFactoryApplication {
     public static void main(String[] args) {
+
         CEntityManagerFactory.initialization();
         EntityManager entityManager = CEntityManagerFactory.createEntityManger();
 
@@ -121,11 +124,11 @@ public class EntityManagerFactoryApplication {
             entityTransaction.begin();
 
 	    System.out.println("getReference() 전");
-            UserEntity refUser = entityManager.getReference(UserEntity.class, "drj9812@gmail.com");
+            UserEntity refUser = entityManager.getReference(UserEntity.class, "drj9812");
             System.out.println("getReference() 후");
 
             System.out.println("getClass(): " + refUser.getClass());
-            System.out.println("getEmail(): " + refUser.getEmail());
+            System.out.println("getId(): " + refUser.getId());
             System.out.println("getName(): " + refUser.getName());
 
 	    entityTransaction.commit();
@@ -146,17 +149,17 @@ public class EntityManagerFactoryApplication {
 getReference() 전
 getReference() 후
 getClass(): class studio.aroundhub.entity_manager_factory.entity.UserEntity$HibernateProxy$uZfvsnk8
-getEmail(): drj9812@gmail.com
+getId(): drj9812
 Hibernate: 
     select
-        userentity0_.email as email1_0_0_,
+        userentity0_.id as id1_0_0_,
         userentity0_.created_at as created_2_0_0_,
         userentity0_.name as name3_0_0_,
         userentity0_.updated_at as updated_4_0_0_ 
     from
         user userentity0_ 
     where
-        userentity0_.email=?
+        userentity0_.id=?
 getName(): 스밀라
 ```
 
@@ -164,7 +167,7 @@ getName(): 스밀라
 
 `getReference()` 메서드는 프록시 객체를 생성하고 반환한다(이때 프록시 객체는 영속화된다). 실제로 `getClass()` 메서드를 출력한 값을 보면, 원본 `Entity` 클래스명 뒤에 Hibernate에서 자동으로 생성한 내부 클래스명이 추가되었다.
 
-생성된 **프록시 객체는 `Entity`의 클래스 정보와 식별자(`@Id`)만을 가지고 있다.** 프록시 객체는 이미 식별자인 email 값을 가지고 있었기 때문에, 쿼리를 실행하지 않고 `getEmail()` 메서드를 호출하여 출력할 수 있었던 것이다. 하지만  `Entity`의 name 값은 프록시 객체가 가지고 있지 않기 때문에, `getName()` 메서드를 호출하려고 할 때 그제서야 쿼리를 실행한다. 실제로 **필요한 경우에만 DB에 접근**한 것이다.
+생성된 **프록시 객체는 `Entity`의 클래스 정보와 식별자(`@Id`)만을 가지고 있다.** 프록시 객체는 이미 식별자인 `id` 값을 가지고 있었기 때문에, 쿼리를 실행하지 않고 `getId()` 메서드를 호출하여 출력할 수 있었던 것이다. 하지만  `Entity`의 `name` 값은 프록시 객체가 가지고 있지 않기 때문에, `getName()` 메서드를 호출하려고 할 때 그제서야 쿼리를 실행한다. 실제로 **필요한 경우에만 DB에 접근**한 것이다.
 
 따라서, `getNmae()` 메서드를 통해 가져온 name 값은 프록시 객체에서 가져온 것이 아닌 실제 `Entity` 객체에 위임하여 가져온 것이다.
 
@@ -203,8 +206,67 @@ getName(): 스밀라
 	+ 반대로 영속성 컨텍스트에 프록시 객체가 저장되어있다면, `Entity`가 생성되지 않음
 - 준영속, 영속 삭제 상태의 프록시를 초기화하는 경우 `LazyInitializationException` 에러가 발생
 - OSIV 옵션이 `false`일 때, 트랜젝션 바깥에서 프록시를 초기화하는 경우 `LazyInitializationException` 에러가 발생
-- 메서드 이름이 자바 빈 규약을 만족시키지 못할 경우, 식별자 값에 접근하려할 때 프록시 객체가 초기화될 수 있음 
-- ~~식별자 값은 프록시가 아닌 프록시 내부의 인터셉터에 들어있음~~
+- 메서드 이름이 자바 빈 규약을 만족시키지 못할 경우, 식별자 값에 접근하려할 때 프록시 객체가 초기화될 수 있음
+- 프록시 객체가 가진 필드 값들은 모두 null
+	+ 식별자 값은 프록시가 아닌 프록시 내부의 인터셉터에 들어있음
+
+## equals() 메서드 오버라이드
+
+```java
+@Override
+public boolean equals(Object obj) {
+	if (this == obj) {
+		return true;			
+	}
+
+	if (obj == null) {
+		return false;			
+	}
+
+	if (getClass() != obj.getClass()) {
+		return false;
+	}
+
+	Order order = (Order) obj;
+
+	return Objects.equals(id, order.id);
+}
+```
+
+프록시 객체를 사용할 때 위와 같이 IDE의 자동 생성 기능을 활용하여 생성된 오버라이드된 `equals()` 메서드를 사용하면 문제가 생길 수 있다.
+
+```java
+Order order = userEntity.getOrder();
+Order sameOrder = userEntity.getOrder();
+assertThat(order).isEqualTo(sameOrder);
+```
+
+위 코드에서 변수 `order`와 `sameOrder`는 식별자로 접근하지 않았으므로 둘 다 프록시 객체다. `sameOrder`를 인자로 하여 `order`의 `equals()` 메서드를 호출하면, 정의한 `equals()` 메서드 내부의 `if (getClass() != obj.getClass()) {return false)` 코드가 실행된다. 이때 `getClass()` 메서드가 반환하는 객체는 원본 객체이고, 인자로 전달받은 `sameOrder`가 반환하는 객체는 프록시 객체이기 때문에 서로 주소값이 같음에도 불구하고 `equals()` 메서드는 `true`가 아닌 `false`를 반환한다.
+
+```java
+@Override
+public boolean equals(Object obj) {
+	if (this == obj) {
+		return true;			
+	}
+
+	if (obj == null) {
+		return false;			
+	}
+
+	if (!(obj instanceof Order) {
+		return false;
+	}
+
+	Order order = (Order) obj;
+
+	return Objects.equals(id, order.getId());
+}
+```
+
+따라서 보편적인 의도대로 `equals()` 메서드를 오버라이드하기 위해서는 위와 같이 `equals()` 메서드를 오버라이드할 때 일반적으로 사용되는 `getClass()` 메서드를 사용하지 않고 `instanceof` 연산자를 사용해야 한다. 프록시 객체는 원본 객체를 상속받았기 때문이다.
+
+또한, 프록시의 모든 필드 값들은 `null`이기 때문에 필드 접근 방식 대신 프로퍼티 접근 방식을 사용한다. 
 
 ## 로딩 전략
 

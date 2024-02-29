@@ -24,7 +24,7 @@ tags: [JPA, Primary Key, 기본 키]
 - 컬럼에 `AUTO_INCREMENT` 기능을 활용하여 값을 사용
 - **Identity 전략은 `persist()` 메서드가 호출되는 시점에 Insert 쿼리가 실행되며 식별자를 조회**
 	+ 영속성 컨텍스트에서 영속 객체를 관리하려면 1차 캐시에 식별자를 저장해야되는데, PK 생성을 DB에서 담당하므로 쿼리가 먼저 실행되어야 함
-	+ 일반적으로 다른 전략 방식은 commit 시점에 쿼리 실행
+	+ 일반적으로 다른 전략 방식은 커밋 시점에 쿼리 실행
 
 ### Sequence
 
@@ -729,7 +729,7 @@ Input your Command // [command] [name]
 ![04-insert-insertdirect-jack](/assets/img/posts/study/jpa/primary-key-generation-strategy/04-insert-insertdirect-jack.jpg)
 *insertDriect jack 입력*
 
-commit할 때 쿼리 실행
+커밋할 때 쿼리 실행
 
 ![05-insert-insertdirect-jack-result](/assets/img/posts/study/jpa/primary-key-generation-strategy/05-insert-insertdirect-jack-result.jpg)
 *insertDirect jack 입력 결과*
@@ -737,7 +737,7 @@ commit할 때 쿼리 실행
 ![06-insert-insertdirect-james](/assets/img/posts/study/jpa/primary-key-generation-strategy/06-insert-insertdirect-james.jpg)
 *insertDirect james 입력*
 
-commit할 때 쿼리 실행
+커밋할 때 쿼리 실행
 
 ![07-insert-insertdirect-james-result](/assets/img/posts/study/jpa/primary-key-generation-strategy/07-insert-insertdirect-james-result.jpg)
 *insertDirect james 입력 결과*
@@ -763,7 +763,7 @@ commit할 때 쿼리 실행
 
 PK를 시퀀스 역할을 수행하는 테이블을 생성하여 할당하는 전략이기 때문에, `persist()` 메서드가 호출될 때 `@TableGenerator` 어노테이션의 `name` 속성에서 명시한 `id_gen`이라는 테이블에 대해 `SELECT` 문을 먼저 실행하여 PK 값을 가져오고 바꾼 뒤, 영속성 컨텍스트에 있는 영속 객체의 1차 캐시에 PK값을 할당한 후, `UPDATE` 문을 실행하여 변경된 PK 값을 DB에 저장한다.
 
-`Entity` 객체는 commit할 때 쿼리가 실행되면서 동기화된다.
+`Entity` 객체는 커밋할 때 쿼리가 실행되면서 동기화된다.
 
 ![13-insert-inserttable-jack-result(1)](/assets/img/posts/study/jpa/primary-key-generation-strategy/13-insert-inserttable-jack-result(1).jpg)
 *insertTable jack 입력 결과(1)*
@@ -776,7 +776,7 @@ PK를 시퀀스 역할을 수행하는 테이블을 생성하여 할당하는 �
 
 PK를 DB의 시퀀스를 이용하여 할당하는 전략이기 때문에, `persist()` 메서드가 호출될 때 `@SequenceGenerator` 어노테이션의 `SequenceName` 속성에서 명시한 `my_seq`이라는 시퀀스에 대해 `SELECT` 문을 먼저 실행하여 PK 값을 가져온 뒤, 영속성 컨텍스트에 있는 영속 객체의 1차 캐시에 PK값을 할당한다.
 
-`Entity` 객체는 commit할 때 쿼리가 실행되면서 동기화된다.
+`Entity` 객체는 커밋할 때 쿼리가 실행되면서 동기화된다.
 
 ![16-insert-insertsequence-jack-result(1)](/assets/img/posts/study/jpa/primary-key-generation-strategy/16-insert-insertsequence-jack-result(1).jpg)
 *insertSequence jack 결과(1)*
