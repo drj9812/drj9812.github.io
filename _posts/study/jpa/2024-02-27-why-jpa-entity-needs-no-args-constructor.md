@@ -18,7 +18,7 @@ tags: [JPA, Reflection API, Proxy, 프록시]
 
 ## Reflection API
 
-JPA는 객체를 생성할 때 내부적으로 Reflection API를 사용하는데 이때 기본 생성자가 사용된다고 한다.
+JPA는 객체를 생성할 때 내부적으로 Reflection API를 사용하는데, 이때 기본 생성자가 사용된다고 한다.
 
 ## JPA, Hibernate 스펙
 
