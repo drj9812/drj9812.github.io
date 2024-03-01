@@ -45,7 +45,7 @@ $ git push
 >
 > *RSS는 어떤 사이트에 새로운 콘텐츠가 올라왔을 때 해당 사이트에 방문하지 않고, RSS서비스를 통해 리더 한 곳에서 그 콘텐츠를 이용하기 위한 방법이다. 쉽게 생각하면, 여러 언론사 사이트를 모두 방문할 필요 없이 다양한 기사를 네이버뉴스 한 곳에서 볼 수 있는 것과 같다고 보면 된다.*
 >
-> ["RSS", 나무위키, 2023-03-21](https://namu.wiki/w/RSS){: target=" _blank" }
+> [나무위키, "RSS", 2023-03-21](https://namu.wiki/w/RSS){: target=" _blank" }
 
 ![08-not-valid-rss](/assets/img/posts/blog/how-to-add-github-blog-to-naver-search-advisor/08-not-valid-rss.jpg)
 
