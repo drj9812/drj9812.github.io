@@ -12,7 +12,7 @@ tags: [JPA, Reflection API, Proxy, 프록시]
 - [[JPA]Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" }
 - [[JPA]Hibernate Proxy(프록시)](https://drj9812.github.io/posts/hibernate-proxy/){: target="_blank" }
 
-![01-compile-error](/assets/img/posts/study/jpa/why-jpa-entity-needs-no-args-constructor/01-compile-error.jpg)
+![01-no-args-constructor-compile-error](/assets/img/posts/study/jpa/why-jpa-entity-needs-no-args-constructor/01-no-args-constructor-compile-error.jpg)
 
 `@Entity` 어노테이션이 붙은 `Entity` 클래스에 기본 생성자를 정의하지 않으면 위 사진과 같이 컴파일 에러가 발생한다.
 
@@ -34,9 +34,14 @@ JPA와 JPA를 구현하는 Hibernate 스펙에서 `Entity` 클래스는 각각, 
 
 ### 왜 public, protected인가?
 
-JPA를 구현하는 Hibernate는 지연 로딩 전략을 사용할 때 대리자로서 프록시 객체를 생성하여 요청을 위임한다. 이때 프록시 객체는 `Entity` 객체를 상속받는데, 만약 생성자의 접근 제어자가 `private`으로 선언되어있다면 상속받지 못할 것이다. `Entity` 클래스에 `final` 키워드를 사용하지 못하는 것도 같은 이유다.
+![02-private-no-args-constructor-comile-error](/assets/img/posts/study/jpa/why-jpa-entity-needs-no-args-constructor/02-private-no-args-constructor-comile-error.jpg)
 
-하지만 필드를 `private`으로 선언하는 것은 가능한데, 그 이유는 프록시 객체가 `Entity`의 package visibility 이상의 getter/setter를 이용해 우회적으로 접근할 수 있기 때문이다. 그렇기 떄문에, 필드와 getter/setter의 접근 제어자를 `private`로 선언하면 프록시 객체가 `Entity`의 필드에 접근할 수 없어 에러가 발생한다.
+JPA를 구현하는 Hibernate는 지연 로딩 전략을 사용할 때 클라이언트의 요청을 위임하기 위해 프록시 객체를 생성한다. 이 프록시 객체는 `Entity` 객체를 상속받는데, 만약 생성자의 접근 제어자가 `private`으로 선언되어 있다면, 하위 클래스인 프록시 객체가 해당 생성자를 상속받지 못하게 될 것이다. 
+
+그럼에도 불구하고, 필드의 접근 제어자가 `private`으로 선언되는 것은 가능하다. 왜냐하면 프록시 객체는 `Entity` 클래스의 패키지 범위 이상의 getter/setter를 상속받아 필드에 우회적으로 접근할 수 있기 때문이다.
+
+> `Entity` 클래스를 `final`로 선언할 수 없는 이유도 프록시 객체와 관련이 있다. `final`로 선언된 클래스는 상속받을 수 없기 때문에 프록시 객체가 상속받아야 할 `Entity` 클래스는 `final`로 선언될 수 없다.
+{: .prompt-info }
 
 ## 참고자료
 

@@ -215,7 +215,7 @@ public class ClassClass {
 }
 ```
 
-[클래스 멤버 관련 메서드](#anchor1)에서 사용한 위 코드에서 이미 Reflection API가 사용되었다. `import`를 보면 알 수 있듯이, `Field` 클래스, `Method` 클래스, `Constructor` 클래스가 `reflect` 패키지에 속한다. Reflection API가 이 `reflect` 패키지를 사용하는 것이다.
+[클래스 멤버 관련 메서드](#anchor1)에서 사용한 위 코드에서 이미 Reflection API가 사용되었다. `import`문을 보면 알 수 있듯이, `Field` 클래스, `Method` 클래스, `Constructor` 클래스가 `reflect` 패키지에 속한다. Reflection API가 이 `reflect` 패키지를 사용하는 것이다.
 
  <div style="display: flex;">
     <figure style="flex: 1; margin-left: 10px;">
