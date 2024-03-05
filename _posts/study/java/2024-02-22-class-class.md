@@ -228,7 +228,7 @@ public class ClassClass {
     </figure>
 </div>
 
-뿐만 아니라, 클래스의 멤버들을 가져올 때 사용되어지는 `getDeclaredFields()`와 같은 메서드들은 `Class` 클래스에 속하지만, 역시 `Class` 클래스 내부에서 `reflect` 패키지를 사용하고 있다.
+클래스의 멤버들을 가져올 때 사용되는 `Class` 클래스의 `getDeclaredFields()`와 같은 메서드들도 내부적으로는 `reflect` 패키지를 사용하고 있다.
 
 > [[Java]Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" } 참조
 {: .prompt-tip }

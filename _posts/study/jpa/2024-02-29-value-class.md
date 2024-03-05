@@ -68,8 +68,8 @@ public class Provider {
 }
 ```
 
-> `@Embedded`로 매핑된 `Entity`의 접근 방식과 상관없이 `@Embeddable` 클래스에서 접근 방식을 설정하기 위해서는 `@Access(AccessType.FIELD)`, `@Access(AccessType.PROPERTY)` 어노테이션을 사용하면 접근 타입을 고정할 수 있음
-{: .prompt-tip }
+> `@Embedded`로 매핑된 `Entity`의 접근 방식과 상관없이 `@Embeddable` 클래스에서 접근 방식을 설정하기 위해서는 `@Access(AccessType.FIELD)`, `@Access(AccessType.PROPERTY)` 어노테이션을 사용하면 접근 타입을 고정할 수 있다.
+{: .prompt-info }
 
 ## 밸류 클래스의 라이프 사이클
 
