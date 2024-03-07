@@ -56,6 +56,8 @@ H2가 사용자의 홈 디렉토리에 `DB 이름.mv.db` 파일을 사용하여 
 
 [파일이 생성](#anchor1)된 걸 확인했으니, 이후부터는 `jdbc:h2:tcp://localhost/~/DB 이름`(네트워크 모드) 주소로 접속하여 접근합니다.
 
+![08-success-h2-execution](/assets/img/posts/tools/h2-database/install-h2-database-on-windows/08-success-h2-execution.jpg)
+*성공*
 ## 참조
 
 - [김영한, "실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발", Inflearn, Date unknown](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1){: target="_blank" }

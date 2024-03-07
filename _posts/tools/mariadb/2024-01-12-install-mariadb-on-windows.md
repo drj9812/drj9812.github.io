@@ -75,4 +75,5 @@ tags: [설치, MariaDB, MariaDB 설치]
 ![12-run-heidisql(2)](/assets/img/posts/tools/mariadb/install-mariadb-on-windows/12-run-heidisql(2).png)
 *`신규` > [설치 시 입력했던 패스워드 입력](#anchor1) > `열기`*
 
-![13-run-heidisql(3)](/assets/img/posts/tools/mariadb/install-mariadb-on-windows/13-run-heidisql(3).png)
+![13-success-heidisql-execution](/assets/img/posts/tools/mariadb/install-mariadb-on-windows/13-success-heidisql-execution.png)
+*성공*

@@ -215,21 +215,21 @@ getName(): 스밀라
 ```java
 @Override
 public boolean equals(Object obj) {
-	if (this == obj) {
-		return true;			
-	}
+    if (this == obj) {
+        return true;			
+    }
 
-	if (obj == null) {
-		return false;			
-	}
+    if (obj == null) {
+        return false;			
+    }
 
-	if (getClass() != obj.getClass()) {
-		return false;
-	}
+    if (getClass() != obj.getClass()) {
+        return false;
+    }
 
-	Order order = (Order) obj;
+    Order order = (Order) obj;
 
-	return Objects.equals(id, order.id);
+    return Objects.equals(id, order.id);
 }
 ```
 
@@ -246,21 +246,21 @@ assertThat(order).isEqualTo(sameOrder);
 ```java
 @Override
 public boolean equals(Object obj) {
-	if (this == obj) {
-		return true;			
-	}
+    if (this == obj) {
+        return true;			
+    }
 
-	if (obj == null) {
-		return false;			
-	}
+    if (obj == null) {
+        return false;			
+    }
 
-	if (!(obj instanceof Order) {
-		return false;
-	}
+    if (!(obj instanceof Order) {
+        return false;
+    }
 
-	Order order = (Order) obj;
+    Order order = (Order) obj;
 
-	return Objects.equals(id, order.getId());
+    return Objects.equals(id, order.getId());
 }
 ```
 
