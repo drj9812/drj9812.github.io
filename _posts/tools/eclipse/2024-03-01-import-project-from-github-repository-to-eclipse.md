@@ -6,7 +6,7 @@ tags: [Eclipse, 이클립스, import, GitHub]
 
 # GitHub Repository에서 이클립스로 프로젝트 가져오기
 
-![01-copy-url-to-clipboard.jpg](/assets/img/posts/tools/eclipse/import-project-from-github-repository-to-eclipse/01-copy-url-to-clipboard.jpg)
+![01-copy-url-to-clipboard](/assets/img/posts/tools/eclipse/import-project-from-github-repository-to-eclipse/01-copy-url-to-clipboard.jpg)
 *Repositry > `Code` > `Copy url to clipboard`*
 
 ![02-import(1)](/assets/img/posts/tools/eclipse/import-project-from-github-repository-to-eclipse/02-import(1).jpg)
