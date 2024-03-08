@@ -1,6 +1,6 @@
 ---
 title: "[JPA]Value 클래스"
-categories: [공부, JPA]
+categories: [Study, JPA]
 tags: [JPA, Value 클래스, 밸류 클래스, "@Embeddable", "@Embedded"]
 ---
 

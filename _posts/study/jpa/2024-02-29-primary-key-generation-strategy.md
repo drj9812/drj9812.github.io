@@ -1,6 +1,6 @@
 ---
 title: "[JPA]기본 키(Primary Key) 생성 전략"
-categories: [공부, JPA]
+categories: [Study, JPA]
 tags: [JPA, Primary Key, 기본 키]
 ---
 

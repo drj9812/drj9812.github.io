@@ -1,6 +1,6 @@
 ---
 title: "[Java]Reflection API"
-categories: [공부, Java]
+categories: [Study, Java]
 tags: [Java, 자바, Reflection API]
 ---
 

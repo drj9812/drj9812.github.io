@@ -1,6 +1,6 @@
 ---
 title: "[JPA]Entity에 기본 생성자가 필요한 이유"
-categories: [공부, JPA]
+categories: [Study, JPA]
 tags: [JPA, Reflection API, Proxy, 프록시]
 ---
 

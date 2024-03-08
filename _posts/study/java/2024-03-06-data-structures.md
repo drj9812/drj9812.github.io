@@ -1,7 +1,7 @@
 ---
 title: "[Java]자료 구조"
-categories: [공부, Java]
-tags: [Java, 자바, Data structures, 자료 구조, Iterable, Collection, List, ArrayList, LinkedList, Vetor, Stack, Queue,  Deque, Set, TreeSet, HashSet, Map, HashMa, LinkedHashMap, TreeMap, p]
+categories: [Study, Java]
+tags: [Java, 자바, Data structures, 자료 구조, Iterable, Collection, List, ArrayList, LinkedList, Vetor, Stack, Queue,  Deque, Set, TreeSet, HashSet, Map, HashMa, LinkedHashMap, TreeMap]
 ---
 
 # 자료 구조(Data Structures)
@@ -437,18 +437,18 @@ public class MapMain03 {
 
     for (int i = 0; i < sArr.length; i++) {
         switch (sArr[i]) {
-		case "하늘":
-		    haneul++;
-		    wordcloud.put("하늘", haneul);
-		    break;
-		case "땅":
-		    ddang++;
-		    wordcloud.put("땅", ddang);
-		    break;
-		case "sky":
-		    sky++;
-		    wordcloud.put("sky", sky);
-		    break;
+	    case "하늘":
+                haneul++;
+                wordcloud.put("하늘", haneul);
+                break;
+            case "땅":
+                ddang++;
+                wordcloud.put("땅", ddang);
+                break;
+            case "sky":
+                sky++;
+                wordcloud.put("sky", sky);
+                break;
         }
     }
 

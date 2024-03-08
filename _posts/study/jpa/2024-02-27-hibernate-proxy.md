@@ -1,6 +1,6 @@
 ---
 title: "[JPA]Hibernate 프록시(Proxy)"
-categories: [공부, JPA]
+categories: [Study, JPA]
 tags: [JPA, Hibernate, Proxy, 프록시]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "[Java]내부(Inner) 클래스"
-categories: [공부, Java]
+categories: [Study, Java]
 tags: [Java, 자바, Inner 클래스]
 ---
 
