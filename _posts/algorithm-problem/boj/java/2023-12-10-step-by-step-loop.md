@@ -144,16 +144,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	StringTokenizer tkn;
+	StringTokenizer stkn;
 		
 	int t = Integer.parseInt(br.readLine());
 	int sum = 0;
 		
 	for (int i = 0; i < t; i++) {
-	    tkn = new StringTokenizer(br.readLine());
+	    stkn = new StringTokenizer(br.readLine());
 			
-	    int a = Integer.parseInt(tkn.nextToken());
-	    int b = Integer.parseInt(tkn.nextToken());
+	    int a = Integer.parseInt(stkn.nextToken());
+	    int b = Integer.parseInt(stkn.nextToken());
 			
 	    sum = a + b;
 			
@@ -181,16 +181,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	StringTokenizer tkn;
+	StringTokenizer stkn;
 		
 	int t = Integer.parseInt(br.readLine());
 	int sum = 0;
 		
 	for (int i = 1; i <= t; i++) {
-	    tkn = new StringTokenizer(br.readLine());
+	    stkn = new StringTokenizer(br.readLine());
 			
-	    int a = Integer.parseInt(tkn.nextToken());
-	    int b = Integer.parseInt(tkn.nextToken());
+	    int a = Integer.parseInt(stkn.nextToken());
+	    int b = Integer.parseInt(stkn.nextToken());
 			
 	    sum = a + b;
 			
@@ -216,16 +216,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	StringTokenizer tkn;
+	StringTokenizer stkn;
 		
 	int t = Integer.parseInt(br.readLine());
 	int sum = 0;
 		
 	for (int i = 1; i <= t; i++) {
-	    tkn = new StringTokenizer(br.readLine());
+	    stkn = new StringTokenizer(br.readLine());
 			
-	    int a = Integer.parseInt(tkn.nextToken());
-	    int b = Integer.parseInt(tkn.nextToken());
+	    int a = Integer.parseInt(stkn.nextToken());
+	    int b = Integer.parseInt(stkn.nextToken());
 			
 	    sum = a + b;
 			
@@ -315,15 +315,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	StringTokenizer tkn;
+	StringTokenizer stkn;
 
 	int sum = 0;
 
 	while (true) {
-	    tkn = new StringTokenizer(br.readLine());
+	    stkn = new StringTokenizer(br.readLine());
 
-	    int a = Integer.parseInt(tkn.nextToken());
-	    int b = Integer.parseInt(tkn.nextToken());
+	    int a = Integer.parseInt(stkn.nextToken());
+	    int b = Integer.parseInt(stkn.nextToken());
 
 	    sum = a + b;
 
@@ -353,16 +353,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	StringTokenizer tkn;
+	StringTokenizer stkn;
 
 	String input;
 	int sum = 0;
 
 	while ((input = br.readLine()) != null) {
-	    tkn = new StringTokenizer(input);
+	    stkn = new StringTokenizer(input);
 
-	    int a = Integer.parseInt(tkn.nextToken());
-	    int b = Integer.parseInt(tkn.nextToken());
+	    int a = Integer.parseInt(stkn.nextToken());
+	    int b = Integer.parseInt(stkn.nextToken());
 
 	    sum = a + b;
 

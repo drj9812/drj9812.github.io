@@ -225,11 +225,11 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	StringTokenizer tkn = new StringTokenizer(br.readLine());
+	StringTokenizer stkn = new StringTokenizer(br.readLine());
 		
-	long a = Long.parseLong(tkn.nextToken());
-	long b = Long.parseLong(tkn.nextToken());
-	long c = Long.parseLong(tkn.nextToken());
+	long a = Long.parseLong(stkn.nextToken());
+	long b = Long.parseLong(stkn.nextToken());
+	long c = Long.parseLong(stkn.nextToken());
 		
 	long result = a + b + c;
 		

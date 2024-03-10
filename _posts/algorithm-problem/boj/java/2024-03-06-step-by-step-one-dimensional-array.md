@@ -17,17 +17,17 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    StringTokenizer tkn;
+    StringTokenizer stkn;
     int cnt = 0;
 		
     int n = Integer.parseInt(br.readLine());
     int[] nArray = new int[n];
 		
-    tkn = new StringTokenizer(br.readLine());
+    stkn = new StringTokenizer(br.readLine());
     int target = Integer.parseInt(br.readLine());
 		
     for(int i = 0; i < nArray.length; i++) {
-	nArray[i] = Integer.parseInt(tkn.nextToken());
+	nArray[i] = Integer.parseInt(stkn.nextToken());
 			
 	if (nArray[i] == target) {
 	    cnt++;
@@ -51,16 +51,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringBuilder sb = new StringBuilder();
-	StringTokenizer tkn = new StringTokenizer(br.readLine());
+	StringTokenizer stkn = new StringTokenizer(br.readLine());
 		
-	int n = Integer.parseInt(tkn.nextToken());
+	int n = Integer.parseInt(stkn.nextToken());
 	int[] nArray = new int[n];
 
-	int x = Integer.parseInt(tkn.nextToken());
-	tkn = new StringTokenizer(br.readLine());
+	int x = Integer.parseInt(stkn.nextToken());
+	stkn = new StringTokenizer(br.readLine());
 		
 	for (int i = 0; i < n; i++) {
-	    nArray[i] = Integer.parseInt(tkn.nextToken());
+	    nArray[i] = Integer.parseInt(stkn.nextToken());
 		
 	    if (nArray[i] < x) {
 		sb.append(nArray[i] + " ");
@@ -83,16 +83,16 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	StringTokenizer tkn;
+	StringTokenizer stkn;
 		
 	int n = Integer.parseInt(br.readLine());
-	tkn = new StringTokenizer(br.readLine());
+	stkn = new StringTokenizer(br.readLine());
 		
-	int max = Integer.parseInt(tkn.nextToken());
+	int max = Integer.parseInt(stkn.nextToken());
 	int min = max;
 		
 	for (int i = 0; i < n - 1; i++) {
-	    int num = Integer.parseInt(tkn.nextToken());
+	    int num = Integer.parseInt(stkn.nextToken());
 			
 	    if (max < num) {
 		max = num;
@@ -146,19 +146,19 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	StringTokenizer tkn = new StringTokenizer(br.readLine());
+	StringTokenizer stkn = new StringTokenizer(br.readLine());
 
-	int n = Integer.parseInt(tkn.nextToken());
-	int m = Integer.parseInt(tkn.nextToken());
+	int n = Integer.parseInt(stkn.nextToken());
+	int m = Integer.parseInt(stkn.nextToken());
 
 	int[] basketArr = new int[n];
 
 	for (int i = 0; i < m; i++) {
-	    tkn = new StringTokenizer(br.readLine());
+	    stkn = new StringTokenizer(br.readLine());
 
-	    int start = Integer.parseInt(tkn.nextToken());
-	    int end = Integer.parseInt(tkn.nextToken());
-	    int number = Integer.parseInt(tkn.nextToken());
+	    int start = Integer.parseInt(stkn.nextToken());
+	    int end = Integer.parseInt(stkn.nextToken());
+	    int number = Integer.parseInt(stkn.nextToken());
 
 	    for (int j = start - 1; j < end; j++) {
 	        basketArr[j] = number;
@@ -184,18 +184,18 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	StringTokenizer tkn = new StringTokenizer(br.readLine());
+	StringTokenizer stkn = new StringTokenizer(br.readLine());
 		
-	int n = Integer.parseInt(tkn.nextToken());
-	int m = Integer.parseInt(tkn.nextToken());
+	int n = Integer.parseInt(stkn.nextToken());
+	int m = Integer.parseInt(stkn.nextToken());
 		
 	int[] basketArr = IntStream.rangeClosed(1, n).toArray();
 		
 	for (int k = 0; k < m; k++) {
-	    tkn = new StringTokenizer(br.readLine());
+	    stkn = new StringTokenizer(br.readLine());
 			
-	    int i = Integer.parseInt(tkn.nextToken());
-	    int j = Integer.parseInt(tkn.nextToken());
+	    int i = Integer.parseInt(stkn.nextToken());
+	    int j = Integer.parseInt(stkn.nextToken());
 
 	    int tmp = basketArr[i - 1];
 	    basketArr[i - 1] = basketArr[j - 1];
@@ -298,18 +298,18 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	StringTokenizer tkn = new StringTokenizer(br.readLine());
+	StringTokenizer stkn = new StringTokenizer(br.readLine());
 		
-	int n = Integer.parseInt(tkn.nextToken());
-	int m = Integer.parseInt(tkn.nextToken());
+	int n = Integer.parseInt(stkn.nextToken());
+	int m = Integer.parseInt(stkn.nextToken());
 		
 	int[] basketArr = IntStream.rangeClosed(1, n).toArray();
 		
 	for (int k = 0; k < m; k++) {
-	    tkn = new StringTokenizer(br.readLine());
+	    stkn = new StringTokenizer(br.readLine());
 			
-	    int i = Integer.parseInt(tkn.nextToken()) - 1;
-	    int j = Integer.parseInt(tkn.nextToken()) - 1;
+	    int i = Integer.parseInt(stkn.nextToken()) - 1;
+	    int j = Integer.parseInt(stkn.nextToken()) - 1;
 	    int tmp = 0;
 			
 	    for (int l = 0; l < j - i + 1 / 2; i++, j--) {
@@ -344,14 +344,14 @@ public class Main {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	int n = Integer.parseInt(br.readLine());
-	StringTokenizer tkn = new StringTokenizer(br.readLine());
+	StringTokenizer stkn = new StringTokenizer(br.readLine());
 
 	int[] scoreArr = new int[n];
 	int maxScore = 0;
 	double sum = 0;
 
 	for (int i = 0; i < scoreArr.length; i++) {
-	    scoreArr[i] = Integer.parseInt(tkn.nextToken());
+	    scoreArr[i] = Integer.parseInt(stkn.nextToken());
 
 	    if (scoreArr[i] > maxScore) {
 	        maxScore = scoreArr[i];

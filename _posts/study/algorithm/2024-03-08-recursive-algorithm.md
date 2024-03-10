@@ -1,31 +1,31 @@
 ---
-title: "[Algorithm]재귀 알고리즘"
+title: "[Algorithm]재귀 알고리즘(Recursive Algorithm)"
 categories: [Study, Algorithm]
 tags: [Algorithm, 알고리즘, Recursive Algorithm, 재귀 알고리즘, Recursion, 재귀]
 ---
 
-# 재귀 알고리즘
+# 재귀 알고리즘(Recursive Algorithm)
 
-## 재귀 알고리즘이란?
+## 재귀 알고리즘(Recursive Algorithm)이란?
 
-- 함수나 메서드가 자기 자신을 호출하는 프로그래밍 기법
+- **함수나 메서드가 자기 자신을 호출**하는 프로그래밍 기법
 - 알고리즘이나 함수를 해결하기 위해 자기 자신을 호출하는 방법
 
 ## 장점
 
-- 반복문에 비한 간결한 코드
+- 반복문에 비한 **간결한 코드**
 	+ 모든 재귀 알고리즘은 반복문으로 대체할 수 있음
 - 일부 문제에서 재귀 알고리즘을 사용하면 간단하게 해결할 수 있음
 	+ 트리 구조, 그래프 구조
 
 ## 단점
 
-- 호출 스택이 초과되는 경우 오버플로우가 발생할 수 있음
 - 매 호출마다 스택에 새로운 호출 프레임이 추가되어 메모리 사용량이 증가
+- 호출 스택이 초과되는 경우 **오버플로우**가 발생할 수 있음
 - 호출과 반환에 많은 시간이 소요됨
 - 가독성이 떨어질 경우 이해하는 데 어려움
 
-## 예시
+## 구현 예시
 
 ```java
 int callRecurse() {
@@ -49,7 +49,7 @@ void recurse(int n) {
 ### 동작 과정
 
 ![01-recursive-algorithm-process](/assets/img/posts/study/algorithm/recursive-algorithm/01-recursive-algorithm-process.jpg)
-*위 그림은 재귀 알고리즘의 동작 과정을 간단하게 도식화한 것이다*
+*위 그림은 재귀 알고리즘의 동작 과정을 간단하게 도식화한 것이다.*
 
 1. `recurse(3)` 호출
 	- 호출 스택: **`recurse(3)`**
