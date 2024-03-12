@@ -73,7 +73,7 @@ public class mergeSortTest {
         System.out.println(Arrays.toString(arr));
 	}
 
-    private static void mergeSort(int[] arr, int start, int end) {
+    private static void mergeSort(int[] arr, int start, int end) { // 분할한 배열 중 어느 배열이라도 배열의 끝을 넘어가면 실행 X
         if (start < end) { // 배열의 길이가 2 이상일 경우에만 분할
             int mid = (start + end) / 2; // 배열을 반으로 나누는 중간 인덱스
 

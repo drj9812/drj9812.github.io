@@ -117,7 +117,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int index = 1;
+        int idx = 1;
 	int max = Integer.parseInt(br.readLine());
 		
 	for (int i = 2; i < 10; i++) {
@@ -125,12 +125,12 @@ public class Main {
 			
 	    if (num > max) {
 		max = num;
-		index = i;
+		idx = i;
 	    }
 	}
 		
 	System.out.println(max);
-	System.out.println(index);
+	System.out.println(idx);
     }
 }
 ```

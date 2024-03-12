@@ -9,7 +9,7 @@ tags: [설치, H2 Database, H2 Database 설치]
 ## H2 Database 다운로드
 
 ![01-h2-database-hompage](/assets/img/posts/tool/h2-database/install-h2-database-on-windows/01-h2-database-hompage.png)
-*<https://www.h2database.com>{: target="_blank" } > 알맞는 버젼 다운로드*
+*<https://www.h2database.com>{: target="_blank" } > 알맞는 버전 다운로드*
 
 스프링 부트 2.x를 사용하면 1.4.200 버전을 사용하고, 스프링 부트 3.x를 사용하면 2.1.214 버전 이상을 사용해야 합니다.
 
@@ -58,6 +58,7 @@ H2가 사용자의 홈 디렉토리에 `DB 이름.mv.db` 파일을 사용하여 
 
 ![08-success-h2-execution](/assets/img/posts/tool/h2-database/install-h2-database-on-windows/08-success-h2-execution.jpg)
 *성공*
+
 ## 참조
 
 - [김영한, "실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발", Inflearn, Date unknown](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1){: target="_blank" }
