@@ -21,10 +21,12 @@ class A { // B의 외부 클래스
 
 ```java
 class A {
+
     int i = 100;
     B b = new B();
 
     Class B {
+
         void method() {
 //	    A a = new A(); // B 클래스 내부 클래스가 아니라면 A 객체를 생성해야 함
 //          System.out.println(a.i);
@@ -35,11 +37,14 @@ class A {
 }
 
     Class C {
+
         B b = new B() // 에러. B 클래스에 접근할 수 없음
 }
 
 public class InnerTest {
+
     public static void main(String[] args) {
+
         B b = new B(); // 에러. B 클래스에 접근할 수 없음
         b.method(); // 에러. B 클래스에 접근할 수 없음
     }
@@ -55,6 +60,7 @@ public class InnerTest {
 
 ```java
 class Outer {
+
     class InstanceInner { // ... } // 인스턴스 클래스
     static class StaticInner ( // ... } // 스태틱 클래스
 
@@ -71,7 +77,7 @@ class Outer {
 | 인스턴스 클래스(Instance Class) |  외부 클래스의 멤버 변수 선언 위치에 선언하며, 외부 클래스의 인스턴스 멤버처럼 다루어진다. 주로 외부 클래스의 인스턴스 멤버들과 관련된 작업에 사용될 목적으로 선언된다. |
 |     스태틱 클래스(Static Class)    | 외부 클래스의 멤버 변수 선언 위치에 선언하며, 외부 클래스의 `static` 멤버처럼 다루어진다. 주로 외부 클래스의 `static` 멤버, 특히 `static` 메서드에서 사용될 목적으로 선언된다. |
 |      지역 클래스(Local Class)      | 외부 클래스의 메서드나 초기화 블럭 안에 선언하며, 선언된 영역 내부에서만 사용될 수 있다.                                                                                                                  |
-|  익명 클래스(Anonymous Class) | **클래스의 선언과 객체의 생성을 동시**에 하는 이름 없는 클래스(**일회용**)                                                                                                                                                 |
+|  익명 클래스(Anonymous Class) | **클래스의 선언과 객체의 생성을 동시**에 하는 이름 없는 클래스(**일회용**)                                                                                                                                      |
 
 ## 내부 클래스의 제어자와 접근성
 
@@ -93,19 +99,23 @@ class Outer {
 
 ```java
 class Ex7_12 {
+
     class InstanceInner {
+
 	int iv = 100;
 //	static int cv = 100; // 에러. static 변수를 선언할 수 없다.
 	final static int CONST = 100; // final static은 상수이므로 허용
     }
 
    static class StaticInner {
+
 	int iv = 200;
 	static int cv = 200; // static 클래스만 static 멤버를 정의할 수 있다.
     } 
 
     void myMethod() {
 	class LocalInner {
+
 	    int iv = 300;
 //	    static int cv = 300; // 에러. static 변수를 선언할 수 없다.
 	    final static int CONST = 300; // final static은 상수이므로 허용
@@ -115,6 +125,7 @@ class Ex7_12 {
     }
 
     public static void main(String args[]) {
+
 	System.out.println(InstanceInner.CONST);
 	System.out.println(StaticInner.cv); 
 //      System.out.println(LocalInner.CONST); // 에러. 지역 내부 클래스는 메서드 내에서만 사용 가능
@@ -127,6 +138,7 @@ class Ex7_12 {
 
 ```java
 class Ex7_13 {
+
     class InstanceInner {}
     static class StaticInner {}
 
@@ -167,15 +179,18 @@ class Ex7_13 {
 ```
 ```java
 class Outer {
+
     private int outerIv = 0;
     static int outerCv = 0;
 
     class InstanceInner {
+
         int iiv = outerIv ; // 외부 클래스의 private 멤버도 접근 가능하다.
         int iiv2 = outerCv;
     }
 
     static class StaticInner {
+
 //      int siv = outerIv; // 스태틱 클래스는 외부 클래스의 인스턴스 멤버에 접근할 수 없다.
         static int scv = outerCv;
     }
@@ -185,6 +200,7 @@ class Outer {
         final int LV = 0; // JDK 1.8부터 final 생략 가능
 
         class LocalInner {
+
             int liv = outerIv;
             int liv2 = outerCv;
 
@@ -205,24 +221,30 @@ class Outer {
 
 ```java
 class Outer2 {
+
     class InstanceInner {
+
         int iv = 100;
     }
 
     static class StaticInner {
+
         int iv = 200;
         static int cv = 300;
     }
 
     void myMethod() {
 	class LocalInner {
+
 	int iv = 400;
 	}
     }
 }
 
 class Ex7_15 {
+
     public static void main(String[] args) {
+
     // 인스턴스 클래스의 인스턴스를 생성하려면 외부 클래스의 인스턴스를 먼저 생성해야 한다.
     Outer2 oc = new Outer2();
     Outer2.InstanceInner ii = oc.new InstanceInner();
@@ -239,9 +261,11 @@ class Ex7_15 {
 
 ```java
 class Outer3 {
+
     int value = 10;	// Outer3.this.value
 
     class Inner {
+
 	int value = 20;   // this.value
 
 	void method1() {
@@ -254,7 +278,9 @@ class Outer3 {
 } // Outer3클래스의 끝
 
 class Ex7_16 {
+
     public static void main(String args[]) {
+
         Outer3 outer = new Outer3();
 	Outer3.Inner inner = outer.new Inner();
 	inner.method1();
@@ -281,6 +307,7 @@ new 구현인터페이스이름() {
 
 ```java
 class Ex7_17 {
+
     Object iv = new Object() { void method() { // ... } }; // 익명 클래스
     static Object cv = new Object() { void method() { // ... } }; // 익명 클래스
 
@@ -295,12 +322,15 @@ import java.awt.*;
 import java.awt.event.*;
 
 class Ex7_18 {
+
     public static void main(String[] args) {
+
 	Button b = new Button("Start");
 	b.addActionListener(new EventHandler()); 
 	
         // 위의 b.addActionListener(new EventHandler()); 코드를 익명 클래스를 이용해서 아래와 같이 작성 가능
 	b.addActionListener(new ActionListener() { // 익명 클래스. 클래스의 정의와 생성을 동시에
+
 	    public void actionPerformed(ActionEvent e) {
 		System.out.println("ActionEvent occurred!!!");
 		}

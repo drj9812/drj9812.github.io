@@ -107,8 +107,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "direct")
 public class DirectEntity {
+
     @Id
     private Long number;
+
     private String name;
 
     @Column(name = "created_at")
@@ -162,9 +164,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "identity")
 public class IdentityEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long number;
+
     private String name;
 
     @Column(name = "created_at")
@@ -240,6 +244,7 @@ public class SequenceEntity {
     			       sequenceName = "my_seq",
     			       allocationSize = 1)
     private Long id;
+
     private String name;
 
     @Column(name = "created_at")
@@ -323,6 +328,7 @@ public class TableEntity {
         		    allocationSize = 1)
     @GeneratedValue(generator = "id_generator")
     private Long number;
+
     private String name;
 
     @Column(name = "created_at")
@@ -444,6 +450,7 @@ import studio.aroundhub.id_generation.factory.CEntityManagerFactory;
 import studio.aroundhub.id_generation.service.IdGenerationService;
 
 public class IdGenerationServiceImpl implements IdGenerationService {
+
     static long num = 0;
 
     private static Long createNumber() {
@@ -627,6 +634,7 @@ import studio.aroundhub.id_generation.service.IdGenerationService;
 import studio.aroundhub.id_generation.service.impl.IdGenerationServiceImpl;
 
 public class IdGenerationApplication {
+
     public static void main(String[] args) throws IOException {
 
         CEntityManagerFactory.initialization();

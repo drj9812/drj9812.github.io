@@ -21,6 +21,7 @@ tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 댓글 기능, ut
 *`Only select repositories` > `Select repositories` > 적용할 repsository 선택*
 
 ![04-install-utterances(3)](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/04-install-utterances(3).png)
+*`Install`*
 
 `Install` 버튼을 클릭하면 다시 [utterances 홈페이지](https://utteranc.es/){: target="_blank" }로 이동합니다.
 

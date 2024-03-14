@@ -376,6 +376,7 @@ import studio.aroundhub.value.entity.Provider;
 import studio.aroundhub.value.factory.CEntityManagerFactory;
 
 public class ValueService {
+
     public void insertOriginalProvider() {
     	
         EntityManager entityManager = CEntityManagerFactory.createEntityManger();
@@ -454,6 +455,7 @@ import studio.aroundhub.value.factory.CEntityManagerFactory;
 import studio.aroundhub.value.service.ValueService;
 
 public class ValueApplication {
+
     public static void main(String[] args) throws IOException {
     	
         CEntityManagerFactory.initialization();

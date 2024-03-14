@@ -11,14 +11,16 @@ tags:  [Algorithm, 알고리즘, BOJ, 백준, Java, 자바, 단계별로 풀어�
 ![1330(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/1330(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
+
+	scanner scanner = new scanner(System.in);
 		
-	int a = sc.nextInt();
-	int b = sc.nextInt();
+	int a = scanner.nextInt();
+	int b = scanner.nextInt();
 		
 	if (a > b) {
 	    System.out.println(">");
@@ -38,13 +40,15 @@ public class Main {
 ![9498(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/9498(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
+
+	scanner scanner = new scanner(System.in);
 		
-	int score = sc.nextInt();
+	int score = scanner.nextInt();
 		
 	if (score >= 90) {
 	    System.out.println("A");
@@ -70,18 +74,21 @@ public class Main {
 ![2753(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2753(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
-    public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
 
-	int year = sc.nextInt();
+    public static void main(String[] args) {
+
+	scanner scanner = new scanner(System.in);
+
+	int year = scanner.nextInt();
 
 	if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
 	    System.out.println(1);
 			
 	} else {
+
 	    System.out.println(0);
 	}
     }
@@ -91,17 +98,19 @@ public class Main {
 ## [14681번 - 사분면 고르기](https://www.acmicpc.net/problem/14681){: target="_blank" }
 
 ![14681(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/14681(1).png)
-![14681(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/14681(1).png)
+![14681(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/14681(2).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
+
+	scanner scanner = new scanner(System.in);
 		 
-	int x = sc.nextInt();
-	int y = sc.nextInt();
+	int x = scanner.nextInt();
+	int y = scanner.nextInt();
 		 
 	if (x > 0 && y > 0) {
 	    System.out.println(1);
@@ -122,31 +131,33 @@ public class Main {
 ## [2884번 - 알람 시계](https://www.acmicpc.net/problem/2884){: target="_blank" }
 
 ![2884(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2884(1).png)
-![2884(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2884(1).png)
+![2884(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2884(2).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
 
-	int h = sc.nextInt();
-	int m = sc.nextInt();
+	scanner scanner = new scanner(System.in);
 
-	if (m >= 45) { // h != 0 && m >= 45
-	    m = m - 45;
+	int hour = scanner.nextInt();
+	int minute = scanner.nextInt();
 
-	} else if (h != 0) { // h != 0 && m < 45
-	    h -= 1;
-	    m += 15;
+	if (m >= 45) { // hour != 0 && minute >= 45
+	    minute = minute - 45;
 
-	} else if (h == 0) { // h == 0 && m < 45
-	    h = 23;
-	    m += 15;
+	} else if (h != 0) { // hour != 0 && minute < 45
+	    hour -= 1;
+	    minute += 15;
+
+	} else if (hour == 0) { // hour == 0 && minute < 45
+	    hour = 23;
+	    minute += 15;
 	}
 
-	System.out.println(h + " " + m);
+	System.out.println(hour + " " + minute);
     }
 }
 ```
@@ -154,19 +165,21 @@ public class Main {
 ## [2525번 - 오븐 시계](https://www.acmicpc.net/problem/2525){: target="_blank" }
 
 ![2525(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2525(1).png)
-![2525(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2525(1).png)
+![2525(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2525(2).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
-    public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
 
-	int a = sc.nextInt();
-	int b = sc.nextInt();
-	sc.nextLine();
-	int c = sc.nextInt();
+    public static void main(String[] args) {
+
+	scanner scanner = new scanner(System.in);
+
+	int a = scanner.nextInt();
+	int b = scanner.nextInt();
+	scanner.nextLine();
+	int c = scanner.nextInt();
 
 	int sum = b + c;
 
@@ -174,8 +187,8 @@ public class Main {
 	    a += (sum) / 60;
 	    sum = (sum) % 60;
 
-	if (a >= 24) {
-	    a -= 24;
+	    if (a >= 24) {
+	        a -= 24;
 	    }
 	}
 
@@ -187,19 +200,22 @@ public class Main {
 ## [2480번 - 주사위 세개](https://www.acmicpc.net/problem/2480){: target="_blank" }
 
 ![2480(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2480(1).png)
-![2480(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2480(1).png)
+![2480(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-conditional/2480(2).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        scanner scanner = new scanner(System.in);
+
         int reward = 0;
 
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
 
         if (a == b && b == c) {
             reward += 10000 + (a * 1000);

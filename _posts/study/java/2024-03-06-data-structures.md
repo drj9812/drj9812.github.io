@@ -56,6 +56,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ListMain01 {
+
     public static void main(String[] args) {
 
 	// 기본 타입 대신에 Wrapper 클래스를 사용해야 함
@@ -164,7 +165,9 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 public class SetMain01 {
+
     public static void main(String[] args) {
+
     // String을 원소로 갖는 TreeSet 변수 선언, 객체 생성.
     TreeSet<String> set = new TreeSet<>();
 		
@@ -219,6 +222,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class SetMain02 {
+
     public static void main(String[] args) {
 
     // Integer를 원소로 갖는 HashSet 변수를 선언, 객체 생성.
@@ -261,6 +265,7 @@ public class SetMain02 {
 import java.util.HashSet;
 
 public class SetMain03 {
+
     public static void main(String[] args) {
 
     // set<E>은 중복된 값을 저장하지 않음
@@ -323,6 +328,7 @@ import java.util.Set;
 
 
 public class MapMain01 {
+
     public static void main(String[] args) {
 
 	// 정수를 key로 하고, 문자열을 Value로 하는 HashpMap 변수 선언, 초기화(객체 생성)
@@ -385,7 +391,9 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class MapMain02 {
+
     public static void main(String[] args) {
+
 	//문자열을 key로 하고 정수를 value로 하는 TreeMap을 선언, 초기화(객체 생성).
 	TreeMap<String, Integer> menu = new TreeMap<>();
 		
@@ -423,7 +431,9 @@ import java.util.TreeMap;
 import java.util.PrimitiveIterator.OfDouble;
 
 public class MapMain03 {
+
     public static void main(String[] args) {
+
     // 단어 개수 세기(word counting):
     // 문자열에 등장하는 단어를 key로 하고, 그 단어의 등장 횟수를 value로 하는 Map을 만들고 출력
     String sentence = "하늘 땅 하늘 땅 하늘 sky sky";

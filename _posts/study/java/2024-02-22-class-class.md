@@ -18,17 +18,18 @@ tags: [Java, 자바, Class 클래스, Refleciton API]
 ### Object.getClass()
 
 ```java
-package study;
+package classclass;
 
 class Car {}
 
 public class ClassClass {
+
     public static void main(String[] args) {
 
     Car car = new Car();
 	    
     Class<?> carClass = car.getClass();
-    System.out.println(carClass); // class study.Car
+    System.out.println(carClass); // class classclass.Car
     }
 }
 ```
@@ -36,15 +37,16 @@ public class ClassClass {
 ### 리터럴
 
 ```java
-package study;
+package classclass;
 
 class Car {}
 
 public class ClassClass {
+
     public static void main(String[] args) {
 
-    Class<?> carClass = study.Car.class;
-    System.out.println(carClass); // class study.Car
+    Class<?> carClass = classclass.Car.class;
+    System.out.println(carClass); // class classclass.Car
     }
 }
 ```
@@ -52,15 +54,16 @@ public class ClassClass {
 ### Class.forName()
 
 ```java
-package study;
+package classclass;
 
 class Car {}
 
 public class ClassClass throws ClassNotFoundException {
+
     public static void main(String[] args) {
 
-    Class<?> carClass = Class.forName("study.Car");
-    System.out.println(carClass); // class study.Car
+    Class<?> carClass = Class.forName("classclass.Car");
+    System.out.println(carClass); // class classclass.Car
     }
 }
 ```
@@ -74,18 +77,19 @@ public class ClassClass throws ClassNotFoundException {
 ### 클래스 정보 관련 메서드
 
 ```java
-package study;
+package classclass;
 
 class Car {}
 
 public class ClassClass {
+
     public static void main(String[] args) throws ClassNotFoundException {
 
-    Class<?> carClass = Class.forName("study.Car");
+    Class<?> carClass = Class.forName("classclass.Car");
 
-    System.out.println(carClass.getName()); // study.Car
+    System.out.println(carClass.getName()); // classclass.Car
     System.out.println(carClass.getSimpleName()); // Car
-    System.out.println(carClass.getPackageName()); // study
+    System.out.println(carClass.getPackageName()); // classclass
     }
 }
 ```
@@ -98,13 +102,14 @@ public class ClassClass {
 ### <a id=anchor1>클래스 멤버 관련 메서드</a>
 
 ```java
-package study;
+package classclass;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Constructor;
 
 class Car {
+
     private int number;
     
     public int getNumber() {
@@ -119,20 +124,22 @@ class Car {
 }
 
 public class ClassClass {
+
     public static void main(String[] args) throws Exception {
-        Class<?> carClass = Class.forName("study.Car");
+
+        Class<?> carClass = Class.forName("classclass.Car");
     	
-	System.out.println(carClass.getName()); // study.Car
+	System.out.println(carClass.getName()); // classclass.Car
 	System.out.println(carClass.getSimpleName()); // Car
-	System.out.println(carClass.getPackageName()); // study
+	System.out.println(carClass.getPackageName()); // classclass
 
 	    
         for (Field field : carClass.getDeclaredFields()) {
-            System.out.println(field); // private int study.Car.number
+            System.out.println(field); // private int classclass.Car.number
         }
         
         for (Method method : carClass.getDeclaredMethods()) {
-            System.out.println(method); // public void study.Car.getNumber()
+            System.out.println(method); // public void classclass.Car.getNumber()
         }
         
         // Car car = (Car) carClass.newInstance();
@@ -146,13 +153,106 @@ public class ClassClass {
 
 - `getDeclaredFields()`: 필드의 접근 제어자, 타입, 패키지 이름을 포함한 필드의 이름을 배열로 반환
 - `getDeclaredMethods()`: 메서드의 접근 제어자, 반환 타입, 패키지 이름을 포함한 메서드의 이름을 배열로 반환
-- `getDeclaredConstructor():` 기본 생성자를 반환
-
-> `getDeclaredXXX()` 메서드들은 접근 제어자를 무시한다. 위 코드에서 `number`가 `private`로 선언됐음에도 불구하고 접근할 수 있었던 이유다. 반면에, `getFields()`, `getMethods()`, `getConstructor()`와 같은 `getXXX()` 메서드들은 `public`으로 선언된 멤버에게만 접근할 수 있다.
-{: .prompt-info }
+- `getDeclaredConstructor():` 생성자를 반환
+	+ 인자를 넘기지 않는다면 기본 생성자를 반환하고, 인자를 넘긴다면 파라미터가 있는 생성자를 반환
 
 > Class 타입의 newInstance() 메소드는 deprecated
 {: .prompt-info }
+
+### getXXX(), getDeclaredXXX() 차이
+
+#### 접근 수준
+
+```java
+package classclass;
+
+public class External {
+
+    private int privateNumber = 10;
+}
+```
+
+```java
+package classclass;
+
+import java.lang.reflect.Field;
+
+public class ClassClass {
+
+    public static void main(String[] args) throws Exception {
+
+        // Reflection API를 통해 외부 클래스 객체 생성
+        Class<?> externalClass = Class.forName("classclass.External");
+
+        // getDeclaredField()를 사용하여 외부 클래스의 private 필드 가져오기
+        Field externalField = externalClass.getDeclaredField("privateNumber");
+
+        // getField()를 사용하여 외부 클래스의 private 필드 가져오기
+	Field externalField = externalClass.getField("privateNumber"); // `NoSuchFieldException` 에러. getXXX() 메서드는 private 멤버를 가져올 수 없음
+
+        System.out.println(externalField); // private int classclass.External.privateNumber
+
+        // 외부 클래스의 생성자 가져오기
+        Constructor<?> constructor = externalClass.getDeclaredConstructor();
+        
+        // 외부 클래스의 생성자로 외부 클래스 객체 생성
+        External externalInstance = (External) constructor.newInstance(); // 기본 생성자를 통한 객체 생성
+
+	// private 필드에 접근할 수 있도록 설정
+        externalField.setAccessible(true);
+		
+	int value = (int) externalField.get(externalInstance);
+	System.out.println(value); // 10
+	}
+}
+```
+
+- `getDeclaredXXX()`: 접근 제어자에 상관없이 해당 클래스에서 선언된 모든 멤버를 반환
+- `getXXX()`:  해당 클래스에서 `public` 접근 제어자로 선언된 멤버만을 반환
+
+> `getDeclaredXXX()` 메서드는 접근 제어자에 상관없이 멤버의 "정보"에 접근할 수 있는 것이지 멤버의 값에 접근하는 것이 아니다. `private` 멤버의 정보가 아닌 값에 접근하기 위해서는 먼저 `setAccessible()` 메서드를 통해 `private` 멤버의 값에 접근할 수 있도록 설정해야 한다. 만약 설정하지 않는다면 `java.lang.IllegalAccessException` 에러가 발생한다.
+{: .prompt-tip }
+
+#### 상속된 필드
+
+```java
+package classclass;
+
+public class External {
+
+    private int privateNumber = 10;
+    public int publicNumber = 20;
+}
+
+class ExternalSubclass extends External {}
+```
+
+```java
+package classclass;
+
+import java.lang.reflect.Field;
+
+public class ClassClass {
+
+    public static void main(String[] args) throws Exception {
+
+        // Reflection API를 통해 외부 클래스를 상속받은 클래스 객체 생성
+        Class<?> externalSubclass = Class.forName("classclass.ExternalSubclass");
+
+	// getDeclaredField()를 사용하여 외부 클래스를 상속받은 클래스의 private 필드 가져오기
+        Field externalField = externalSubclass.getDeclaredField("privateNumber"); // java.lang.NoSuchFieldException 에러. getDeclaredXXX() 메서드는 상속 받은 멤버를 가져올 수 없음
+		
+	// getField()를 사용하여 외부 클래스를 상속받은 클래스의 private 필드 가져오기
+        Field externalField = externalSubclass.getField("privateNumber"); // NoSuchFieldException 에러. getXXX() 메서드는 private 멤버를 가져올 수 없음
+		
+        // getField()를 사용하여 외부 클래스를 상속받은 클래스의 public 필드 가져오기
+        Field externalField = externalSubclass.getField("publicNumber"); // public int study.External.publicNumber
+	}
+}
+```
+
+- `getDeclaredXXX()`: 상속된 필드를 포함하지 않고, 오직 해당 클래스에서 직접 선언된 필드만을 반환
+- `getXXX()`: 상속된 필드까지 모두 반환
 
 ## Reflection API
 
@@ -176,6 +276,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Constructor;
 
 class Car {
+
     private int number;
     
     public int getNumber() {
@@ -190,7 +291,9 @@ class Car {
 }
 
 public class ClassClass {
+
     public static void main(String[] args) throws Exception {
+
         Class<?> carClass = Class.forName("study.Car");
     	
 	System.out.println(carClass.getName()); // study.Car

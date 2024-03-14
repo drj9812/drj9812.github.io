@@ -1,7 +1,7 @@
 ---
 title: "[Spring Boot]스프링 부트와 JPA 활용"
 categories: [Study, Spring Boot]
-tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, 인프런, Inflearn, 김영한]
+tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database, 인프런, Inflearn, 김영한]
 ---
 
 # 스프링 부트와 JPA 활용
@@ -68,46 +68,46 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, 인프런, Inflearn, �
 
 ```groovy
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.2.3'
-	id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'jpashop'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '17'
+    sourceCompatibility = '17'
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
+    compileOnly {
+        extendsFrom annotationProcessor
 	}
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 	
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 	
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	
-	runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'com.h2database:h2'
 	
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 ```
 
@@ -214,7 +214,7 @@ $ gradlew dependencies --configuration compileClasspath
 > 클라이언트(브라우저)는 JSP 코드를 해석할 수 없기 때문에, 서버(톰캣 등)는 JSP 파일을 서블릿 코드(Java)로 변환하고, 생성된 서블릿 코드는 Java 컴파일러에 의해 컴파일되어 Java 바이트코드로 변환된다. 이 과정에서 .class 파일이 생성된다. JSP로 작성된 코드는 이 과정이 끝난 후에야 클라이언트(브라우저)에서 해당 JSP 페이지의 내용이 화면에 표시되는 것이다.
 {: .prompt-info }
 
-#### Thymleaf 예시
+#### Thymeleaf 예시
 
 ```java
 package jpabook.jpashop;
@@ -307,7 +307,7 @@ logging:
 	+ `name`
 		* 스프링 애플리케이션의 이름
 		* 필수 속성은 아니지만, 명시적으로 이름을 설정함으로써 애플리케이션의 구성을 명확하게 할 수 있음
-		* 여러 개의 Spring Boot 애플리케이션을 운영하거나 모니터링할 때 유용
+		* 여러 개의 스프링 애플리케이션을 운영하거나 모니터링할 때 유용
 - `spring.datasource`
 	+ `driver-class-name`:  사용하는 DB의 JDBC 드라이버 클래스의 이름
 	+ `url`: 데이터베이스에 연결하기 위한 접속 주소
@@ -418,10 +418,10 @@ public class MemberRepository {
 ```
 
 - `@Repository`
-	+  Spring Framework에서 데이터 액세스 계층의 빈으로 등록되는 클래스를 표시하는 데 사용되는 어노테이션
-	+ 주로 DAO(Data Access Object) 패턴을 구현하는 클래스에 지정되며, 이 어노테이션을 사용하면 해당 클래스는 자동으로 Spring의 컴포넌트 스캔에 의해 빈으로 등록되어 관련된 기능들을 수행할 수 있게 됨
-	+  Spring에게 해당 클래스가 데이터 액세스 레이어의 구현체임을 알려줌
-	+ `JpaRepsitory<T, ID>` 인터페이스 또는 그와 유사한 Spring Data JPA에서 제공하는 리포지토리 인터페이스( `CrudRepository<T, ID>`, `PagingAndSortingRepository<T, ID>` 등) 를 상속한다면 따로 어노테이션을 명시하지 않아도 됨
+	+ 스프링 프레임워크의 컴포넌트 스캔의 대상이 되는 어노테이션
+	+ 데이터 액세스 계층의 빈으로 등록되는 클래스를 표시
+	+ DAO(Data Access Object) 패턴을 구현하는 클래스에 지정
+	+ Spring Data JPA에서 제공하는 `Reposiotry` 인터페이스를 상속한다면 명시하지 않아도 됨
 -  `@PersistenceContext`
 
 ## 요구사항 분석

@@ -12,7 +12,9 @@ tags: [Algorithm, 알고리즘, BOJ, 백준, Java, 자바, 단계별로 풀어�
 
 ```java
 public class Main {
+
     public static void main(String[] args) {
+
         System.out.println("Hello World!");
     }
 }
@@ -23,14 +25,16 @@ public class Main {
 ![1000(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/1000(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        scanner scanner = new scanner(System.in);
             
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
             
 	int result = a + b;
 
@@ -44,14 +48,16 @@ public class Main {
 ![1001(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/1001(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in) ;
+
+        scanner scanner = new scanner(System.in) ;
             
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
                 
         int result = a - b;
 
@@ -65,14 +71,16 @@ public class Main {
 ![10998(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/10998(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        scanner scanner = new scanner(System.in);
             
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
             
         int result = a * b;
             
@@ -86,14 +94,16 @@ public class Main {
 ![1008(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/1008(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in) ;
+
+        scanner scanner = new scanner(System.in) ;
         
-        double a = sc.nextDouble();
-        double b = sc.nextDouble();
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
         
         double result = a / b;
         
@@ -107,14 +117,16 @@ public class Main {
 ![10869(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/10869(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in) ;
+
+        scanner scanner = new scanner(System.in) ;
         
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
         
         int plus = a + b;
         int subtract = a - b;
@@ -136,13 +148,15 @@ public class Main {
 ![10926(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/10926(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        scanner scanner = new scanner(System.in);
         
-        String input = sc.nextLine();
+        String input = scanner.nextLine();
         String result = input + "??!";
         
         System.out.println(result);
@@ -155,13 +169,15 @@ public class Main {
 ![18108(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/18108(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        scanner scanner = new scanner(System.in);
         
-        int input = sc.nextInt();
+        int input = scanner.nextInt();
         int result = input - 543;
         
         System.out.println(result);
@@ -174,15 +190,17 @@ public class Main {
 ![10430(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/10430(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
-public class P10430 {
+public class Main {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        scanner scanner = new scanner(System.in);
         
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
         
         System.out.println( (a + b) % c );
         System.out.println( ((a % c) + (b % c)) % c );
@@ -197,14 +215,16 @@ public class P10430 {
 ![2588(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/2588(1).png)
 
 ```java
-import java.util.Scanner;
+import java.util.scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
+
+	scanner scanner = new scanner(System.in);
 		
-	int a = sc.nextInt();
-	int b = sc.nextInt();
+	int a = scanner.nextInt();
+	int b = scanner.nextInt();
 		
 	System.out.println( a * (b % 10) );
 	System.out.println( a * ((b % 100) / 10) );
@@ -219,24 +239,22 @@ public class Main {
 ![11382(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/11382(1).png)
 
 ```java
-import java.io.*;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	StringTokenizer stkn = new StringTokenizer(br.readLine());
-		
-	long a = Long.parseLong(stkn.nextToken());
-	long b = Long.parseLong(stkn.nextToken());
-	long c = Long.parseLong(stkn.nextToken());
-		
-	long result = a + b + c;
-		
-	System.out.println(result);
 
-	br.close();
-    }
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+		
+        long a = scanner.nextLong();
+        long b = scanner.nextLong();
+        long c = scanner.nextLong();
+		
+        long result = a + b + c;
+		
+        System.out.println(result);
+	}
 }
 ```
 
@@ -246,7 +264,9 @@ public class Main {
 
 ```java
 public class Main {
+
     public static void main(String[] args) {
+
         System.out.println("\\    /\\");
         System.out.println(" )  ( ')");
         System.out.println("(  /  )");
@@ -261,8 +281,10 @@ public class Main {
 
 ![10172(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/10172(1).png)
 ```java
-public class P10172 {
+public class Main {
+
     public static void main(String[] args) {
+
         System.out.println("|\\_/|");
         System.out.println("|q p|   /}");
         System.out.println("( 0 )\"\"\"\\");

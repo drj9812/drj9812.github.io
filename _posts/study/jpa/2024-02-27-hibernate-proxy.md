@@ -56,6 +56,7 @@ import studio.aroundhub.entity_manager_factory.entity.UserEntity;
 import studio.aroundhub.entity_manager_factory.factory.CEntityManagerFactory;
 
 public class EntityManagerFactoryApplication {
+
     public static void main(String[] args) {
 
         CEntityManagerFactory.initialization();
@@ -113,6 +114,7 @@ import studio.aroundhub.entity_manager_factory.entity.UserEntity;
 import studio.aroundhub.entity_manager_factory.factory.CEntityManagerFactory;
 
 public class EntityManagerFactoryApplication {
+
     public static void main(String[] args) {
 
         CEntityManagerFactory.initialization();
@@ -199,6 +201,7 @@ getName(): 스밀라
 ## 특징
 
 - **생성된 프록시 객체는 `Entity` 객체를 상속**
+	+ 프록시 객체는 Reflection API를 통해 생성됨
 - **`Entity` 객체에 대한 참조를 보관(프록시 객체 초기화)**
 	+ 클래스 정보나 식별자가 아닌 프록시 객체의 멤버를 호출하면, 참조를 통해 멤버 호출을 위임하고 `Entity` 객체의 멤버를 호출함
 - **동일성 보장**
@@ -206,7 +209,8 @@ getName(): 스밀라
 	+ 반대로 영속성 컨텍스트에 프록시 객체가 저장되어있다면, `Entity`가 생성되지 않음
 - 준영속, 영속 삭제 상태의 프록시를 초기화하는 경우 `LazyInitializationException` 에러가 발생
 - OSIV 옵션이 `false`일 때, 트랜젝션 바깥에서 프록시를 초기화하는 경우 `LazyInitializationException` 에러가 발생
-- 메서드 이름이 자바 빈 규약을 만족시키지 못할 경우, 식별자 값에 접근하려할 때 프록시 객체가 초기화될 수 있음
+- 식별자에 대한 getter 메서드 이름이 자바 빈 규약을 만족시키지 못할 경우, 식별자 값에 접근하려할 때 프록시 객체가 초기화될 수 있음
+	+ 메서드 이름이 `getId()`가 아닌 `findId()`인 경우
 - 프록시 객체가 가진 필드 값들은 모두 `null`
 	+ 식별자 값은 프록시가 아닌 프록시 내부의 인터셉터에 들어있음
 
