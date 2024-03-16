@@ -73,12 +73,18 @@ public class SingletonTest {
 
 - **인스턴스를 전역적으로 접근**할 수 있게 하므로, 프로그램의 여러 부분에서 이를 **남용**할 수 있음
 - 다른 클래스에서 사용되는 싱글톤 인스턴스에 의존하는 경우에는 목(mock) 객체를 사용하여 **테스트를 수행하기 어려울 수 있음**
+	+ 싱글톤 인스턴스는 자원을 공유하고 있기 때문에 테스트 시행 시 목 객체가 아닌 실제 싱글톤 인스턴스에 접근하게 됨
 - multi-thread 환경에서 싱글톤 인스턴스의 안정성을 보장하기 위해 고려되는 **동기화(`synchronized`) 방법이 성능 저하를 초래**할 수 있음
 - 싱글톤 패턴을 사용하면 해당 클래스와 다른 클래스 간의 **의존성이 증가**할 수 있음
 	+ 유연성과 재사용성이 저하될 수 있음
-- **객체 지향적 설계 원칙** 중 하나인 단일 책임 원칙(Single Responsibility Principle)을 **위배**할 수 있음
-	+ 싱글톤 클래스는 해당 클래스의 인스턴스 생성과 관리 뿐만 아니라 다른 역할도 수행하기 때문에, 이를 분리하거나 재사용하기 어려울 수 있음
-
+- **OOP의 SOLID 원칙을 위배**할 수 있음
+	+ 단일 책임 원칙(Single Responsibility Principle)
+		* 싱글톤 클래스는 해당 클래스의 인스턴스 생성과 관리 뿐만 아니라 다른 역할도 수행하기 때문에, 이를 분리하거나 재사용하기 어려울 수 있음
+	+ 의존성 역전 원칙 (Dependency Inversion Principle)
+	+ 개방 폐쇄 원칙 (Open Closed Principle)
+- 코드의 유연성이 떨어짐
+	+ 자식 클래스를 만들 수 없음
+	+ 내부 상태를 변경하기 어려움
 
 ## 구현 방법
 
@@ -257,9 +263,10 @@ public enum EnumSingleton {
 ```
 
 - Joshua Bloch가 고안한 방식으로 `Enum`으로 싱글톤을 구현
-- 기존의 방식들이 Java의 Reflection API를 이용하여 싱글톤 패턴의 원칙을 깨트릴 수 있다는 점을 해결
+- 기존의 방식들이 Java의 Reflection API를 이용하여 싱글톤 패턴의 원칙을 깨트릴 수 있다는 문제점을 해결
 - 클래스 로딩 단계에서 인스턴스를 생성하기 때문에 낭비가 발생할 수 있음
 
 ## 참고 자료
 
 - [Ready Kim, "[생성 패턴] 싱글톤(Singleton) 패턴을 구현하는 6가지 방법", 준비된 개발자, 2019-11-04](https://readystory.tistory.com/116){: target="_blank" }
+- [2기_보스독, "싱글톤(Singleton) 패턴이란?", Tecoble, 2022-11-07](https://tecoble.techcourse.co.kr/post/2020-11-07-singleton/){: target="_blank" }

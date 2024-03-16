@@ -341,7 +341,7 @@ logging:
 > 스키마가 완성되어 `validate` 또는 `none` 옵션 등을 사용하는 환경에서 `create` 옵션을 사용하게 된다면 그 즉시 DB의 데이터가 모두 날라가므로 주의해야 한다.
 {: .prompt-warning }
 
-> `jpa.properties.hibernate.show_sql: true` 옵션은 Hibernate가 실행하는 SQL 문장이 로그로 출력되어 일반적으로 `logging.level.org.hibernate.SQL: debug` 옵션과 동일한 효과를 가지지만, `jpa.properties.hibernate.show_sql: true`의 경우 `System.out`에 출력하는 반면 `logging.level.org.hibernate.SQL: debug`의 경우 logger를 통해 출력을 하는 차이점이 존재한다. 운영 환경에서의 모든 로그 출력은 가급적 logger를 통해 남겨야 하는 것이 권장되므로, `logging.level.org.hibernate.SQL: debug`를 사용한다.
+> `jpa.properties.hibernate.show_sql: true` 옵션은 Hibernate가 실행하는 SQL 문장이 로그로 출력되어 일반적으로 `logging.level.org.hibernate.SQL: debug` 옵션과 동일한 효과를 가지지만, `jpa.properties.hibernate.show_sql: true`의 경우 `System.out`에 출력하는 반면 `logging.level.org.hibernate.SQL: debug`의 경우 logger를 통해 출력을 하는 차이점이 존재한다. 운영 환경에서의 모든 로그 출력은 가급적 logger를 사용하는 것이 권장되므로, `logging.level.org.hibernate.SQL: debug`를 사용한다.
 {: .prompt-tip }
 
 - `logging.level`
@@ -423,6 +423,15 @@ public class MemberRepository {
 	+ DAO(Data Access Object) 패턴을 구현하는 클래스에 지정
 	+ Spring Data JPA에서 제공하는 `Reposiotry` 인터페이스를 상속한다면 명시하지 않아도 됨
 -  `@PersistenceContext`
+	+ 컨테이너의 관리 대상이되는 컴포넌트에서 사용
+	+ 컨테이너에 의해 생성된 `EntityManagerFactory`를 통해 `EntityManager` 생성 후 주입
+		* `EntityManager`가 생성되면 영속성 컨텍스트(Persistence Context)가 생성됨
+
+> `@Configuration` 어노테이션이 붙은 클래스 또는 `XML` 파일을 통해 `LocalContainerEntityManagerFactoryBean`을 직접 설정할 수 있다. ["[토비의 스프링 - Vol.2] 2장 - 2.4 JPA", 기억나는 노트, 2022-01-17](https://milenote.tistory.com/171#LocalEntityManagerFactoryBean){: target="_blank" } 참조
+{: .prompt-info }
+
+> `@Autowired`
+{: .prompt-info }
 
 ## 요구사항 분석
 
