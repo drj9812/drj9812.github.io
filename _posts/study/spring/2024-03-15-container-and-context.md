@@ -1,17 +1,17 @@
 ---
-title: "[Spring]컨테이너(Container)"
+title: "[Spring]컨테이너(Container)와 컨텍스트(Context)"
 categories: [Study, Spring]
-tags: [Java, 자바, Spring, 스프링, Container, 컨테이너]
+tags: [Java, 자바, Spring, 스프링, Container, 컨테이너, Context, 컨텍스트]
 ---
 
-# 컨테이너(Container)
+# 컨테이너(Container)와 컨텍스트(Context)
 
 ## 컨테이너(Container)란?
 
 - 스프링 프레임워크의 핵심
-- **빈(Bean) 객체의 라이프사이클을 관리**하고 **의존성을 주입**해주는 역할
+- **빈(Bean) 객체의 라이프사이클을 관리**하고 **의존성을 주입**해주는 컴포넌트
 
-## 기능
+## 컨테이너의 기능
 
 ### 빈 관리(Bean Management)
 
@@ -33,19 +33,25 @@ tags: [Java, 자바, Spring, 스프링, Container, 컨테이너]
 > **스프링 컨테이너는 빈(Bean)을 기본적으로 싱글톤으로 관리**한다. 이를 통해 여러 개의 빈이 있더라도 하나의 인스턴스만을 생성하여 사용함으로써 메모리를 효율적으로 관리하고, 객체 간의 의존성을 관리할 수 있다. 이는 기존의 싱글톤 패턴의 단점들을 해결하면서 객체를 싱글톤으로 유지할 수 있도록 해준다. 따라서 스프링 컨테이너는 싱글톤 패턴을 직접 적용하지 않아도 되며, 싱글톤 객체의 생성과 관리를 담당하는 싱글톤 레지스트리 역할을 수행한다.
 {: .prompt-info }
 
-## 유형
+## 컨텍스트(Context)란?
 
-![01-spring-container-hierarchy](/assets/img/posts/study/spring/container/01-spring-container-hierarchy.jpg)
+- 스프링 컨테이너를 나타내는 인터페이스
+- 스프링 애플리케이션의 구성 정보를 로드하고, 빈 객체를 인스턴스화하며, 의존성을 주입하는 등의 작업을 수행
+- 여러 스프링 컨텍스트 구현체가 있으며, 각각의 컨텍스트는 특정한 용도나 설정 방식에 따라 다르게 사용됨
+
+### 컨텍스트의 유형
+
+![01-spring-container-hierarchy](/assets/img/posts/study/spring/container-and-context/01-spring-container-hierarchy.jpg)
 *qkrrnjswo, "스프링 컨테이너", [rnjswo9578.log](https://velog.io/@rnjswo9578/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88){: target="_blank" }, 2023-07-24*
 
-### BeanFactory
+#### BeanFactory
 
 - 스프링 컨테이너의 최상위 인터페이스로서, 가장 기본적인 컨테이너
 - 빈 객체의 라이프사이클 관리, 의존성 주입 등의 기능을 제공
 	+ lazy-loading의 개념을 따라 **실제 빈 객체가 필요한 시점에 빈을 생성**
 - 주로 자원(리소스) 사용을 최소화하고 싶을 때 사용됨
 
-### ApplicationContext
+#### ApplicationContext
 
 - BeanFactory를 확장한 인터페이스
 	+ BeanFactory의 모든 기능을 포함하며, 더불어 추가적으로 다양한 기능을 제공
@@ -62,14 +68,14 @@ tags: [Java, 자바, Spring, 스프링, Container, 컨테이너]
 	+ eager-loading
 - 다양한 환경 및 설정에 대한 지원을 제공하기 때문에 BeanFactory보다 일반적으로 사용됨
 
-## 컨테이너의 설정과 생성
+## 컨테이너의 설정과 컨텍스트 생성
 
 > 빈의 이름(ID)는 유일한 식별자이므로 중복되어서는 안된다.
 {: .prompt-warning }
 
 ### XML 기반
 
-#### 설정
+#### 컨테이너 설정
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -98,10 +104,10 @@ tags: [Java, 자바, Spring, 스프링, Container, 컨테이너]
 </beans>
 ```
 
-> Java EE 웹 애플리케이션의 배치 서술자(deployment descriptor)인 `web.xml` 파일(웹 애플리케이션의 설정 및 구성 정보를 정의하는 XML 파일) 내에서 `<context-param>` 태그를 사용하여 XML 기반의 컨테이너 설정 파일의 위치를 명시할 수 있다. 이렇게 함으로써 해당 설정 파일의 위치를 애플리케이션에 알리고, 컨테이너가 해당 설정 파일을 인식하여 적용할 수 있게 된다.. 설정 파일의 위치를 명시함으로써 컨테이너가 애플리케이션을 올바르게 구성하고 실행할 수 있도록 한다.
+> Java EE 웹 애플리케이션의 배치 서술자(deployment descriptor)인 `web.xml` 파일(웹 애플리케이션의 설정 및 구성 정보를 정의하는 XML 파일) 내에서 `<context-param>` 태그를 사용하여 XML 기반의 컨테이너 설정 파일의 위치를 명시할 수 있다. 이렇게 함으로써 해당 설정 파일의 위치를 애플리케이션에 알리고, 컨테이너가 해당 설정 파일을 인식하여 적용할 수 있게 된다. 설정 파일의 위치를 명시함으로써 컨테이너가 애플리케이션을 올바르게 구성하고 실행할 수 있도록 한다.
 {: .prompt-info }
 
-#### 생성
+#### 컨텍스트 생성
 
 ```java
 ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -149,7 +155,7 @@ myBean.doSomething();
 
 ### 어노테이션 기반
 
-#### 설정
+#### 컨테이너 설정
 
 ```java
 import org.springframework.beans.factory.annotation.Autowired;
@@ -172,7 +178,7 @@ public class MyBean {
 
 - 스프링 컨테이너의 빈으로 등록할 클래스에 `@Component` 어노테이션을 명시
 
-#### 생성
+#### 컨텍스트 생성
 
 ```java
 // 어노테이션 기반 설정 클래스를 사용하여 Spring 컨테이너 생성
@@ -188,7 +194,7 @@ myBean.doSomething();
 
 ### 자바 기반
 
-#### 설정
+#### 컨테이너 설정
 
 ```java
 @Configuration
@@ -209,7 +215,7 @@ public class AppConfig {
 - 스프링의 컨테이너 설정 클래스에 `@Configuration` 어노테이션을 명시
 - 스프링 컨테이너에 빈으로 등록되는 멤버에 `@Bean` 어노테이션을 명시
 
-#### 생성
+#### 컨텍스트 생성
 
 ```java
 // 자바 기반 설정 클래스를 사용하여 스프링 컨테이너 생성
