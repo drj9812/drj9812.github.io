@@ -427,7 +427,7 @@ public class MemberRepository {
 	+ 컨테이너에 의해 생성된 `EntityManagerFactory`를 통해 `EntityManager` 생성 후 주입
 		* `EntityManager`가 생성되면 영속성 컨텍스트(Persistence Context)가 생성됨
 
-> `@Configuration` 어노테이션이 붙은 클래스 또는 `XML` 파일을 통해 `LocalContainerEntityManagerFactoryBean`을 직접 설정할 수 있다. ["[토비의 스프링 - Vol.2] 2장 - 2.4 JPA", 기억나는 노트, 2022-01-17](https://milenote.tistory.com/171#LocalEntityManagerFactoryBean){: target="_blank" } 참조
+> `EntityManager`를 생성하는 `EntityManagerFactory`는 `LocalContainerEntityManagerFactoryBean` 클래스를 통해 컨테이너를 설정할 때 직접 설정할 수 있다.["[토비의 스프링 - Vol.2] 2장 - 2.4 JPA", 기억나는 노트, 2022-01-17](https://milenote.tistory.com/171#LocalEntityManagerFactoryBean){: target="_blank" } 참조 너 
 {: .prompt-info }
 
 > `@Autowired`
