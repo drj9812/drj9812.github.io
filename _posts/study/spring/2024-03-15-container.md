@@ -35,7 +35,7 @@ tags: [Java, 자바, Spring, 스프링, Container, 컨테이너]
 
 ## 유형
 
-![01-spring-container-hierarchy](/assets/img/posts/study/spring/01-spring-container-hierarchy.jpg)
+![01-spring-container-hierarchy](/assets/img/posts/study/spring/container/01-spring-container-hierarchy.jpg)
 *qkrrnjswo, "스프링 컨테이너", [rnjswo9578.log](https://velog.io/@rnjswo9578/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88){: target="_blank" }, 2023-07-24*
 
 ### BeanFactory
