@@ -83,7 +83,7 @@ java {
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
-	}
+    }
 }
 
 repositories {
@@ -424,14 +424,16 @@ public class MemberRepository {
 	+ Spring Data JPA에서 제공하는 `Reposiotry` 인터페이스를 상속한다면 명시하지 않아도 됨
 -  `@PersistenceContext`
 	+ 컨테이너의 관리 대상이되는 컴포넌트에서 사용
-	+ 컨테이너에 의해 생성된 `EntityManagerFactory`를 통해 `EntityManager` 생성 후 주입
+	+ 컨테이너는 `@PersistenceContext` 어노테이션이 붙은 필드를 갖는 컴포넌트에 대해 `EntityManager`를 주입
+		* 컨테이너는 `EntityManagerFactory` 에서 `EntityManager`를 생성
 		* `EntityManager`가 생성되면 영속성 컨텍스트(Persistence Context)가 생성됨
+		* 컨테이너가 `EntityManager`의 라이프사이클과 트랜젝션을 관리한다는 의미
 
-> `EntityManager`를 생성하는 `EntityManagerFactory`는 `LocalContainerEntityManagerFactoryBean` 클래스를 통해 컨테이너를 설정할 때 직접 설정할 수 있다.["[토비의 스프링 - Vol.2] 2장 - 2.4 JPA", 기억나는 노트, 2022-01-17](https://milenote.tistory.com/171#LocalEntityManagerFactoryBean){: target="_blank" } 참조 너 
+> `EntityManager`를 생성하는 `EntityManagerFactory`는 `LocalContainerEntityManagerFactoryBean` 클래스를 통해 컨테이너를 설정할 때 직접 설정할 수 있다.
 {: .prompt-info }
 
-> `@Autowired`
-{: .prompt-info }
+> [[Spring]EntityManager 주입 방식(@Autowired, @PersistenceContext) 비교](https://drj9812.github.io/posts/compare-entitymanager-dependency-injection-method/){: target="_blank "} 참조
+{: .prompt-tip }
 
 ## 요구사항 분석
 

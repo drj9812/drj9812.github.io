@@ -229,3 +229,7 @@ myBean.doSomething();
 - `AnnotationConfigApplicationContext` 클래스를 사용하여 스프링 컨테이너(`ApplicationContext`)를 생성
 - 생성자에는 자바 기반 설정 클래스를 인자로 전달
 - 스프링은 이 클래스를 검색하여 빈을 생성하고 등록
+
+## 참고자료
+
+- [Composite, "Spring @Component @Bean 알고 쓰기", composite.log, 2020-05-27](https://velog.io/@composite/Spring-Component-Bean-%EC%95%8C%EA%B3%A0-%EC%93%B0%EA%B8%B0){: target="_blank" } 
