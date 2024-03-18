@@ -1,10 +1,20 @@
 ---
-title: "[Spring Boot]스프링 부트와 JPA 활용"
+title: "[Spring Boot]스프링 부트와 JPA 활용1 - 프로젝트 환경 설정"
 categories: [Study, Spring Boot]
 tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database, 인프런, Inflearn, 김영한]
 ---
 
-# 스프링 부트와 JPA 활용
+# 스프링 부트와 JPA 활용1 - 프로젝트 환경 설정
+
+## 커리큘럼
+
+1. [**[Spring Boot]스프링 부트와 JPA 활용1 - 프로젝트 환경 설정**](https://drj9812.github.io/posts/project-configuration/){: target="_blank" }
+2. [[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계](https://drj9812.github.io/posts/domain-analysis-design/){: target="_blank" }
+3. [[Spring Boot]스프링 부트와 JPA 활용1 - 애플리케이션 구현 준비](https://drj9812.github.io/posts/preparing-for-application-implementation/){: target="_blank" }
+4. [[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
+5. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
+6. [[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발](https://drj9812.github.io/posts/order-domain-development){: target="_blank" }
+7. [[Spring Boot]스프링 부트와 JPA 활용1 - 웹 계층 개발](https://drj9812.github.io/posts/web-layer-development){: target="_blank" }
 
 ## 개발 환경
 
@@ -17,13 +27,13 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 
 ### 프로젝트 생성
 
-![01-create-project(1)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/01-create-project(1).jpg)
+![01-create-project(1)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/01-create-project(1).jpg)
 *`Project Explorer` 창 내에서 우클릭 > `New` > `Project...`*
 
-![02-create-project(2)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/02-create-project(2).jpg)
+![02-create-project(2)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/02-create-project(2).jpg)
 *`Spring Boot/Spring Starter Project` > `Next >`*
 
-![03-create-project(3)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/03-create-project(3).jpg)
+![03-create-project(3)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/03-create-project(3).jpg)
 *설정 > `Next >`
 
 - `Group`
@@ -38,7 +48,7 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 	+ 소스 코드의 패키지 이름
 	+ `groupId.artifactId` 형식 권장
 
-![04-create-project(4)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/04-create-project(4).jpg)
+![04-create-project(4)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/04-create-project(4).jpg)
 *라이브러리 검색 후 추가 > `Next >`*
 
 - `Spring Web`
@@ -63,7 +73,7 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 > 스프링 부트 3.0 버전 이상을 사용할 때는 Java는 17 버전 이상, H2 Database는 2.1.214 버전 이상을 사용해야 하며, 오라클과 자바 라이센스 문제로 `javax` 패키지 이름을 `jakarta`로 변경해야 한다.
 {: .prompt-info } 
 
-![05-create-project(5)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/05-create-project(5).jpg)
+![05-create-project(5)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/05-create-project(5).jpg)
 *`Finish`*
 
 ```groovy
@@ -95,7 +105,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-	
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0' // 쿼리 파라미터 로그 출력
+    
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 	
@@ -104,6 +115,10 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 	
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    /**
+    testImplementation("org.junit.vintage:junit-vintage-engine") { JUnit 4 사용
+	exclude group: "org.hamcrest", module: "hamcrest-core"	}
+    **/
 }
 
 tasks.named('test') {
@@ -116,21 +131,21 @@ tasks.named('test') {
 > `Maven`은 프로젝트 빌드 설정을 `XML` 형식으로 작성한다.
 {: .prompt-info }
 
-> 스프링 부트 2.2 버전부터는 기본적으로 `JUnit 5`를 지원하기 때문에 `JUnit 4`를 사용하려면 `dependencies` 에 `testImplementation("org.junit.vintage:junit-vintage-engine") { exclude group: "org.hamcrest", module: "hamcrest-core" }` 코드를 추가한다.
+> 스프링 부트 2.2 버전부터는 기본적으로 `JUnit 5`를 지원하기 때문에 `JUnit 4`를 사용하려면 `dependencies` 에 `testImplementation("org.junit.vintage:junit-vintage-engine") { exclude group: "org.hamcrest", module: "hamcrest-core" }` 코드를 추가한다.(정확히 말하면 JUnit5에서 JUnit4의 프로그램을 돌릴 수 있도록 하는 설정)
 {: .prompt-info }
 
-![06-create-project(6)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/06-create-project(6).jpg)
+![06-create-project(6)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/06-create-project(6).jpg)
 *애플리케이션 실행 > 로그창에 나오는 포트 번호 확인*
 
 > `main` 메서드는 `Spring Starter Project`로 프로젝트를 생성할 때 같이 생성된다.
 {: .prompt-info }
 
-![07-create-project(7)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/07-create-project(7).jpg)
+![07-create-project(7)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/07-create-project(7).jpg)
 *주소창에 `localhost:포트 번호` 또는 `http://127.0.0.1:포트 번호/`입력*
 
 위와 같은 페이지가 나타나면 성공이다.
 
-![08-create-project(8)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/08-create-project(8).jpg)
+![08-create-project(8)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/08-create-project(8).jpg)
 
 스프링 부트는 기본적으로 `JUnit`을 내장하고 있는데, 기본 테스트 클래스를 실행하여 정상적으로 작동되는지 확인한다.
 
@@ -143,7 +158,7 @@ $ gradlew dependencies --configuration compileClasspath
 
 강의에서 사용하는 인텔리제이와 달리 이클립스에서는 `gradle` 기반의 프로젝트의 의존성 계층 구조를 보여주는 기능을 제공하지 않아 위와 같이 명령어를 사용해 cmd 창에서 직접 확인해야 한다.
 
-![09-create-project(9)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/09-create-project(9).jpg)
+![09-browse-library](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/09-browse-library.jpg)
 
 - lombok: Java 개발에서 반복적인 코드 작성을 줄여주는 라이브러리
 - spring-boot-starter-data-jpa
@@ -255,11 +270,11 @@ public class HelloController {
 
 <a id="anchor1"></a>
 
-![10-create-project(10)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/10-create-project(10).jpg)
+![10-view-configuration(1)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/10-view-configuration(1).jpg)
 
 `<p>` 태그의 content인 "안녕하세요. 손님"이라는 문자열은 렌더링되어 "안녕하세요. Hello!!"로 대체되었다. 또한, 페이지 소스코드에서 확인할 수 있듯이 브라우저는 타임리프의 `th:` 속성을 알지 못한다. 
 
-![11-create-project(11)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/11-create-project(11).jpg)
+![11-view-configuration(2)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/11-view-configuration(2).jpg)
 
 [서버에서 동적으로 HTML 코드를 생성하여 렌더링된 페이지의 출력 결과](#anchor1)와 다르게 hello.html 파일을 직접 열 경우 순수 HTML 코드가 출력되어 `<p>` 태그의 content인 "안녕하세요. 손님"이라는 문자열이 그대로 출력되었다는 것을 알 수 있다.
 
@@ -269,7 +284,7 @@ public class HelloController {
 
 ### JPA와 DB 설정, 동작 확인
 
-![12-create-project(12)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/12-create-project(12).jpg)
+![12-project-structure](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/12-project-structure.jpg)
 
 ```yaml
 spring:
@@ -409,11 +424,11 @@ public class MemberRepository {
         em.persist(member);
 		
         return member.getId();
-	}
+    }
 	
     public Member find(Long id) {
         return em.find(Member.class, id);
-	}
+    }
 }
 ```
 
@@ -435,17 +450,73 @@ public class MemberRepository {
 > [[Spring]EntityManager 주입 방식(@Autowired, @PersistenceContext) 비교](https://drj9812.github.io/posts/compare-entitymanager-dependency-injection-method/){: target="_blank "} 참조
 {: .prompt-tip }
 
-## 요구사항 분석
+```java
+package jpabook.jpashop;
 
-## 도메인과 테이블 설계
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-## 아키텍처 구성
+@SpringBootTest
+class MemberRepositoryTest {
 
-## 핵심 비즈니스 로직 개발(회원, 상품, 주문)
+    @Autowired
+    private MemberRepository memberRepository;
 
-## 테스트
+    @Test
+    @Transactional // 트랜젝션 내에서 작업하지 않으면 InvalidDataAccessApiUsageException 에러 발생
+//  @Rollback(false) // 테스트 케이스에서 트랜젝션을 시작하면 테스트가 완료된 후 롤백되는데 롤백되지 않도록 설정
+    void testMember() {
+    // given
+    Member member = new Member();
+    member.setUsername("memberA");
 
-## 웹 계층 개발
+    // when
+    Long saveId = memberRepository.save(member);
+    Member findMember = memberRepository.find(saveId);
+
+    // then
+    Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
+    Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+    Assertions.assertThat(findMember).isEqualTo(member); // JPA 엔티티 동일성 보장
+    System.out.println("findMember == member: " + (findMember == member)); // findMember == member: true
+    }
+}
+```
+
+ <div style="display: flex;">
+    <figure style="flex: 1; margin-left: 10px;">
+        <img src="/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/13-test-jpa.jpg" style="width: 100%;" alt="01-field-class">
+    </figure>
+    <figure style="flex: 1; margin-right: 10px;">
+        <img src="/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/14-test-jpa-result.jpg" style="width: 100%;" alt="02-getdeclaredfields()">
+    </figure>
+</div>
+
+> 트랜젝션(`@Transactional`) 내에서`EntityManager`를 사용하지 않으면 `InvalidDataAccessApiUsageException: No EntityManager with actual transaction available for current thread - cannot reliably process`라는 메세지가 나오면서 테스트에 실패하게 된다.
+{: .prompt-warning }
+
+> 테스트 간의 의존성이 최소화되고, 데이터베이스의 일관성을 유지하기 위해, 테스트 케이스에서 트랜젝션(`@Transactional`)을 시작하면 테스트가 완료된 후에는 트랜잭션을 롤백시켜서 데이터베이스의 상태를 이전 상태로 되돌린다.
+{: .prompt-info }
+
+#### JAR 파일 빌드 및 실행
+
+```console
+$ cd 프로젝트 디렉토리
+$ gradlew clean build
+$ cd build
+$ cd libs
+$ java -jar jpashop-0.0.1-SNAPSHOT.jar
+```
+
+![15-result-build-jar](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/15-result-build-jar.jpg)
+*결과*
+
+## 다음 글
+
+- [[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계](https://drj9812.github.io/posts/domain-analysis-design/){: target="_blank" }
 
 ## 참고 자료
 
