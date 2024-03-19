@@ -41,7 +41,7 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 	+ com.google처럼 일반적으로 회사의 도메인 명을 거꾸로 사용
 - `Artifact`
 	+ 진행하는 프로젝트의 이름
-	+ 같은 `Group` 내의 프로젝트를 구분하는데 사용
+	+ 같은 `Group` 내의 프로젝트를 구분하는 데 사용
 	+ 소문자로만 작성하고 특수문자를 사용하지 않음
 	+ 버전 정보를 생략한 `jar` 파일의 이름이 됨
 - `Pacakge`
