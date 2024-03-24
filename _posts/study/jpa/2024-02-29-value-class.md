@@ -503,6 +503,6 @@ public class ValueApplication {
 ![06-insert-provider-result](/assets/img/posts/study/jpa/value-class/06-insert-provider-result.jpg)
 *provider 입력 결과*
 
-## 참고 자료
+## 참고자료
 
 - [어라운드 허브 스튜디오 - Around Hub Studio, "밸류 클래스 활용하기 (@Embeddable, @Embedded) [ JPA (Java Persistence API) ]", 2022-01-06](https://www.youtube.com/watch?v=VekLVb6msuU&list=PLlTylS8uB2fAnOge-kDI0ZQxgj78bdTOO&index=6){: target="_blnak" }

@@ -345,7 +345,7 @@ class EventHandler implements ActionListener {
 }
 ```
 
-## 참고 자료
+## 참고자료
 
 - [남궁성의 정석코딩, "[자바의 정석 - 기초편] ch7-42~44 내부클래스의 종류, 특징, 선언", 2020-04-23](https://www.youtube.com/watch?v=P1rDdH465Is&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=94){: target="_blank" }
 - [남궁성의 정석코딩, "[자바의 정석 - 기초편] ch7-45~50 내부클래스의 제어자와 접근성", 2020-04-2](https://www.youtube.com/watch?v=cZJyRGX2VoM&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=95){: target="_blank" }

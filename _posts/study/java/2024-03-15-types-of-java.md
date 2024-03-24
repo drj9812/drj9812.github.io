@@ -26,6 +26,6 @@ tags: [Java, 자바, Java SE, Java EE, Java ME]
 - 자원이 제한된 장치에서 실행되며, 이동성과 확장성이 중요한 상황에서 사용됨
 - 제한된 장치에서 실행되는 경량화된 환경을 고려하여 Java SE의 일부 표준 라이브러리와 API를 지원
 
-## 참고 자료
+## 참고자료
 
 - [J4BEZ, "0 _4. 자바의 종류(Java SE, Jakarta EE, Java ME, Java FX)", 작은 고양이의 캣 타워, 2019-09-13](https://j4bez.tistory.com/13){: target="_blank" }

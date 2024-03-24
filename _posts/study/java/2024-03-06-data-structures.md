@@ -495,6 +495,6 @@ public class MapMain03 {
     }
 }
 ```
-## 참고 자료
+## 참고자료
 
 - [어라운드 허브 스튜디오 - Around Hub Studio, "Java로 배우는 자료구조", 2021-12-24](https://www.youtube.com/playlist?list=PLlTylS8uB2fCoXCVtfJ0wzotOU8a3ti6M){: target="_blank" }

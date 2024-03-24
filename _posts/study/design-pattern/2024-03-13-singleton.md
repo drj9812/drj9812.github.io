@@ -266,7 +266,7 @@ public enum EnumSingleton {
 - 기존의 방식들이 Java의 Reflection API를 이용하여 싱글톤 패턴의 원칙을 깨트릴 수 있다는 문제점을 해결
 - 클래스 로딩 단계에서 인스턴스를 생성하기 때문에 낭비가 발생할 수 있음
 
-## 참고 자료
+## 참고자료
 
 - [Ready Kim, "[생성 패턴] 싱글톤(Singleton) 패턴을 구현하는 6가지 방법", 준비된 개발자, 2019-11-04](https://readystory.tistory.com/116){: target="_blank" }
 - [2기_보스독, "싱글톤(Singleton) 패턴이란?", Tecoble, 2022-11-07](https://tecoble.techcourse.co.kr/post/2020-11-07-singleton/){: target="_blank" }

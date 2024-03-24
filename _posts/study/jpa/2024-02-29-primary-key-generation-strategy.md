@@ -794,6 +794,6 @@ PK를 DB의 시퀀스를 이용하여 할당하는 전략이기 때문에, `pers
 
 
 
-## 참고 자료
+## 참고자료
 
 - [어라운드 허브 스튜디오 - Around Hub Studio, "기본키 생성 전략, Direct, Identity, Sequence, Table (Id Generation) [ JPA (Java Persistence API) ]", 2021-12-28](https://www.youtube.com/watch?v=N9-LLRTDPGs&list=PLlTylS8uB2fAnOge-kDI0ZQxgj78bdTOO&index=5){: target="_blnak" }

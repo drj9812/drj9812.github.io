@@ -68,6 +68,6 @@ void recurse(int n) {
 8. `recurse(2)`를 호출한 `recurse(3)` 내부에서 3을 출력하고 `recurse(3)` 종료
 	- 호출 스택: ~~`recurse(3)`~~
 
-## 참고 자료
+## 참고자료
 
 - [혀니C코딩, "재귀함수란? 재귀 호출(recursive call) \| 아직도 어렵다면 무조건 클릭!!!!", 2022-09-14](https://www.youtube.com/watch?v=yio6FyP1N2k){: target="_blank" }

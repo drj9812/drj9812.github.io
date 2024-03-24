@@ -194,6 +194,6 @@ tags: [Java, 자바, Spring, 스프링, Spring MVC, 스프링 MVC]
 > 일반적으로 웹 애플리케이션에서는 두 가지 컨텍스트(Application Context, Servlet Context)를 사용한다
 {: .prompt-info }
 
-## 참고 자료
+## 참고자료
 
 - [오잎 클로버, "[Spring] Spring Context 설명", WorkShop, 2022-02-13](https://workshop-6349.tistory.com/entry/Spring-Spring-Context-%EC%84%A4%EB%AA%85){: target="_blank" }

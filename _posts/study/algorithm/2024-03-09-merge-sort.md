@@ -9,7 +9,7 @@ tags: [Algorithm, 알고리즘, Mergo Sort, 병합 정렬]
 ## 병합 정렬이란?
 
 - **배열을 반으로 나눈 후 각 부분을 정렬**하고, 이를 **병합**하여 전체 배열을 정렬하는 알고리즘
-	+ 분할 정복(Divide and Conquer) 알고리즘 사용
+	+ **분할 정복(Divide and Conquer) 알고리즘 사용**
 - 일반적으로 재귀적으로 구현함
 - 합병 정렬이라고도 불림
 
@@ -115,6 +115,6 @@ public class mergeSortTest {
 
 ![03-merge-sort-flow-chart](/assets/img/posts/study/algorithm/merge-sort/03-merge-sort-flow-chart.jpg){: target="_blank" }
 			
-## 참고 자료
+## 참고자료
 
 - [혀니C코딩, "[📶sort 5-1]병합정렬(merge sort)이 뭐예요??? \| 분할 정복 알고리즘 \| O(NlogN)", 2022-08-27](https://www.youtube.com/watch?v=y0ToATXjYHY){: target="_blank" }

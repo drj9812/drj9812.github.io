@@ -8,6 +8,8 @@ tags:  [Algorithm, 알고리즘, BOJ, 백준, Java, 자바, 단계별로 풀어�
 
 ## [27433번 - 팩토리얼 2](https://www.acmicpc.net/problem/27433){: target="_blank" }
 
+![27433(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/27433(1).jpg)
+
 ```java
 import java.io.*;
 
@@ -35,6 +37,8 @@ public class Main {
 ```
 
 ## [10870번 - 피보나치 수 5](https://www.acmicpc.net/problem/10870){: target="_blank" }
+
+![10870(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/10870(1).jpg)
 
 ```java
 import java.io.*;
@@ -66,6 +70,10 @@ public class Main {
 ```
 
 ## [25501번 - 재귀의 귀재](https://www.acmicpc.net/problem/25501){: target="_blank" }
+
+![25501(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/25501(1).jpg)
+![25501(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/25501(2).jpg)
+![25501(3)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/25501(3).jpg)
 
 ```java
 import java.io.*;
@@ -113,7 +121,10 @@ public class Main {
 
 ```
 
-## [알고리즘 수업 - 병합 정렬 1](https://www.acmicpc.net/problem/24060){: target="_blank" }
+## [24060번 - 알고리즘 수업 - 병합 정렬 1](https://www.acmicpc.net/problem/24060){: target="_blank" }
+
+![24060(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/24060(1).jpg)
+![24060(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/24060(2).jpg)
 
 ```java
 import java.io.*;
@@ -208,6 +219,9 @@ public class Main {
 
 ## [4779번 - 칸토어 집합](https://www.acmicpc.net/problem/4779){: target="_blank" }
 
+![4779(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/4779(1).jpg)
+![4779(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/4779(2).jpg)
+
 ```java
 import java.io.*;
 
@@ -253,12 +267,95 @@ public class Main {
 
 ## [2447번 - 별 찍기 - 10](https://www.acmicpc.net/problem/2447){: target="_blank" }
 
-```java
-
-```
-
-## [11729번 - 개수 세기](https://www.acmicpc.net/problem/11729){: target="_blank" }
+![2447(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/2447(1).jpg)
+![2447(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/2447(2).jpg)
 
 ```java
+import java.io.*;
+import java.util.Arrays;
 
+public class Main {
+
+    private static StringBuilder strBuilder;
+    private static String[][] stars;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader bfrReader = new BufferedReader(new InputStreamReader(System.in));
+        strBuilder = new StringBuilder();
+
+        int n = Integer.parseInt(bfrReader.readLine());
+
+        stars = new String[n][n];
+        Arrays.stream(stars).forEach(row -> Arrays.fill(row, " "));
+
+        printStars(0, 0, n);
+
+        for (int i = 0; i < stars.length; i++) {
+            for (int j = 0; j < stars[i].length; j++) {
+                strBuilder.append(stars[i][j]);
+            }
+            strBuilder.append("\n");
+        }
+
+        System.out.println(strBuilder.toString());
+    }
+
+    private static void printStars(int x, int y, int size) {
+        if (size == 1) {
+            stars[x][y] = "*";
+			
+            return;
+        }
+		
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (!(i == 1 && j == 1)) {
+                    printStars(x + i * (size / 3), y + j * (size / 3), size / 3);
+                }
+            }
+        }
+    }
+}
 ```
+
+## [11729번 - 하노이의 탑 이동 순서](https://www.acmicpc.net/problem/11729){: target="_blank" }
+
+![11729(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/11729(1).jpg)
+![11729(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/11729(2).jpg)
+
+```java
+import java.io.*;
+ 
+public class Main {
+ 
+    private static StringBuilder strBuilder = new StringBuilder();
+ 
+    public static void main(String[] args) throws IOException {
+		
+    BufferedReader bfrReader = new BufferedReader(new InputStreamReader(System.in));
+ 
+    int n = Integer.parseInt(bfrReader.readLine());
+ 
+    strBuilder.append((int) (Math.pow(2, n) - 1)).append('\n');
+ 
+    solveTowerOfHanoi(n, 1, 2, 3);
+    System.out.println(strBuilder);
+}
+ 
+    private static void solveTowerOfHanoi(int n, int start, int mid, int end) {
+        if (n == 1) {
+	    strBuilder.append(start + " " + end + "\n");
+	    return;
+	}
+ 
+	solveTowerOfHanoi(n - 1, start, end, mid);
+	strBuilder.append(start + " " + end + "\n");
+	solveTowerOfHanoi(n - 1, mid, start, end);
+    }
+}
+```
+
+## 참고자료
+- [ST_, "[백준] 2447번 : 별 찍기 - 10 - JAVA [자바]", Stranger's LAB, 2020-05-16](https://st-lab.tistory.com/95){: target="_blank" }
+- [ST_, "[백준] 11729번 : 하노이 탑 이동 순서 - JAVA [자바]", Stranger's LAB, 2020-05-16](https://st-lab.tistory.com/96){: target="_blank" }
