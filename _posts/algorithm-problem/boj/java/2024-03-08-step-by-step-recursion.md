@@ -341,7 +341,7 @@ public class Main {
  
     solveTowerOfHanoi(n, 1, 2, 3);
     System.out.println(strBuilder);
-}
+    }
  
     private static void solveTowerOfHanoi(int n, int start, int mid, int end) {
         if (n == 1) {

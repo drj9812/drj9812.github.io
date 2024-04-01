@@ -22,7 +22,7 @@ tags: [JPA, Primary Key, 기본 키]
 - `@GeneratedValue(stategy = GenerationType.IDENTITY)`
 - PK 생성을 DB에 위임하는 전략
 - 컬럼에 `AUTO_INCREMENT` 기능을 활용하여 값을 사용
-- **Identity 전략은 `persist()` 메서드가 호출되는 시점에 Insert 쿼리가 실행되며 식별자를 조회**
+- **Identity 전략은 `persist()` 메서드가 호출되는 시점에 `INSERT` 쿼리가 실행되며 식별자를 조회**
 	+ 영속성 컨텍스트에서 영속 객체를 관리하려면 1차 캐시에 식별자를 저장해야되는데, PK 생성을 DB에서 담당하므로 쿼리가 먼저 실행되어야 함
 	+ 일반적으로 다른 전략 방식은 커밋 시점에 쿼리 실행
 

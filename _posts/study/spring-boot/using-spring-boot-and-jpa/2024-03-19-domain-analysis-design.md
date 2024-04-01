@@ -1,7 +1,7 @@
 ---
 title: "[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계"
 categories: [Study, Spring Boot]
-tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database, 인프런, Inflearn, 김영한]
+tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, 인프런, Inflearn, 김영한]
 ---
 
 # 스프링 부트와 JPA 활용1 - 도메인 분석 설계
@@ -10,11 +10,10 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 
 1. [[Spring Boot]스프링 부트와 JPA 활용1 - 프로젝트 환경 설정](https://drj9812.github.io/posts/project-configuration/){: target="_blank" }
 2. [**[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계**](https://drj9812.github.io/posts/domain-analysis-design/){: target="_blank" }
-3. [[Spring Boot]스프링 부트와 JPA 활용1 - 애플리케이션 구현 준비](https://drj9812.github.io/posts/preparing-for-application-implementation/){: target="_blank" }
-4. [[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
-5. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
-6. [[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발](https://drj9812.github.io/posts/order-domain-development){: target="_blank" }
-7. [[Spring Boot]스프링 부트와 JPA 활용1 - 웹 계층 개발](https://drj9812.github.io/posts/web-layer-development){: target="_blank" }
+3. [[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
+4. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
+5. [[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발](https://drj9812.github.io/posts/order-domain-development){: target="_blank" }
+6. [[Spring Boot]스프링 부트와 JPA 활용1 - 웹 계층 개발](https://drj9812.github.io/posts/web-layer-development){: target="_blank" }
 
 ## 참조
 
@@ -259,6 +258,22 @@ public class Order {
     }
 }
 ```
+
+- `cascade`
+	+ 관계형 데이터베이스에서 사용되는 개념으로, 한 테이블의 행에 대한 작업이 해당 행과 관련된 다른 테이블의 행에 영향을 주는 것을 의미
+	+ 부모-자식 관계를 갖는 테이블 간의 작업에서 사용
+	+ `CascadeType.PERSIST`
+		* `Entity`를 영속화할 때 연관된 `Entity`도 함께 영속화
+	+ `CascadeType.MERGE`
+		* `Entity`를 병합할 때 연관된 `Entity`도 함께 병합
+	+ `CascadeType.REMOVE`
+		* `Entity`를 제거할 때 연관된 `Entity`들도 함께 제거
+	+ `CascadeType.REFRESH`
+		* `Entity`를 새로고침할 때, 연관된 `Entity`들도 함께 새로고침
+	+ `CascadeType.DETACH`
+		* `Entity`를 영속성 컨텍스트로부터 분리하면 연관된 `Entity`들도 분리
+	+ `CascadeType.ALL`
+		* 모든 Cascade Type들이 적용
 
 ### domain.OrderStatus.java
 
@@ -509,11 +524,11 @@ public class Address {
 }
 ```
 
-> Value 클래스는 변경 불가능하게 설계해야 한다. `@Setter`를 제거하고, 생성자에서 값을 모두 초기화해서 변경 불가능한 클래스를 만들자. JPA 스펙상 `Entity`나 임베디드 타입( @Embeddable )은 자바 기본 생성자(default constructor)를 `public` 또는 `protected`로 설정해야 한다. `public`으로 두는 것 보다는 `protected`로 설정하는 것이 그나마 더 안전하다. JPA가 이런 제약을 두는 이유는 JPA 구현 라이브러리가 객체를 생성할 때 리플랙션 같은 기술을 사용할 수 있도록 지원해야 하기 때문이다.
+> Value 클래스는 변경 불가능하게 설계해야 한다. `@Setter`를 제거하고, 생성자에서 값을 모두 초기화해서 변경 불가능한 클래스를 만들자. JPA 스펙상 `Entity`나 임베디드 타입(`@Embeddable`)은 자바 기본 생성자(default constructor)를 `public` 또는 `protected`로 설정해야 한다. `public`으로 두는 것 보다는 `protected`로 설정하는 것이 그나마 더 안전하다. JPA가 이런 제약을 두는 이유는 JPA 구현 라이브러리가 객체를 생성할 때 리플랙션 같은 기술을 사용할 수 있도록 지원해야 하기 때문이다.
 {: .prompt-tip }
 
 > FK를 설정하는 건 시스템마다 다르다. 정합성보다는 서비스 자체가 중요하다면 FK를 빼고 인덱스만 잘 잡아주면 되고, 돈과 관련된 데이터가 항상 맞아야 되면 FK를 사용한다.
-{:. prompt-tip }
+{: .prompt-tip }
 
 ## Entity 설계시 주의점
 
@@ -542,19 +557,17 @@ System.out.println(member.getOrders().getClass()); // class org.hibernate.collec
 ```
 
 - 컬렉션은 필드 레벨에서 바로 초기화 하는 것이 안전
-	+ null 문제에서 안전
+	+ `null` 문제에서 안전
 - 임의의 메서드에서 컬력션을 잘못 생성하면 하이버네이트 내부 메커니즘에 문제가 발생
-	+ Hibernate는 `Entity`를 영속화 할 때, 컬렉션을 감싸서 Hibernate가 제공하는 내장 컬렉션으로 변경
+	+ Hibernate는 `Entity`를 영속화할 때, 컬렉션을 감싸서 Hibernate가 제공하는 내장 컬렉션으로 변경
 
 ### 테이블, 컬럼명 생성 전략
 
 - 스프링 부트에서 Hibernate 기본 매핑 전략을 변경해서 실제 테이블 필드명은 다름
 	+ [https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#howtoconfigure-hibernate-naming-strategy](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#howtoconfigure-hibernate-naming-strategy){: target="_blank" }
-	+ [http://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/](http://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/){: target="_blank" }
-	+ [Hibernate_User_Guide.html#naming](Hibernate_User_Guide.html#naming){: target="_blank" }
+	+ [http://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/](http://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#naming){: target="_blank" }
 - 하이버네이트 기존 구현: `Entity`의 필드명을 그대로 테이블의 컬럼명으로 사용
-	+ (`SpringPhysicalNamingStrategy`)
-- 스프링 부트 신규 설정 (엔티티(필드) > 테이블(컬럼))
+- 스프링 부트 신규 설정: `SpringPhysicalNamingStrategy`
 1. 카멜 케이스 > 언더스코어(memberPoint > member_point)
 2. `.`(점) > `_`(언더스코어)
 3. 대문자 > 소문자
@@ -565,7 +578,7 @@ System.out.println(member.getOrders().getClass()); // class org.hibernate.collec
 	- `spring.jpa.hibernate.naming.implicit-strategy`: 테이블이나, 컬럼명을 명시하지 않을 때 논리명 적용
 2. 물리명 적용
 	- `spring.jpa.hibernate.naming.physical-strategy`: 모든 논리명에 적용됨, 실제 테이블에 적용
-	- username usernm 등으로 회사 룰로 바꿀 수 있음
+	- username, usernm 등으로 회사 룰로 바꿀 수 있음
 
 #### 스프링 부트 기본 설정
 
@@ -577,8 +590,9 @@ org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy`
 
 ## 다음 글
 
-- [[Spring Boot]스프링 부트와 JPA 활용1 - 애플리케이션 구현 준비](https://drj9812.github.io/posts/preparing-for-application-implementation/){: target="_blank" }
+- [[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
 
 ## 참고자료
 
 - [김영한, "실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발", Inflearn, Date unknown](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1){: target="_blank" }
+- [5기_테오, "JPA Cascade는 무엇이고 언제 사용해야 할까?", Tecoble, 2023-10-16](https://tecoble.techcourse.co.kr/post/2023-08-14-JPA-Cascade/){: target="_blank "}

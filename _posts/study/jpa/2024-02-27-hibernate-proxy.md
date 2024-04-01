@@ -208,7 +208,7 @@ getName(): 스밀라
 	+ 영속성 컨텍스트에 `Entity`가 저장되어있다면, 프록시 객체가 생성되지 않음
 	+ 반대로 영속성 컨텍스트에 프록시 객체가 저장되어있다면, `Entity`가 생성되지 않음
 - 준영속, 영속 삭제 상태의 프록시를 초기화하는 경우 `LazyInitializationException` 에러가 발생
-- OSIV 옵션이 `false`일 때, 트랜젝션 바깥에서 프록시를 초기화하는 경우 `LazyInitializationException` 에러가 발생
+- OSIV 옵션이 `false`일 때, 트랜잭션 바깥에서 프록시를 초기화하는 경우 `LazyInitializationException` 에러가 발생
 - 식별자에 대한 getter 메서드 이름이 자바 빈 규약을 만족시키지 못할 경우, 식별자 값에 접근하려할 때 프록시 객체가 초기화될 수 있음
 	+ 메서드 이름이 `getId()`가 아닌 `findId()`인 경우
 - 프록시 객체가 가진 필드 값들은 모두 `null`

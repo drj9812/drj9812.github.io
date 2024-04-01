@@ -10,11 +10,10 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 
 1. [**[Spring Boot]스프링 부트와 JPA 활용1 - 프로젝트 환경 설정**](https://drj9812.github.io/posts/project-configuration/){: target="_blank" }
 2. [[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계](https://drj9812.github.io/posts/domain-analysis-design/){: target="_blank" }
-3. [[Spring Boot]스프링 부트와 JPA 활용1 - 애플리케이션 구현 준비](https://drj9812.github.io/posts/preparing-for-application-implementation/){: target="_blank" }
-4. [[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
-5. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
-6. [[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발](https://drj9812.github.io/posts/order-domain-development){: target="_blank" }
-7. [[Spring Boot]스프링 부트와 JPA 활용1 - 웹 계층 개발](https://drj9812.github.io/posts/web-layer-development){: target="_blank" }
+3. [[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
+4. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
+5. [[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발](https://drj9812.github.io/posts/order-domain-development){: target="_blank" }
+6. [[Spring Boot]스프링 부트와 JPA 활용1 - 웹 계층 개발](https://drj9812.github.io/posts/web-layer-development){: target="_blank" }
 
 ## 개발 환경
 
@@ -41,7 +40,7 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 	+ com.google처럼 일반적으로 회사의 도메인 명을 거꾸로 사용
 - `Artifact`
 	+ 진행하는 프로젝트의 이름
-	+ 같은 `Group` 내의 프로젝트를 구분하는 데 사용
+	+ 같은 `Group` 내의 프로젝트를 구분하는데 사용
 	+ 소문자로만 작성하고 특수문자를 사용하지 않음
 	+ 버전 정보를 생략한 `jar` 파일의 이름이 됨
 - `Pacakge`
@@ -60,15 +59,15 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 	+ 서버 사이드 템플릿 엔진
 - `Spring Data JPA`
 	+ 스프링 프레임워크의 일부로서, JPA를 사용하여 데이터 액세스 계층을 구축하고 관리하는 데 도움을 주는 기술
-	+ JPA를 보다 쉽게 사용하고 더 높은 수준의 추상화를 제공하여 개발자가 데이터베이스에 접근하고 상호 작용할 때 발생하는 반복적인 작업을 줄여줌
+	+ JPA를 보다 쉽게 사용하고 더 높은 수준의 추상화를 제공하여 개발자가 DB에 접근하고 상호 작용할 때 발생하는 반복적인 작업을 줄여줌
 - `Spring Boot Devtools`
 	+ 서버를 재시작하지 않아도 템플릿 엔진과 같은 동적인 리소스의 코드 변경사항이 자동으로 브라우저에 반영되도록 도와주는 기능을 제공
 		* 정적 리소스는 서버를 재시작하지 않아도 스프링 부트에 의해 자동으로 감지되고 처리됨
 - `H2 Database`
 	+ 웹 콘솔 환경을 제공하는 DB
 	+ 애플리케이션을 실행할 때 메모리 내장 모드로 실행 가능
-		* 이 모드에서는 데이터베이스가 메모리에 생성되며, 애플리케이션이 종료될 때 데이터베이스가 소멸
-		* 주로 테스트 목적이나 간단한 애플리케이션에서 사용되며, 데이터베이스 파일을 별도로 관리하지 않아도 되어 편리
+		* 이 모드에서는 DB가 메모리에 생성되며, 애플리케이션이 종료될 때 DB가 소멸
+		* 주로 테스트 목적이나 간단한 애플리케이션에서 사용되며, DB 파일을 별도로 관리하지 않아도 되어 편리
 
 > 스프링 부트 3.0 버전 이상을 사용할 때는 Java는 17 버전 이상, H2 Database는 2.1.214 버전 이상을 사용해야 하며, 오라클과 자바 라이센스 문제로 `javax` 패키지 이름을 `jakarta`로 변경해야 한다.
 {: .prompt-info } 
@@ -278,7 +277,7 @@ public class HelloController {
 
 [서버에서 동적으로 HTML 코드를 생성하여 렌더링된 페이지의 출력 결과](#anchor1)와 다르게 hello.html 파일을 직접 열 경우 순수 HTML 코드가 출력되어 `<p>` 태그의 content인 "안녕하세요. 손님"이라는 문자열이 그대로 출력되었다는 것을 알 수 있다.
 
-### H2 데이터베이스 설치
+### H2 DB 설치
 
 [[H2 Database]H2 Database 설치하기(Windows)](https://drj9812.github.io/posts/install-h2-database-on-windows/){: target="_blank" } 참조
 
@@ -325,7 +324,7 @@ logging:
 		* 여러 개의 스프링 애플리케이션을 운영하거나 모니터링할 때 유용
 - `spring.datasource`
 	+ `driver-class-name`:  사용하는 DB의 JDBC 드라이버 클래스의 이름
-	+ `url`: 데이터베이스에 연결하기 위한 접속 주소
+	+ `url`: DB에 연결하기 위한 접속 주소
 	+ `username`: 사용자 이름
 	+ `password`: 비밀번호
 
@@ -333,20 +332,20 @@ logging:
 	+ `hibernate.ddl-auto`: `Entity`로 등록된(`@Entity` 어노테이션이 붙은) 클래스에 DDL과 관련된 작업이 이뤄졌을 경우 매핑된 DB의 테이블에 자동 반영
 		* `create`
 			* 애플리케이션을 시작할 때마다 기존 스키마를 삭제하고 새로운 스키마를 생성
-			* 이미 존재하는 데이터베이스를 완전히 재생성
+			* 이미 존재하는 DB를 완전히 재생성
 		* `create-drop`
-			* 애플리케이션을 시작할 때마다 데이터베이스를 새롭게 생성하고 애플리케이션이 종료될 때 해당 데이터베이스를 삭제
+			* 애플리케이션을 시작할 때마다 DB를 새롭게 생성하고 애플리케이션이 종료될 때 해당 DB를 삭제
 			* 주로 개발 환경에서 테스트를 위해 사용
 		* `update`
 			* 애플리케이션을 시작할 때마다 변경된 부분만 업데이트
 			* 엔티티로 등록된 클래스와 매핑되는 테이블이 없으면 새로 생성하는 것은 `create`와 동일하지만 기존 테이블이 존재한다면 위의 두 경우와 달리 테이블의 컬럼을 변경
 			* 기존에 존재하는 컬럼의 속성(크기, 데이터 타입 등)은 건드리지 않고, 새로운 컬럼이 추가되는 변경사항만 반영
 		* `validate`
-			* 애플리케이션을 시작할 때마다 데이터베이스 스키마를 유효성 검사
-			* 변경사항은 적용되지 않고, 데이터베이스 스키마가 애플리케이션의 엔티티와 일치하는지만 확인
+			* 애플리케이션을 시작할 때마다 DB 스키마를 유효성 검사
+			* 변경사항은 적용되지 않고, DB 스키마가 애플리케이션의 엔티티와 일치하는지만 확인
 			* 만약 테이블이 아예 존재하지 않거나, 테이블에 엔티티의 필드에 매핑되는 컬럼이 존재하지 않으면 예외를 발생시키면서 애플리케이션을 종료
 		* `none`
-			* Hibernate가 자동으로 데이터베이스 스키마를 조작하지 않도록 함
+			* Hibernate가 자동으로 DB 스키마를 조작하지 않도록 함
 			* 개발자가 직접 스키마를 관리
 	+ `properties.hibernate."[format_sql]"`: 생성된 SQL을 보기 좋게 포맷팅
 
@@ -399,8 +398,8 @@ public class Member {
 - `@GeneratedValue`
 	+ JPA에서 엔터티의 기본 키 값을 어떻게 생성할지 지정하는데 사용
 	+ strategy 속성을 명시하지 않으면, JPA는 기본적으로 AUTO 전략을 사용
-		* 데이터베이스가 자동 증가(Auto Increment)를 지원한다면, IDENTITY 전략을 사용(MySQL, MariaDB, PostgreSQL 등)
-		* 데이터베이스가 시퀀스(Sequence)를 지원한다면, SEQUENCE 전략을 사용(Oracle, PostgreSQl, DB2, H2 등)
+		* DB가 자동 증가(Auto Increment)를 지원한다면, IDENTITY 전략을 사용(MySQL, MariaDB, PostgreSQL 등)
+		* DB가 시퀀스(Sequence)를 지원한다면, SEQUENCE 전략을 사용(Oracle, PostgreSQl, DB2, H2 등)
 		* 두 가지 다 지원하지 않는 경우, TABLE 전략을 사용(모든 DB)
 
 > [[JPA]기본 키(Primary Key) 생성 전략](https://drj9812.github.io/posts/primary-key-generation-strategy/){: target="_blank" } 참조
@@ -442,7 +441,7 @@ public class MemberRepository {
 	+ 컨테이너는 `@PersistenceContext` 어노테이션이 붙은 필드를 갖는 컴포넌트에 대해 `EntityManager`를 주입
 		* 컨테이너는 `EntityManagerFactory` 에서 `EntityManager`를 생성
 		* `EntityManager`가 생성되면 영속성 컨텍스트(Persistence Context)가 생성됨
-		* 컨테이너가 `EntityManager`의 라이프사이클과 트랜젝션을 관리한다는 의미
+		* 컨테이너가 `EntityManager`의 라이프사이클과 트랜잭션을 관리한다는 의미
 
 > `EntityManager`를 생성하는 `EntityManagerFactory`는 `LocalContainerEntityManagerFactoryBean` 클래스를 통해 컨테이너를 설정할 때 직접 설정할 수 있다.
 {: .prompt-info }
@@ -466,8 +465,8 @@ class MemberRepositoryTest {
     private MemberRepository memberRepository;
 
     @Test
-    @Transactional // 트랜젝션 내에서 작업하지 않으면 InvalidDataAccessApiUsageException 에러 발생
-//  @Rollback(false) // 테스트 케이스에서 트랜젝션을 시작하면 테스트가 완료된 후 롤백되는데 롤백되지 않도록 설정
+    @Transactional // 트랜잭션 내에서 작업하지 않으면 InvalidDataAccessApiUsageException 에러 발생
+//  @Rollback(false) // 테스트 케이스에서 트랜잭션을 시작하면 테스트가 완료된 후 롤백되는데 롤백되지 않도록 설정
     void testMember() {
     // given
     Member member = new Member();
@@ -495,10 +494,10 @@ class MemberRepositoryTest {
     </figure>
 </div>
 
-> 트랜젝션(`@Transactional`) 내에서`EntityManager`를 사용하지 않으면 `InvalidDataAccessApiUsageException: No EntityManager with actual transaction available for current thread - cannot reliably process`라는 메세지가 나오면서 테스트에 실패하게 된다.
+> 트랜잭션(`@Transactional`) 내에서`EntityManager`를 사용하지 않으면 `InvalidDataAccessApiUsageException: No EntityManager with actual transaction available for current thread - cannot reliably process`라는 메세지가 나오면서 테스트에 실패하게 된다.
 {: .prompt-warning }
 
-> 테스트 간의 의존성이 최소화되고, 데이터베이스의 일관성을 유지하기 위해, 테스트 케이스에서 트랜젝션(`@Transactional`)을 시작하면 테스트가 완료된 후에는 트랜잭션을 롤백시켜서 데이터베이스의 상태를 이전 상태로 되돌린다.
+> 테스트 간의 의존성이 최소화되고, DB의 일관성을 유지하기 위해, 테스트 케이스에서 트랜잭션(`@Transactional`)을 시작하면 테스트가 완료된 후에는 트랜잭션을 롤백시켜서 DB의 상태를 이전 상태로 되돌린다.
 {: .prompt-info }
 
 #### JAR 파일 빌드 및 실행
@@ -518,6 +517,6 @@ $ java -jar jpashop-0.0.1-SNAPSHOT.jar
 
 - [[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계](https://drj9812.github.io/posts/domain-analysis-design/){: target="_blank" }
 
-## 참고자료
+## 참고 자료
 
 - [김영한, "실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발", Inflearn, Date unknown](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1){: target="_blank" }
