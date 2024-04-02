@@ -194,7 +194,7 @@ public class Singleton {
 ```
 
 - Lazy Initialization의 thread-safety 문제를 해결한 방식
-- **동기화(`synchronized`)함으로써 multi-thread 환경에서 스레드 안정성을 보장받음**
+- **동기화(`synchronized`)함으로써 multi-thread 환경에서 thread-safety를 보장받음**
 	+ 오직 하나의 thread에서 접근 가능
 	+ 여러 thread가 동시에 안전하게 싱글톤 인스턴스를 생성하고 반환할 수 있음
 	+ 프로그램이 실행될 때 필요한 시점에만 인스턴스를 생성하므로 **자원을 효율적으로 활용**할 수 있음

@@ -15,8 +15,6 @@ class A { // B의 외부 클래스
 }
 ```
 
-- 클래스 안의 클래스
-
 ## 내부 클래스의 장점
 
 ```java
@@ -126,8 +124,8 @@ class Ex7_12 {
 
     public static void main(String args[]) {
 
-	System.out.println(InstanceInner.CONST);
-	System.out.println(StaticInner.cv); 
+	System.out.println(InstanceInner.CONST); // 100
+	System.out.println(StaticInner.cv); // 200
 //      System.out.println(LocalInner.CONST); // 에러. 지역 내부 클래스는 메서드 내에서만 사용 가능
     }
 }
@@ -204,7 +202,7 @@ class Outer {
             int liv = outerIv;
             int liv2 = outerCv;
 
-// 외부 클래스의 지역 변수는 final이 붙은 변수(상수)만 접근 가능
+            // 외부 클래스의 지역 변수는 final이 붙은 변수(상수)만 접근 가능
 //          int liv3= lv; // 에러(JDK 1.8부터 에러 아님)
             int liv4 = Lv; // OK
         }
@@ -249,12 +247,12 @@ class Ex7_15 {
     Outer2 oc = new Outer2();
     Outer2.InstanceInner ii = oc.new InstanceInner();
 
-    System.out.println("ii.iv : "+ ii.iv);
-    System.out.println("Outer2.StaticInner.cv : "+ Outer2.StaticInner.cv);
+    System.out.println("ii.iv : "+ ii.iv); // ii.iv : 100
+    System.out.println("Outer2.StaticInner.cv : "+ Outer2.StaticInner.cv); // Outer2.StaticInner.cv : 300
                                      
     // 스태틱 내부 클래스의 인스턴스는 외부 클래스를 먼저 생성하지 않아도 된다.
     Outer2.StaticInner si = new Outer2.StaticInner();
-    System.out.println("si.iv : "+ si.iv);
+    System.out.println("si.iv : "+ si.iv); // si.iv : 200
     }
 }
 ```
@@ -270,9 +268,9 @@ class Outer3 {
 
 	void method1() {
 	    int value = 30;
-	    System.out.println("            value :" + value);
-	    System.out.println("       this.value :" + this.value);
-	    System.out.println("Outer3.this.value :" + Outer3.this.value);
+	    System.out.println("value :" + value); // value :30
+	    System.out.println("this.value :" + this.value); // this.value :20
+	    System.out.println("Outer3.this.value :" + Outer3.this.value); // Outer3.this.value :10
 	}
     } // Inner클래스의 끝
 } // Outer3클래스의 끝
