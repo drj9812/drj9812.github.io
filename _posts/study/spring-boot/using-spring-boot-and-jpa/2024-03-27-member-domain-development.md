@@ -4,7 +4,7 @@ categories: [Study, Spring Boot]
 tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, 인프런, Inflearn, 김영한]
 ---
 
-# 스프링 부트와 JPA 활용1 - 도메인 분석 설계
+# 스프링 부트와 JPA 활용1 - 회원 도메인 개발
 
 ## 커리큘럼
 

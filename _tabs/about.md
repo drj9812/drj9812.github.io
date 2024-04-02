@@ -3,6 +3,12 @@
 icon: fas fa-info-circle
 order: 4
 ---
+<div align="center">
+    <div id="boj-tier">
+        <img src="https://mazassumnida.wtf/api/v2/generate_badge?boj=drj9812">
+    </div>
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+    <div id="github-contributions-grap">
+        <img src="https://ghchart.rshah.org/219138/drj9812">
+    </div>
+</div>
