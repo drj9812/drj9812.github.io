@@ -11,7 +11,7 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database,
 1. [**[Spring Boot]스프링 부트와 JPA 활용1 - 프로젝트 환경 설정**](https://drj9812.github.io/posts/project-configuration/){: target="_blank" }
 2. [[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계](https://drj9812.github.io/posts/domain-analysis-design/){: target="_blank" }
 3. [[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
-4. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
+4. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/item-domain-development){: target="_blank" }
 5. [[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발](https://drj9812.github.io/posts/order-domain-development){: target="_blank" }
 6. [[Spring Boot]스프링 부트와 JPA 활용1 - 웹 계층 개발](https://drj9812.github.io/posts/web-layer-development){: target="_blank" }
 

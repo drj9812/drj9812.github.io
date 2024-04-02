@@ -11,7 +11,7 @@ tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, 인프런, Inflearn, �
 1. [[Spring Boot]스프링 부트와 JPA 활용1 - 프로젝트 환경 설정](https://drj9812.github.io/posts/project-configuration/){: target="_blank" }
 2. [[Spring Boot]스프링 부트와 JPA 활용1 - 도메인 분석 설계](https://drj9812.github.io/posts/domain-analysis-design/){: target="_blank" }
 3. [**[Spring Boot]스프링 부트와 JPA 활용1 - 회원 도메인 개발**](https://drj9812.github.io/posts/member-domain-development){: target="_blank" }
-4. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
+4. [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/item-domain-development){: target="_blank" }
 5. [[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발](https://drj9812.github.io/posts/order-domain-development){: target="_blank" }
 6. [[Spring Boot]스프링 부트와 JPA 활용1 - 웹 계층 개발](https://drj9812.github.io/posts/web-layer-development){: target="_blank" }
 
@@ -62,10 +62,13 @@ public class MemberRepository {
 	+ DAO(Data Access Object) 패턴을 구현하는 클래스에 지정
 	+ Spring Data JPA에서 제공하는 Reposiotry 인터페이스를 상속한다면 명시하지 않아도 됨
 
-> `@SpringBootApplication` 어노테이션이 붙은 클래스의 경우 스프링 부트 애플리케이션의 진입점을 나타내며, 이 어노테이션은 여러 다른 어노테이션들을 포함하고 있다. 그 중에는 `@ComponentScan`도 포함되어 있는데, `@ComponentScan`은 `@SpringBootApplication`이 붙은 클래스의 패키지와 그 하위 패키지에 있는 컴포넌트들이 스캔되어 Bean으로 등록한다.
+> `@SpringBootApplication` 어노테이션이 붙은 클래스의 경우 스프링 부트 애플리케이션의 진입점을 나타내며, 이 어노테이션은 여러 다른 어노테이션들을 포함하고 있다. 그 중에는 `@ComponentScan` 어노테이션도 포함되어 있는데, `@ComponentScan` 어노테이션은 `@SpringBootApplication` 어노테이션이 붙은 클래스의 패키지와 그 하위 패키지에 있는 컴포넌트들을 스캔하여 빈으로 등록한다.
 {: .prompt-info }
 
 > `@PersistenceUnit` 어노테이션을 사용하면 `EntityManagerFactory`를 직접 주입받을 수 있다.
+{: .prompt-info }
+
+>  일반적인 JPA에서는 `@PersistenceContext` 어노테이션을 사용하여 `EntityManager`를 주입받지만 Spring Data JPA를 사용할 때는 `@Autowired` 어노테이션 또는 Lombok을 사용한 생성자 주입을 통해서도 `EntityManager`를 주입받을 수 있다.
 {: .prompt-info }
 
 ## 회원 Service 개발
@@ -124,8 +127,8 @@ public class MemberService {
 - `@Transactional`
 	+ 스프링 프레임워크에서 제공하는 트랜잭션 관리를 위한 어노테이션
 	+ 메서드나 클래스에 적용하여 해당 메서드나 클래스의 실행을 트랜잭션 내에서 처리하도록 지시
-	+ 기본적으로 스프리의 트랜잭션 관리는 프록시 기반의 AOP를 사용하여 `public` 메서드에만 적용
-		* AspectJ를 사용하면 `public` 미만의 메서드에도 `@Transactional` 어노테이션을 적용할 수 있음
+		* 클래스 레벨에 @Transactional 어노테이션을 선언할 경우, 스프링의 트랜잭션 관리는 프록시 기반의 AOP를 사용하므로 `public` 메서드에만 적용
+			* AspectJ를 사용하면 `public` 미만의 메서드에도 `@Transactional` 어노테이션을 적용시킬 수 있음
 	+ `readOnly = true`
 		* 트랜잭션이 읽기 전용(read-only)으로 설정되어야 함을 나타내며, 영속성 컨텍스트를 flush하지 않음
 		* **해당 트랜잭션 내에서는 데이터를 읽기만 가능하고, 데이터를 수정, 추가 또는 삭제하는 작업은 허용되지 않음**
@@ -135,7 +138,7 @@ public class MemberService {
 > Jakarta EE(Java EE)와 스프링 프레임워크 모두 트랜잭션 관리를 위한 `@Transactional` 어노테이션을 제공하지만, 프로젝트를 스프링 기반으로 만들었기 때문에 스프링 프레임워크에서 제공하는 `@Transactional` 어노테이션을 사용했다.
 {: .prompt-info }
 
-> `readOnly = true` 옵션을 사용하면 DB에 대한 읽기 작업을 최적화할 수 있다. 읽기 전용 트랜잭션에서는 DB의 일관성을 유지하는 데 필요한 추가적인 락(lock)을 얻지 않으므로 트랜잭션 처리 시간이 단축될 수 있다. 또한, 해당 트랜잭션 내에서는 변경 감지나 Dirty Checking 같은 부가적인 작업이 필요하지 않으므로 성능이 향상될 수 있다.
+> `readOnly = true` 옵션을 사용하면 DB에 대한 읽기 작업을 최적화할 수 있다. 읽기 전용 트랜잭션에서는 DB의 일관성을 유지하는 데 필요한 추가적인 락(lock)을 얻지 않으므로 트랜잭션 처리 시간이 단축될 수 있다. 또한, 해당 트랜잭션 내에서는 Dirty Checking 같은 부가적인 작업이 필요하지 않으므로 성능이 향상될 수 있다.
 {: .prompt-tip }
 
 > 실무에서는 검증 로직(`validateDuplicateMember()`)이 있어도 multi-thread 상황을 고려해서 회원 테이블의 회원명 컬럼에 유니크 제약 조건을 추가하는 것이 안전하다.
@@ -215,7 +218,7 @@ public class MemberServiceTest {
 
 ## 다음 글
 
-- [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/product-domain-development){: target="_blank" }
+- [[Spring Boot]스프링 부트와 JPA 활용1 - 상품 도메인 개발](https://drj9812.github.io/posts/item-domain-development){: target="_blank" }
 
 ## 참고자료
 

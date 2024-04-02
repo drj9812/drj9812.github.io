@@ -14,7 +14,7 @@ tags: [JPA, Reflection API, Proxy, 프록시]
 
 ![01-no-args-constructor-compile-error](/assets/img/posts/study/jpa/why-jpa-entity-needs-no-args-constructor/01-no-args-constructor-compile-error.jpg)
 
-`@Entity` 어노테이션이 붙은 `Entity` 클래스에 기본 생성자를 정의하지 않으면 위 사진과 같이 컴파일 에러가 발생한다.
+`@Entity` 어노테이션이 붙은 `Entity` 클래스에 기본 생성자를 정의하지 않으면 위 사진과 같이 에러가 발생한다.
 
 ## Reflection API
 
