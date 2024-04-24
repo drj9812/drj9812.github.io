@@ -226,7 +226,7 @@ public class SequenceEntity {
      * <p>
      * 1. 최초에 DB 시퀀스에서 값을 구함. 이 값을 식별자 구간의 시작 값으로 사용
      * 2. 한 번 더 DB 시퀀스에 값을 구함. 이를 식별자 구간의 끝 값으로 사용
-     * 3. 구간의 시작 값부터 끝 값까지 순차적으로 엔티티의 식별 값으로 사용.
+     * 3. 구간의 시작 값부터 끝 값까지 순차적으로 Entity의 식별 값으로 사용.
      *      이때 메모리에 순차적으로 증가한 값을 보관 --> 이 과정 때문에 allocationSize를 1로 설정하지 않았을 경우, 여러 JVM이 가동되는 가정하에 충돌이 발하게됨
      * 4. 구간의 끝에 다다르면 DB 시퀀스에 값을 구함.
      *      시퀀스에서 구한 값을 다음 식별자 구간의 끝 값으로 사용한다. 구간 끝 값에서 (allocationSize -1)를 뺀 값을 식별자 구간의 시작 값으로 사용
@@ -791,8 +791,6 @@ PK를 DB의 시퀀스를 이용하여 할당하는 전략이기 때문에, `pers
 
 ![17-insert-insertsequence-jack-result(2).jpg](/assets/img/posts/study/jpa/primary-key-generation-strategy/17-insert-insertsequence-jack-result(2).jpg)
 *insertsSquence jack 결과(2)*
-
-
 
 ## 참고자료
 

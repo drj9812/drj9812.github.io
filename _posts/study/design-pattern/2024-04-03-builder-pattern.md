@@ -14,18 +14,95 @@ tags: [Design Pattern, 디자인 패턴, Builder Pattern, 빌더 패턴]
 
 ## 빌더 패턴의 구성 요소
 
-- Product(제품)
-	+ 복잡한 객체를 나타냄
-	+ 이 객체는 생성되는 과정에서 Builder에 의해 구축됨
-- Builder(건축자)
-	+ 제품을 생성하기 위한 인터페이스를 정의
-	+ 이 인터페이스에는 객체의 각 부분을 생성하기 위한 메서드가 포함됨
-- Concrete Builder(구체적 건축자)
-	+ Builder 인터페이스를 구현하여 제품을 실제로 구축하는 클래스
-	+ 이 클래스는 객체 생성을 위한 구체적인 로직을 구현
-- Director(감독자)
-	+ 제품의 생성 과정을 조정하는 클래스
-	+ 이 클래스는 Builder 인터페이스를 사용하여 제품을 구축하는 메서드를 정의함
+### Product(제품)
+
+```java
+class Product {
+
+    private String name;
+    private int price;
+
+    public Computer(String name, int price) {
+	this.name = name;
+	this.price = price
+    }
+
+    // ...
+}
+```
+
+- 복잡한 객체를 나타냄
+- 이 객체는 생성되는 과정에서 Builder에 의해 구축됨
+
+### Builder(건축자)
+
+```java
+interface Builder {
+
+    Product build();
+}
+```
+
+- 제품을 생성하기 위한 인터페이스/추상 클래스를 정의
+- 이 인터페이스/추상 클래스에는 객체의 각 부분을 생성하기 위한 메서드가 포함됨
+
+### Concrete Builder(구체적 건축자)
+
+```java
+class ConcreteBuilder implements Builder {
+
+    private String name;
+    private int price;
+
+    public ConcreteBuilder name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public ConcreteBuilder price(int Price) {
+        this.rrice = price;
+        return this;
+    }
+
+    @Override
+    public Product build() {
+	// ...(구체적인 생성 로직)
+        return new Product(name, price);
+    }
+}
+
+```
+
+- Builder 인터페이스를 구현하여 제품을 실제로 구축하는 클래스
+- Product 클래스와 동일하게 필드를 구성
+- **객체 자신을 반환하는 setter를 생성**
+	+ setter 호출 후 연속적으로 체이닝(Chaining)하여 호출할 수 있게 됨
+	+ 일반적인 setter와 다르다는 걸 구분하기 위해 메서드 이름을 `setField()` 형식이 아닌 `field()` 형식으로 작명
+- 이 클래스는 객체 생성을 위한 구체적인 로직을 구현
+
+### Director(감독자)
+
+```java
+class Director {
+
+    private Builder builder;
+
+    public Director(Builder builder) {
+        this.builder = builder;
+    }
+
+    public Product buildProduct() {
+        return builder
+                .setName("제품 이름")
+                .setPrice("10000")
+                .build();
+    }
+}
+
+```
+
+- 제품의 생성 과정을 조정하는 클래스
+- 이 클래스는 Builder 인터페이스를 사용하여 제품을 구축하는 메서드를 정의함
 
 ## 예시
 
@@ -45,7 +122,8 @@ class Computer {
         this.storage = storage;
     }
 
-    // 각 필드의 Getter 메서드들
+    // Getter
+
     // 이 예시에서는 Setter 메서드를 생략했지만, 실제 프로젝트에서는 필요할 수 있다.
     // ...
 
@@ -78,28 +156,29 @@ class ComputerBuilderImpl implements ComputerBuilder {
         // 기본값 설정 등 초기화 작업 수행
     }
 
-    public ComputerBuilderImpl setCpu(String cpu) {
+    public ComputerBuilderImpl cpu(String cpu) {
         this.cpu = cpu;
         return this;
     }
 
-    public ComputerBuilderImpl setGpu(String gpu) {
+    public ComputerBuilderImpl gpu(String gpu) {
         this.gpu = gpu;
         return this;
     }
 
-    public ComputerBuilderImpl setRam(int ram) {
+    public ComputerBuilderImpl ram(int ram) {
         this.ram = ram;
         return this;
     }
 
-    public ComputerBuilderImpl setStorage(int storage) {
+    public ComputerBuilderImpl storage(int storage) {
         this.storage = storage;
         return this;
     }
 
     @Override
     public Computer build() {
+	// ...(구체적인 생성 로직)
         return new Computer(cpu, gpu, ram, storage);
     }
 }
@@ -115,10 +194,10 @@ class ComputerDirector {
 
     public Computer buildComputer() {
         return builder
-                .setCpu("Intel Core i7")
-                .setGpu("NVIDIA GeForce RTX 3080")
-                .setRam(16)
-                .setStorage(512)
+                .cpu("Intel Core i7")
+                .gpu("NVIDIA GeForce RTX 3080")
+                .ram(16)
+                .storage(512)
                 .build();
     }
 }

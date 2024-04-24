@@ -338,12 +338,12 @@ logging:
 			* 주로 개발 환경에서 테스트를 위해 사용
 		* `update`
 			* 애플리케이션을 시작할 때마다 변경된 부분만 업데이트
-			* 엔티티로 등록된 클래스와 매핑되는 테이블이 없으면 새로 생성하는 것은 `create`와 동일하지만 기존 테이블이 존재한다면 위의 두 경우와 달리 테이블의 컬럼을 변경
+			* Entity로 등록된 클래스와 매핑되는 테이블이 없으면 새로 생성하는 것은 `create`와 동일하지만 기존 테이블이 존재한다면 위의 두 경우와 달리 테이블의 컬럼을 변경
 			* 기존에 존재하는 컬럼의 속성(크기, 데이터 타입 등)은 건드리지 않고, 새로운 컬럼이 추가되는 변경사항만 반영
 		* `validate`
 			* 애플리케이션을 시작할 때마다 DB 스키마를 유효성 검사
-			* 변경사항은 적용되지 않고, DB 스키마가 애플리케이션의 엔티티와 일치하는지만 확인
-			* 만약 테이블이 아예 존재하지 않거나, 테이블에 엔티티의 필드에 매핑되는 컬럼이 존재하지 않으면 예외를 발생시키면서 애플리케이션을 종료
+			* 변경사항은 적용되지 않고, DB 스키마가 애플리케이션의 Entity와 일치하는지만 확인
+			* 만약 테이블이 아예 존재하지 않거나, 테이블에 Entity의 필드에 매핑되는 컬럼이 존재하지 않으면 예외를 발생시키면서 애플리케이션을 종료
 		* `none`
 			* Hibernate가 자동으로 DB 스키마를 조작하지 않도록 함
 			* 개발자가 직접 스키마를 관리
@@ -396,7 +396,7 @@ public class Member {
 - `@Id`
 	+ DB 테이블의 Primary Key 컬럼과 매핑
 - `@GeneratedValue`
-	+ JPA에서 엔터티의 기본 키 값을 어떻게 생성할지 지정하는데 사용
+	+ JPA에서 Entity의 기본 키 값을 어떻게 생성할지 지정하는데 사용
 	+ strategy 속성을 명시하지 않으면, JPA는 기본적으로 AUTO 전략을 사용
 		* DB가 자동 증가(Auto Increment)를 지원한다면, IDENTITY 전략을 사용(MySQL, MariaDB, PostgreSQL 등)
 		* DB가 시퀀스(Sequence)를 지원한다면, SEQUENCE 전략을 사용(Oracle, PostgreSQl, DB2, H2 등)
@@ -479,7 +479,7 @@ class MemberRepositoryTest {
     // then
     Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
     Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
-    Assertions.assertThat(findMember).isEqualTo(member); // JPA 엔티티 동일성 보장
+    Assertions.assertThat(findMember).isEqualTo(member); // JPA Entity 동일성 보장
     System.out.println("findMember == member: " + (findMember == member)); // findMember == member: true
     }
 }
