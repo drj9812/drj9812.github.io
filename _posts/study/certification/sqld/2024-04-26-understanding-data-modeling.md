@@ -1,7 +1,10 @@
 ---
 title: "[SQLD | 1과목]데이터 모델링의 이해"
-categories: [Study, License]
-tags: [License, 자격증, SQLD]
+categories: [Study, Certification]
+tags: [certification, 자격증, SQLD]
+image:
+  path: /assets/img/posts/study/certification/sqld/01-sqld-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
 ---
 
 |  구분  |          시험과목         |                    과목별 세부 내용                | 문항수 |           배점          |       시험기간      |
@@ -15,8 +18,8 @@ tags: [License, 자격증, SQLD]
 
 ### 모델링의 개념
 
-- 정보시스템을 구축하기 위한 데이터 관점의 업무 분석 기법
-- 현실 세계의 비즈니스 프로세스와 데이터 요구 사항을 추상적이고 구조화된 형태로 약속된 표기법에 의해 표현하는 과정
+- **정보 시스템을 구축하기 위한 데이터 관점의 업무 분석 기법**
+- **현실 세계의 비즈니스 프로세스와 데이터 요구 사항을 추상적이고 구조화된 형태로 약속된 표기법에 의해 표현하는 과정**
 - DB를 구축하기 위한 분석/설계의 과정
 - DB의 구조와 관계를 정의하며, 이를 통해 데이터의 저장, 조작, 관리 방법을 명확하게 정의
 
@@ -39,7 +42,7 @@ tags: [License, 자격증, SQLD]
 
 ### 데이터 모델링의 필요성
 
-- 업무정보를 구성하는 기초가 되는 정보들에 대해 일정한 표기법에 의해 표현함으로써 정보시스템 구축의 대상이 되는 업무 내용을 **정확하게 분석**하기 위함
+- 업무정보를 구성하는 기초가 되는 정보들에 대해 일정한 표기법에 의해 표현함으로써 정보 시스템 구축의 대상이 되는 업무 내용을 **정확하게 분석**하기 위함
 - **분석된 모델**을 가지고 실제 DB를 생성하여 개발 및 데이터 관리에 **사용**하기 위함
 
 ### 데이터 모델링의 유의점
@@ -52,7 +55,7 @@ tags: [License, 자격증, SQLD]
 
 - 사소한 업무 변화에 대해서도 잦은 모델 변경이 되지 않도록 주의
 	+ 잦은 변경이 예측되는 데이터에 대해서는 속성(컬럼)이 아닌 인스턴스(행)로 설계
-- 데이터 정의를 프로세스와 분리
+- **데이터 정의를 프로세스와 분리하여 해결**
 	+ 데이터 혹은 프로세스의 작은 변화가 애플리케이션과 DB의에 중대한 변화를 일으킬 수 있는 가능성을 줄임
 
 #### 비일관성(Inconsistency)
@@ -60,7 +63,7 @@ tags: [License, 자격증, SQLD]
 - DB 내의 정보가 모순되거나 상반된 내용을 갖는 상태를 의미
 - 데이터간 상호연관 관계를 명확히 정의
 - 데이터 품질 관리 필요
-- 데이터의 중복이 없더라도 비일관성은 발생할 수 있음
+- **데이터의 중복이 없더라도 비일관성은 발생할 수 있음**
 
 ### 데이터 모델링의 3가지 요소
 
@@ -205,7 +208,7 @@ tags: [License, 자격증, SQLD]
 
 ### Entity와 인스턴스 표기법
 
-![01-entity-and-instance-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/01-entity-and-instance-notation.jpg)
+![01-entity-and-instance-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/01-entity-and-instance-notation.jpg)
 
 - Entity는 사각형으로 표현
 - 속성은 조금씩 다름
@@ -214,13 +217,13 @@ tags: [License, 자격증, SQLD]
 
 #### IE 표기법
 
-![02-ie-entity-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/02-ie-entity-notation.jpg)
+![02-ie-entity-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/02-ie-entity-notation.jpg)
 
 - 주 식별자를 네모 칸 가장 위에 표시
 
 #### Barker 표기법
 
-![03-barker-entity-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/03-barker-entity-notation.jpg)
+![03-barker-entity-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/03-barker-entity-notation.jpg)
 
 - 주 식별자 앞에 '#' 문자를 표시
 - '○'는 `NULLABLE`
@@ -503,11 +506,11 @@ tags: [License, 자격증, SQLD]
 
 #### IE 표기법
 
-![04-ie-primary-identifier-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/04-ie-primary-identifier-notation.jpg)
+![04-ie-primary-identifier-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/04-ie-primary-identifier-notation.jpg)
 
 #### Barker 표기법
 
-![05-barker-primary-identifier-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/05-barker-primary-identifier-notation.jpg)
+![05-barker-primary-identifier-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/05-barker-primary-identifier-notation.jpg)
 
 ### 주 식별자 도출 기준
 
@@ -575,14 +578,14 @@ tags: [License, 자격증, SQLD]
 
 #### 제1 정규화(1NF)
 
-![06-1nf.jpg](/assets/img/posts/study/license/sqld/understanding-data-modeling/06-1nf.jpg)
+![06-1nf.jpg](/assets/img/posts/study/certification/sqld/understanding-data-modeling/06-1nf.jpg)
 
 - 테이블의 컬럼이 원자성(한 속성이 하나의 값을 갖는 특성)을 갖도록 테이블을 분해하는 단계
 - 하나의 행과 컬럼의 값이 반드시 한 값만 입력되도록 행을 분리하는 단계
 
 #### 제2 정규화(2NF)
 
-![07-2nf](/assets/img/posts/study/license/sqld/understanding-data-modeling/07-2nf.jpg)
+![07-2nf](/assets/img/posts/study/certification/sqld/understanding-data-modeling/07-2nf.jpg)
 
 - 제1 정규화를 진행한 테이블에 대해 완전 함수 종속을 만들도록 테이블을 분해
 - **완전 함수 종속이란, 기본 키를 구성하는 모든 컬럼의 값이 다른 컬럼을 결정짓는 상태**
@@ -592,7 +595,7 @@ tags: [License, 자격증, SQLD]
 
 #### 제3 정규화(3NF)
 
-![08-3nf](/assets/img/posts/study/license/sqld/understanding-data-modeling/08-3nf.jpg)
+![08-3nf](/assets/img/posts/study/certification/sqld/understanding-data-modeling/08-3nf.jpg)
 
 - 제2 정규화를 진행한 테이블에 대해 이행적 종속을 없애도록 테이블을 분리
 - 이행적 종속성이란 A → B, B → C의 관계가 성립할 때, A → C가 성립되는 것을 말함
@@ -637,7 +640,7 @@ tags: [License, 자격증, SQLD]
 
 ### 관계(Relationship)의 개념
 
-![09-relation](/assets/img/posts/study/license/sqld/understanding-data-modeling/09-relation.jpg)
+![09-relation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/09-relation.jpg)
 
 - **Entity의 인스턴스 사이의 논리적인 연관성**
 - Entity의 정의, 속성 정의 및 관계 정의에 따라서 다양하게 변할 수 있음
@@ -659,7 +662,7 @@ tags: [License, 자격증, SQLD]
  
 #### 예시
 
-![10-join](/assets/img/posts/study/license/sqld/understanding-data-modeling/10-join.jpg)
+![10-join](/assets/img/posts/study/certification/sqld/understanding-data-modeling/10-join.jpg)
 
 ```sql
 SELECT a.계좌번호, b.관리점
@@ -676,7 +679,7 @@ WHERE a.관리점코드 = b.관리점코드
 
 ### 계층형 데이터 모델
 
-![11-hierarchical-database-model](/assets/img/posts/study/license/sqld/understanding-data-modeling/11-hierarchical-database-model.jpg)
+![11-hierarchical-database-model](/assets/img/posts/study/certification/sqld/understanding-data-modeling/11-hierarchical-database-model.jpg)
 
 - **자기 자신끼리 관계가 발생하는 것**
 - 하나의 Entity 내의 인스턴스끼리 계층 구조를 가지는 경우
@@ -685,7 +688,7 @@ WHERE a.관리점코드 = b.관리점코드
 
 ### 상호배타적 관계
 
-![12-mutually-exclusive-relationship-ie-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/12-mutually-exclusive-relationship-ie-notation.jpg)
+![12-mutually-exclusive-relationship-ie-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/12-mutually-exclusive-relationship-ie-notation.jpg)
 
 - 두 테이블 중 하나만 가능한 관계
 - 주문 Entity는 고객번호 또는 법인번호 둘 중 하나만 상속될 수 있음
@@ -720,7 +723,7 @@ WHERE a.관리점코드 = b.관리점코드
 
 #### IE 표기법
 
-![13-essential-and-optional-relationship-ie-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/13-essential-and-optional-relationship-ie-notation.jpg)
+![13-essential-and-optional-relationship-ie-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/13-essential-and-optional-relationship-ie-notation.jpg)
 
 - **원을 사용하여** 필수적 관계와 선택적 관계를 **구분**
 - **필수적 관계**에는 원을 그리지 않음
@@ -728,7 +731,7 @@ WHERE a.관리점코드 = b.관리점코드
 
 #### Barker 표기법
 
-![14-essential-and-optional-relationship-barker-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/14-essential-and-optional-relationship-barker-notation.jpg)
+![14-essential-and-optional-relationship-barker-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/14-essential-and-optional-relationship-barker-notation.jpg)
 
 - **실선과 점선으로 구분**
 - **필수적 관계**는 관계선을 **실선**으로 표기
@@ -744,21 +747,21 @@ WHERE a.관리점코드 = b.관리점코드
 
 ### NULL의 특성
 
-![15-null(1)](/assets/img/posts/study/license/sqld/understanding-data-modeling/15-null(1).jpg)
+![15-null(1)](/assets/img/posts/study/certification/sqld/understanding-data-modeling/15-null(1).jpg)
 
 - `NULL`을 포함한 연산 결과는 항상 `NULL`
 
-![16-null(2)](/assets/img/posts/study/license/sqld/understanding-data-modeling/16-null(2).jpg)
+![16-null(2)](/assets/img/posts/study/certification/sqld/understanding-data-modeling/16-null(2).jpg)
 
-![17-null(3)](/assets/img/posts/study/license/sqld/understanding-data-modeling/17-null(3).jpg)
+![17-null(3)](/assets/img/posts/study/certification/sqld/understanding-data-modeling/17-null(3).jpg)
 
-![18-null(4)](/assets/img/posts/study/license/sqld/understanding-data-modeling/18-null(4).jpg)
+![18-null(4)](/assets/img/posts/study/certification/sqld/understanding-data-modeling/18-null(4).jpg)
 
 - 집계함수는 `NULL`을 제외한 연산 결과를 반환
 
 ### NULL의 ERD 표기법
 
-![19-null-erd-notation](/assets/img/posts/study/license/sqld/understanding-data-modeling/19-null-erd-notation.jpg)
+![19-null-erd-notation](/assets/img/posts/study/certification/sqld/understanding-data-modeling/19-null-erd-notation.jpg)
 
 - IE 표기법에서는`NULL` 허용 여부를 알 수 없음
 - Barker 표기법에서는 속성 앞에 '○'가 `NULL` 허용 속성을 의미함

@@ -2,6 +2,10 @@
 title: "[Spring Boot]스프링 부트와 JPA 활용1 - 주문 도메인 개발"
 categories: [Study, Spring Boot]
 tags: [Java, 자바, Spring Boot, 스프링 부트, JPA, 인프런, Inflearn, 김영한]
+image:
+  path: /assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/01-using-spring-boot-and-jpa-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: 김영한 - 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발
 ---
 
 # 스프링 부트와 JPA 활용1 - 주문 도메인 개발

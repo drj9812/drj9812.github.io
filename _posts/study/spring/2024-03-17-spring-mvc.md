@@ -2,6 +2,10 @@
 title: "[Spring]Spring MVC"
 categories: [Study, Spring]
 tags: [Java, 자바, Spring, 스프링, Spring MVC, 스프링 MVC]
+image:
+  path: /assets/img/posts/study/spring/spring-mvc/01-spring-mvc-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: Spring MVC
 ---
 
 # Spring MVC
@@ -18,7 +22,7 @@ tags: [Java, 자바, Spring, 스프링, Spring MVC, 스프링 MVC]
 
 ## 동작 과정
 
-![01-spring-mvc-structure](/assets/img/posts/study/spring/spring-mvc/01-spring-mvc-structure.jpg)
+![02-spring-mvc-structure](/assets/img/posts/study/spring/spring-mvc/02-spring-mvc-structure.jpg)
 
 1. 웹 애플리케이션 배포
 	- 웹 애플리케이션이 서블릿 컨테이너(예: Tomcat)에 배포됨

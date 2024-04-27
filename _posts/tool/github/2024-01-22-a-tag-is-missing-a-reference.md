@@ -2,13 +2,17 @@
 title: "[GitHub | GitHub Actions]'a' tag is missing a reference 에러 해결하기"
 categories: [Tool, GitHub]
 tags: [GitHub, GitHub Actions, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 에러, error]
+image:
+  path: /assets/img/posts/tool/github/a-tag-is-missing-a-reference/01-github-actions-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: GitHub Actions
 ---
 
 # 'a' tag is missing a reference 에러 해결하기
 
 ## 개요
 
-![01-test-fail-during-build](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/01-test-fail-during-build.png)
+![02-test-fail-during-build](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/02-test-fail-during-build.png)
 
 작성한 글이 로컬 서버에서 문제가 없다는 걸 확인한 뒤, 원격 저장소에 push 했는데 `'a' tag is missing a reference` 라는 이유로 빌드가 실패됐다.
 
@@ -28,21 +32,21 @@ Jekyll에서 MD 파일로 작성된 파일은 HTML 파일로 변환되는데, �
 
 답변에 따르면, 게시글의 작성자 정보를 담고 있는 `_data/authors.yml` 파일이 불완전할 경우 문제가 발생할 수 있다는 것이다.
 
-![02-author-link](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/02-author-link.png)
+![03-author-link](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/03-author-link.png)
 
 게시글을 작성될 때 작성자의 이름과 하이퍼링크는 `_config.yml` 파일 또는 `_data/authors.yml` 파일에 명시된 정보들을 바탕으로 설정된다.
 
-![03-author-information](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/03-author-information.png)
+![04-author-information](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/04-author-information.png)
 
 이때 `_config.yml` 파일이 `_data/authors.yml` 파일보다 우선되지만, 두 파일의 정보가 충돌이 되어 명시된 하이퍼링크의 주소가 답변처럼 불완전한 상태가 되는 것이 아닌가하는 생각이 들었다.
 
-![04-authors.yml-comment-out](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/04-authors.yml-comment-out.png)
+![05-authors.yml-comment-out](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/05-authors.yml-comment-out.png)
 
 따라서, `_data/authors.yml` 파일의 작성자 정보를 전부 주석 처리하고 push 해보았지만 에러는 사라지지 않았다.
 
 ## 해결 방법
 
-![05-pages-deploy.yml-test-site-comment-out](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/05-pages-deploy.yml-test-site-comment-out.png)
+![06-pages-deploy.yml-test-site-comment-out](/assets/img/posts/tool/github/a-tag-is-missing-a-reference/06-pages-deploy.yml-test-site-comment-out.png)
 
 에러가 발생한 Github Actions의 Test Site 단계는 정적 웹사이트에 대한 HTML 검증 및 품질 테스트를 제공하는 도구인 html-proofer가 Jekyll로 빌드된 사이트를 테스트를 하도록 `.github/workflows/pages-deploy.yml` 파일에 설정되어있다.
 

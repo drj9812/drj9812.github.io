@@ -2,6 +2,10 @@
 title: "[MariaDB]MariaDB 설치하기(Windows)"
 categories: [Tool, MariaDB]
 tags: [설치, MariaDB, MariaDB 설치]
+image:
+  path: /assets/img/posts/tool/mariadb/01-mariadb-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: MariaDB
 ---
 
 # MariaDB 설치하기(Windows)

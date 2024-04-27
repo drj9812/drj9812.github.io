@@ -1,5 +1,5 @@
 ---
-title: "[GitHub | GitHub Pages]GitHub 블로그에 댓글 기능 적용하기"
+title: "[GitHub | GitHub Pages]utterances를 사용하여 GitHub 블로그에 댓글 기능 적용하기"
 categories: [Tool, GitHub]
 tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 댓글 기능, utterances]
 ---
