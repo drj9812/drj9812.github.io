@@ -118,7 +118,7 @@ image:
 
 - **Entity의 인스턴스 사이의 논리적인 연관성**
 - Entity의 정의, 속성 정의 및 관계 정의에 따라서 다양하게 변할 수 있음
-- **관계를 맺는다는 의미는 부모의 식별자를 자식에 상속하고, 상속된 속성을 매핑키(`JOIN` 키)로 활용
+- **관계를 맺는다는 의미는 부모의 식별자를 자식에 상속하고, 상속된 속성을 매핑키(`JOIN` 키)로 활용**
 	+ 부모, 자식의 연결
 
 ### 관계의 분류
@@ -281,7 +281,7 @@ WHERE a.관리점코드 = b.관리점코드
 
 ## 다음 글
 
-- [[SQLD \| 2과목]SQL 기본 및 활용 - SQL 활용](https://drj9812.github.io/posts/sql-utilizing){: target="_blank" }
+- [[SQLD \| 2과목]SQL 기본 및 활용 - SQL 기본](https://drj9812.github.io/posts/sql-basic){: target="_blank" }
 
 ## 참고자료
 
