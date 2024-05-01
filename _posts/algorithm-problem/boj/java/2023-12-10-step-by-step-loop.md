@@ -9,9 +9,11 @@ image:
 
 # 단계별로 풀어보기 - 반복문 모든 문제
 
+2023-12-10 기준
+
 ## [2739번 - 구구단](https://www.acmicpc.net/problem/2739){: target="_blank" }
 
-![2739(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/2739(1).png)
+![01-2739](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/01-2739.png)
 
 ```java
 import java.util.scanner;
@@ -33,7 +35,7 @@ public class Main {
 
 ## [10950번 - A+B - 3](https://www.acmicpc.net/problem/10950){: target="_blank" }
 
-![10950(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/10950(1).png)
+![02-10950](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/02-10950.png)
 
 ```java
 import java.util.scanner;
@@ -60,7 +62,7 @@ public class Main {
 
 ## [8393번 - 합](https://www.acmicpc.net/problem/8393){: target="_blank" }
 
-![8393(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/8393(1).png)
+![03-8393](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/03-8393.png)
 
 ```java
 import java.util.scanner;
@@ -85,8 +87,8 @@ public class Main {
 
 ## [25304번 - 영수증](https://www.acmicpc.net/problem/25304){: target="_blank" }
 
-![25304(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/25304(1).png)
-![25304(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/25304(2).png)
+![04-25304(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/04-25304(1).png)
+![05-25304(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/05-25304(2).png)
 
 ```java
 import java.util.scanner;
@@ -121,8 +123,8 @@ public class Main {
 
 ## [25314번 - 코딩은 체육과목 입니다](https://www.acmicpc.net/problem/25314){: target="_blank" }
 
-![25314(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/25314(1).png)
-![25314(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/25314(2).png)
+![06-25314(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/06-25314(1).png)
+![07-25314(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/07-25314(2).png)
 
 ```java
 import java.util.scanner;
@@ -146,8 +148,8 @@ public class Main {
 
 ## [15552번 - 빠른 A+B](https://www.acmicpc.net/problem/15552){: target="_blank" }
 
-![15552(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/15552(1).png)
-![15552(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/15552(2).png)
+![08-15552(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/08-15552(1).png)
+![09-15552(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/09-15552(2).png)
 
 ```java
 import java.io.*;
@@ -182,11 +184,11 @@ public class Main {
 }
 ```
 
-문제의 설명대로 자바를 이용하여 문제를 풀 때, `scanner`를 사용하면 시간초과되어 오답처리 될 수 있기 때문에 앞으로는 `BufferedWriter`까지는 아니더라도 `BufferedReader`를 사용해야 한다. 위 문제에서는 `println()` 메서드로 출력하려 했더니 시간초과로 오답처리되서 `BufferedWriter`를 사용했다.
+문제의 설명대로 자바를 이용하여 문제를 풀 때, `Scanner`를 사용하면 시간초과되어 오답처리 될 수 있기 때문에 앞으로는 `BufferedWriter`까지는 아니더라도 `BufferedReader`를 사용해야 한다. 위 문제에서는 `println()` 메서드로 출력하려 했더니 시간초과로 오답처리되서 `BufferedWriter`를 사용했다.
 
 ## [11021번 - A+B - 7](https://www.acmicpc.net/problem/11021){: target="_blank" }
 
-![11021(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/11021(1).png)
+![10-11021](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/10-11021.png)
 
 ```java
 import java.io.*;
@@ -223,7 +225,7 @@ public class Main {
 
 ## [11022번 - A+B - 8](https://www.acmicpc.net/problem/11022){: target="_blank" }
 
-![11022(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/11022(1).png)
+![11-11022](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/11-11022.png)
 
 ```java
 import java.io.*;
@@ -260,7 +262,7 @@ public class Main {
 
 ## [2438번 - 별 찍기 - 1](https://www.acmicpc.net/problem/2438){: target="_blank" }
 
-![2438(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/2438(1).png)
+![12-2438](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/12-2438.png)
 
 ```java
 import java.io.*;
@@ -291,7 +293,7 @@ public class Main {
 
 ## [2439번 - 별 찍기 - 2](https://www.acmicpc.net/problem/2439){: target="_blank" }
 
-![2439(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/2439(1).png)
+![13-2439](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/13-2439.png)
 
 ```java
 import java.io.*;
@@ -331,7 +333,7 @@ public class Main {
 
 ## [10952번 - A+B - 5](https://www.acmicpc.net/problem/10952){: target="_blank" }
 
-![10952(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/10952(1).png)
+![14-10952](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/14-10952.png)
 
 ```java
 import java.io.*;
@@ -371,7 +373,7 @@ public class Main {
 
 ## [10951번 - A+B - 4](https://www.acmicpc.net/problem/10951){: target="_blank" }
 
-![10951(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/10951(1).png)
+![15-10951](/assets/img/posts/algorithm-problem/boj/java/step-by-step-loop/15-10951.png)
 
 ```java
 import java.io.*;

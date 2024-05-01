@@ -601,6 +601,6 @@ image:
 
 ## 참고자료
 
-- [홍쌤의 데이터랩, "SQLD 1과목 완벽 정리 (2024년 신유형 반영)", 2024-02-14](https://www.youtube.com/watch?v=QB_GYdHUHmA){: target="_blank" }
+- [홍은혜, "SQLD 1과목 완벽 정리 (2024년 신유형 반영)", 홍쌤의 데이터랩, 2024-02-14](https://www.youtube.com/watch?v=QB_GYdHUHmA){: target="_blank" }
 - 한국데이터산업진흥원, SQL 자격검정 실전문제(서울: 한국데이터산업진흥원, 2016), 279.
 - [yunamom, Study with yuna](https://yunamom.tistory.com/){: target="_blank" }
