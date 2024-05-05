@@ -13,7 +13,7 @@ image:
 
 ## [27433번 - 팩토리얼 2](https://www.acmicpc.net/problem/27433){: target="_blank" }
 
-![01-27433](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/01-27433.jpg)
+![01-27433](/assets/img/posts/algorithm-problem/boj/step/java/recursion/01-27433.jpg)
 
 ```java
 import java.io.*;
@@ -43,7 +43,7 @@ public class Main {
 
 ## [10870번 - 피보나치 수 5](https://www.acmicpc.net/problem/10870){: target="_blank" }
 
-![02-10870](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/02-10870.jpg)
+![02-10870](/assets/img/posts/algorithm-problem/boj/step/java/recursion/02-10870.jpg)
 
 ```java
 import java.io.*;
@@ -76,9 +76,9 @@ public class Main {
 
 ## [25501번 - 재귀의 귀재](https://www.acmicpc.net/problem/25501){: target="_blank" }
 
-![03-25501(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/03-25501(1).jpg)
-![04-25501(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/04-25501(2).jpg)
-![05-25501(3)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/05-25501(3).jpg)
+![03-25501(1)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/03-25501(1).jpg)
+![04-25501(2)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/04-25501(2).jpg)
+![05-25501(3)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/05-25501(3).jpg)
 
 ```java
 import java.io.*;
@@ -128,8 +128,8 @@ public class Main {
 
 ## [24060번 - 알고리즘 수업 - 병합 정렬 1](https://www.acmicpc.net/problem/24060){: target="_blank" }
 
-![06-24060(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/06-24060(1).jpg)
-![07-24060(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/07-24060(2).jpg)
+![06-24060(1)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/06-24060(1).jpg)
+![07-24060(2)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/07-24060(2).jpg)
 
 ```java
 import java.io.*;
@@ -224,8 +224,8 @@ public class Main {
 
 ## [4779번 - 칸토어 집합](https://www.acmicpc.net/problem/4779){: target="_blank" }
 
-![08-4779(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/08-4779(1).jpg)
-![09-4779(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/09-4779(2).jpg)
+![08-4779(1)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/08-4779(1).jpg)
+![09-4779(2)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/09-4779(2).jpg)
 
 ```java
 import java.io.*;
@@ -272,8 +272,8 @@ public class Main {
 
 ## [2447번 - 별 찍기 - 10](https://www.acmicpc.net/problem/2447){: target="_blank" }
 
-![10-2447(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/10-2447(1).jpg)
-![11-2447(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/11-2447(2).jpg)
+![10-2447(1)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/10-2447(1).jpg)
+![11-2447(2)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/11-2447(2).jpg)
 
 ```java
 import java.io.*;
@@ -326,8 +326,8 @@ public class Main {
 
 ## [11729번 - 하노이의 탑 이동 순서](https://www.acmicpc.net/problem/11729){: target="_blank" }
 
-![12-11729(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/12-11729(1).jpg)
-![13-11729(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-recursion/13-11729(2).jpg)
+![12-11729(1)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/12-11729(1).jpg)
+![13-11729(2)](/assets/img/posts/algorithm-problem/boj/step/java/recursion/13-11729(2).jpg)
 
 ```java
 import java.io.*;

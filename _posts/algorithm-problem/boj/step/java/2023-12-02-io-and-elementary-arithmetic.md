@@ -13,7 +13,7 @@ image:
 
 ## [2557번 - Hello World](https://www.acmicpc.net/problem/2557){: target="_blank" }
 
-![01-2557](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/01-2557.png)
+![01-2557](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/01-2557.png)
 
 ```java
 public class Main {
@@ -27,7 +27,7 @@ public class Main {
 
 ## [1000번 - A+B](https://www.acmicpc.net/problem/1000){: target="_blank" }
 
-![02-1000](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/02-1000.png)
+![02-1000](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/02-1000.png)
 
 ```java
 import java.util.scanner;
@@ -50,7 +50,7 @@ public class Main {
 
 ## [1001번 - A-B](https://www.acmicpc.net/problem/1001){: target="_blank" }
 
-![03-1001](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/03-1001.png)
+![03-1001](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/03-1001.png)
 
 ```java
 import java.util.scanner;
@@ -73,7 +73,7 @@ public class Main {
 
 ## [10998번 - A*B](https://www.acmicpc.net/problem/10998){: target="_blank" }
 
-![04-10998](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/04-10998.png)
+![04-10998](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/04-10998.png)
 
 ```java
 import java.util.scanner;
@@ -96,7 +96,7 @@ public class Main {
 
 ## [1008번 - A/B](https://www.acmicpc.net/problem/1008){: target="_blank" }
 
-![05-1008](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/05-1008.png)
+![05-1008](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/05-1008.png)
 
 ```java
 import java.util.scanner;
@@ -119,7 +119,7 @@ public class Main {
 
 ## [10869번 - 사칙연산](https://www.acmicpc.net/problem/10869){: target="_blank" }
 
-![06-10869](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/06-10869.png)
+![06-10869](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/06-10869.png)
 
 ```java
 import java.util.scanner;
@@ -150,7 +150,7 @@ public class Main {
 
 ## [10926번 - ??!](https://www.acmicpc.net/problem/10926){: target="_blank" }
 
-![07-10926](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/07-10926.png)
+![07-10926](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/07-10926.png)
 
 ```java
 import java.util.scanner;
@@ -171,7 +171,7 @@ public class Main {
 
 ## [18108번 - 1998년생인 내가 태국에서는 2541년생?!](https://www.acmicpc.net/problem/18108){: target="_blank" }
 
-![08-18108](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/08-18108.png)
+![08-18108](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/08-18108.png)
 
 ```java
 import java.util.scanner;
@@ -192,7 +192,7 @@ public class Main {
 
 ## [10430번 - 나머지](https://www.acmicpc.net/problem/10430){: target="_blank" }
 
-![09-10430](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/09-10430.png)
+![09-10430](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/09-10430.png)
 
 ```java
 import java.util.scanner;
@@ -217,7 +217,7 @@ public class Main {
 
 ## [2588번 - 곱셈](https://www.acmicpc.net/problem/2588){: target="_blank" }
 
-![10-2588](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/10-2588.png)
+![10-2588](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/10-2588.png)
 
 ```java
 import java.util.scanner;
@@ -241,7 +241,7 @@ public class Main {
 
 ## [11382번 - 꼬마 정민](https://www.acmicpc.net/problem/11382){: target="_blank" }
 
-![11-11382](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/11-11382.png)
+![11-11382](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/11-11382.png)
 
 ```java
 import java.util.Scanner;
@@ -265,7 +265,7 @@ public class Main {
 
 ## [10171번 - 고양이](https://www.acmicpc.net/problem/10171){: target="_blank" }
 
-![12-10171](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/12-10171.png)
+![12-10171](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/12-10171.png)
 
 ```java
 public class Main {
@@ -284,7 +284,7 @@ public class Main {
 
 ## [10172번 - 개](https://www.acmicpc.net/problem/10172){: target="_blank" }
 
-![13-10172](/assets/img/posts/algorithm-problem/boj/java/step-by-step-io-and-elementary-arithmetic/13-10172.png)
+![13-10172](/assets/img/posts/algorithm-problem/boj/step/java/io-and-elementary-arithmetic/13-10172.png)
 ```java
 public class Main {
 

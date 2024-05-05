@@ -141,8 +141,8 @@ image:
 
 ```sql
 SELECT a.계좌번호, b.관리점
- FROM 계좌 a, 관리점 b
-WHERE a.관리점코드 = b.관리점코드
+  FROM 계좌 a, 관리점 b
+ WHERE a.관리점코드 = b.관리점코드
            AND
            a.계좌번호 = '100111'
 ```

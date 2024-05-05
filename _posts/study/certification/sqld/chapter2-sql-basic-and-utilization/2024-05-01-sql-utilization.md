@@ -77,8 +77,8 @@ image:
 
 ```sql
 SELECT * | 컬럼명 | 표현식, (SELECT * | 컬럼명 표현식
-                         FROM 테이블명 또는 뷰명
-			WHERE 조건)
+                               FROM 테이블명 또는 뷰명
+			      WHERE 조건)
   FROM 테이블명 또는 뷰명;
 ```
 
@@ -332,8 +332,8 @@ SELECT * | 컬럼명 | 표현식
 
 ```sql
 SELECT 윈도우 함수([대상]) OVER([PARTITION BY 컬럼]
-                        [ORDER BY 컬럼 ASC | DESC]
-                        [ROWS | RANGE BETWEEN a AND b]);
+                                [ORDER BY 컬럼 ASC | DESC]
+                                [ROWS | RANGE BETWEEN a AND b]);
 ```
 
 - **서로 다른 행의 비교나 연산을 위해 만든 함수**
@@ -390,8 +390,8 @@ SELECT 윈도우 함수([대상]) OVER([PARTITION BY 컬럼]
 
 ```sql
 SELECT 그룹함수(대상), OVER([PARTITION BY 컬럼]
-                     [ORDER BY 컬럼 ASC | DESC]
-                     [ROWS | RANGE BETWEEN a AND b]);
+                            [ORDER BY 컬럼 ASC | DESC]
+                            [ROWS | RANGE BETWEEN a AND b]);
 ```
 
 - `SUM()`, `COUNT()`, `AVG()`, `MIN()`, `MAX()` 등
@@ -466,7 +466,7 @@ SELECT RANK() OVER([PARTITION BY 컬럼]
 SELECT LAG(컬럼,
 	         n)
        OVER([PARTITION BY 컬럼]
-       ORDER BY 컬럼 ASC | DESC);
+             ORDER BY 컬럼 ASC | DESC);
 ```
 
 - **행 순서대로 각각 이전 값(`LAG()`), 이후 값(`LEAD()`)을 반환**
@@ -539,7 +539,7 @@ CUME_DIST() OVER([PARTITION BY 컬럼]
 
 ```sql
 PERCENT_RANK() OVER([PARTITION BY ...]
-                    ORDER BY ...])
+                     ORDER BY ...])
 ```
 
 - **`PERCENTILE(분위수)` 출력**
@@ -610,8 +610,8 @@ SELECT
  GROUP BY
 HAVING
  ORDER BY
-OFFESET n { ROW | ROWS }
-  FETCH { FIRST | NEXT } n { ROW | ROWS } ONLY
+OFFSET n { ROW | ROWS }
+ FETCH { FIRST | NEXT } n { ROW | ROWS } ONLY
 ```
 
 - `OFFEST`
@@ -804,7 +804,7 @@ UNPIVOT (Value컬럼명 FOR Stack컬럼명 IN (값1, 값2, 값, ...));
 |        \\W     |                    단어가 아닌 것                         |
 |        \\t       |                            Tab                                |
 |        \\n      |                            개행                               |
-|         &         |                     시작되는 글자                         |
+|         ^         |                     시작되는 글자                         |
 |         $          |                       마지막 글자                          |
 |         \         |       Escape Character(뒤에 기호 의미 제거)      |
 |         \|         |                            또는                              |

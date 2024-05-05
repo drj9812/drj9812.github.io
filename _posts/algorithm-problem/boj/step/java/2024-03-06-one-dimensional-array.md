@@ -13,7 +13,7 @@ image:
 
 ## [10807번 - 개수 세기](https://www.acmicpc.net/problem/10807){: target="_blank" }
 
-![01-10807](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/01-10807.jpg)
+![01-10807](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/01-10807.jpg)
 
 ```java
 import java.io.*;
@@ -48,7 +48,7 @@ public class Main {
 
 ## [10871번 - X보다 작은 수](https://www.acmicpc.net/problem/10871){: target="_blank" }
 
-![02-10871](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/02-10871.jpg)
+![02-10871](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/02-10871.jpg)
 
 ```java
 import java.io.*;
@@ -83,7 +83,7 @@ public class Main {
 
 ## [10818번 - 최소, 최대](https://www.acmicpc.net/problem/10818){: target="_blank" }
 
-![03-10818](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/03-10818.jpg)
+![03-10818](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/03-10818.jpg)
 
 ```java
 import java.io.*;
@@ -120,7 +120,7 @@ public class Main {
 
 ## [2562번 - 최댓값](https://www.acmicpc.net/problem/2562){: target="_blank" }
 
-![04-2562](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/04-2562.jpg)
+![04-2562](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/04-2562.jpg)
 
 ```java
 import java.io.*;
@@ -151,7 +151,7 @@ public class Main {
 
 ## [10810번 - 공 넣기](https://www.acmicpc.net/problem/10810){: target="_blank" }
 
-![05-10810](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/05-10810.jpg)
+![05-10810](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/05-10810.jpg)
 
 ```java
 import java.io.*;
@@ -190,7 +190,7 @@ public class Main {
 
 ## [10813번 - 공 바꾸기](https://www.acmicpc.net/problem/10813){: target="_blank" }
 
-![06-10813](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/06-10813.jpg)
+![06-10813](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/06-10813.jpg)
 
 ```java
 import java.io.*;
@@ -229,9 +229,9 @@ public class Main {
 
 ## [5597번 - 과제 안 내신 분..?](https://www.acmicpc.net/problem/5597){: target="_blank" }
 
-![07-5597(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/07-5597(1).jpg)
-![08-5597(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/08-5597(2).jpg)
-![09-5597(3)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/09-5597(3).jpg)
+![07-5597(1)](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/07-5597(1).jpg)
+![08-5597(2)](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/08-5597(2).jpg)
+![09-5597(3)](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/09-5597(3).jpg)
 
 ```java
 import java.io.*;
@@ -261,8 +261,8 @@ public class Main {
 
 ## [3052번 - 나머지](https://www.acmicpc.net/problem/3052){: target="_blank" }
 
-![10-3052(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/10-3052(1).jpg)
-![11-3052(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/11-3052(2).jpg)
+![10-3052(1)](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/10-3052(1).jpg)
+![11-3052(2)](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/11-3052(2).jpg)
 
 ```java
 import java.io.*;
@@ -312,7 +312,7 @@ public class Main {
 
 ## [10811번 - 바구니 뒤집기](https://www.acmicpc.net/problem/10811){: target="_blank" }
 
-![12-10811](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/12-10811.jpg)
+![12-10811](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/12-10811.jpg)
 
 ```java
 import java.io.*;
@@ -359,8 +359,8 @@ public class Main {
 
 ## [1546번 - 평균](https://www.acmicpc.net/problem/1546){: target="_blank" }
 
-![13-1546(1)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/13-1546(1).jpg)
-![14-1546(2)](/assets/img/posts/algorithm-problem/boj/java/step-by-step-one-dimensional-array/14-1546(2).jpg)
+![13-1546(1)](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/13-1546(1).jpg)
+![14-1546(2)](/assets/img/posts/algorithm-problem/boj/step/java/one-dimensional-array/14-1546(2).jpg)
 
 ```java
 import java.io.*;
