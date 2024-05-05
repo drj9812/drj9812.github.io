@@ -71,7 +71,7 @@ Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드�
 
 [Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 Node.js를 설치하고 `bash tool/init` 명령어를 실행해야합니다. `tool` 폴더에 있는 `init` 파일을 실행하는 명령어인데, 이 `init` 파일 내부에 `npm i && npm run build` 명령어를 실행하는 부분이 있습니다. 이때, npm은 `npm` 명령어를 통해 Node.js의 패키지를 관리하는 Node Package Manager의 약자입니다. npm은 Node.js를 설치하면 함께 설치됩니다.
 
-![13-node-homepage](/assets/img/posts/tool/github/make-github-blog-with-jekyll-chipry-on-windows/1-node-homepage.png)
+![13-node-homepage](/assets/img/posts/tool/github/make-github-blog-with-jekyll-chipry-on-windows/13-node-homepage.png)
 *[Node.js 홈페이지](https://nodejs.org/en){: target="_blank" } > `20.11.0 LTS` 다운로드*
 
 ![14-install-node(1).=](/assets/img/posts/tool/github/make-github-blog-with-jekyll-chipry-on-windows/14-install-node(1).png)
@@ -131,8 +131,7 @@ $ bundler -v
 ## jekyll-theme-chirpy Repository Fork
 
 ![24-fork-repo](/assets/img/posts/tool/github/make-github-blog-with-jekyll-chipry-on-windows/24-fork-repo.png)
-
-[jekyll-theme-chirpy repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" } > `Fork` > `Create a new Fork`
+*[jekyll-theme-chirpy repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" } > `Fork` > `Create a new Fork`*
 
 > Fork 방식을 사용하면 커밋할 때마다 깃허브 잔디가 안 심어집니다. 잔디가 필요하신 분들은 repository를 fork하여 생성하지 말고, repository를 직접 생성한 다음 [Chirpy 테마 repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" }에서 소스코드를 zip 파일 형식으로 다운받아 따라하시면 됩니다.
 {: .prompt-tip }
