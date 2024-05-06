@@ -1,5 +1,5 @@
 ---
-title: "[Google | Search Console]색인이 생성되지 않은 페이지 해결하기"
+title: "[GitHub | GitHub Pages]색인이 생성되지 않은 페이지 해결하기"
 categories: [Tool, GitHub]
 tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, Google, 구글, Search Console, 노출, 색인]
 ---

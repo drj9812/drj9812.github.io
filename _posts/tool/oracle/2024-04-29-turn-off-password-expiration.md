@@ -11,7 +11,7 @@ tags: [Oracle, 오라클, ORA-28001, 비밀번호 만기]
 ## ORA-28001 오류 코드란?
 
 - DB 사용자의 암호가 만료되었음을 나타냄
-- 보안 정책에 따라 암호를 주기적으로 변경해야 하는 경우, 데이터베이스 사용자가 해당 정책을 준수하지 않아 암호가 만료되면 이 오류가 발생
+- 보안 정책에 따라 암호를 주기적으로 변경해야 하는 경우, DB 사용자가 해당 정책을 준수하지 않아 암호가 만료되면 이 오류가 발생
 
 ## 해결방법
 
@@ -31,9 +31,9 @@ SQL> SELECT username, expiry_date, account_status FROM dba_users;
 
 ![02-check-account-status(1)](/assets/img/posts/tool/oracle/turn-off-password-expiration/02-check-account-status(1).jpg)
 
-비밀번호가 만료된 계정은 `expiry_date`와 `account_status`가 각각 만료된 날짜, EXPIRED로 표시된다.
+비밀번호가 만료된 계정은 `expiry_date`와 `account_status`가 각각 만료된 날짜, "EXPIRED"로 표시된다.
 
-> 비밀번호가 만료되지 않은 계정은 `expiry_date`와 `account_status`가 각각 `NULL`, OPEN으로 표시된다.
+> 비밀번호가 만료되지 않은 계정은 `expiry_date`와 `account_status`가 각각 `NULL`, "OPEN"으로 표시된다.
 {: .prompt-info }
 
 #### 비밀번호 만료 기간 확인
@@ -67,7 +67,7 @@ SQL> SELECT resource_name, limit FROM dba_profiles WHERE profile = 'DEFAULT' AND
 
 ![05-check-account-status(2)](/assets/img/posts/tool/oracle/turn-off-password-expiration/05-check-account-status(2).jpg)
 
-비밀번호가 정상적으로 변경됐다면, `expiry_date`와 `account_status`가 각각 만료될 날짜, OPEN으로 표시된다.
+비밀번호가 정상적으로 변경됐다면, `expiry_date`와 `account_status`가 각각 만료될 날짜, "OPEN"으로 표시된다.
 
 ### 비밀번호 만료 정책 조정
 

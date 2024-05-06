@@ -1,5 +1,5 @@
 ---
-title: "[Naver | Search Advisor]GitHub 블로그를 네이버 검색 엔진에 노출시키기"
+title: "[GitHub | GitHub Pages]GitHub 블로그를 네이버 검색 엔진에 노출시키기"
 categories: [Tool, GitHub]
 tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, Naver, 네이버, Search Advisor, 노출, 색인]
 image:
