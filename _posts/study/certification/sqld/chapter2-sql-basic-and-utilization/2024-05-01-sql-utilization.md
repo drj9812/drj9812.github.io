@@ -690,7 +690,7 @@ CONNECT BY PRIOR 연결조건;
 	+ 각 계층(depth) 을 표현
 	+ 시작점부터 1
 
-- `CONNECT_BYLEAF`
+- `CONNECT_BY_ISLEAF`
 	+ 최하위 노드(Leaf Node) 여부
 		* 1은 참, 0은 거짓
 
