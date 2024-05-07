@@ -244,7 +244,609 @@ SAVEPOINT savepoint_name;
 
 ## DDL(Data Definition Language)
 
+- 데이터 정의어
+- **데이터 구조 정의 언어**
+	+ `CREATE`: 객체 생성
+	+ `ALTER`: 객체 변경
+	+ `DROP`: 객체 삭제
+	+ **`TRUNCATE`**: 데이터 삭제
+- 명령어를 실행하면 즉시 저장
+	+ 원복 불가
+	+ AUTO `COMMIT`
+
+### CREATE
+
+```sql
+CREATE TABLE [소유자.]테이블명(
+    컬럼1 데이터타입 [DEFAULT 기본값] [제약조건],
+    컬럼2 데이터타입 [DEFAULT 기본값] [제약조건],
+    ...);
+```
+
+- 테이블이나 인덱스와 같은 **객체를 생성하는 명령어**
+- 테이블 생성 시 테이블명, 컬럼명, 컬럼 순서, 컬럼 크기, 컬럼의 데이터 타입 정의 필수
+- 테이블 생성 시 각 컬럼의 제약 조건 및 기본 값은 생략 가능
+- 테이블 생성 시 소유자 명시 가능
+	+ 생략 시 명령어 수행 계정 소유
+- 숫자 컬럼의 경우 컬럼 사이즈 생략 가능
+	+ 날짜 컬럼은 사이즈를 명시하지 않음
+
+#### 테이블 복제
+
+```sql
+CREATE TABLE 테이블명
+    AS
+SELECT *
+  FROM 복제테이블명;
+```
+
+- 복제 테이블의 컬럼명과 컬럼의 데이터 타입이 복제됨
+- `SELECT` 문에서 컬럼 별칭 사용시 컬럼 별칭 이름으로 생성
+- `CREATE` 문에서 컬럼명 변경 가능
+- `NULL` 속성을 제외한 제약 조건, 인덱스 등은 복제되지 않음
+- `WHERE` 절을 사용해서 일부 데이터만 복제할 수 있음
+
+#### 예시
+
+![16-ex-create(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/16-ex-create(1).jpg)
+*`merge_old` 테이블 생성*
+
+![17-ex-create(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/17-ex-create(2).jpg)
+*`emp` 테이블을 복제하여 `test` 테이블 생성*
+
+![18-ex-create(3)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/18-ex-create(3).jpg)
+*`emp` 테이블의 데이터 없이 구조만 복제*
+
+- 항상 거짓인 조건을 `SELECT` 절에 전달하면, 데이터는 아무것도 출력되지 않지만 컬럼 정보들은 출력됨
+
+![19-ex-create(4)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/19-ex-create(4).jpg)
+*테이블 복제 시 컬럼명 변경 가능*
+
+- `SELECT` 절에서 `AS`를 사용하여 컬럼명을 변경할 수도 있음
+
+### 데이터 타입
+
+|   데이터 타입   |                                                                      설명                                                                       |
+|:------------------:|:-----------------------------------------------------------------------------------------------------------------------------:|
+|      CHAR(n)     |  고정형 문자 타입으로 사이즈 전달 필수, 사이즈만큼 확정형 데이터가 입력됨(빈 자리수는 공백으로 채워짐)  |
+|  VARCHAR2(n)  |    가변형 문자 타입으로 사이즈 전달 필수, 사이즈보다 작은 문자 값이 입력되더라도 입력 값 그대로 유지     |
+|  NUMBER(p, s)  |                    숫자형 타입으로 자리수 생략 가능, 소수점 자리 제한 시 s 전달(p는 총 자리수)                       |
+|        DATE       |                                                  날짜 타입으로 사이즈 전달 불가                                                       |
+
+![20-number](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/20-number.jpg)
+*NUMBER(7,2)의 경우 총 자리수가 7 을 초과할 수 없음*
+
+- SQL Server
+	+ VARCHAR2 → VARCHAR
+	+ NUMBER → NUMERIC
+	+ 문자 타입도 사이즈 생략 가능
+		* 생략 시 1
+
+### ALTER
+
+- 테이블 구조 변경
+	+ 컬럼명, 컬럼 데이터 타입, 컬럼 사이즈, `DEFAULT` 값, 컬럼 삭제, 컬럼 추가, 제약 조건
+- 컬럼 순서 변경 불가
+	+ 재생성으로 해결
+
+#### 컬럼 추가
+
+```sql
+ALTER TABLE 테이블명
+  ADD 컬럼명 데이터타입 [DEFAULT] [제약조건];
+```
+
+- 새로 추가된 컬럼 위치는 맨 마지막에 위치
+	+ 절대 중간 위치에 추가 불가
+- 컬럼 추가 시 데이터 타입 필수
+- 컬럼 추가 시 `DEFAULT` 값, 제약 조건 생략 가능
+- **여러 컬럼 동시 추가 가능(반드시 괄호 사용)**
+	+ 하나의 컬럼만 추가할 경우 괄호 생략 가능
+
+##### 예시
+
+![21-ex-alter(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/21-ex-alter(1).jpg)
+*동시에 여러 컬럼을 추가할 경우 반드시 괄호와 함께 전달*
+
+![22-ex-alter(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/22-ex-alter(2).jpg)
+*컬럼 추가 시 `NOT NULL` 속성 전달 불가*
+
+- 컬럼 추가 시 모두 `NULL`인 값이 추가되므로 `NOT NULL` 속성을 전달할 수 없음
+
+![23-ex-alter(3)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/23-ex-alter(3).jpg)
+*컬럼 추가 시 `DEFAULT`를 선언하면 `NOT NULL` 속성 전달 가능*
+
+> `NOT NULL` 속성은 `DEFAULT` 값을 선언한 뒤 명시되야 하므로 순서를 주의한다.
+{: .prompt-warning }
+
+#### 컬럼(속성) 변경
+
+```sql
+ALTER TABLE 테이블명 MODIFY(컬럼명 DEFAULT 값);
+```
+
+- 컬럼 사이즈, 데이터 타입, `DEFAULT` 값 변경 가능
+- 여러 컬럼 동시 변경 가능
+	+ 괄호 필수
+
+##### 컬럼 사이즈 변경
+
+- 컬럼 사이즈 증가는 항상 가능
+- 컬럼 사이즈 축소는 데이터 존재 여부에 따라 제한
+	+ 데이터가 있는 경우 데이터의 최대 사이즈만큼 축소 가능
+- **동시 변경 가능**
+	+ 괄호 필수
+
+##### 컬럼 데이터 타입 변경
+
+- **빈 컬럼일 경우 데이터 타입 변경 가능**
+- **`CHAR`, `VARCHAR` 타입일 경우 데이터가 있어도 서로 변경 가능**
+
+##### DEFAULT 값 변경
+
+- `DEFAULT` 값이란 **특정 컬럼에 값이 생략될 경우(입력 시 언급되지 않을 경우) 자동으로 부여되는 값**
+- `INSERT` 시 `DEFAULT` 값이 선언된 컬럼에 `NULL`을 직접 입력할 때는 `DEFAULT` 값이 아닌 `NULL`이 입력
+- 이미 데이터가 존재하는 테이블에 `DEFAULT` 값 선언 시 **기존 데이터는 수정 안 됨**
+	+ 이후 입력된 데이터부터 `DEFAULT` 값 적용
+- `DEFAULT` 값 해제 시 `DEFAULT` 값을 `NULL`로 선언
+
+##### 예시
+
+![24-ex-alter(4)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/24-ex-alter(4).jpg)
+*여러 컬럼 사이즈 수정*
+
+- 최대 길이보다 크거나 같은 사이즈로 변경 가능
+
+![25-ex-alter(5)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/25-ex-alter(5).jpg)
+*컬럼 데이터 타입 변경*
+
+- 데이터 타입이 일치하지 않아도 `NULL`이면 변경 가능
+- 데이터 타입이 일치하지 않고, `NULL`이 아니면 변경 불가능
+
+![26-ex-alter(6)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/26-ex-alter(6).jpg)
+*`CHAR` ↔ `VARCHAR` 데이터 타입 변경*
+
+![27-ex-alter(7)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/27-ex-alter(7).jpg)
+*`DEFAULT` 값이 설정되지 않은 컬럼에 `DEFAULT` 값 설정*
+
+- `INSERT` 시 `sal` 컬럼에 값을 명시하지 않으면 "3000" 입력
+- `INSERT` 시 `sal` 컬럼에 `NULL`을 명시하면 `DEFAULT` 값이 있음에도 `NULL` 입력
+
+#### 컬럼 이름 변경
+
+```sql
+ALTER TABLE 테이블명 RENAME COLUMN 기존컬럼명 TO 새컬럼명;
+```
+
+- 항상 가능
+- **동시에 여러 컬럼 이름 변경 불가능**
+	+ 괄호 전달 불가능
+
+#### 컬럼 삭제
+
+```sql
+ALTER TABLE 테이블명 DROP COLUMN 삭제할컬럼명;
+```
+
+- **데이터 존재 여부와 상관없이 언제나 가능**
+- `RECYCLEBIN`에 남지 않음
+	+ `FLASHBACK`으로 복구 불가능
+- **동시 삭제 불가능**
+
+### DROP
+
+```sql
+DROP TABLE 테이블명 [PURGE];
+```
+
+- 객체(테이블, 인덱스 등) 삭제
+- `DROP` 이후에는 조회 불가
+- `PURGE`로 테이블 삭제시 영구 삭제
+	+ `RECYCLEBIN`에서 조회 불가
+
+### TRUNCATE
+
+- 테이블 구조를 남기고 데이터만 즉시 삭제
+	+ AUO `COMMIT`
+	+ `TRUNCATE` 이후에 조회 가능
+- `RECYCLEBIN`에 남지 않음
+	+ 영구 삭제
+
+### DELETE, DROP, TRUNCATE의 차이
+
+- `DELETE`
+	+ 데이터의 일부 또는 전체 삭제
+	+ 롤백 가능
+- `TRUNCATE`
+	+ 데이터 전체 삭제만 가능
+		* 일부 삭제 불가능
+	+ 즉시 반영
+		* 롤백 불가능
+- `DROP`
+	+ 데이터와 구조를 동시 삭제
+	+ 즉시 반영
+		* 롤백 불가능
+
+### 제약 조건
+
+- 데이터 무결성을 위해 각 컬럼에 생성하는 데이터의 제약 장치
+- 테이블 생성, 컬럼 추가 시 정의 가능
+- 이미 생성된 컬럼에 제약 조건만 추가 가능
+
+#### Primary Key(기본 키)
+
+- 유일한 식별자
+	+ 각 행을 구별할 수 있는 식별자 기능
+- 중복, `NULL`을 허용하지 않음
+	* `UNIQUE` + `NOT NULL`
+- 특정 컬럼에 기본 키를 생성하면 `NOT NULL` 속성이 자동 부여
+	+ CTAS(Create Table As Select)로 테이블 복사 시 복사되지 않음
+- 하나의 테이블에 여러 기본 키를 생성할 수 없음
+- 하나의 기본 키를 여러 컬럼과 결합하여 생성할 수 있음
+- 기본 키 생성 시 자동으로 `UNIQUE INDEX` 생성
+
+##### 문법
+
+```sql
+CRETAE TABLE [소유자.]테이블명(
+    컬럼1 데이터타입 [DEFAULT 기본값] [제약조건],
+    컬럼2 데이터타입 [DEFAULT 기본값] [제약조건],
+    ....);
+```
+
+- 테이블 생성 시 제약 조건 생성
+
+```sql
+ALTER TABLE 테이블명 ADD 컬럼명 데이터타입 [DEFAULT 기본값] [제약조건];
+```
+
+- 컬럼 추가 시 제약 조건 생성
+
+```sql
+ALTER TABLE 테이블명 ADD [CONSTRAINT 제약조건명] 제약조건종류;
+```
+
+- 이미 생성된 컬럼에 제약조건만 추가
+
+```sql
+ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
+```
+
+- 제약 조건 삭제
+
+##### 예시
+
+![28-ex-create-pk(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/28-ex-create-pk(1).jpg)
+*테이블 생성 시 이름 전달 없이 제약 조건 설정*
+
+- 제약 조건 생성 시 이름을 설정하지 않으면 자동으로 이름이 부여됨
+
+![29-ex-create-pk(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/29-ex-create-pk(2).jpg)
+*테이블 생성 시 이름을 전달해서 제약 조건 설정*
+
+![30-ex-create-pk(3)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/30-ex-create-pk(3).jpg)
+*컬럼 추가 시 제약 조건 생성*
+
+![31-ex-create-pk(4)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/31-ex-create-pk(4).jpg)
+*이미 존재하는 컬럼에 제약 조건만 생성*
+
+- `PRIMARY KEY(컬럼명)`으로 생성할 제약 조건의 컬럼명을 명시해야 함
+	+ 생성할 컬럼명이 명시되기 때문에 `ADD` 이후에 생성할 컬럼명 생략 가능
+
+#### UNIQUE
+
+![32-ex-unique](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/32-ex-unique.jpg)
+
+- 중복을 허용하지 않음
+- **`NULL`은 허용**
+- `UNIQUE` 인덱스 자동 생성
+
+#### NOT NULL
+
+![33-ex-not-null](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/33-ex-not-null.jpg)
+
+- 다른 제약 조건과 다르게 컬럼의 특징을 나타냄
+	+ CTAS(`CREATE TABLE AS SELECT`)로 복제 시 같이 복제됨
+- 컬럼 생성 시 `NOT NULL`을 선언하지 않으면 Nullable 컬럼으로 생성됨
+- 이미 만들어진 컬럼에 **`NOT NULL` 선언 시 제약 조건 생성이 아닌 컬럼 수정(`MODIFY`)으로 해결
+
+> 애초에 모든 컬럼은 `NOT NULL` 또는 `NOT NULL` 제약 조건이 아니기 때문에 `NOT NULL` 제약 조건은 추가(`ADD`)가 아닌 수정(`MODIFY`)를 통해 "변경"해야 한다.
+{: .prompt-info }
+
+#### FOREIGN KEY
+
+```sql
+CREATE TABLE 테이블명(
+    컬럼명 데이터타입 [DEFAULT 값] REFERENCES 참조테이블(참조키),
+    ....);
+```
+
+- **참조 테이블의 참조 컬럼에 있는 데이터를 확인하면서 본 테이블의 데이터를 관리할 목적으로 생성**
+- <font color="red">반드시 참조(부모) 테이블의 참조 컬럼(Reference key)이 사전에 Primary Key 또는 Unique Key를 가져야 함</font>
+
+##### FOREIGN KEY 옵션
+
+- `ON DELETE CASCADE`: 부모 데이터 삭제 시 자식 데이터 함께 삭제
+- `ON DELETE SET NULL`: 부모 데이터 삭제 시 자식 데이터의 참조 값은 `NULL`
+
+##### 예시
+
+![34-ex-fk(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/34-ex-fk(1).jpg)
+*부모 테이블(`dept_test1`)에 PK를 설정하고, 자식 테이블(`emp_test1`)에 부모 테이블의 PK를 참조하는 FK 생성*
+
+> 참조(부모) 테이블의 참조 컬럼(Reference key)이 사전에 Primary Key 또는 Unique Key를 가져야 한다.
+{: .prompt-info }
+
+![35-ex-fk(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/35-ex-fk(2).jpg)
+*자식 테이블(`emp_test1`)에서 10번 부서원 삭제*
+
+- 자식 테이블의 FK는 언제나 삭제 가능
+
+![36-ex-fk(3)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/36-ex-fk(3).jpg)
+*자식 테이블(`emp_test1`)에서 20번 부서원을 50번으로 변경 불가능*
+
+- 자식 테이블의 FK 변경은 제약이 있을 수 있음
+	+ **부모 테이블에 50번 부서번호가 정의되어 있지 않아 자식 테이블에서 해당 값으로 수정 불가능**
+
+![37-ex-fk(4)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/37-ex-fk(4).jpg)
+*자식 테이블(`emp_test1`)에서 50번 부서원 입력 불가능*
+
+- 자식 테이블의 FK 삽입은 제약이 있을 수 있음
+	+ **부모 테이블에 50번 부서번호가 정의되어 있지 않아 자식 테이블에서 해당 값으로 입력 불가능**
+ 
+![38-ex-fk(5)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/38-ex-fk(5).jpg)
+*부모 테이블(`dept_test1`)에서 10번 부서원 삭제 불가능*
+
+- 부모 테이블의 PK 삭제는 제약이 있을 수 있음
+	+ **20번 부서 정보가 자식 테이블에 존재하므로 삭제 불가능**
+
+![39-ex-fk(6)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/39-ex-fk(6).jpg)
+*부모 테이블(`dept_test1`)에서 20번 부서원의 부서번호를 60번으로 변경 불가능*
+
+- 부모 테이블의 PK 변경은 제약이 있을 수 있음
+	+ **20번 부서 정보가 자식 테이블에 존재하므로 다른 값으로 변경 불가능**
+
+![40-ex-fk-on-delete-cascade(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/40-ex-fk-on-delete-cascade(1).jpg)
+*자식 테이블(`emp_test1`)에서 `ON DELETE CASCADE` 옵션으로 FK를 생성*
+
+![41-ex-fk-on-delete-cascade(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/41-ex-fk-on-delete-cascade(2).jpg)
+*부모 데이터 삭제*
+
+- 부모 데이터 삭제 시, 자식 데이터도 함께 삭제됨
+
+![42-ex-fk-on-delete-set-null(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/42-ex-fk-on-delete-set-null(1).jpg)
+*자식 테이블(`emp_test1`)에서 `ON DELETE SET NULL` 옵션으로 FK를 생성*
+
+![43-ex-fk-on-delete-set-null(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/43-ex-fk-on-delete-set-null(2).jpg)
+*부모 데이터 삭제*
+
+- 자식 테이블의 데이터도 함께 삭제되지 않음
+	+ `NULL`로 변경됨
+
+#### CHECK
+
+![44-ex-check](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/44-ex-check.jpg)
+*`emp_test1` 테이블의 `sal` 값은 0 이상이어야 한다는 `CHECK` 제약 조건 추가*
+
+- 직접적으로 데이터의 값을 제한
+
+### 기타 오브젝트
+
+#### 뷰(View)
+
+- 저장 공간을 가지지는 않지만 테이블처럼 조회 및 수정할 수 있는 객체
+
+##### 뷰의 종류
+
+- 단순 뷰: 하나의 테이블을 조회하는 뷰
+- 복합 뷰: 둘 이상의 테이블을 `JOIN` 하는 뷰
+
+##### 뷰의 특징
+
+- 뷰는 기본 테이블로부터 유도된 테이블이기에 기본 테이블과 같은 형태의 구조를 가지고 있으며, 조작도 기본 테이블과 거의 같음
+- 뷰는 가상의 테이블이기에 물리적으로 구현되어 있지 않으며, 저장 공간을 차지하지 않음
+- 데이터를 안전하게 보호할 수 있음
+- 이미 정의되어 있는 뷰는 다른 뷰의 정의에 기초가 될 수 있음
+- **기본 테이블이 변경 또는 삭제되면 그 테이블을 참조하여 만든 뷰 역시 변경 또는 삭제됨**
+
+##### 뷰의 장점
+
+- 논리적 독립성을 제공
+- 데이터의 접근을 제어함으로써 보안 유지
+- 사용자의 데이터 관리 단순화
+- 데이터의 다양한 지원 가능
+
+##### 뷰의 단점
+
+- 뷰의 정의 변경 불가
+- 삽입, 삭제, 갱신 연산에 재한
+- 인덱스 구성 불가능
+
+##### 문법
+
+```sql
+CREATE [OR REPLACE] VIEW 뷰명
+   AS 조회쿼리;
+```
+
+- 뷰의 생성
+- `OR REPLACE`
+	+ 생성된 뷰를 삭제하지 않고 연동된 쿼리를 변경하여 대체
+
+```sql
+DROP VIEW 뷰명;
+```
+
+- 뷰의 삭제
+
+##### 예시
+
+![45-ex-view](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/45-ex-view.jpg)
+*`emp` 테이블과 `dept` 테이블을 `JOIN`하는 복합 뷰의 생성 및 조회*
+
+#### 시퀀스(SEQUENCE)
+
+```sql
+   CREATE SEQEUENCE 시퀀스명
+INCREMENT BY        -- 증가값(DEFAULT = 1)
+    START WITH	    -- 시작값(DEFAULT = 1)
+ MAXVALUE           -- 마지막값(증가시퀀스), 재사용시 시작값(감소시퀀스)
+ MINVALUE           --재사용시 시작값(증가시퀀스), 마지막값(감소시퀀스)
+    CYCLE | NOCYCLE -- 시퀀스 번호 재사용(DEFAULT = NOCYCLE)
+    CACHE n;        -- 캐시값(DEFAULT = 20)
+```
+
+- 자동으로 연속적인 숫자를 부여해주는 객체
+
+#### 시노님(SYSNONYM)
+
+```sql
+CREATE [OR REPLACE] [PUBLIC] SYSNONYM 별칭 FOR 테이블명;
+```
+
+- 테이블 별칭 생성
+- 본인 소유가 아닌 테이블에 접근하기 위해서는 `소유자명.테이블명`으로 접근해야 하지만 `테이블명`으로 접근 가능
+- `OR REPLACE`
+	+ 기존에 같은 이름으로 시노님이 생성되어 있는 경우 대체
+- `PUBLIC`
+	+ 시노님을 생성한 유저만 사용할 수 있는 Private `SYNONYM`의 반대
+		* 누구나 사용 가능
+	+ `PUBLIC`으로 생성한 시노님은 반드시 `PUBLIC`으로 삭제
+
 ## DCL(Data Control Language)
+
+- 데이터 제어어로 객체에 대한 권한을 부여(`GRANT`)하거나 회수(`REVOKE`)하는 기능
+- **테이블 소유자는 타 계정에 테이블 조회 및 수정 권한을 부여할 수 있고 회수할 수 있음**
+
+### 권한
+
+- 일반적으로 본인(접속한 계정) 소유가 아닌 테이블에 대해 원칙적으로 접근 불가능
+	+ 권한 통제
+- 업무적으로 필요시 테이블 소유자가 아닌 계정에 테이블 조회, 수정 권한 부여 가능
+
+#### 권한의 종류
+
+##### 오브젝트 권한
+
+- 테이블에 대한 권한 제어
+	+ 특정 테이블에 대한 `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `MERGE` 권한
+- **테이블 소유자는 타 계정에 테이블 조회 및 수정 권한을 부여할 수 있고 회수할 수 있음**
+
+##### 시스템 권한
+
+- 시스템 작업 제어
+	+ 테이블 생성 권한, 인덱스 삭제 권한
+- 관리자 권한만 권한을 부여 또는 회수할 수 있음
+
+### GRANT
+
+```sql
+GRANT 권한 ON 테이블명 TO 유저;
+```
+
+- 권한 부여 시 반드시 테이블 소유자나 관리자 계정(SYS, SYSTEM)으로 접속하여 권한을 부여해야 됨
+- **동시에 여러 유저에 대해 권한을 부여 할 수 있음**
+- **동시에 여러 권한을 부여할 수 있음**
+- 동시에 여러 객체에 대해 권한을 부여할 수 없음
+- 즉시 반영
+	+ 재접속하지 않아도 됨
+
+#### 예시
+
+![46-ex-grant(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/46-ex-grant(1).jpg)
+*`professor` 테이블 소유자의 오브젝트 권한 부여*
+
+![47-ex-grant(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/47-ex-grant(2).jpg)
+*관리자 권한으로 시스템 권한 부여*
+
+### REVOKE
+
+```sql
+REVOKE 권한 ON 테이블명 FROM 유저;
+```
+
+- **동시에 여러 권한을 회수할 수 있음**
+- 이미 회수된 권한 재회수 불가능
+- **동시에 여러 유저로부터 권한을 회수할 수 있음**
+- 즉시 반영
+	+ 재접속하지 않아도 됨
+
+### 롤(ROLE)
+
+```sql
+CREATE ROLE 롤명;
+```
+
+- 권한의 묶음
+	+ 생성 가능한 객체
+- SYSTEM 계정에서 `ROLE` 생성 가능
+- `GRANT`, `REOVOKE`와 달리 즉시 반영 안 됨
+	+ 재접속해야 반영됨
+
+#### 예시
+
+![48-ex-role(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/48-ex-role(1).jpg)
+*`ROLE` 생성*
+
+![49-ex-role(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/49-ex-role(2).jpg)
+*`ROLE`에 권한 담기*
+
+![50-ex-role(3)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/50-ex-role(3).jpg)
+*`hr` 계정에 `ROLE` 부여*
+
+![51-ex-role(4)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/51-ex-role(4).jpg)
+*`ROLE`의 권한 회수*
+
+- `ROLE`에서 회수된 권한은 즉시 반영되므로 다시 `ROLE`을 부여할 필요가 없음
+
+![52-ex-role(5)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/52-ex-role(5).jpg)
+*`ROLE`을 통해 `hr` 계정에 부여한 권한 직접 회수*
+
+- `ROLE`을 통해 부여한 권한은 직접 회수할 수 없음
+	+ `ROLE`을 통한 회수만 가능
+
+### 권한 부여 옵션(중간 관리자의 권한)
+
+#### WITH GRANT OPTION
+
+- `WITH GRANT OPTION`으로 받은 **오브젝트 권한을 다른 사용자에게 부여할 수 있음**
+- 중간 관리자(`WITH GRANT OPTION`으로 권한을 부여받은 자)가 부여한 권한은 **중간 관리자만 회수 가능**
+- **중간 관리자에게 부여된 권한을 회수할 때 제 3자에게 부여된 권한도 함께 회수됨**
+
+#### WITH ADMIN OPTION
+
+- `WITH ADMIN OPTION`을 통해 부여 받은 **시스템 권한 또는 `ROLE` 권한을 다른 사용자에게 부여할 수 있음**
+- 중간 관리자를 거치지 않고 **직접 회수 가능**
+- **중간 관리자의 권한을 회수할 때 제 3자에게 부여된 권한은 함께 회수되지 않음**
+	+ 제 3자에게 부여된 권한은 여전히 남아있음
+
+#### 예시
+
+![53-ex-grant-option(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/53-ex-grant-option(1).jpg)
+*권한 부여*
+
+![54-ex-grant-option(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/54-ex-grant-option(2).jpg)
+*중간 관리자가 부여한 오브젝트 권한을 관리자가 직접 회수*
+
+- 중간 관리자를 통해 부여한 제 3계정의 권한은 관리자가 직접 회수할 수 없음
+
+![55-ex-grant-option(3)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/55-ex-grant-option(3).jpg)
+*중간 관리자에게 부여된 오브젝트 권한을 관리자가 직접 회수*
+
+- 중간 관리자에게 부여된 권한은 관리자가 직접 회수할 수 있음
+	+ 회수 시 중간 관리자를 통해 제 3의 계정에 부여된 권한도 함께 회수됨
+
+![56-ex-grant-option(4)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/56-ex-grant-option(4).jpg)
+
+- 중간 관리자에게 부여된 권한이 회수되면, 중간 관리자가 제 3의 계정에 부여한 권한도 함께 회수됨
+
+![57-ex-grant-option(5)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/57-ex-grant-option(5).jpg)
+
+- 제 3의 계정에 부여된 권한을 관리자가 직접 회수할 수 있음
+
+![58-ex-grant-option(6)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/58-ex-grant-option(6).jpg)
+
+- 중간 관리자의 시스템 권한을 회수하더라도 중간 관리자가 제 3의 계정에게 부여한 권한은 회수되지 않음
 
 ## 참고자료
 

@@ -752,6 +752,7 @@ SELECT *
 - `FROM` 절에 **Stack, Unstack, Value 컬럼명만 정의** 필요
 	+ 필요시 서브 쿼리를 사용하여 필요 컬럼 제한
 - `PIVOT` 절에 **Unstack, Value 컬럼명 정의**
+	+ **Value 컬럼은 집계 함수를 사용해서 정의**
 - **`PIVOT` 절의 `IN` 연산자에 Unstack 컬럼 값을 정의**
 - `FROM` 절에 선언된 컬럼 중 `PIVOT` 절에서 선언한 Value 컬럼, Unstack 컬럼을 제외한 모든 컬럼은 Stack 컬럼이 됨
 
