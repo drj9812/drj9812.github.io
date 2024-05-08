@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: 스밀라 # the main title
 
-tagline: 잘못된 정보가 있을 수 있습니다 # it will display as the sub-title
+tagline: 잘못된 정보가 있을 수 있습니다. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
