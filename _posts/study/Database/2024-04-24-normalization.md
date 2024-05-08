@@ -188,7 +188,7 @@ tags: [Database, 데이터베이스, DB, normalization, 데이터 정규화]
 |  **2023-01**  |   **컴퓨터2**  |      40     |
 |  **2022-01**  |     **경제1**   |      30     |
 
-## 참고 자료
+## 참고자료
 
 - [망나니개발자, "[Database] 정규화(Normalization) 쉽게 이해하기", MangKyu's Diary, 2021-01-20](https://mangkyu.tistory.com/110){: target="_blank" }
 - [mr.dan, "정규화 (제1 정규화 ~ 제3 정규화)", DanStroy, 2019-01-15](https://mr-dan.tistory.com/10){: target="_blank" }
