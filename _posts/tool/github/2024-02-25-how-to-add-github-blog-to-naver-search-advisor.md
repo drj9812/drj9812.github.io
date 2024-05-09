@@ -60,9 +60,6 @@ Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.x
 
 다행히 Jekyll은 어드바이저가 요구하는 RSS 형식의 RSS 피드 파일을 작성하는 방법을 제공하고 있다.
 
-![11-generate-rss(2)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/11-generate-rss(2).jpg)
-*코드 복사*
-
 ```xml
 {% raw %}
 ---
@@ -97,6 +94,9 @@ layout: null
 </rss>
 {% endraw %}
 ```
+
+![11-generate-rss(2)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/11-generate-rss(2).jpg)
+*코드 복사*
 
 ![12-generate-rss(3)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/12-generate-rss(3).jpg)
 *루트 디렉토리에 `rss.xml` 파일 생성 > 편집기를 사용하여 생성한 `rss.xml` 파일에 복사한 코드 붙여넣기*

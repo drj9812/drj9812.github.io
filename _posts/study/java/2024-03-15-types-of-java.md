@@ -2,6 +2,10 @@
 title: "[Java]자바의 종류"
 categories: [Study, Java]
 tags: [Java, 자바, Java SE, Java EE, Java ME]
+image:
+  path: /assets/img/posts/study/java/01-java-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: Java
 ---
 
 # 자바의 종류

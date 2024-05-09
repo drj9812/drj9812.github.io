@@ -2,6 +2,10 @@
 title: "[JPA]Entity에 기본 생성자가 필요한 이유"
 categories: [Study, JPA]
 tags: [JPA, Reflection API, Proxy, 프록시]
+image:
+  path: /assets/img/posts/study/jpa/01-jakarta-ee-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: Jakarta EE
 ---
 
 # Entity에 기본 생성자가 필요한 이유
