@@ -70,6 +70,7 @@
 
 {% if page.math %}
   <!-- MathJax -->
+  <!-- 2024.05.09 Move `MathJax` configuration to file `assets/js/data/mathjax.js`
   <script>
     /* see: <https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options> */
     MathJax = {
@@ -87,6 +88,8 @@
       }
     };
   </script>
+  -->
+  <script src="{{ '/assets/js/data/mathjax.js' | relative_url }}"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="{{ site.data.origin[type].mathjax.js | relative_url }}"></script>
 {% endif %}
