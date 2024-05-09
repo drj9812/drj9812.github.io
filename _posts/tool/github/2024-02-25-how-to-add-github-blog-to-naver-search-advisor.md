@@ -32,7 +32,7 @@ $ git commit -m "커밋 메시지"
 $ git push
 ```
 
-네이버가 HTML 파일을 확인할 수 있도록 변경사항을 원격 저장소에 업로드합니다.
+네이버가 HTML 파일을 확인할 수 있도록 변경사항을 원격 저장소에 업로드한다.
 
 ![06-verify-ownership(1)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/06-verify-ownership(1).jpg)
 *소유확인*
@@ -53,20 +53,55 @@ $ git push
 
 ![09-not-valid-rss](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/09-not-valid-rss.jpg)
 
-Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.xml` 파일이 `assets` 폴더에 자동으로 생성되는데, 네이버의 서치어드바이저는 Atom 형식이 아닌 RSS 형식으로 작성된 RSS 피드 파일을 요구합니다. 그래서 Atom 형식으로 자동으로 생성된 이 `feed.xml` 파일의 URL을 제출할 경우, 위 사진처럼 `올바른 RSS 가 아닙니다.` 라는 창이 뜨면서 제출에 실패하게 됩니다.
+Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.xml` 파일이 `assets` 폴더에 자동으로 생성되는데, 네이버의 서치어드바이저는 Atom 형식이 아닌 RSS 형식으로 작성된 RSS 피드 파일을 요구한다. 그래서 Atom 형식으로 자동으로 생성된 이 `feed.xml` 파일의 URL을 제출할 경우, 위 사진처럼 "올바른 RSS 가 아닙니다." 라는 창이 뜨면서 제출에 실패하게 된다.
 
 ![10-generate-rss(1)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/10-generate-rss(1).jpg)
 *[https://jekyllcodex.org/without-plugin/rss-feed/](https://jekyllcodex.org/without-plugin/rss-feed/){: target="_blank" } > `feed.xml`*
 
-다행히 Jekyll은 어드바이저가 요구하는 RSS 형식의 RSS 피드 파일을 작성하는 방법을 제공하고 있습니다.
+다행히 Jekyll은 어드바이저가 요구하는 RSS 형식의 RSS 피드 파일을 작성하는 방법을 제공하고 있다.
 
 ![11-generate-rss(2)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/11-generate-rss(2).jpg)
 *코드 복사*
 
+```xml
+{% raw %}
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.posts limit:10 %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        {% for tag in post.tags %}
+        <category>{{ tag | xml_escape }}</category>
+        {% endfor %}
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
+{% endraw %}
+```
+
 ![12-generate-rss(3)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/12-generate-rss(3).jpg)
 *루트 디렉토리에 `rss.xml` 파일 생성 > 편집기를 사용하여 생성한 `rss.xml` 파일에 복사한 코드 붙여넣기*
 
-> Atom 형식으로 작성된 기존의 `feed.xml` 파일은 나중에 쓰일 수도 있으니 굳이 삭제하지 않았습니다.
+> Atom 형식으로 작성된 기존의 `feed.xml` 파일은 나중에 쓰일 수도 있으니 굳이 삭제하지 않았다.
 {: .prompt-tip }
 
 ![13-generate-rss(4)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/13-generate-rss(4).jpg)
@@ -81,7 +116,7 @@ $ git commit -m "커밋 메시지"
 $ git push
 ```
 
-네이버가 RSS 파일을 확인할 수 있도록 변경사항을 원격 저장소에 업로드합니다.
+네이버가 RSS 파일을 확인할 수 있도록 변경사항을 원격 저장소에 업로드한다.
 
 ![15-submit-rss](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/15-submit-rss.jpg)
 *`요청` > `RSS 제출` > https://username.github.io/rss.xml 입력 > `확인`*
@@ -91,7 +126,7 @@ $ git push
 ![16-submit-sitemap](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/16-submit-sitemap.jpg)
 *`요청` > `사이트맵 제출` > https://username.github.io/sitemap.xml 입력 > `확인`*
 
-RSS와 사이트맵을 성공적으로 제출했다면, 이제부터 네이버는 등록된 웹사이트를 수집하고 색인화하는 과정을 거친 후에 검색 결과에 표시합니다. 이 과정은 일반적으로 몇 일에서 몇 주까지 걸릴 수 있으며, 특정한 상황에 따라 더 오랜 시간이 소요될 수도 있습니다.
+RSS와 사이트맵을 성공적으로 제출했다면, 이제부터 네이버는 등록된 웹사이트를 수집하고 색인화하는 과정을 거친 후에 검색 결과에 표시한다. 이 과정은 일반적으로 몇 일에서 몇 주까지 걸릴 수 있으며, 특정한 상황에 따라 더 오랜 시간이 소요될 수도 있다.
 
 ## 참고자료
 
