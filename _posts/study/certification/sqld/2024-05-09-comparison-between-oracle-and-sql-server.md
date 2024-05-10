@@ -16,7 +16,7 @@ image:
 *Oracle과 SQL Server의 `JOIN` 문법 비교*
 
 - 오라클은 오라클 표준, ANSI 표준 모두 가능
-- SQL Server는 ANSI 표주만 가능
+- SQL Server는 ANSI 표준만 가능
 
 ## 함수
 

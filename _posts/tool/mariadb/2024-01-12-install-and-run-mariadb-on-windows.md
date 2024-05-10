@@ -1,5 +1,5 @@
 ---
-title: "[MariaDB]MariaDB 설치하기(Windows)"
+title: "[MariaDB]MariaDB 설치 및 실행(Windows)"
 categories: [Tool, MariaDB]
 tags: [설치, MariaDB, MariaDB 설치]
 image:
@@ -8,17 +8,17 @@ image:
   alt: MariaDB
 ---
 
-# MariaDB 설치하기(Windows)
+# MariaDB 설치 및 실행(Windows)
 
 ## 개발 환경
 - OS: Winodws 11 Home
 
 ## MaraiDB 다운로드
 
-![01-mariadb-homepage](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/01-mariadb-homepage.png)
+![01-mariadb-homepage](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/01-mariadb-homepage.png)
 *<https://mariadb.org/>{: target="_blank" } > `Download`*
 
-![02-select-option](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/02-select-option.png)
+![02-select-option](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/02-select-option.png)
 *이후 이동한 페이지에서 원하는 옵션을 선택 > `Downlad`*
 
 > 2024.01.12 기준 5년 동안 유지 관리되는 최신 장기 릴리스 10.11.6 버전이다.
@@ -26,21 +26,21 @@ image:
 
 ## MariaDB 설치 파일 실행
 
-![03-install-mariadb(1)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/03-install-mariadb(1).png)
+![03-install-mariadb(1)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/03-install-mariadb(1).png)
 *다운로드된 파일 실행*
 
-![04-install-mariadb(2)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/04-install-mariadb(2).png)
+![04-install-mariadb(2)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/04-install-mariadb(2).png)
 *`Next`*
 
-![05-install-mariadb(3)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/05-install-mariadb(3).png)
+![05-install-mariadb(3)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/05-install-mariadb(3).png)
 *`I accept the terms in the License Agreement` 체크 > `Next`*
 
-![06-install-mariadb(4)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/06-install-mariadb(4).png)
+![06-install-mariadb(4)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/06-install-mariadb(4).png)
 *`Next`*
 
 <a id="anchor1"></a>
 
-![07-install-mariadb(5)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/07-install-mariadb(5).png)
+![07-install-mariadb(5)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/07-install-mariadb(5).png)
 *패스워드 설정 > `Next`*
 
 - Modify password for database user 'root'
@@ -50,7 +50,7 @@ image:
 - User UTF8 as default server's character set
 	+ UTF8을 기본 서버의 캐릭터셋으로 설정
 
-![08-install-mariadb(6)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/08-install-mariadb(6).png)
+![08-install-mariadb(6)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/08-install-mariadb(6).png)
 *설정 > `Next`*
 
 - Install as servie
@@ -62,22 +62,22 @@ image:
 	+ TCP port
 		* TCP 접속에 사용될 포트 지정
 
-![09-install-mariadb(7)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/09-install-mariadb(7).png)
+![09-install-mariadb(7)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/09-install-mariadb(7).png)
 *`Install`*
 
-![10-install-mariadb(8)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/10-install-mariadb(8).png)
+![10-install-mariadb(8)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/10-install-mariadb(8).png)
 *`Finish`*
 
 ## HeidiSQL 실행
 
-![11-run-heidisql](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/11-run-heidisql(1).png)
+![11-run-heidisql](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/11-run-heidisql(1).png)
 *GUI 툴인 HeidiSQL 실행*
 
 > Mac은 지원하지 않는다.
 {: .prompt-tip }
 
-![12-run-heidisql(2)](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/12-run-heidisql(2).png)
+![12-run-heidisql(2)](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/12-run-heidisql(2).png)
 *`신규` > [설치 시 입력했던 패스워드 입력](#anchor1) > `열기`*
 
-![13-success-heidisql-execution](/assets/img/posts/tool/mariadb/install-mariadb-on-windows/13-success-heidisql-execution.png)
+![13-success-heidisql-execution](/assets/img/posts/tool/mariadb/install-and-run-mariadb-on-windows/13-success-heidisql-execution.png)
 *성공*
