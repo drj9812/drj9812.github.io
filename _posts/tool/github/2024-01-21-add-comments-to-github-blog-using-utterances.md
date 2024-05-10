@@ -2,26 +2,26 @@
 title: "[GitHub | GitHub Pages]utterances를 사용하여 GitHub 블로그에 댓글 기능 적용하기"
 categories: [Tool, GitHub]
 tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 댓글 기능, utterances]
+image:
+  path: /assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/01-utterances-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: utterances
 ---
 
-# GitHub 블로그에 댓글 기능 적용하기
-
-## 참조
-
-- [[Jekyll \| Chirpy]GitHub 블로그 만들기(Windows)](https://drj9812.github.io/posts/make-github-blog-with-jekyll-chirpy-on-windows/){: target="_blank" }
+# utterances를 사용하여 GitHub 블로그에 댓글 기능 적용하기
 
 ## utterances 설치
 
-![01-utterances.homepage](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/01-utterances-homepage.png)
-*[utterances 홈페이지](https://utteranc.es/){: target="_blank" } > [utterances app](https://github.com/apps/utterances){: target="_blank" }*
+![02-utterances-homepage](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/02-utterances-homepage.png)
+*<https://utteranc.es/>{: target="_blank" } > [utterances app](https://github.com/apps/utterances){: target="_blank" }*
 
-![02-install-utterances(1)](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/02-install-utterances(1).png)
+![03-install-utterances(1)](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/03-install-utterances(1).png)
 *`Install`*
 
-![03-install-utterances(2)](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/03-install-utterances(2).png)
+![04-install-utterances(2)](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/04-install-utterances(2).png)
 *`Only select repositories` > `Select repositories` > 적용할 repsository 선택*
 
-![04-install-utterances(3)](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/04-install-utterances(3).png)
+![05-install-utterances(3)](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/05-install-utterances(3).png)
 *`Install`*
 
 `Install` 버튼을 클릭하면 다시 [utterances 홈페이지](https://utteranc.es/){: target="_blank" }로 이동한다.
@@ -30,13 +30,13 @@ tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 댓글 기능, ut
 
 ### Repository
 
-![05-input-repo](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/05-input-repo.png)
+![06-input-repo](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/06-input-repo.png)
 
-이동된 [utterances 홈페이지](https://utteranc.es/){: target="_blank" }에서 스크롤을 내리면 `configuration` 섹션이 있다. `Repository` 항목의 `repo:`에 username/username.github.io 형식으로 입력한다.
+이동된 [utterances 홈페이지](https://utteranc.es/){: target="_blank" }에서 스크롤을 내리면 `configuration` 섹션이 있다. `Repository` 항목의 `repo:`에 `username/username.github.io` 형식으로 입력한다.
 
 ### Mapping
 
-![06-choose-mapping](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/06-choose-mapping.png)
+![07-choose-mapping](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/07-choose-mapping.png)
 
 uttreances는 블로그의 각 게시물에 대해 하나의 `Issues`를 사용하는데, 이때 각 게시물과 `Issues`를 어떻게 mapping할지 설정해야 한다.
 
@@ -44,22 +44,22 @@ uttreances는 블로그의 각 게시물에 대해 하나의 `Issues`를 사용�
 
 ### Label
 
-![07-choose-label](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/07-choose-label.png)
+![08-choose-label](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/08-choose-label.png)
 
-댓글로 발생한 issue를 구분하기 위해서 label을 지정할 수 있다.
+댓글로 발생한 Issue를 구분하기 위해서 label을 지정할 수 있다.
 
 ### Theme
 
-![08-choose-theme](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/08-choose-theme.png)
+![09-choose-theme](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/09-choose-theme.png)
 
-원하는 theme를 선택한다. 댓글의 UI가 바뀐다.
+원하는 Theme를 선택한다. 댓글의 UI가 바뀐다.
 
 ## 설정값 적용
 
-![09-copy-script](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/09-copy-script.png)
+![10-copy-script](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/10-copy-script.png)
 *`Enable Utterances` 섹션 > 방금 입력한 username/username.github.io 형식의 값이 repo 속성에 들어가 있는 걸 확인 > `Copy`*
 
-![10-paste-script](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/10-paste-script.png)
+![11-paste-script](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/11-paste-script.png)
 *_layouts/post.html > 복사한 코드 붙여넣기*
 
 <br>
@@ -75,21 +75,21 @@ $ git push
 
 ## 확인
 
-![11-activate-issues](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/11-activate-issues.png)
+![12-activate-issues](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/12-activate-issues.png)
 *repository > `Settings` > `General` > `Features` 섹션에서 `Issues` 체크*
 
 > **repository를 fork하여 생성한 경우 `Issue` 탭을 활성화시켜줘야 댓글이 저장된다.**
 {: .prompt-info }
 
-![12-check-comment](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/12-check-comment.png)
+![13-check-comment](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/13-check-comment.png)
 *댓글 테스트*
 
-![13-check-issues](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/13-check-issues.png)
+![14-check-issues](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/14-check-issues.png)
 *Blog Repopsitory > `Issues`*
 
 댓글은 활성화시킨 `Issues` 탭에서도 확인할 수 있다.
 
-![14-possible-delete.](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/14-possible-delete.png)
+![15-possible-delete.](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/15-possible-delete.png)
 *댓글 삭제*
 
 필요에 따라 위와 같이 댓글을 삭제할 수도 있다.

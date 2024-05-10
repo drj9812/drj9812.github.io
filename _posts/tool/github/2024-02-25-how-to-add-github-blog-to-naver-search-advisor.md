@@ -15,7 +15,7 @@ image:
 ### 사이트 소유확인
 
 ![02-naver-search-advisor-homepage](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/02-naver-search-advisor-homepage.jpg)
-*[Search Advisor 홈페이지](https://searchadvisor.naver.com/){: target="_blank" } > 로그인 > `웹마스터 도구`*
+*<https://searchadvisor.naver.com>{: target="_blank" } > 로그인 > `웹마스터 도구`*
 
 ![03-enter-url](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/03-enter-url.jpg)
 *URL 입력 > `Enter`*
@@ -56,7 +56,7 @@ $ git push
 Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.xml` 파일이 `assets` 폴더에 자동으로 생성되는데, 네이버의 서치어드바이저는 Atom 형식이 아닌 RSS 형식으로 작성된 RSS 피드 파일을 요구한다. 그래서 Atom 형식으로 자동으로 생성된 이 `feed.xml` 파일의 URL을 제출할 경우, 위 사진처럼 "올바른 RSS 가 아닙니다." 라는 창이 뜨면서 제출에 실패하게 된다.
 
 ![10-generate-rss(1)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/10-generate-rss(1).jpg)
-*[https://jekyllcodex.org/without-plugin/rss-feed/](https://jekyllcodex.org/without-plugin/rss-feed/){: target="_blank" } > `feed.xml`*
+*<https://jekyllcodex.org/without-plugin/rss-feed/>{: target="_blank" } > `feed.xml`*
 
 다행히 Jekyll은 어드바이저가 요구하는 RSS 형식의 RSS 피드 파일을 작성하는 방법을 제공하고 있다.
 
