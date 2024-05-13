@@ -46,7 +46,7 @@ image:
 	+ 진행하는 프로젝트의 이름
 	+ 같은 `Group` 내의 프로젝트를 구분하는데 사용
 	+ 소문자로만 작성하고 특수문자를 사용하지 않음
-	+ 버전 정보를 생략한 `jar` 파일의 이름이 됨
+	+ 버전 정보를 생략한 Jar 파일의 이름이 됨
 - `Pacakge`
 	+ 소스 코드의 패키지 이름
 	+ `groupId.artifactId` 형식 권장
@@ -54,20 +54,20 @@ image:
 ![04-create-project(4)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/04-create-project(4).jpg)
 *라이브러리 검색 후 추가 > `Next >`*
 
-- `Spring Web`
+- Spring Web
 	+ RESTful, Spring MVC, Apache Tomcat을 기본적으로 내장
 	+ 웹 애플리케이션을 개발할 때 필수적인 라이브러리
-- `Lombok`
+- Lombok
 	+ 반복적이고 번거로운 코드를 줄이고, 코드의 가독성을 향상시키기 위한 목적으로 만들어진 플러그인 형태의 라이브러리
-- `Thymeleaf`
+- Thymeleaf
 	+ 서버 사이드 템플릿 엔진
-- `Spring Data JPA`
+- Spring Data JPA
 	+ 스프링 프레임워크의 일부로서, JPA를 사용하여 데이터 액세스 계층을 구축하고 관리하는 데 도움을 주는 기술
 	+ JPA를 보다 쉽게 사용하고 더 높은 수준의 추상화를 제공하여 개발자가 DB에 접근하고 상호 작용할 때 발생하는 반복적인 작업을 줄여줌
-- `Spring Boot Devtools`
+- Spring Boot Devtools
 	+ 서버를 재시작하지 않아도 템플릿 엔진과 같은 동적인 리소스의 코드 변경사항이 자동으로 브라우저에 반영되도록 도와주는 기능을 제공
 		* 정적 리소스는 서버를 재시작하지 않아도 스프링 부트에 의해 자동으로 감지되고 처리됨
-- `H2 Database`
+- H2 Database
 	+ 웹 콘솔 환경을 제공하는 DB
 	+ 애플리케이션을 실행할 때 메모리 내장 모드로 실행 가능
 		* 이 모드에서는 DB가 메모리에 생성되며, 애플리케이션이 종료될 때 DB가 소멸
@@ -128,19 +128,20 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 ```
+{: file="bundle.gradle" }
 
-`build.gradle` 파일에 들어가서 프로젝트 빌드 설정이 정상적으로 됐는지 확인한다.
+`build.gradle`{: .filepath }에 들어가서 프로젝트 빌드 설정이 정상적으로 됐는지 확인한다.
 
-> `Maven`은 프로젝트 빌드 설정을 `XML` 형식으로 작성한다.
+> Maven은 프로젝트 빌드 설정을 XML 형식으로 작성한다.
 {: .prompt-info }
 
-> 스프링 부트 2.2 버전부터는 기본적으로 `JUnit 5`를 지원하기 때문에 `JUnit 4`를 사용하려면 `dependencies` 에 `testImplementation("org.junit.vintage:junit-vintage-engine") { exclude group: "org.hamcrest", module: "hamcrest-core" }` 코드를 추가한다.(정확히 말하면 JUnit5에서 JUnit4의 프로그램을 돌릴 수 있도록 하는 설정)
+> 스프링 부트 2.2 버전부터는 기본적으로 JUnit 5를 지원하기 때문에 JUnit 4를 사용하려면 `dependencies` 에 `testImplementation("org.junit.vintage:junit-vintage-engine") { exclude group: "org.hamcrest", module: "hamcrest-core" }` 코드를 추가한다.(정확히 말하면 JUnit5에서 JUnit4의 프로그램을 돌릴 수 있도록 하는 설정)
 {: .prompt-info }
 
 ![06-create-project(6)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/06-create-project(6).jpg)
 *애플리케이션 실행 > 로그창에 나오는 포트 번호 확인*
 
-> `main` 메서드는 `Spring Starter Project`로 프로젝트를 생성할 때 같이 생성된다.
+> Main 메서드는 Spring Starter Project로 프로젝트를 생성할 때 같이 생성된다.
 {: .prompt-info }
 
 ![07-create-project(7)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/07-create-project(7).jpg)
@@ -150,7 +151,7 @@ tasks.named('test') {
 
 ![08-create-project(8)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/08-create-project(8).jpg)
 
-스프링 부트는 기본적으로 `JUnit`을 내장하고 있는데, 기본 테스트 클래스를 실행하여 정상적으로 작동되는지 확인한다.
+스프링 부트는 기본적으로 JUnit을 내장하고 있는데, 기본 테스트 클래스를 실행하여 정상적으로 작동되는지 확인한다.
 
 ### 라이브러리 살펴보기
 
@@ -159,7 +160,7 @@ $ cd 프로젝트 루트 디렉토리
 $ gradlew dependencies --configuration compileClasspath
 ```
 
-강의에서 사용하는 인텔리제이와 달리 이클립스에서는 `gradle` 기반의 프로젝트의 의존성 계층 구조를 보여주는 기능을 제공하지 않아 위와 같이 명령어를 사용해 cmd 창에서 직접 확인해야 한다.
+강의에서 사용하는 인텔리제이와 달리 이클립스에서는 Gradle 기반의 프로젝트의 의존성 계층 구조를 보여주는 기능을 제공하지 않아 위와 같이 명령어를 사용해 cmd 창에서 직접 확인해야 한다.
 
 ![09-browse-library](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/09-browse-library.jpg)
 
@@ -252,6 +253,7 @@ public class HelloController {
 	};
 }
 ```
+{: file="HelloController.java" }
 
 ```html
 <!DOCTYPE html>
@@ -265,6 +267,8 @@ public class HelloController {
 </body>
 </html>
 ```
+{: file="hello.html" }
+
 - `xmlns:th`
 	+ 타임리프의 th 속성을 사용하기 위해 선언된 네임스페이스(namespace)
 	+ 순수 HTML 코드로만 이루어진 페이지인 경우 선언하지 않아도 됨
@@ -279,7 +283,7 @@ public class HelloController {
 
 ![11-view-configuration(2)](/assets/img/posts/study/spring-boot/using-spring-boot-and-jpa/project-configuration/11-view-configuration(2).jpg)
 
-[서버에서 동적으로 HTML 코드를 생성하여 렌더링된 페이지의 출력 결과](#anchor1)와 다르게 hello.html 파일을 직접 열 경우 순수 HTML 코드가 출력되어 `<p>` 태그의 content인 "안녕하세요. 손님"이라는 문자열이 그대로 출력되었다는 것을 알 수 있다.
+[서버에서 동적으로 HTML 코드를 생성하여 렌더링된 페이지의 출력 결과](#anchor1)와 다르게 hello.html{: .filepath }을 직접 열 경우 순수 HTML 코드가 출력되어 `<p>` 태그의 content인 "안녕하세요. 손님"이라는 문자열이 그대로 출력되었다는 것을 알 수 있다.
 
 ### H2 DB 설치
 
@@ -317,6 +321,7 @@ logging:
           jdbc:
             bind: trace
 ```
+{: file="application.yml" }
 
 > `yml` 파일은 콜론(:)과 들여쓰기(indentation)를 이용하여 계층 구조를 표현한다. 이때 들여쓰기는 공백 두 개를 사용하는 것이 일반적이다.
 {: .prompt-info }
@@ -394,6 +399,7 @@ public class Member {
     private String username;
 }
 ```
+{: file="Member.java" }
 
 - `@Entity`
 	+ DB 테이블과 매핑되는 클래스
@@ -434,20 +440,21 @@ public class MemberRepository {
     }
 }
 ```
+{: file="MemberRepository.java" }
 
 - `@Repository`
 	+ 스프링 프레임워크의 컴포넌트 스캔의 대상이 되는 어노테이션
 	+ 데이터 액세스 계층의 빈으로 등록되는 클래스를 표시
 	+ DAO(Data Access Object) 패턴을 구현하는 클래스에 지정
-	+ Spring Data JPA에서 제공하는 `Reposiotry` 인터페이스를 상속한다면 명시하지 않아도 됨
+	+ Spring Data JPA에서 제공하는 Reposiotry 인터페이스를 상속한다면 명시하지 않아도 됨
 -  `@PersistenceContext`
 	+ 컨테이너의 관리 대상이되는 컴포넌트에서 사용
-	+ 컨테이너는 `@PersistenceContext` 어노테이션이 붙은 필드를 갖는 컴포넌트에 대해 `EntityManager`를 주입
-		* 컨테이너는 `EntityManagerFactory` 에서 `EntityManager`를 생성
-		* `EntityManager`가 생성되면 영속성 컨텍스트(Persistence Context)가 생성됨
-		* 컨테이너가 `EntityManager`의 라이프사이클과 트랜잭션을 관리한다는 의미
+	+ 컨테이너는 `@PersistenceContext` 어노테이션이 붙은 필드를 갖는 컴포넌트에 대해 Entity Manager를 주입
+		* 컨테이너는 Entity Manager Factory에서 Entity Manager를 생성
+		* Entity Manager가 생성되면 영속성 컨텍스트(Persistence Context)가 생성됨
+		* 컨테이너가 Entity Manage`의 라이프사이클과 트랜잭션을 관리한다는 의미
 
-> `EntityManager`를 생성하는 `EntityManagerFactory`는 `LocalContainerEntityManagerFactoryBean` 클래스를 통해 컨테이너를 설정할 때 직접 설정할 수 있다.
+> Entity Manager를 생성하는 Entity Manager Factory는 LocalContainerEntityManagerFactoryBean 클래스를 통해 컨테이너를 설정할 때 직접 설정할 수 있다.
 {: .prompt-info }
 
 > [[Spring]EntityManager 주입 방식(@Autowired, @PersistenceContext) 비교](https://drj9812.github.io/posts/compare-entitymanager-dependency-injection-method/){: target="_blank "} 참조
@@ -488,6 +495,7 @@ class MemberRepositoryTest {
     }
 }
 ```
+{: file="MemberRepositoryTest.java" }
 
  <div style="display: flex;">
     <figure style="flex: 1; margin-left: 10px;">
@@ -498,7 +506,7 @@ class MemberRepositoryTest {
     </figure>
 </div>
 
-> 트랜잭션(`@Transactional`) 내에서`EntityManager`를 사용하지 않으면 `InvalidDataAccessApiUsageException: No EntityManager with actual transaction available for current thread - cannot reliably process`라는 메세지가 나오면서 테스트에 실패하게 된다.
+> 트랜잭션(`@Transactional`) 내에서 Entity Manager를 사용하지 않으면 `InvalidDataAccessApiUsageException: No EntityManager with actual transaction available for current thread - cannot reliably process`라는 메세지가 나오면서 테스트에 실패하게 된다.
 {: .prompt-warning }
 
 > 테스트 간의 의존성이 최소화되고, DB의 일관성을 유지하기 위해, 테스트 케이스에서 트랜잭션(`@Transactional`)을 시작하면 테스트가 완료된 후에는 트랜잭션을 롤백시켜서 DB의 상태를 이전 상태로 되돌린다.

@@ -30,13 +30,13 @@ image:
 
 ## @Embeddable, @Embedded
 
-- `@Embeddable` 어노테이션은 해당 클래스가 다른 `Entity`의 일부로 사용될 수 있게 설정
+- `@Embeddable` 어노테이션은 해당 클래스가 다른 Entity의 일부로 사용될 수 있게 설정
 - `@Embeddable` 어노테이션은 기본적으로 `@Embedded` 어노테이션에 따른 접근 타입을 사용
 	+ 필드 접근 타입
-		* Reflection API를 사용하여 `Entity`의 속성에 직접 접근
+		* Reflection API를 사용하여 Entity의 속성에 직접 접근
 		* 권장
 	+ 프로퍼티 접근 타입
-		* JPA에서 getter/setter 메서드를 호출하여 `Entity`의 속성에 접근
+		* JPA에서 getter/setter 메서드를 호출하여 Entity의 속성에 접근
 		* 권장 X
 
 > [[JPA]Reflection API](https://drj9812.github.io/posts/reflection-api/){: target="_blank" } 참조
@@ -72,13 +72,13 @@ public class Provider {
 }
 ```
 
-> `@Embedded`로 매핑된 `Entity`의 접근 방식과 상관없이 `@Embeddable` 클래스에서 접근 방식을 설정하기 위해서는 `@Access(AccessType.FIELD)`, `@Access(AccessType.PROPERTY)` 어노테이션을 사용하면 접근 타입을 고정할 수 있다.
+> `@Embedded`로 매핑된 Entity의 접근 방식과 상관없이 `@Embeddable` 클래스에서 접근 방식을 설정하기 위해서는 `@Access(AccessType.FIELD)`, `@Access(AccessType.PROPERTY)` 어노테이션을 사용하면 접근 타입을 고정할 수 있다.
 {: .prompt-info }
 
 ## 밸류 클래스의 라이프 사이클
 
-- 밸류 클래스는 해당 객체를 매핑한 `Entity`와 라이프 사이클이 동일
-- `Entity`에 대한 저장, 수정, 삭제 작업을 수행하면 밸류 클래스도 동일하게 진행
+- 밸류 클래스는 해당 객체를 매핑한 Entity와 라이프 사이클이 동일
+- Entity에 대한 저장, 수정, 삭제 작업을 수행하면 밸류 클래스도 동일하게 진행
 
 ## 실행 예시
 
@@ -167,6 +167,7 @@ public class Address {
     }
 }
 ```
+{: file="Address.java" }
 
 #### OriginProvider.java
 
@@ -263,6 +264,7 @@ public class OriginProvider {
     }
 }
 ```
+{: file="OriginProvide.java" }
 
 #### Provider.java
 
@@ -329,6 +331,7 @@ public class Provider {
     }
 }
 ```
+{: file="Provider.java" }
 
 #### CEntityManagerFactory.java
 
@@ -367,6 +370,7 @@ public class CEntityManagerFactory {
     }
 }
 ```
+{: file="CEntityManagerFactory.java" }
 
 #### ValueService.java
 
@@ -446,6 +450,7 @@ public class ValueService {
     }
 }
 ```
+{: file="ValueService.java" }
 
 #### ValueApplication.java
 
@@ -488,6 +493,7 @@ public class ValueApplication {
     }
 }
 ```
+{: file="ValueApplication.java" }
 
 ### 실행 결과
 

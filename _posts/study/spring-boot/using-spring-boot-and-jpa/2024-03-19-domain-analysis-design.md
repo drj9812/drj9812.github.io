@@ -37,14 +37,14 @@ image:
 
 | 요구사항 명 |          기능 ID        |    기능 명   | 필수 데이터 |
 |:--------------:|:-----------------------:|:-------------:|:---------------:|
-|   회원 기능  | MEMBER_REGISTER |  회원 등록  |   회원 이름   |
-|                  |     MEMBER_FIND   |  회원 조회  |   회원 이름   |
-|   상품 기능  |    PROD_REGISTER   |  상품 등록  |   상품 이름  |
+|   회원 기능  | MEMBER_REGISTER |  회원 등록  |   회원 이름  |
+|                  |     MEMBER_FIND   |  회원 조회  |   회원 이름  |
+|   상품 기능  |    PROD_REGISTER  |  상품 등록  |   상품 이름  |
 |                  |    PROD_MODIFY    |  상품 수정  |   상품 이름  |
 |                  |      PROD_FIND      |  상품 조회  |   상품 이름  |
-|   주문 기능  |      ORDER_PROD    |  상품 주문  |   상품 이름  |
-|                  |      ORDER_FIND     |  주문 조회  |  상품 이름   |
-|                  |   ORDER_CANCEL   |  주문 취소  |    상품 이름  |
+|   주문 기능  |      ORDER_PROD   |  상품 주문  |   상품 이름  |
+|                  |      ORDER_FIND    |  주문 조회  |   상품 이름  |
+|                  |   ORDER_CANCEL   |  주문 취소  |   상품 이름  |
 
 ## 도메인 모델과 테이블 설계
 
@@ -56,7 +56,7 @@ image:
 - 주문 상품과 상품은 다대일(N:1) 관계
 - 상품의 카테고리와 상품은 다대다(N:N) 관계
 
-> 회원은 여러 상품을 주문할 수 있다. 그리고 한 번 주문할 때 여러 상품을 선택할 수 있으므로 주문과 상품은 다대다 관계다. 하지만 이런 **다대다 관계는 관계형 데이터베이스는 물론이고 `Entity`에서도 거의 사용하지 않는다.** 따라서 그림처럼 주문 상품이라는 `Entity`를 추가해서 다대다 관계를 일대다, 다대일 관계로 풀어냈다.
+> 회원은 여러 상품을 주문할 수 있다. 그리고 한 번 주문할 때 여러 상품을 선택할 수 있으므로 주문과 상품은 다대다 관계다. 하지만 이런 **다대다 관계는 관계형 데이터베이스는 물론이고 Entity에서도 거의 사용하지 않는다.** 따라서 그림처럼 주문 상품이라는 Entity를 추가해서 다대다 관계를 일대다, 다대일 관계로 풀어냈다.
 {: .prompt-info }
 
 ### Entity 분석
@@ -201,8 +201,9 @@ public class Member {
     private List<Order> orders = new ArrayList<>();
 }
 ```
+{: file="domain.Member.java" }
 
-> Entity의 식별자는 ID를 사용하고 PK 컬럼명은 member_id 를 사용했다. `Entity`는 타입(여기서는 Member )이 있으므로 ID 필드만으로 쉽게 구분할 수 있다. 테이블은 타입이 없으므로 구분이 어렵다. 그리고 테이블은 관례상 테이블명 + ID 를 많이 사용한다. 참고로 객체에서 ID 대신에 memberId 를 사용해도 된다. 중요한 것은 일관성이다.
+> Entity의 식별자는 ID를 사용하고 PK 컬럼명은 `member_id`를 사용했다. Entity는 타입(여기서는 Member )이 있으므로 ID 필드만으로 쉽게 구분할 수 있다. 테이블은 타입이 없으므로 구분이 어렵다. 그리고 테이블은 관례상 테이블명 + ID 를 많이 사용한다. 참고로 객체에서 ID 대신에 `memberId`를 사용해도 된다. 중요한 것은 일관성이다.
 {: .prompt-tip }
 
 ### domain.Order.java
@@ -262,20 +263,21 @@ public class Order {
     }
 }
 ```
+{: file="domain.Order.java" }
 
 - `cascade`
 	+ 관계형 데이터베이스에서 사용되는 개념으로, 한 테이블의 행에 대한 작업이 해당 행과 관련된 다른 테이블의 행에 영향을 주는 것을 의미
 	+ 부모-자식 관계를 갖는 테이블 간의 작업에서 사용
 	+ `CascadeType.PERSIST`
-		* `Entity`를 영속화할 때 연관된 `Entity`도 함께 영속화
+		* Entity를 영속화할 때 연관된 Entity도 함께 영속화
 	+ `CascadeType.MERGE`
-		* `Entity`를 병합할 때 연관된 `Entity`도 함께 병합
+		* Entity를 병합할 때 연관된 Entity도 함께 병합
 	+ `CascadeType.REMOVE`
-		* `Entity`를 제거할 때 연관된 `Entity`들도 함께 제거
+		* Entity를 제거할 때 연관된 Entity들도 함께 제거
 	+ `CascadeType.REFRESH`
-		* `Entity`를 새로고침할 때, 연관된 `Entity`들도 함께 새로고침
+		* Entity를 새로고침할 때, 연관된 Entity들도 함께 새로고침
 	+ `CascadeType.DETACH`
-		* `Entity`를 영속성 컨텍스트로부터 분리하면 연관된 `Entity`들도 분리
+		* Entity를 영속성 컨텍스트로부터 분리하면 연관된 Entity들도 분리
 	+ `CascadeType.ALL`
 		* 모든 Cascade Type들이 적용
 
@@ -289,6 +291,7 @@ public enum OrderStatus {
     ORDER, CANCEL
 }
 ```
+{: file="domain.OrderStatus.java" }
 
 ### domain.OrderItem.java
 
@@ -321,6 +324,7 @@ public class OrderItem {
     private int count; // 주문 수량
 }
 ```
+{: file="domain.OrderItem.java" }
 
 ### domain.Delivery.java
 
@@ -349,6 +353,7 @@ public class Delivery {
     private DeliveryStatus status; // ENUM [READY(준비), COMP(배송)]
 }
 ```
+{: file="domain.Delivery.java" }
 
 ### domain.DeliveryStatus.java
 
@@ -360,6 +365,7 @@ public enum DeliveryStatus {
     READY, COMP
 }
 ```
+{: file="domain.DeliveryStatus.java" }
 
 ### domain.item.Item.java
 
@@ -392,6 +398,7 @@ public abstract class Item {
     private List<Category> categories = new ArrayList<>();
 }
 ```
+{: file="domain.Item.java" }
 
 ### domain.item.Album.java
 
@@ -412,6 +419,7 @@ public class Album extends Item {
     private String etc;
 }
 ```
+{: file="domain.item.Album.java" }
 
 ### domain.item.Book.java
 
@@ -432,6 +440,7 @@ public class Book extends Item {
     private String isbn;
 }
 ```
+{: file="domain.item.Book.java" }
 
 ### domain.item.Movie.java
 
@@ -452,7 +461,9 @@ public class Movie extends Item {
     private String author;
 }
 ```
- 
+{: file="domain.item.Movie.java" }
+
+
 ### domain.Category.java
 
 ```java
@@ -498,8 +509,9 @@ public class Category {
     }
 }
 ```
+{: file="domain.Category.java" }
 
-> 실무에서는 `@ManyToMany` 어노테이션을 사용하지 말자. `@ManyToMany` 어노테이션은 편리한 것 같지만, 중간 테이블( CATEGORY_ITEM )에 컬럼을 추가할 수 없고, 세밀하게 쿼리를 실행하기 어렵기 때문에 실무에서 사용하기에는 한계가 있다. 중간 `Entity`(CategoryItem) 를 만들고 `@ManyToOne` , `@OneToMany` 어노테이션으로 매핑해서 사용하자. 정리하면 다대다 매핑을 일대다, 다대일 매핑으로 풀어내서 사용하자
+> 실무에서는 `@ManyToMany` 어노테이션을 사용하지 말자. `@ManyToMany` 어노테이션은 편리한 것 같지만, 중간 테이블(`CATEGORY_ITEM`)에 컬럼을 추가할 수 없고, 세밀하게 쿼리를 실행하기 어렵기 때문에 실무에서 사용하기에는 한계가 있다. 중간 Entity(`CategoryItem`)를 만들고 `@ManyToOne` , `@OneToMany` 어노테이션으로 매핑해서 사용하자. 정리하면 다대다 매핑을 일대다, 다대일 매핑으로 풀어내서 사용하자
 {: .prompt-tip }
 
 ### domain.Address.java
@@ -527,8 +539,9 @@ public class Address {
 	} 
 }
 ```
+{: file="domain.Address.java" }
 
-> Value 클래스는 변경 불가능하게 설계해야 한다. `@Setter`를 제거하고, 생성자에서 값을 모두 초기화해서 변경 불가능한 클래스를 만들자. JPA 스펙상 `Entity`나 임베디드 타입(`@Embeddable`)은 자바 기본 생성자(default constructor)를 `public` 또는 `protected`로 설정해야 한다. `public`으로 두는 것 보다는 `protected`로 설정하는 것이 그나마 더 안전하다. JPA가 이런 제약을 두는 이유는 JPA 구현 라이브러리가 객체를 생성할 때 리플랙션 같은 기술을 사용할 수 있도록 지원해야 하기 때문이다.
+> Value 클래스는 변경 불가능하게 설계해야 한다. `@Setter`를 제거하고, 생성자에서 값을 모두 초기화해서 변경 불가능한 클래스를 만들자. JPA 스펙상 Entity나 임베디드 타입(`@Embeddable`)은 자바 기본 생성자(default constructor)를 `public` 또는 `protected`로 설정해야 한다. `public`으로 두는 것 보다는 `protected`로 설정하는 것이 그나마 더 안전하다. JPA가 이런 제약을 두는 이유는 JPA 구현 라이브러리가 객체를 생성할 때 리플랙션 같은 기술을 사용할 수 있도록 지원해야 하기 때문이다.
 {: .prompt-tip }
 
 > FK를 설정하는 건 시스템마다 다르다. 정합성보다는 서비스 자체가 중요하다면 FK를 빼고 인덱스만 잘 잡아주면 되고, 돈과 관련된 데이터가 항상 맞아야 되면 FK를 사용한다.
@@ -538,7 +551,7 @@ public class Address {
 
 ### Setter 사용 X
 
-- `Entity` 클래스는 가급적 Setter를 사용 X
+- Entity 클래스는 가급적 Setter 사용 X
 - 변경 포인트가 너무 많아서, 유지보수가 어려움
 - 나중에 리펙토링으로 Setter 제거
 
@@ -547,7 +560,7 @@ public class Address {
 - 즉시 로딩(`EAGER`)은 예측이 어렵고, 어떤 SQL이 실행될지 추적하기 어려움
 - JPQL을 실행할 때 N+1 문제가 자주 발생
 - 실무에서 모든 연관 관계는 지연 로딩(`LAZY`)으로 설정
-- 연관된 `Entity`를 함께 DB에서 조회해야 하면, fetch join 또는 `Entity` 그래프 기능을 사용한다.
+- 연관된 Entity를 함께 DB에서 조회해야 하면, fetch join 또는 Entity 그래프 기능을 사용한다.
 - `@XToOne` 관계는 기본이 즉시 로딩이므로 지연 로딩을 직접 명시해서 사용 
 
 ### 컬렉션은 필드 레벨에서 초기화
@@ -563,16 +576,16 @@ System.out.println(member.getOrders().getClass()); // class org.hibernate.collec
 - 컬렉션은 필드 레벨에서 바로 초기화 하는 것이 안전
 	+ `null` 문제에서 안전
 - 임의의 메서드에서 컬력션을 잘못 생성하면 하이버네이트 내부 메커니즘에 문제가 발생
-	+ Hibernate는 `Entity`를 영속화할 때, 컬렉션을 감싸서 Hibernate가 제공하는 내장 컬렉션으로 변경
+	+ Hibernate는 Entity를 영속화할 때, 컬렉션을 감싸서 Hibernate가 제공하는 내장 컬렉션으로 변경
 
 ### 테이블, 컬럼명 생성 전략
 
 - 스프링 부트에서 Hibernate 기본 매핑 전략을 변경해서 실제 테이블 필드명은 다름
 	+ [https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#howtoconfigure-hibernate-naming-strategy](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#howtoconfigure-hibernate-naming-strategy){: target="_blank" }
 	+ [http://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/](http://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#naming){: target="_blank" }
-- 하이버네이트 기존 구현: `Entity`의 필드명을 그대로 테이블의 컬럼명으로 사용
+- 하이버네이트 기존 구현: Entity의 필드명을 그대로 테이블의 컬럼명으로 사용
 - 스프링 부트 신규 설정: `SpringPhysicalNamingStrategy`
-1. 카멜 케이스 > 언더스코어(memberPoint > member_point)
+1. 카멜 케이스 > 언더스코어(memberPoint → member_point)
 2. `.`(점) > `_`(언더스코어)
 3. 대문자 > 소문자
 

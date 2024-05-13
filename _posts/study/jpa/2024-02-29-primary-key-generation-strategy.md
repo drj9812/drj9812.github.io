@@ -35,14 +35,14 @@ image:
 - `@GeneratedValue(strategy = GenerationType.SEQUENCE)`
 - DB의 시퀀스를 이용하는 전략
 - `@SequenceGenerator(name="sequence_generator", sequenceName = "my_seq", allocationSize = 1)`
-	+ 시퀀스 전략을 사용할 때는 `Entity` 클래스나 식별자('@Id`)에 `@SequenceGenerator` 어노테이션을 명시해줘야 함
+	+ 시퀀스 전략을 사용할 때는 Entity 클래스나 식별자('@Id`)에 `@SequenceGenerator` 어노테이션을 명시해줘야 함
 	+ `name`
 		* 시퀀스 생성기의 이름
 		* `@GeneratedValue` 어노테이션의 generator 값으로 사용
 		* 필수 속성
 	+ `sequenceName`
 		* 식별자를 생성할 때 사용할 Sequence 이름을 지정
-	+ allocationSize
+	+ `allocationSize`
 		* 시퀀스에서 읽어온 값을 기준으로 몇 개의 식별자를 생성할지 결정
 		* default 50
 
@@ -63,25 +63,25 @@ image:
 - 시퀀스를 지원하지 않는 DB를 사용할 때 이용
 - 목적에 맞게 최적화된 테이블이 아니기 때문에 성능상 이슈가 발생할 수 있음
 - `@TableGeneration(name = "id_generator", table = "id_gen", pkColumnName = "entity", pkColumnValue = "table_gen", valueColumnName = "next_id", initialValue = 0, allocationSize = 1)`
-	+ 테이블 전략을 사용할 때는 `Entity` 클래스나 식별자에 `@TableGeneration` 어노테이션을 명시해줘야 함
-	+ name
+	+ 테이블 전략을 사용할 때는 Entity 클래스나 식별자에 `@TableGeneration` 어노테이션을 명시해줘야 함
+	+ `name`
 		* 테이블 생성기의 이름
 		* `@GeneratedValue` 어노테이션의 generator 값으로 사용
 		* 필수 속성
-	+ table
+	+ `table`
 		* 식별자를 생성할 때 사용할 테이블 이름을 지정
-	+ pkColumnName
+	+ `pkColumnName`
 		* Id 생성용 테이블의 PK 컬럼을 지정
-	+ pkColumnValue
+	+ `pkColumnValue`
 		* 테이블 생성기가 PK 컬럼에 사용할 값을 지정
 		* 각 테이블 생성기마다 다른 값을 사용
-	+ valueColumnName
+	+ `valueColumnName`
 		* 생성할 Id 값을 갖는 컬럼 이름
-	+ initialValue
+	+ `initialValue`
 		* Id 초기값을 지정
 		* Id 생성용 테이블에 해당 레코드가 없을 경우 이 속성의 값으로 생성
 		* default 0
-	+ allocationSize
+	+ `allocationSize`
 		* Id의 할당 크기를 지정
 
 ### Auto
@@ -151,6 +151,7 @@ public class DirectEntity {
     }
 }
 ```
+{: file="DirectEntity.java" }
 
 #### IdentityEntity
 
@@ -208,6 +209,7 @@ public class IdentityEntity {
     }
 }
 ```
+{: file="IdentityEntity.java" }
 
 #### SequenceEntity
 
@@ -285,6 +287,7 @@ public class SequenceEntity {
     }
 }
 ```
+{: file="SequenceEntity.java" }
 
 #### TableEntity
 
@@ -368,6 +371,7 @@ public class TableEntity {
     }
 }
 ```
+{: file="TableEntity.java" }
 
 #### CEntityManagerFactory
 
@@ -408,6 +412,7 @@ public class CEntityManagerFactory {
 
 }
 ```
+{: file="CEntityManagerFactory.java" }
 
 #### IdGenerationService
 
@@ -437,6 +442,7 @@ public interface IdGenerationService {
     Optional<TableEntity> selectSequenceEntity(Long id);
 }
 ```
+{: file="IdGenerationService.java" }
 
 #### IdGenerationServiceImpl
 
@@ -624,6 +630,7 @@ public class IdGenerationServiceImpl implements IdGenerationService {
     }
 }
 ```
+{: file="IdGenerationServiceImpl.java" }
 
 ####  IdGenerationApplication
 
@@ -674,6 +681,7 @@ public class IdGenerationApplication {
     }
 }
 ```
+{: file="IdGenerationApplication.java" }
 
 ### 실행 결과
 
@@ -731,6 +739,7 @@ Hibernate:
 INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 Input your Command // [command] [name]
 ```
+{: file="실행 결과" }
 
 ![02-id_gen-table](/assets/img/posts/study/jpa/primary-key-generation-strategy/02-id_gen-table.jpg)
 *@TableGeneration(table = "id_gen")*
@@ -775,7 +784,7 @@ Input your Command // [command] [name]
 
 PK를 시퀀스 역할을 수행하는 테이블을 생성하여 할당하는 전략이기 때문에, `persist()` 메서드가 호출될 때 `@TableGenerator` 어노테이션의 `name` 속성에서 명시한 `id_gen`이라는 테이블에 대해 `SELECT` 문을 먼저 실행하여 PK 값을 가져오고 바꾼 뒤, 영속성 컨텍스트에 있는 영속 객체의 1차 캐시에 PK값을 할당한 후, `UPDATE` 문을 실행하여 변경된 PK 값을 DB에 저장한다.
 
-`Entity` 객체는 커밋할 때 쿼리가 실행되면서 동기화된다.
+Entity 객체는 커밋할 때 쿼리가 실행되면서 동기화된다.
 
 ![13-insert-inserttable-jack-result(1)](/assets/img/posts/study/jpa/primary-key-generation-strategy/13-insert-inserttable-jack-result(1).jpg)
 *insertTable jack 입력 결과(1)*
@@ -788,7 +797,7 @@ PK를 시퀀스 역할을 수행하는 테이블을 생성하여 할당하는 �
 
 PK를 DB의 시퀀스를 이용하여 할당하는 전략이기 때문에, `persist()` 메서드가 호출될 때 `@SequenceGenerator` 어노테이션의 `SequenceName` 속성에서 명시한 `my_seq`이라는 시퀀스에 대해 `SELECT` 문을 먼저 실행하여 PK 값을 가져온 뒤, 영속성 컨텍스트에 있는 영속 객체의 1차 캐시에 PK값을 할당한다.
 
-`Entity` 객체는 커밋할 때 쿼리가 실행되면서 동기화된다.
+Entity 객체는 커밋할 때 쿼리가 실행되면서 동기화된다.
 
 ![16-insert-insertsequence-jack-result(1)](/assets/img/posts/study/jpa/primary-key-generation-strategy/16-insert-insertsequence-jack-result(1).jpg)
 *insertSequence jack 결과(1)*

@@ -16,10 +16,10 @@ tags: [Oracle, 오라클, sample shcema, 샘플 스키마]
 ### 소스코드 다운로드
 
 ![01-oracle-homepage](/assets/img/posts/tool/oracle/install-sample-schema-on-windows/01-oracle-homepage.jpg)
-*[오라클 홈페이지](https://docs.oracle.com/en/database/oracle/oracle-database/21/comsc/installing-sample-schemas.html#GUID-3820972A-08D7-4033-9524-1E36676594EE){: target="_blank" } 접속 > `Copy`*
+*<https://docs.oracle.com/en/database/oracle/oracle-database/21/comsc/installing-sample-schemas.html#GUID-3820972A-08D7-4033-9524-1E36676594EE>{: target="_blank" } 접속 > `Copy`*
 
 ![02-download-source-code](/assets/img/posts/tool/oracle/install-sample-schema-on-windows/02-download-source-code.jpg)
-*[오라클 GitHub](https://github.com/oracle-samples/db-sample-schemas/releases/tag/v23.3){: target="_blank" } 접속 > `Source code (zip)`*
+*<https://github.com/oracle-samples/db-sample-schemas/releases/tag/v23.3>{: target="_blank" } 접속 > `Source code (zip)`*
 
 ![03-select-schema-folder](/assets/img/posts/tool/oracle/install-sample-schema-on-windows/03-select-schema-folder.jpg)
 *다운로드한 파일 압축 해제 > `db-sample-schemas-23.3/db-sample-schemas-23.3` > 설치할 스키마의 폴더 선택*
@@ -28,34 +28,34 @@ tags: [Oracle, 오라클, sample shcema, 샘플 스키마]
 	+ 고객 주문에 관련된 데이터를 포함
 	+ 일반적으로 고객 정보, 주문 정보, 주문 상태 등이 포함될 수 있음
 	+ 주문 처리 및 고객 관리와 같은 영역에 대한 데이터를 제공
-	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `co_install.sql` 파일 실행해야 함**
+	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `co_install.sql`{: .filepath } 실행해야 함**
 
 - human_resources
 	+ 인사 관리에 관련된 데이터를 포함
 	+ 일반적으로 사원 정보, 부서 정보, 급여 정보, 근무 기록 등이 포함될 수 있음
 	+ 조직의 인적 자원 관리와 관련된 데이터를 제공
-	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `hr_install.sql` 파일 실행해야 함**
+	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `hr_install.sql`{: .filepath } 실행해야 함**
 
 - order_entry
 	+ 주문 입력 및 처리에 관련된 데이터를 포함
 	+ 주문 정보, 제품 정보, 고객 정보 등이 포함될 수 있음
 	+ 주문 처리 시스템의 데이터 모델을 제공
-	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `oc_main.sql` 파일 실행해야 함**
+	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `oc_main.sql`{: .filepath } 실행해야 함**
 
 - product_media
 	+ 제품과 미디어 자료에 관련된 데이터를 포함
 	+ 제품 정보, 이미지, 동영상, 설명 등이 포함될 수 있음
 	+ 제품 관련 미디어 자료를 관리하는 데 사용될 수 있음
-	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `pm_main.sql` 파일 실행해야 함**
+	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `pm_main.sql`{: .filepath } 실행해야 함**
 
 - sales_history
 	+ 판매 이력에 관련된 데이터를 포함
 	+ 일반적으로 판매 주문, 판매량, 매출 정보 등이 포함될 수 있음
 	+ 판매 활동과 관련된 데이터를 분석하거나 보고하는 데 사용될 수 있음
-	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `sh_install.sql` 파일 실행해야 함**
+	+ **스키마를 설치하기 위해서는 해당 폴더 내의 `sh_install.sql`{: .filepath } 실행해야 함**
 
 ![04-move-schema-folder](/assets/img/posts/tool/oracle/install-sample-schema-on-windows/04-move-schema-folder.jpg)
-*선택한 스키마의 폴더를 `app/사용자의 홈 디렉토리 이름/product/21c/dbhomeXE/demo/schema`로 이동*
+*선택한 스키마의 폴더를 `app/사용자의 홈 디렉토리 이름/product/21c/dbhomeXE/demo/schema`{: .filepath }로 이동*
 
 ### SQL 스크립트 파일 실행
 

@@ -34,7 +34,7 @@ Search Console에 들어가서 확인해보니 `발견됨 - 현재 색인이 생
 #### URL 검사
 
 ![05-url-inspection](/assets/img/posts/tool/github/google-search-console-not-indexing/05-url-inspection.jpg)
-*[Search Console 홈페이지](https://search.google.com/search-console/welcome?hl=ko){: target="_blank" } > `URL 검사` > URL 입력 > `Enter`*
+*<https://search.google.com/search-console/welcome?hl=ko>{: target="_blank" } > `URL 검사` > URL 입력 > `Enter`*
 
 ![06-request-indexing](/assets/img/posts/tool/github/google-search-console-not-indexing/06-request-indexing(1).jpg)
 *`색인 생성 요청`*

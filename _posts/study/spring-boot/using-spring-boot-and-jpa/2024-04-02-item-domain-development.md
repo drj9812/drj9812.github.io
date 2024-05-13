@@ -80,6 +80,7 @@ public abstract class Item {
     }
 }
 ```
+{: file="domain.MemberItem.java" }
 
 > 일반적으로 도메인이 자체적으로 처리할 수 있는 기능이 있다면, 해당 기능을 도메인 모델 내에 구현하는 것이 좋다. 이것은 도메인 주도 설계(Domain-Driven Design, DDD)의 핵심 개념 중 하나다.
 {: .prompt-tip }
@@ -106,6 +107,7 @@ public class NotEnoughStockException extends RuntimeException {
     }
 }
 ```
+{: file="exception.NotEnoughStockException.java" }
 
 ## 상품 Repository 개발
 
@@ -147,6 +149,7 @@ public class ItemRepository {
     }
 }
 ```
+{: file="repository.ItemRepository.java" }
 
 ## 상품 Service 개발
 
@@ -185,6 +188,7 @@ public class ItemService {
     }
 }
 ```
+{: file="service.ItemService.java" }
 
 ## 다음 글
 

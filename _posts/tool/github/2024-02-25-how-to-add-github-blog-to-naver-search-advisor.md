@@ -53,7 +53,7 @@ $ git push
 
 ![09-not-valid-rss](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/09-not-valid-rss.jpg)
 
-Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.xml` 파일이 `assets` 폴더에 자동으로 생성되는데, 네이버의 서치어드바이저는 Atom 형식이 아닌 RSS 형식으로 작성된 RSS 피드 파일을 요구한다. 그래서 Atom 형식으로 자동으로 생성된 이 `feed.xml` 파일의 URL을 제출할 경우, 위 사진처럼 "올바른 RSS 가 아닙니다." 라는 창이 뜨면서 제출에 실패하게 된다.
+Chirpy 테마의 경우 RSS 피드를 위한 Atom 형식으로 작성된 `feed.xml`{: .filepath }이 `assets`{: .filepath } 폴더에 자동으로 생성되는데, 네이버의 서치어드바이저는 Atom 형식이 아닌 RSS 형식으로 작성된 RSS 피드 파일을 요구한다. 그래서 Atom 형식으로 자동으로 생성된 이 `feed.xml`{: .filepath }의 URL을 제출할 경우, 위 사진처럼 "올바른 RSS 가 아닙니다." 라는 창이 뜨면서 제출에 실패하게 된다.
 
 ![10-generate-rss(1)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/10-generate-rss(1).jpg)
 *<https://jekyllcodex.org/without-plugin/rss-feed/>{: target="_blank" } > `feed.xml`*
@@ -94,21 +94,22 @@ layout: null
 </rss>
 {% endraw %}
 ```
+{: file="feed.xml" }
 
 ![11-generate-rss(2)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/11-generate-rss(2).jpg)
 *코드 복사*
 
 ![12-generate-rss(3)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/12-generate-rss(3).jpg)
-*루트 디렉토리에 `rss.xml` 파일 생성 > 편집기를 사용하여 생성한 `rss.xml` 파일에 복사한 코드 붙여넣기*
+*루트 디렉토리에 `rss.xml`{: .filepath } 생성 > 편집기를 사용하여 생성한 `rss.xml`{: .filepath }에 복사한 코드 붙여넣기*
 
-> Atom 형식으로 작성된 기존의 `feed.xml` 파일은 나중에 쓰일 수도 있으니 굳이 삭제하지 않았다.
+> Atom 형식으로 작성된 기존의 `feed.xml`{: .filepath }은 나중에 쓰일 수도 있으니 굳이 삭제하지 않았다.
 {: .prompt-tip }
 
 ![13-generate-rss(4)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/13-generate-rss(4).jpg)
 *코드 복사*
 
 ![14-generate-rss(5)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/14-generate-rss(5).jpg)
-*편집기를 사용하여 `_includes` 폴더에 위치한 `head.html` 파일의 `<head>` 태그 안에 복사한 코드 붙여넣기*
+*편집기를 사용하여 `_includes`{: .filepath } 폴더에 위치한 `head.html`{: .filepath }의 `<head>` 태그 안에 복사한 코드 붙여넣기*
 
 ```console
 $ git add -A
@@ -127,6 +128,18 @@ $ git push
 *`요청` > `사이트맵 제출` > https://username.github.io/sitemap.xml 입력 > `확인`*
 
 RSS와 사이트맵을 성공적으로 제출했다면, 이제부터 네이버는 등록된 웹사이트를 수집하고 색인화하는 과정을 거친 후에 검색 결과에 표시한다. 이 과정은 일반적으로 몇 일에서 몇 주까지 걸릴 수 있으며, 특정한 상황에 따라 더 오랜 시간이 소요될 수도 있다.
+
+## 확인
+
+### 2024년 5월 13일
+
+![17-2024-05-13(1)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/17-2024-05-13(1).jpg)
+
+오랜만에 서치 어드바이저에 들어가서 확인해 보니, 노출이 되기 시작했다고 한다.
+
+![18-2024-05-13(2)](/assets/img/posts/tool/github/how-to-add-github-blog-to-naver-search-advisor/18-2024-05-13(2).jpg)
+
+실제로 검색을 해보면 내 블로그가 노출이 되고 있다. 다만, 아직 루트 주소만 검색되지 내가 올린 게시글들은 검색이 안되고 있다. 시간이 좀 더 필요할 것 같다.
 
 ## 참고자료
 

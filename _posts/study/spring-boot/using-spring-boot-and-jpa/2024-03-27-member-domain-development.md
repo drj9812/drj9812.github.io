@@ -59,6 +59,7 @@ public class MemberRepository {
     }
 }
 ```
+{: file="repository.MemberRepository.java" }
 
 - `@Repository`
 	+ 스프링 프레임워크의 컴포넌트 스캔의 대상이 되는 어노테이션
@@ -69,10 +70,10 @@ public class MemberRepository {
 > `@SpringBootApplication` 어노테이션이 붙은 클래스의 경우 스프링 부트 애플리케이션의 진입점을 나타내며, 이 어노테이션은 여러 다른 어노테이션들을 포함하고 있다. 그 중에는 `@ComponentScan` 어노테이션도 포함되어 있는데, `@ComponentScan` 어노테이션은 `@SpringBootApplication` 어노테이션이 붙은 클래스의 패키지와 그 하위 패키지에 있는 컴포넌트들을 스캔하여 빈으로 등록한다.
 {: .prompt-info }
 
-> `@PersistenceUnit` 어노테이션을 사용하면 `EntityManagerFactory`를 직접 주입받을 수 있다.
+> `@PersistenceUnit` 어노테이션을 사용하면 Entity Manager Factory를 직접 주입받을 수 있다.
 {: .prompt-info }
 
->  일반적인 JPA에서는 `@PersistenceContext` 어노테이션을 사용하여 `EntityManager`를 주입받지만 Spring Data JPA를 사용할 때는 `@Autowired` 어노테이션 또는 Lombok을 사용한 생성자 주입을 통해서도 `EntityManager`를 주입받을 수 있다.
+>  일반적인 JPA에서는 `@PersistenceContext` 어노테이션을 사용하여 Entity Manager를 주입받지만 Spring Data JPA를 사용할 때는 `@Autowired` 어노테이션 또는 Lombok을 사용한 생성자 주입을 통해서도 Entity Manager를 주입받을 수 있다.
 {: .prompt-info }
 
 ## 회원 Service 개발
@@ -127,6 +128,7 @@ public class MemberService {
     }
 }
 ```
+{: file="service.memberService.java" }
 
 - `@Transactional`
 	+ 스프링 프레임워크에서 제공하는 트랜잭션 관리를 위한 어노테이션
@@ -211,13 +213,14 @@ public class MemberServiceTest {
     }
 }
 ```
+{: file="service.MemberServiceTest.java" }
 
 - `@SpringBootTest`
 	+ 스프링 애플리케이션 컨텍스트를 로드하여, 테스트 클래스 내에서 스프링 빈 객체를 주입하여 사용할 수 있도록 함
 - `@Transactional`
 	+ `@Transactional` 어노테이션이 테스트 클래스에서 사용되면 테스트가 끝난 후, 트랜잭션이 롤백됨
-		* flush하지 않으므로 `INSERT` 쿼리가 실행되지 않음
-		* `EntityManager`를 통해 강제로 flush함으로써 `INSERT` 쿼리의 실행을 강제할 수 있음
+		* flush하지 않으므로 INSERT 쿼리가 실행되지 않음
+		* `EntityManager`를 통해 강제로 flush함으로써 INSERT 쿼리의 실행을 강제할 수 있음
 		* `@Rollback()` 어노테이션을 사용하여 트랜잭션이 롤백되지 않도록 설정할 수 있음
 
 ## 다음 글

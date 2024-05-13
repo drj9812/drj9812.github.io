@@ -16,7 +16,7 @@ tags: [설치, H2 Database, In-Memory]
 ## 애플리케이션 설정
 
 ![01-h2-homepage](/assets/img/posts/tool/h2-database/how-to-run-a-test-in-in-memory-mode/01-h2-homepage.jpg)
-*[H2 Database 홈페이지](https://www.h2database.com/html/main.html){: target="_blank" } > `Cheat Sheet`*
+*<https://www.h2database.com/html/main.html>{: target="_blank" } > `Cheat Sheet`*
 
 ![02-method-of-in-memory-mode](/assets/img/posts/tool/h2-database/how-to-run-a-test-in-in-memory-mode/02-method-of-in-memory-mode.jpg)
 *사용하고자 하는 In-Memory 모드 방식의 URL 복사*
@@ -35,13 +35,13 @@ tags: [설치, H2 Database, In-Memory]
 	+ 단일 연결의 휘발성 DB를 생성할 때 사용될 수 있음
 
 ![03-configure-application](/assets/img/posts/tool/h2-database/how-to-run-a-test-in-in-memory-mode/03-configure-application.jpg)
-*프로젝트/src/test/resources/config 폴더의 애플리케이션 설정 파일에 복사한 URL 붙여넣기*
+*`프로젝트/src/test/resources/config{: .filepath }` 폴더의 애플리케이션 설정 파일에 복사한 URL 붙여넣기*
 
-일반적으로 프로젝트의 소스 코드는 src/main/resources/ 디렉토리에 위치하며, 이 디렉토리의 리소스가 운영 환경에서 사용된다. 그러나 테스트를 위한 리소스는 src/test/resources/ 디렉토리에 위치한다. 이 디렉토리의 리소스는 테스트 환경에서 사용되며, 테스트 코드가 실행될 때 클래스패스에 추가된다.
+일반적으로 프로젝트의 소스 코드는 `src/main/resources/`{: .filepath } 디렉토리에 위치하며, 이 디렉토리의 리소스가 운영 환경에서 사용된다. 그러나 테스트를 위한 리소스는 `src/test/resources/`{: .filepath } 디렉토리에 위치한다. 이 디렉토리의 리소스는 테스트 환경에서 사용되며, 테스트 코드가 실행될 때 클래스패스에 추가된다.
 
-따라서 테스트 환경에서는 우선적으로 src/test/resources/ 디렉토리에 있는 리소스를 참조한다. 이는 테스트 중에 프로덕션 환경의 설정을 오염시키지 않고 테스트에 필요한 리소스를 관리할 수 있도록 도와준다. 이때 **이클립스에서 애플리케이션 설정 파일은 config 폴더 내에 위치해야 인식하므로 config 폴더를 추가로 생성**해야 한다.
+따라서 테스트 환경에서는 우선적으로 `src/test/resources/`{: .filepath } 디렉토리에 있는 리소스를 참조한다. 이는 테스트 중에 프로덕션 환경의 설정을 오염시키지 않고 테스트에 필요한 리소스를 관리할 수 있도록 도와준다. 이때 **이클립스에서 애플리케이션 설정 파일은 `config{: .filepath } 폴더 내에 위치해야 인식하므로 `config{: .filepath } 폴더를 추가로 생성**해야 한다.
 
-> 인텔리제이는 애플리케이션 설정 파일이 config 폴더 내에 위치하지 않아도 인식한다.
+> 인텔리제이는 애플리케이션 설정 파일이 `config`{: .filepath } 폴더 내에 위치하지 않아도 인식한다.
 {: .prompt-info }
 
 ![04-succeed-test](/assets/img/posts/tool/h2-database/how-to-run-a-test-in-in-memory-mode/04-succeed-test.jpg)

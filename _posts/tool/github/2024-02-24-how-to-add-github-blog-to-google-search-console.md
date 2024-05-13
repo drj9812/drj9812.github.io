@@ -33,7 +33,7 @@ Search Console은 구글에서 무료로 제공하는 서비스로, 웹사이트
 ### 소유권 확인
 
 ![02-enter-url](/assets/img/posts/tool/github/how-to-add-github-blog-to-google-search-console/02-enter-url.png)
-*[Search Console 홈페이지](https://search.google.com/search-console/welcome?hl=ko){: target="_blank" } > URL 접두어 유형의 빈 칸에 블로그 주소 입력*
+*<https://search.google.com/search-console/welcome?hl=ko>{: target="_blank" } > URL 접두어 유형의 빈 칸에 블로그 주소 입력*
 
 ![03-download-html-file](/assets/img/posts/tool/github/how-to-add-github-blog-to-google-search-console/03-download-html-file.png)
 *HTML 파일 다운로드*
@@ -68,7 +68,7 @@ $ git push
 ![07-add-sitemap](/assets/img/posts/tool/github/how-to-add-github-blog-to-google-search-console/07-add-sitemap.png)
 *`Sitemaps` > sitemap.xml 입력 > `제출`*
 
-Chirpy 테마의 경우 `_site` 폴더에 `sitemap.xml` 파일이 자동으로 생성된다. 만약, `_site` 폴더 또는 루트 디렉토리에 `sitemap.xml` 파일이 존재하지 않는다면 [XML Sitemap Generator](https://www.xml-sitemaps.com/){: target="_blank" }와 같은 사이트를 이용하여 `sitemap.xml` 파일을 생성하고, 생성된 파일을 루트 디렉토리에 위치시킨 뒤 구글이 `sitemap.xml` 파일을 확인할 수 있도록 원격 저장소에 업로드한다.
+Chirpy 테마의 경우 `_site`{: .filepath } 폴더에 `sitemap.xml`{: .filepath }이 자동으로 생성된다. 만약, `_site`{: .filepath } 폴더 또는 루트 디렉토리에 `sitemap.xml`{: .filepath }이 존재하지 않는다면 [XML Sitemap Generator](https://www.xml-sitemaps.com/){: target="_blank" }와 같은 사이트를 이용하여 `sitemap.xml`{: .filepath }을 생성하고, 생성된 파일을 루트 디렉토리에 위치시킨 뒤 구글이 `sitemap.xml`{: .filepath }을 확인할 수 있도록 원격 저장소에 업로드한다.
 
 ![08-submit-sitemap](/assets/img/posts/tool/github/how-to-add-github-blog-to-google-search-console/08-submit-sitemap.png)
 *닫기*

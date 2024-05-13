@@ -59,7 +59,7 @@ tags: [Eclipse, 이클립스, import, GitHub]
 	+ default origin
 
 ![08-import(7)](/assets/img/posts/tool/eclipse/import-project-from-github-repository-to-eclipse/08-import(7).jpg)
-*`Import 방법 선택 > `Next >`*
+*Import 방법 선택 > `Next >`*
 
 - Import existing Eclipse projects
 	+ 현재 존재하는 이클립스 프로젝트에 원격 저장소를 불러옴

@@ -23,15 +23,15 @@ image:
 |                       |                함수                  |
 |                       |           `WHERE` 절              |
 |                       |  `GROUBP BY`, `HAVING` 절  |
-|                       |               `JOIN`                  |
-|                       |            표준 `JOIN`              |
-|      SQL 활용     |              서브 쿼리              |
+|                       |                JOIN                  |
+|                       |             표준 JOIN              |
+|      SQL 활용     |              서브 쿼리             |
 |                       |             집합 연산자            |
 |                       |               그룹 함수             |
 |                       |             윈도우 함수            |
 |                       |             TOP N 쿼리            |
-|                       |   계층형 질의와 셀프 `JOIN`   |
-|                       |  `PIVOT` 절과 `UNPIVOT` 절   |
+|                       |   계층형 질의와 셀프 JOIN    |
+|                       |  `PIVOT` 절과 `UNPIVOT` 절  |
 |                       |            정규 표현식             |
 |  **관리 구문**   |                 DML                 |
 |                       |                  TCL                  |
@@ -40,6 +40,7 @@ image:
 
 ## DML(Data Manipulation Language)
 
+- 비절차적 데이터 조작어로서 사용자가 무슨 데이터를 원하는 지 명세
 - 데이터의 삽입(INSERT), 수정(UPDATE), 삭제(DELETE), 병합(MERGE)
 - <font color="red">저장(commit) 혹은 취소(rollback) 반드시 필요</font>
 
@@ -245,6 +246,7 @@ SAVEPOINT savepoint_name;
 
 ## DDL(Data Definition Language)
 
+- 비절차적 데이터 조작어로서 사용자가 어떻게 데이터를 접근해야 하는지 명세
 - 데이터 정의어
 - **데이터 구조 정의 언어**
 	+ `CREATE`: 객체 생성
@@ -325,7 +327,7 @@ SELECT *
 
 #### 예시
 
-![20-data-type(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/20-data-type(1))
+![20-data-type(1)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/20-data-type(1).jpg)
 *NUMBER(7,2)의 경우 총 자리수가 7을 초과할 수 없음*
 
 ![21-data-type(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/21-data-type(2).jpg)
@@ -517,6 +519,10 @@ DROP TABLE 테이블명 [PURGE];
 
 ### TRUNCATE
 
+```sql
+TRUNCATE TABLE 테이블명;
+```
+
 - 테이블 구조를 남기고 데이터만 즉시 삭제
 	+ AUO `COMMIT`
 	+ `TRUNCATE` 이후에 조회 가능
@@ -559,10 +565,17 @@ DROP TABLE 테이블명 [PURGE];
 ##### 문법
 
 ```sql
-CRETAE TABLE [소유자.]테이블명(
+CRATEE TABLE [소유자.]테이블명(
     컬럼1 데이터타입 [DEFAULT 기본값] [제약조건],
     컬럼2 데이터타입 [DEFAULT 기본값] [제약조건],
     ....);
+```
+
+```sql
+CREATE TABLE [소유자.]테이블명(
+    컬럼1 데이터타입 [DEFAULT 기본값],
+    컬럼2 데이터타입 [DEFAULT 기본값],
+    [CONSTRAINT 제약조건명 제약조건종류(제약조건컬럼)];
 ```
 
 - 테이블 생성 시 제약 조건 생성
@@ -574,7 +587,7 @@ ALTER TABLE 테이블명 ADD 컬럼명 데이터타입 [DEFAULT 기본값] [제�
 - 컬럼 추가 시 제약 조건 생성
 
 ```sql
-ALTER TABLE 테이블명 ADD [CONSTRAINT 제약조건명] 제약조건종류;
+ALTER TABLE 테이블명 ADD [CONSTRAINT 제약조건명] 제약조건종류(제약조건컬럼);
 ```
 
 - 이미 생성된 컬럼에 제약조건만 추가
@@ -619,7 +632,7 @@ ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
 - 다른 제약 조건과 다르게 컬럼의 특징을 나타냄
 	+ CTAS(`CREATE TABLE AS SELECT`)로 복제 시 같이 복제됨
 - 컬럼 생성 시 `NOT NULL`을 선언하지 않으면 Nullable 컬럼으로 생성됨
-- 이미 만들어진 컬럼에 **`NOT NULL` 선언 시 제약 조건 생성이 아닌 컬럼 수정(`MODIFY`)으로 해결
+- 이미 만들어진 컬럼에 **`NOT NULL` 선언 시 제약 조건 생성이 아닌 컬럼 수정(`MODIFY`)으로 해결**
 
 > 애초에 모든 컬럼은 `NOT NULL` 또는 `NOT NULL` 제약 조건이 아니기 때문에 `NOT NULL` 제약 조건은 추가(`ADD`)가 아닌 수정(`MODIFY`)를 통해 "변경"해야 한다.
 {: .prompt-info }
@@ -634,6 +647,9 @@ CREATE TABLE 테이블명(
 
 - **참조 테이블의 참조 컬럼에 있는 데이터를 확인하면서 본 테이블의 데이터를 관리할 목적으로 생성**
 - <font color="red">반드시 참조(부모) 테이블의 참조 컬럼(Reference key)이 사전에 Primary Key 또는 Unique Key를 가져야 함</font>
+	+ 참조 무결성 제약을 받음
+- `NULL` 값을 가질 수 있음
+- 하나의 테이블에 여러 FK가 존재할 수 있음
 
 ##### FOREIGN KEY 옵션
 
@@ -699,6 +715,7 @@ CREATE TABLE 테이블명(
 ![52-ex-check](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/52-ex-check.jpg)
 *`emp_test1` 테이블의 `sal` 값은 0 이상이어야 한다는 `CHECK` 제약 조건 추가*
 
+- 데이터의 무결성을 유지하기 위하여 테이블의 특정 컬럼을 설정하는 제약
 - 직접적으로 데이터의 값을 제한
 
 ### 기타 오브젝트
@@ -710,7 +727,7 @@ CREATE TABLE 테이블명(
 ##### 뷰의 종류
 
 - 단순 뷰: 하나의 테이블을 조회하는 뷰
-- 복합 뷰: 둘 이상의 테이블을 `JOIN` 하는 뷰
+- 복합 뷰: 둘 이상의 테이블을 JOIN 하는 뷰
 
 ##### 뷰의 특징
 
@@ -753,7 +770,7 @@ DROP VIEW 뷰명;
 ##### 예시
 
 ![53-ex-view](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/53-ex-view.jpg)
-*`emp` 테이블과 `dept` 테이블을 `JOIN`하는 복합 뷰의 생성 및 조회*
+*`emp` 테이블과 `dept` 테이블을 JOIN하는 복합 뷰의 생성 및 조회*
 
 #### 시퀀스(SEQUENCE)
 

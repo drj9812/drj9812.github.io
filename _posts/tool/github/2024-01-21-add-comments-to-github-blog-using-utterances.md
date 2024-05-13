@@ -60,7 +60,7 @@ uttreances는 블로그의 각 게시물에 대해 하나의 `Issues`를 사용�
 *`Enable Utterances` 섹션 > 방금 입력한 username/username.github.io 형식의 값이 repo 속성에 들어가 있는 걸 확인 > `Copy`*
 
 ![11-paste-script](/assets/img/posts/tool/github/add-comments-to-github-blog-using-utterances/11-paste-script.png)
-*_layouts/post.html > 복사한 코드 붙여넣기*
+*`_layouts/post.html`{: .filepath } > 복사한 코드 붙여넣기*
 
 <br>
 

@@ -40,7 +40,7 @@ Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드�
 나는 64bit(x64) 운영체제를 사용하고 있고 문서에서도 3.2.X (x64)를 권장하고있지만, Jekyll이 32bit(x86)라서 32bit(x86)를 설치했다.
 
 ![05-install-ruby(1)](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/05-install-ruby(1).png)
-*`rubyinstaller-devkit-3.2.2-1-x86.exe` 파일 실행 > `Install for me only (recommended)`*
+*`rubyinstaller-devkit-3.2.2-1-x86.exe`{: .filepath } 실행 > `Install for me only (recommended)`*
 
 ![06-install-ruby(2)](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/06-install-ruby(2).png)
 *`I accept the Lincense` 체크 > `Next`*
@@ -71,13 +71,13 @@ Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드�
 <a id=anchor1></a>
 ![12-chirpy-getting-started(2)](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/12-chirpy-getting-started(2).png)
 
-[Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 Node.js를 설치하고 `bash tool/init` 명령어를 실행해야 한다. `tool` 폴더에 있는 `init` 파일을 실행하는 명령어인데, 이 `init` 파일 내부에 `npm i && npm run build` 명령어를 실행하는 부분이 있다. 여기서 npm은 `npm` 명령어를 통해 Node.js의 패키지를 관리하는 Node Package Manager의 약자다. npm은 Node.js를 설치하면 함께 설치된다.
+[Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 Node.js를 설치하고 `bash tool/init` 명령어를 실행해야 한다. `tool`{: .filepath } 폴더에 있는 `init`{: .filepath }을 실행하는 명령어인데, 이 `init`{: .filepath } 내부에 `npm i && npm run build` 명령어를 실행하는 부분이 있다. 여기서 npm은 `npm` 명령어를 통해 Node.js의 패키지를 관리하는 Node Package Manager의 약자다. npm은 Node.js를 설치하면 함께 설치된다.
 
 ![13-node-homepage](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/13-node-homepage.png)
 *<https://nodejs.org/en>{: target="_blank" } > `20.11.0 LTS` 다운로드*
 
 ![14-install-node(1).=](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/14-install-node(1).png)
-*`node-v20.11.0-x64.msi` 파일 실행 > `Next`*
+*`node-v20.11.0-x64.msi`{: .filepath } 실행 > `Next`*
 
 ![15-install-node(2)](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/15-install-node(2).png)
 *`I accept the terms in the License Agreement` 체크 > `Next`*
@@ -163,7 +163,7 @@ $ cd clone한 디렉토리
 $ bundle install
 ```
 
-**복제한 위치로 디렉토리를 변경한 다음**, `Gemfile` 파일에 적힌 종속성 패키지들을 설치한다.
+**복제한 위치로 디렉토리를 변경한 다음**, `Gemfile`{: .filepath }에 적힌 종속성 패키지들을 설치한다.
 
 ![29-npm-install-&&-npm-run-build](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/29-npm-install-&&-npm-run-build.png)
 
@@ -171,16 +171,16 @@ $ bundle install
 $ npm install && npm run build
 ```
 
-[Node.js를 설치하기 앞서](#anchor1) `bash tool/init` 명령어를 실행해야 한다고 했다. 하지만 리눅스 환경에서 동작하는 `bash tool/init` 명령어를 Windows에서 사용할 수 없기 때문에, `tool` 폴더 내의 `init` 파일을 열어 내용을 직접 처리해야 한다. 아래는 처리해야할 목록이다.
+[Node.js를 설치하기 앞서](#anchor1) `bash tool/init` 명령어를 실행해야 한다고 했다. 하지만 리눅스 환경에서 동작하는 `bash tool/init` 명령어를 Windows에서 사용할 수 없기 때문에, `tool`{: .filepath } 폴더 내의 `init`{: .filepath }을 열어 내용을 직접 처리해야 한다. 아래는 처리해야할 목록이다.
 
-1. **`.github/workflows` 디렉토리 내의 `pages-deploy.yml.hook` 파일을 `pages-deploy.yml`로 이름을 변경하고, `pages-deploy.yml` 파일을 제외한 모든 파일을 삭제**
-2. `_post` 폴더 내의 모든 파일 삭제
+1. **`.github/workflows`{: .filepath } 디렉토리 내의 `pages-deploy.yml.hook`{: .filepath }을 `pages-deploy.yml`{: .filepath }로 이름을 변경하고, `pages-deploy.yml`{: .filepath }을 제외한 모든 파일을 삭제**
+2. `_post`{: .filepath } 폴더 내의 모든 파일 삭제
 3. **`npm install && npm run build` 명령어 실행**
-4. **`.gitignore` 파일의 `assets/js/dist` 주석 처리 또는 제거**
+4. **`.gitignore`{: .filepath }의 `assets/js/dist` 주석 처리 또는 제거**
 
-2번은 선택 사항이다. `_post` 폴더 내부에는 블로그를 처음 시작하는 사람들을 위한 가이드 형식의 글들이 존재한다. 참고로 `_post` 폴더는 앞으로 포스팅할 글들의 디렉토리다.
+2번은 선택 사항이다. `_post`{: .filepath } 폴더 내부에는 블로그를 처음 시작하는 사람들을 위한 가이드 형식의 글들이 존재한다. `_post`{: .filepath }는 앞으로 포스팅할 글들의 디렉토리다.
 
-> `npm install && npm run build` 명령어를 실행하면 `package.json` 파일의 scripts 섹션에 정의된 build 스크립트인 `NODE_ENV=production npx rollup -c --bundleConfigAsCjs` 명령어가 실행되면서 6개의 자바스크립트 파일이 생성되는데, 이 파일들이 없으면 `assets/js/dist/*.min.js Not Found` 에러를 발생하면서 블로그 기능이 정상적으로 작동하지 않게 된다.
+> `npm install && npm run build` 명령어를 실행하면 `package.json`{: .filepath }의 `scripts` 섹션에 정의된 build 스크립트인 `NODE_ENV=production npx rollup -c --bundleConfigAsCjs` 명령어가 실행되면서 6개의 자바스크립트 파일이 생성되는데, 이 파일들이 없으면 `assets/js/dist/*.min.js Not Found` 에러를 발생하면서 블로그 기능이 정상적으로 작동하지 않게 된다.
 {: .prompt-info }
 
 ![30-bundle-exec-jekyll-serve](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/30-bundle-exec-jekyll-serve.png)
@@ -189,9 +189,9 @@ $ npm install && npm run build
 $ bundle exec jekyll serve
 ```
 
-위 명령어로 생성된 블로그를 로컬 서버에 올리고 `Server address`에 나와있는 `http://127.0.0.1:4000/` 주소를 통해 블로그에 접속할 수 있다.  이 서버에서는 `_config.yml` 파일을 제외한 변경 사항들이 반영되기 때문에, 배포하기 전에 이상이 없는지 먼저 확인하는 용도로 사용된다. cmd 창을 닫거나,  `Ctrl` + `c` 조합을 사용해서 나가면 서버가 종료된다.
+위 명령어로 생성된 블로그를 로컬 서버에 올리고 `Server address`에 나와있는 `http://127.0.0.1:4000/` 주소를 통해 블로그에 접속할 수 있다.  이 서버에서는 `_config.yml`{: .filepath }을 제외한 변경 사항들이 반영되기 때문에, 배포하기 전에 이상이 없는지 먼저 확인하는 용도로 사용된다. cmd 창을 닫거나,  `Ctrl` + `c` 조합을 사용해서 나가면 서버가 종료된다.
 
-> `_config.yml` 파일의 수정사항은 서버를 닫고 다시 열어야 반영된다.
+> `_config.yml`{: .filepath }의 수정사항은 서버를 닫고 다시 열어야 반영된다.
 {: .prompt-tip }
 
 ![31-access-server-address](/assets/img/posts/tool/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/31-access-server-address.png)

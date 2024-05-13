@@ -40,3 +40,14 @@ image:
 ```
 
 - 위 코드에서 역슬래시(`\`) 제거
+
+## 파일 주소
+
+```markdown
+`browserconfig.xml`{: .filepath}
+```
+
+## 참고자료
+
+- [Cotes Chung, "Writing a New Post", Chirpy, 2024-01-31](https://chirpy.cotes.page/posts/write-a-new-post/){: target="_blank" }
+- [Cotes Chung, "Text and Typography", Chirpy, 2024-01-31](https://chirpy.cotes.page/posts/text-and-typography/){: target="_blank" }

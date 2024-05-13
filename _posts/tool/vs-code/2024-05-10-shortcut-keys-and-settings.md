@@ -13,20 +13,20 @@ image:
 ## 단축키
 
 - 터미널 열기
-	+ `Ctrl` + <code class="language-plaintext highlighter-rouge">`</code>
+	+ <kbd>Ctrl</kbd> + <kbd>`</kbd>
 - 새 터미널 창
-	+ `Ctrl` + `Shift` + <code class="language-plaintext highlighter-rouge">`</code>
+	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>
 - 커맨드 팔레트(Command Palette)
-	+ `Ctrl` + `Shift` + `P`
+	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
 - 익스텐션(Extensions) 창
-	+ `Ctrl` + `Shift` + `X`
+	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>
 
 ## 설정
 
 ### 한국어 설정
 
 ![set-in-korean(1)](/assets/img/posts/tool/vs-code/shortcut-keys-and-settings/set-in-korean(1).jpg)
-*익스텐션 창(왼쪽의 아이콘 클릭 또는 `Ctrl` + `Shift` + `X`) > "korean" 검색 > `Install`*
+*익스텐션 창(왼쪽의 아이콘 클릭 또는 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>) > "korean" 검색 > `Install`*
 
 ![set-in-korean(2)](/assets/img/posts/tool/vs-code/shortcut-keys-and-settings/set-in-korean(2).jpg)
 *`Change Language and Restart`*
