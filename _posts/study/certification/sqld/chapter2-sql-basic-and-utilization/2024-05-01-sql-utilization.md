@@ -242,6 +242,8 @@ SELECT * | 컬럼명 | 표현식
 - `GROUP BY` 절에 의해 그룹별 연산 결과를 반환함
 - <font color="red">반드시 한 컬럼만 전달</font>
 - **`NULL`은 무시하고 연산**
+- 중첩 불가능
+	+ `AVG(COUNT(*))`는 에러
 
 ### COUNT()
 

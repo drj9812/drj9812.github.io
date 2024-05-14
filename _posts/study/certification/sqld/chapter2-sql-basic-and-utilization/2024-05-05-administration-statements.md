@@ -197,14 +197,14 @@ USING 참조테이블
 
 #### 트랜젝션의 특징
 
-- 원자성(Atomicity)
-	+ 트랜젝션 내에서 정의된 연산들 모두 성공적으로 실행되던지 아니면 전혀 실행되지 않은 채로 남아있어야 함
-- 일관성(Consistency)
-	+ 트랜젝션 실행 전 DB 내용이 잘못되지 않았다면 트랜젝션 실행 이후에도 DB 내용이 잘못되지 않아야 함
-- 고립성(Isolation)
-	+ 트랜젝션 실행 도중 다른 트랜젝션의 영향을 받아 잘못된 결과를 만들어서는 안됨
-- 지속성
-	+ 트랜젝션이 성공적으로 수행되면 갱신한 DB 내용이 영구적으로 저장됨
+- **원자성(Atomicity)**
+	+ 트랜젝션 내에서 정의된 연산들 **모두 성공적으로 실행되던지 아니면 전혀 실행되지 않은 채로 남아있어야 함**
+- **일관성(Consistency)**
+	+ 트랜젝션 실행 전 DB 내용이 잘못되지 않았다면 **트랜젝션 실행 이후에도 DB 내용이 잘못되지 않아야 함**
+- **고립성(Isolation)**
+	+ 트랜젝션 실행 도중 **다른 트랜젝션의 영향을 받아 잘못된 결과를 만들어서는 안됨**
+- **지속성(Durability)**
+	+ 트랜젝션이 성공적으로 수행되면 갱신한 DB 내용이 **영구적으로 저장**됨
 
 ### COMMIT
 
@@ -371,7 +371,7 @@ SELECT *
 
 #### 문자 타입 컬럼의 숫자 상수 비교
 
-![26-data-type(7)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/26-data-type(7).jpg
+![26-data-type(7)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/administration-statements/26-data-type(7).jpg)
 *문자 컬럼과 숫자 상수의 비교(이미 문자 컬럼에 숫자로 변경 불가능한 문자가 있는 경우)*
 
 - <font color="red">항상 숫자에 맞춰 형 변환 후 비교</font>
@@ -529,20 +529,35 @@ TRUNCATE TABLE 테이블명;
 - `RECYCLEBIN`에 남지 않음
 	+ 영구 삭제
 
-### DELETE, DROP, TRUNCATE의 차이
+### DELETE, TRUNCATE, DROP의 차이
+
+|                          DELETE                         |                                                      TRUNCATE                                                |                                         DROP                                         |
+|:---------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
+|                           DDL                            |                                           DDL(일부 DML 성격 가짐)                                       |                                          DML                                          |
+|                    Rollback 불가능                   |                                                   Rollback 불가능                                             |                                   Rollback 가능                                    |
+|                     Auto Commit                     |                                                     Auto Commit                                              |                                   사용자 Commit                                  |
+|  테이블이 사용했던 Storage를 모두 Release  |  테이블이 사용했던 Storage 중 최초 테이블 생성 시 할당된 Storage만 남기고 Release  |  데이터를 모두 Delete해도 사용헀던 Storage는 Release되지 않음  |
+|        테이블의 정의 자체를 완전히 삭제       |                                    테이블을 최초 생성된 초기 상태로 만듦                             |                                   데이터만 삭제                                   |
 
 - `DELETE`
 	+ 데이터의 일부 또는 전체 삭제
+	+ 디스크 사용량 초기화 X
 	+ 롤백 가능
+		* 로그 남음
 - `TRUNCATE`
 	+ 데이터 전체 삭제만 가능
 		* 일부 삭제 불가능
+	+ 디스크 사용량 초기화
 	+ 즉시 반영
 		* 롤백 불가능
 - `DROP`
 	+ 데이터와 구조를 동시 삭제
+	+ 디스크 사용량 초기화
 	+ 즉시 반영
 		* 롤백 불가능
+
+> `TRUNCATE` 문은 `UNDO`를 위한 데이터를 생성하지 않기 때문에 동일한 데이터량 삭제 시 `DELETE` 문보다 빠르다.
+{: .prompt-info }
 
 ### 제약 조건
 

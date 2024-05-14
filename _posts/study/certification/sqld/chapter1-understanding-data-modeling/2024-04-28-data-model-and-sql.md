@@ -225,7 +225,8 @@ SELECT a.계좌번호, b.관리점
 
 ![10-null(1)](/assets/img/posts/study/certification/sqld/chapter1-understanding-data-modeling/data-model-and-sql/10-null(1).jpg)
 
-- `NULL`을 포함한 연산 결과는 항상 `NULL`
+- **`NULL`을 포함한 연산 결과는 항상 `NULL`**
+- **`NULL` 값과의 비교연산은 항상 거짓을 반환**
 
 ![11-null(2)](/assets/img/posts/study/certification/sqld/chapter1-understanding-data-modeling/data-model-and-sql/11-null(2).jpg)
 

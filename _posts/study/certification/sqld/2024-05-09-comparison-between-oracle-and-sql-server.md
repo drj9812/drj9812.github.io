@@ -73,7 +73,7 @@ image:
 
 - 오라클은 `ROWNUM` 방식
 - SQL Server는 TOP Query 방식
-	+ `TOP n [WITH TIES]`
+	+ `TOP n [WITH TIES]`, `TOP(n) [WITH TIES]`
 - 둘 다 `RANK()` 함수와 `FETCH` 절 사용 가능
 	+ `OFFSET`도 가능
 
