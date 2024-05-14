@@ -2,6 +2,10 @@
 title: "[Eclipse]프로젝트 import 에러 해결하기"
 categories: [Tools, Eclipse]
 tags: [Eclipse, 이클립스, import]
+image:
+  path: /assets/img/posts/tools/eclipse/01-eclipse-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: Eclipse
 ---
 
 # 프로젝트 import 에러 해결하기

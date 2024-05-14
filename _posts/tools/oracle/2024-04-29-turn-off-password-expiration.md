@@ -2,6 +2,10 @@
 title: "[Oracle]비밀번호 만기(ORA-28001) 해제"
 categories: [Tools, Oracle]
 tags: [Oracle, 오라클, ORA-28001, 비밀번호 만기]
+image:
+  path: /assets/img/posts/tools/oracle/01-oracle-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: Oracle
 ---
 
 # 비밀번호 만기(ORA-28001) 해제

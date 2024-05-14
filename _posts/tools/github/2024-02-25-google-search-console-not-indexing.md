@@ -1,23 +1,27 @@
 ---
-title: "[GitHub | GitHub Pages]구글 서치 콘솔 - 색인이 생성되지 않은 페이지 해결하기"
+title: "[GitHub | GitHub Pages]구글 서치 콘솔 색인이 생성되지 않은 페이지"
 categories: [Tools, GitHub]
-tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, Google, 구글, Search Console, 노출, 색인]
+tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, Google, 구글, Search Console, 노출, 색인, SEO]
+image:
+  path: /assets/img/posts/tools/github/add-github-blog-to-google-search-console/01-google-search-console-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: Google Search Console
 ---
 
-# 구글 서치 콘솔 - 색인이 생성되지 않은 페이지 해결하기
+# 구글 서치 콘솔 색인이 생성되지 않은 페이지
 
 ## 개요
 
 ![01-no-seach-result](/assets/img/posts/tools/github/google-search-console-not-indexing/01-no-seach-result.jpg)
 
-정확히 작년 9월 13일에 Search Console에 블로그를 등록했으니 대략 5개월이라는 시간이 지났는데, 아직도 구글에 내 블로그가 노출이 안되고 있다.
+정확히 작년 9월 13일에 서치 콘솔에 블로그를 등록했으니 대략 5개월이라는 시간이 지났는데, 아직도 구글에 내 블로그가 노출이 안되고 있다.
 
 <div style="display: flex;">
 	<img src="/assets/img/posts/tools/github/google-search-console-not-indexing/02-not-indexing.jpg" style="flex: 1; margin-left: 10px;">
 	<img src="/assets/img/posts/tools/github/google-search-console-not-indexing/03-reason-not-indexing(1).jpg" style="flex: 1; margin-right: 10px;">
 </div>
 
-Search Console에 들어가서 확인해보니 `발견됨 - 현재 색인이 생성되지 않음`이라는 이유로 색인이 생성되지 않고 있었다.
+서치 콘솔에 들어가서 확인해보니 "발견됨 - 현재 색인이 생성되지 않음"이라는 이유로 색인이 생성되지 않고 있었다.
 
 ## 원인 분석
 
@@ -25,7 +29,7 @@ Search Console에 들어가서 확인해보니 `발견됨 - 현재 색인이 생
 
 ![04-no-seach-result(2)](/assets/img/posts/tools/github/google-search-console-not-indexing/04-reason-not-indexing(2).jpg)
 
-[Search Console 고객센터의 페이지 색인 생성 보고서](https://support.google.com/webmasters/answer/7440203#discovered__unclear_status){: target="_blank" }에 의하면 `발견됨 - 현재 색인이 생성되지 않음`이란, 크롤러인 구글봇이 나의 블로그는 발견했지만 크롤링을 하게 될 경우 어떠한 이유로 사이트가 과부하될 수 있기 때문에 크롤링 우선 순위를 뒤로 미루는 것이다.
+[서치 콘솔 고객센터의 페이지 색인 생성 보고서](https://support.google.com/webmasters/answer/7440203#discovered__unclear_status){: target="_blank" }에 의하면 "발견됨 - 현재 색인이 생성되지 않음"이란, 크롤러인 구글봇이 나의 블로그는 발견했지만 크롤링을 하게 될 경우 어떠한 이유로 사이트가 과부하될 수 있기 때문에 크롤링 우선 순위를 뒤로 미루는 것이다.
 
 ## 해결 방법
 
@@ -39,7 +43,7 @@ Search Console에 들어가서 확인해보니 `발견됨 - 현재 색인이 생
 ![06-request-indexing](/assets/img/posts/tools/github/google-search-console-not-indexing/06-request-indexing(1).jpg)
 *`색인 생성 요청`*
 
-페이지의 색인 생성을 구글에 요청한다. 하루에 검사를 요청할 수 있는 횟수에는 소유한 속성별로 제한이 있다.
+페이지의 색인 생성을 요청한다. 하루에 검사를 요청할 수 있는 횟수에는 소유한 속성별로 제한이 있다.
 
 <div style="display: flex;">
 	<img src="/assets/img/posts/tools/github/google-search-console-not-indexing/07-request-indexing(2).jpg" style="flex: 1; margin-left: 10px;">

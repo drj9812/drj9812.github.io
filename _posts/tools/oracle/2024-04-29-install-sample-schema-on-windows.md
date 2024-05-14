@@ -2,6 +2,10 @@
 title: "[Oracle]23c 샘플 스키마 설치하기(Windows)"
 categories: [Tools, Oracle]
 tags: [Oracle, 오라클, sample shcema, 샘플 스키마]
+image:
+  path: /assets/img/posts/tools/oracle/01-oracle-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: Oracle
 ---
 
 # 샘플 스키마 설치하기

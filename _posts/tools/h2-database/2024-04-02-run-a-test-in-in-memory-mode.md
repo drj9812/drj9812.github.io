@@ -1,10 +1,14 @@
 ---
-title: "[H2 Database]In-Memory 모드로 테스트 실행하는 방법"
+title: "[H2 Database]In-Memory 모드로 테스트 실행하기"
 categories: [Tools, H2 Database]
 tags: [설치, H2 Database, In-Memory]
+image:
+  path: /assets/img/posts/tools/h2-database/01-h2-database-logo.jpg
+  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
+  alt: H2 Database
 ---
 
-# In-Memory 모드로 테스트 실행하는 방법
+# In-Memory 모드로 테스트 실행하기
 
 ## In-Mmemory 모드란?
 
@@ -35,7 +39,7 @@ tags: [설치, H2 Database, In-Memory]
 	+ 단일 연결의 휘발성 DB를 생성할 때 사용될 수 있음
 
 ![03-configure-application](/assets/img/posts/tools/h2-database/how-to-run-a-test-in-in-memory-mode/03-configure-application.jpg)
-*`프로젝트/src/test/resources/config{: .filepath }` 폴더의 애플리케이션 설정 파일에 복사한 URL 붙여넣기*
+*`프로젝트/src/test/resources/config`{: .filepath } 폴더의 애플리케이션 설정 파일에 복사한 URL 붙여넣기*
 
 일반적으로 프로젝트의 소스 코드는 `src/main/resources/`{: .filepath } 디렉토리에 위치하며, 이 디렉토리의 리소스가 운영 환경에서 사용된다. 그러나 테스트를 위한 리소스는 `src/test/resources/`{: .filepath } 디렉토리에 위치한다. 이 디렉토리의 리소스는 테스트 환경에서 사용되며, 테스트 코드가 실행될 때 클래스패스에 추가된다.
 
