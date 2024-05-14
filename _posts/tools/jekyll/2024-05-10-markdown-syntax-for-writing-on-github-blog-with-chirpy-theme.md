@@ -1,15 +1,15 @@
 ---
-title: "[GitHub | GitHub Pages]GitHub 블로그의 글 작성을 위한 마크다운(Markdown) 문법"
-categories: [Tools, GitHub]
-tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, Markdown, 마크다운]
+title: "[Jekyll]Chirpy 테마를 적용한 GitHub 블로그의 글 작성을 위한 마크다운(Markdown) 문법"
+categories: [Tools, Jekyll]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Markdown, 마크다운]
 math: true
 image:
-  path: /assets/img/posts/tools/github/markdown-syntax-for-writing-on-github-blog/01-markdown-logo.jpg
+  path: /assets/img/posts/tools/jekyll/markdown-syntax-for-writing-on-github-blog-with-chirpy-theme/01-markdown-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Markdown
 ---
 
-# GitHub 블로그의 글 작성을 위한 마크다운(Markdown) 문법
+# Chirpy 테마를 적용한 GitHub 블로그의 글 작성을 위한 마크다운(Markdown) 문법
 
 ## 백틱(\`) 기호를 인라인 코드로 표현
 

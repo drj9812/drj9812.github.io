@@ -1,20 +1,20 @@
 ---
-title: "[GitHub | GitHub Pages]Jekyll의 Chirpy 테마를 사용하여 GitHub 블로그 만들기(Windows)"
-categories: [Tools, GitHub]
-tags: [GitHub, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, Ruby 설치, Node.js 설치]
+title: "[Jekyll]Chipry 테마를 적용한 GitHub 블로그 만들기(Windows)"
+categories: [Tools, Jekyll]
+tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, Ruby 설치, Node.js 설치]
 image:
-  path: /assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/01-jekyll-logo.jpg
+  path: /assets/img/posts/tools/jekyll/01-jekyll-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Jekyll
 ---
 
-# Jekyll의 Chirpy 테마를 사용하여 GitHub 블로그 만들기(Windows)
+# Chipry 테마를 적용한 GitHub 블로그 만들기(Windows)
 
 기존에도 여러 글들을 참고하여 Jekyll의 Chirpy 테마를 적용한 블로그를 운영하고 있었는데, 빌드 및 배포 과정에서 여러 에러들이 발생하였다. 참고한 글마다 환경, 버전에 따른 소스 코드들이 전부 달랐음에도 불구하고 취합해서 구축하려다 보니 발생한 문제였다.
 
 에러들을 해결하기 위해 노력했지만 여러 이유로 한계를 느꼈고, 이런 일이 더 이상 발생하지 않도록 기존의 블로그를 삭제하고 다시 구축하게 되었다.
 
-![02-chirpy-getting-started(1)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/02-chirpy-getting-started(1).png)
+![01-chirpy-getting-started(1)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/01-chirpy-getting-started(1).png)
 
 위 [Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 새 repository를 만드는 방법에는 두 가지가 있는데, 이 글에선 맞춤형 개발에 적합한 GitHub Fork 방식을 사용한다.
 
@@ -30,77 +30,77 @@ image:
 
 ### Ruby 설치
 
-![03-jekyll-docs](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/03-jekyll-docs.png)
+![02-jekyll-docs](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/02-jekyll-docs.png)
 
 Ruby를 기반으로 만들어진 Jekyll을 구동시키기 위해서는 반드시 Ruby를 설치해야 한다. [Jekyll 공식 문서](https://jekyllrb.com/docs/installation/){: target="_blank" }에 의하면 **최소 Ruby 2.5.0 버전 또는 그 이상이 요구**된다.
 
-![04-download-ruby](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/04-download-ruby.png)
+![03-download-ruby](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/03-download-ruby.png)
 *<https://rubyinstaller.org/downloads/>{: target="_blank" } > `Ruby+Devkit 3.2.2-1 (x86)` 다운로드*
 
 나는 64bit(x64) 운영체제를 사용하고 있고 문서에서도 3.2.X (x64)를 권장하고있지만, Jekyll이 32bit(x86)라서 32bit(x86)를 설치했다.
 
-![05-install-ruby(1)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/05-install-ruby(1).png)
+![04-install-ruby(1)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/04-install-ruby(1).png)
 *`rubyinstaller-devkit-3.2.2-1-x86.exe`{: .filepath } 실행 > `Install for me only (recommended)`*
 
-![06-install-ruby(2)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/06-install-ruby(2).png)
+![05-install-ruby(2)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/05-install-ruby(2).png)
 *`I accept the Lincense` 체크 > `Next`*
 
-![07-install-ruby(3)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/07-install-ruby(3).png)
+![06-install-ruby(3)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/06-install-ruby(3).png)
 *`Add Ruby executables to your PATH`, `Associate .rb and .rbw files with this Ruby installation` 체크 > `Install`*
 
 - Add Ruby executables to your PATH: 환경 변수 PATH에 ruby 디렉토리 추가
 - Associate .rb and .rbw files with this Ruby installation: 명령 프롬프트 또는 스크립트에서 `.rb` 및 `.rbw` 파일을 실행할 때 시스템이 해당 Ruby를 사용하도록 연동
 
-![08-install-ruby(4)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/08-install-ruby(4).png)
+![07-install-ruby(4)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/07-install-ruby(4).png)
 *`Ruby RI and HTML documentation`, `MSYS2 development toolcahin 2023-04-01` 체크 > `Next`*
 
 - Ruby RI and HTML documentation: Ruby의 도움말 시스템인 Ruby Interative Reference와 HTML 설명서
 - MSYS2 development toolcahin 2023-04-01: Windows에서 유닉스 스타일의 개발 환경을 제공하기 위한 툴체인과 개발 환경을 제공하는 도구
 
-![09-install-ruby(5)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/09-install-ruby(5).png)
+![08-install-ruby(5)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/08-install-ruby(5).png)
 *`Run 'ridk install' to setup MSYS2 and development toolchain. MSYS2 is required to install gems with C extensions.` 체크 > `Finish`*
 
-![10-install-ruby(6)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/10-install-ruby(6).png)
+![09-install-ruby(6)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/09-install-ruby(6).png)
 *`Enter`*
 
-![11-install-ruby(7)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/11-install-ruby(7).png)
+![10-install-ruby(7)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/10-install-ruby(7).png)
 *`Enter`*
 
 ### Node.js 설치
 
 <a id=anchor1></a>
-![12-chirpy-getting-started(2)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/12-chirpy-getting-started(2).png)
+![11-chirpy-getting-started(2)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/11-chirpy-getting-started(2).png)
 
 [Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 Node.js를 설치하고 `bash tool/init` 명령어를 실행해야 한다. `tool`{: .filepath } 폴더에 있는 `init`{: .filepath }을 실행하는 명령어인데, 이 `init`{: .filepath } 내부에 `npm i && npm run build` 명령어를 실행하는 부분이 있다. 여기서 npm은 `npm` 명령어를 통해 Node.js의 패키지를 관리하는 Node Package Manager의 약자다. npm은 Node.js를 설치하면 함께 설치된다.
 
-![13-node-homepage](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/13-node-homepage.png)
+![12-node-homepage](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/12-node-homepage.png)
 *<https://nodejs.org/en>{: target="_blank" } > `20.11.0 LTS` 다운로드*
 
-![14-install-node(1).=](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/14-install-node(1).png)
+![13-install-node(1).=](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/13-install-node(1).png)
 *`node-v20.11.0-x64.msi`{: .filepath } 실행 > `Next`*
 
-![15-install-node(2)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/15-install-node(2).png)
+![14-install-node(2)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/14-install-node(2).png)
 *`I accept the terms in the License Agreement` 체크 > `Next`*
 
-![16-install-node(3)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/16-install-node(3).png)
+![15-install-node(3)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/15-install-node(3).png)
 *`Next`*
 
-![17-install-node(4)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/17-install-node(4).png)
+![16-install-node(4)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/16-install-node(4).png)
 *`Next`*
 
-![18-install-node(5)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/18-install-node(5).png)
+![17-install-node(5)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/17-install-node(5).png)
 *`Automatically install the necessary tool. Note that this will also install Chocolatey. The script will pop-up in a new window after the installation completes.` 체크 > `Next`*
 
-![19-install-node(6)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/19-install-node(6).png)
+![18-install-node(6)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/18-install-node(6).png)
 *`Install`*
 
-![20-install-node(7)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/20-install-node(7).png)
+![19-install-node(7)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/19-install-node(7).png)
 *`Finish`*
 
-![21-install-node(8)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/21-install-node(8).png)
+![20-install-node(8)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/20-install-node(8).png)
 *`Enter`*
 
-![22-install-node(9)](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/22-install-node(9).png)
+![21-install-node(9)](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/21-install-node(9).png)
 *`Enter`*
 
 ### Jekyll, bundler 설치
@@ -126,37 +126,37 @@ $ bundler -v
 
 설치가 잘 되었는지 확인한다.
 
-![23-check-version](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/23-check-version.png)
+![22-check-version](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/22-check-version.png)
 
 2024년 01월 19일을 기준으로 나의 환경은 위와 같다.
 
 ## jekyll-theme-chirpy Repository Fork
 
-![24-fork-repo](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/24-fork-repo.png)
+![23-fork-repo](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/23-fork-repo.png)
 *<https://github.com/cotes2020/jekyll-theme-chirpy>{: target="_blank" } > `Fork` > `Create a new Fork`*
 
-> GitHub Fork 방식을 사용하면 커밋을 해도 GtiHub 잔디가 안 심어진다. 잔디가 필요하다면 Repository를 fork하여 생성하지 말고, Repository를 직접 생성한 다음 [Chirpy 테마 repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" }에서 소스 코드를 zip 파일 형식으로 다운받아 따라하면 된다.
+> GitHub Fork 방식을 사용하면 커밋을 해도 GtiHub 잔디가 안 심어진다. 잔디가 필요하다면 Repository를 직접 생성한 다음 [Chirpy 테마 repository](https://github.com/cotes2020/jekyll-theme-chirpy){: target="_blank" }에서 소스 코드를 zip 파일 형식으로 다운받아 따라하면 된다.
 {: .prompt-tip }
 
-![25-create-fork](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/25-create-fork.png)
+![24-create-fork](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/24-create-fork.png)
 *`username.github.io` 형식으로 `Repository name` 설정 > `Create fork`*
 
-![26-change-repo-name](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/26-change-repo-name.png)
-*fork한 Repository > `Settings` > `General` > `Default branch`를 `master`에서 `main`으로 변경*
+![25-change-repo-name](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/25-change-repo-name.png)
+*Fork한 Repository > `Settings` > `General` > `Default branch`를 `master`에서 `main`으로 변경*
 
-![27-copy-repo-url](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/27-copy-repo-url.png)
-*fork한 Repository > `<> Code` > `Copy url to clipboard`*
+![26-copy-repo-url](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/26-copy-repo-url.png)
+*Fork한 Repository > `<> Code` > `Copy url to clipboard`*
 
 ```console
 $ cd clone할 디렉토리
 $ git clone 복사한 url
 ```
 
-fork한 Repository의 소스코드들을 로컬에 복제한다.
+Fork한 Repository의 소스코드들을 로컬에 복제한다.
 
 ## 로컬 서버 실행
 
-![28-bundle-install](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/28-bundle-install.png)
+![27-bundle-install](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/27-bundle-install.png)
 
 ```console
 $ cd clone한 디렉토리
@@ -165,7 +165,7 @@ $ bundle install
 
 **복제한 위치로 디렉토리를 변경한 다음**, `Gemfile`{: .filepath }에 적힌 종속성 패키지들을 설치한다.
 
-![29-npm-install-&&-npm-run-build](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/29-npm-install-&&-npm-run-build.png)
+![28-npm-install-&&-npm-run-build](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/28-npm-install-&&-npm-run-build.png)
 
 ```console
 $ npm install && npm run build
@@ -183,7 +183,7 @@ $ npm install && npm run build
 > `npm install && npm run build` 명령어를 실행하면 `package.json`{: .filepath }의 `scripts` 섹션에 정의된 build 스크립트인 `NODE_ENV=production npx rollup -c --bundleConfigAsCjs` 명령어가 실행되면서 6개의 자바스크립트 파일이 생성되는데, 이 파일들이 없으면 `assets/js/dist/*.min.js Not Found` 에러를 발생하면서 블로그 기능이 정상적으로 작동하지 않게 된다.
 {: .prompt-info }
 
-![30-bundle-exec-jekyll-serve](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/30-bundle-exec-jekyll-serve.png)
+![29-bundle-exec-jekyll-serve](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/29-bundle-exec-jekyll-serve.png)
 
 ```console
 $ bundle exec jekyll serve
@@ -194,7 +194,7 @@ $ bundle exec jekyll serve
 > `_config.yml`{: .filepath }의 수정사항은 서버를 닫고 다시 열어야 반영된다.
 {: .prompt-tip }
 
-![31-access-server-address](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/31-access-server-address.png)
+![30-access-server-address](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/30-access-server-address.png)
 
 `http://127.0.0.1:4000/` 주소에 접속했을 때, 위와 같은 화면이 나와야 한다.
 
@@ -206,14 +206,14 @@ $ git commit -m "커밋 메시지"
 $ git push
 ```
 
-지금껏 구축한 환경들을 repository에 push한다. 
+지금껏 구축한 환경들을 Repository에 Push한다. 
 
-![32-check-workflows](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/32-check-workflows.png)
-*fork한 Repository > `All workflows` > `Actions`*
+![31-check-workflows](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/31-check-workflows.png)
+*Fork한 Repository > `All workflows` > `Actions`*
 
 위 사진과 같은 초록색 체크 표시는 빌드, 배포에 성공했다는 뜻이다.
 
-![33-check-page-deployment](/assets/img/posts/tools/github/make-github-blog-with-jekyll's-chipry-theme-on-windows/33-check-page-deployment.png)
+![32-check-page-deployment](/assets/img/posts/tools/jekyll/make-github-blog-with-chirpy-theme-on-windows/32-check-page-deployment.png)
 
 `username.github.io` 주소에 접속하여 실제로 페이지가 잘 배포됐는지 확인한다.
 
