@@ -17,8 +17,8 @@ SELECT 지역, 매출금액
   FROM 지역별매출
  ORDER BY 년 ASC;
 ```
-{: file="Oracle/SQL Server" }
 
+- 오라클, SQL Server
 - `SELECT` 절에서 선택되지 않은 컬럼을 `ORDER BY` 절에 명시할 수 있음
 	+ 인라인 뷰를 사용하는 경우 `SELECT` 절에서 선택된 컬럼만 명시 가능
 	+ `GROUP BY` 절을 사용하는 경우 `GROUP BY` 절에 명시된 컬럼이나, 그룹함수에 사용된 컬럼만 명시 가능
@@ -28,8 +28,8 @@ SELECT deptno AS dept_no, sal, ename
   FROM emp
  ORDER BY dept_no, 2, ename;
 ```
-{: file="Oracle/SQL Server" }
 
+- 오라클, SQL Server
 - `ORDER BY` 절에 컬럼 별칭, 순서, 컬럼 이름 혼용해서 명시 가능
 
 ## DML
@@ -55,12 +55,14 @@ DELETE 품목 WHERE 품목id='002';
 ```sql
 SAVEPOINT svpt1;
 ```
-{: file="Oracle" }
+
+- 오라클
 
 ```sql
 SAVE TRANSACTION svtr1;
 ```
-{: file="SQL Server" }
+
+- SQL Server
 
 ## DDL
 
@@ -72,8 +74,8 @@ CREATE TABLE 서비스(
     서비스명 VARCHAR2(100) NULL,
     개시일자 DATE NOT NULL);
 ```
-{: file="Oracle"}
 
+- 오라클
 - 테이블 생성 시 PK 생성
 - 테이블 생성 시 `NULL` 제약 조건 명시 가능
 
@@ -85,8 +87,8 @@ CREATE TABLE product(
     regr_no NUMBER(10),
     CONSTRAINT product_pk PRIMARY KEY(prod_id));
 ```
-{: file="Oracle" }
 
+- 오라클
 - 테이블 생성 시 PK 생성
 - `CONSTRAINT product_pk` 생략 가능
 
@@ -96,8 +98,8 @@ CREATE TABLE 부서(
     부서명 CHAR(10),
     PRIMARY KEY(부서번호));
 ```
-{: file="Oracle" }
 
+- 오라클
 - 테이블 생성 시 PK 생성 
 
 ```sql
@@ -110,8 +112,8 @@ CREATE TABLE emp(
 
 CREATE INDEX idx_emp_01 ON emp(join_date);
 ```
-{: file="Oracle" }
 
+- 오라클
 - 테이블 생성 시 PK 생성
 - 인덱스 생성
 
@@ -126,8 +128,8 @@ CREATE TABLE emp(
 ALTER TABLE emp ADD CONSTRAINT emp_pk PRIMARY KEY(emp_no);
 CREATE INDEX idx_emp_01 ON emp(join_date);
 ```
-{: file="Oracle" }
 
+- 오라클
 - 테이블 생성과 PK 생성 분리
 - 인덱스 생성
 
@@ -137,23 +139,23 @@ CREATE INDEX idx_emp_01 ON emp(join_date);
 ALTER TABLE 기관분류 ALTER COLUMN 분류명 VARCHAR(30) NOT NULL;
 ALTER TABLE 기관분류 ALTER COLUMN 등록일자 DATE NOT NULL;
 ```
-{: file="SQL Server" }
 
+- SQL Server
 - 여러 컬럼 변경
 
 ```sql
 ALTER TABLE emp
  DROP COLUMN comm;
 ```
-{: file="Oracle" }
 
+- 오라클
 - 컬럼 삭제
 
 ```sql
 ALTER TABLE 주문 ADD CONSTRAINT fk_001 FOREIGN KEY(고객id) REFERENCES 고객(고객id) ON DELETE SET NULL;
 ```
-{: file="Oracle" }
 
+- 오라클
 - 이미 존재하는 컬럼에 부모 테이블의 PK를 참조하는 FK 제약 조건 추가
 
 ### DROP
@@ -165,8 +167,8 @@ ALTER TABLE 주문 ADD CONSTRAINT fk_001 FOREIGN KEY(고객id) REFERENCES 고객
 ```sql
 RENAME stadium TO stadium_jsc;
 ```
-{: file="Oracle" }
 
+- 오라클
 - 테이블 이름 변경
 
 ## DCL
@@ -177,8 +179,8 @@ RENAME stadium TO stadium_jsc;
 SELECT TO_CHAR(TO_DATE('2015.01.10 10', 'YYYY.MM.DD HH24') + 1/24/(60/10), 'YYYY.MM.DD HH24:MI:SS)
   FROM DUAL;
 ```
-{: file="Oracle" }
 
+- 오라클
 - `+1/24/(60/10)`
 	+ 10분 더하기
 		* +1 → 하루 더하기
@@ -189,8 +191,8 @@ SELECT TO_CHAR(TO_DATE('2015.01.10 10', 'YYYY.MM.DD HH24') + 1/24/(60/10), 'YYYY
 SELECT ename, empno, mg, NULLIF(mgr, 7698) AS nm
   FROM emp;
 ```
-{: file="Oracle/SQL Sever" }
 
+- 오라클
 - `mgr` 컬럼이 "7698"과 같으면 `NULL` 반환
 
 |  c1  |  c2  |  c3  |
@@ -203,8 +205,8 @@ SELECT ename, empno, mg, NULLIF(mgr, 7698) AS nm
 SELECT SUM(COALESCE(c1, c2, c3))
   FROM tab1
 ```
-{: file="Oracle/SQL Server" }
 
+- 오라클
 - 6 출력
 	+ 1 + 2 + 3
 
@@ -213,8 +215,8 @@ SELECT TOP(2) WITH TIES ename, sal
   FROM emp
  ORDER BY sal DESC;
 ```
-{: file="SQL Server" }
 
+- SQL Server
 - 급여가 높은 2명을 내림차순으로 출력하되 같은 급여를 받는 사원이 있으면 같이 출력
 	+ `TOP (2) WITH TIES ename`도 가능
 
