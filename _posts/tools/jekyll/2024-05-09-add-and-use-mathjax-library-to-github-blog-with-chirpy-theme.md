@@ -99,9 +99,9 @@ $$ a + b = c $$
 
 displayMath는 `$$ 수식 $$` 또는 `\\[수식 \\]`을 명령어를 사용해서 위와 같이 주변 텍스트와 수직으로 중앙 정렬되어 표시되는 방식을 의미한다.
 
-## MathJax 활성화
+## MathJax 활성화 및 사용
 
-```yaml
+```markdown
 ---
 math: true
 ---
@@ -114,6 +114,19 @@ math: true
 
 ![07-result-test](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/07-result-test.jpg)
 *테스트 결과*
+
+## MathJax 기능
+
+![08-right-click(1)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/08-right-click(1).jpg)
+*렌더링된 수식 우클릭*
+
+위와 같이 렌더링된 수식을 우클릭하면 수식을 다른 표현식으로 표시하거나 여러 설정들을 조정할 수 있다.
+
+![09-right-click(2)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/09-right-click(2).jpg)
+*렌더링된 수식 우클릭 > `Show Math AS` > `MathML Code`*
+
+![10-right-click(3)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/10-right-click(3).jpg)
+*렌더링된 수식 우클릭 > `Show Math AS` > `Tex Commands`*
 
 ## 참고자료
 

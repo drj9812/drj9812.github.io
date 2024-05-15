@@ -1,7 +1,7 @@
 ---
 title: "[GitHub | GitHub Actions]'a' tag is missing a reference 에러"
 categories: [Tools, GitHub]
-tags: [GitHub, GitHub Actions, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 에러, error]
+tags: [GitHub, GitHub Actions, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 에러, Error]
 image:
   path: /assets/img/posts/tools/github/github-actions/a-tag-is-missing-a-reference-error/01-github-actions-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
