@@ -21,7 +21,7 @@ SELECT 지역, 매출금액
 - 오라클, SQL Server
 - `SELECT` 절에서 선택되지 않은 컬럼을 `ORDER BY` 절에 명시할 수 있음
 	+ 인라인 뷰를 사용하는 경우 `SELECT` 절에서 선택된 컬럼만 명시 가능
-	+ `GROUP BY` 절을 사용하는 경우 `GROUP BY` 절에 명시된 컬럼이나, 그룹함수에 사용된 컬럼만 명시 가능
+	+ **`GROUP BY` 절을 사용하는 경우 `GROUP BY` 절에 명시된 컬럼이나, 그룹함수에 사용된 컬럼만 명시 가능**
 
 ```sql
 SELECT deptno AS dept_no, sal, ename
@@ -31,6 +31,16 @@ SELECT deptno AS dept_no, sal, ename
 
 - 오라클, SQL Server
 - `ORDER BY` 절에 컬럼 별칭, 순서, 컬럼 이름 혼용해서 명시 가능
+
+```sql
+SELECT MIN(sal) AS min, MAX(sal) AS max
+  FROM emp
+ GROUP BY job
+ ORDER BY deptno;
+```
+
+- <font color="red">에러</font>
+	+ **`GROUP BY` 절을 사용하는 경우 `GROUP BY` 절에 명시된 컬럼이나, 그룹함수에 사용된 컬럼만 명시 가능**
 
 ## DML
 
@@ -219,6 +229,22 @@ SELECT TOP(2) WITH TIES ename, sal
 - SQL Server
 - 급여가 높은 2명을 내림차순으로 출력하되 같은 급여를 받는 사원이 있으면 같이 출력
 	+ `TOP (2) WITH TIES ename`도 가능
+
+## JOIN
+
+```sql
+ SELECT LEVEL
+   FROM dual
+CONNECT BY LEVEL < 2
+  CROSS JOIN (SELECT LEVEL
+               FROM daul
+               CONNECT BY LEVEL < 2);
+```
+
+- <font color="red">에러</font>
+	+ `JOIN` 연산자 이후에 hierachical_query_clause(`CONNECT BY` 절)이 와야 함
+		* <https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/SELECT.html>{: target="_blank" }
+	+ 메인 쿼리의 `SELECT LEVEL FROM dual CONNECT BY LEVEL < 2` 절을 인라인 뷰로 두면 해결 가능
 
 ## 참고자료
 

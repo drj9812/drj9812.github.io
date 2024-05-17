@@ -351,9 +351,9 @@ SELECT 윈도우 함수([대상]) OVER([PARTITION BY 컬럼]
 
 ### ORDER BY 절
 
-- `RANK()`, DENS_RANK() 함수의 경우 필수
+- `RANK()`, `DENS_RANK()` 함수의 경우 필수
 	+ 정렬 컬럼 및 정렬 순서에 따라 순위 변화
-- `SUM()`, `AVG()`, `MIN()`, `MAX()`, `COUNT()` 등은 **누적 값 출력시 사용**
+- `SUM()`, `AVG()`, `MIN()`, `MAX()`, `COUNT()` 등은 **누적 값 출력 시 사용**
 
 ### ROWS | RANGE BETWEEN a AND b
 
@@ -473,6 +473,7 @@ SELECT LAG(컬럼,
 ```
 
 - **행 순서대로 각각 이전 값(`LAG()`), 이후 값(`LEAD()`)을 반환**
+- 세 번째 인자는 선택적(default) 값으로, 현재 행에 대한 이전 행의 값이 없는 경우에 반환할 값을 지정
 - **`ORDER BY` 절 필수**
 
 ![28-ex-lag()(2)](/assets/img/posts/study/certification/sqld/chapter2-sql-basic-and-utilization/sql-utilization/28-ex-lag()(2).jpg)
@@ -993,6 +994,6 @@ REGEXP_COUNT(원본, 찾을문자열, 시작위치, [옵션])
 
 ## 참고자료
 
-- [홍은혜, "SQLD 2과목 PART2. SQL 활용 완벽 정리(2024 신유형 반영)", 홍쌤의 데이터랩, 2024-02-20](https://www.youtube.com/watch?v=ijpxmi4DPj4&list=PLbflMVhwy2jPIAzArCK90mqFlTtndFigS&index=4){: target="_blank" }
+- [홍은혜, "SQLD 2과목 PART2. SQL 활용 완벽 정리(2024 신유형 반영)", 홍쌤의 데이터랩, 2024-02-20](https://www.youtube.com/watch?v=EXx6fjxycSY&list=PLbflMVhwy2jPIAzArCK90mqFlTtndFigS&index=3){: target="_blank" }
 - 한국데이터산업진흥원, SQL 자격검정 실전문제(서울: 한국데이터산업진흥원, 2016), 279.
 - [yunamom, Study with yuna](https://yunamom.tistory.com/){: target="_blank" }

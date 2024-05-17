@@ -38,13 +38,14 @@ SELECT 'There are a total of ' || TO_CHAR(COUNT(occupation)) || ' ' || LOWER(occ
 SELECT doctor, professor, singer, actor
   FROM (SELECT name,
                occupation,
-               RANK() OVER (PARTITION BY occupation ORDER BY name) AS rank
+               RANK() OVER(PARTITION BY occupation ORDER BY name) AS rank
           FROM occupations)
  PIVOT (MAX(name) FOR occupation IN ('Doctor' AS doctor, 'Professor' AS professor, 'Singer' AS singer, 'Actor' AS actor))
  ORDER BY rank ASC;
 ```
 
-![스크린샷 2024-05-07 164602](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/스크린샷 2024-05-07 164602.jpg)
+![07-occupations-query-structure](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/07-occupations-query-structure.jpg)
+*쿼리 구조*
 
 `PIVOT()` 함수의 문법은 `PIVOT(Value컬럼명 FOR Unstack컬럼명 IN (값1, 값2, ... 값n)` 이다. 이때 Value 컬럼과 Unstack 컬럼은 `FROM` 절에 명시가 되어있어야 하고, Value 컬럼과 Unstack 컬럼으로 선택되지 않은 `FROM` 절의 모든 컬럼이 Stack 컬럼이 된다.
 
@@ -67,9 +68,9 @@ SELECT doctor, professor, singer, actor
 
 ## [Binary Tree Nodes](https://www.hackerrank.com/challenges/binary-search-tree-1?isFullScreen=true){: target="_blank" }
 
-![07-binary-search-tree-1(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/07-binary-search-tree-1(1).jpg)
-![08-binary-search-tree-1(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/08-binary-search-tree-1(2).jpg)
-![09-binary-search-tree-1(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/09-binary-search-tree-1(3).jpg)
+![08-binary-search-tree-1(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/08-binary-search-tree-1(1).jpg)
+![09-binary-search-tree-1(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/09-binary-search-tree-1(2).jpg)
+![10-binary-search-tree-1(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/10-binary-search-tree-1(3).jpg)
 
 ```sql
 SELECT n, CASE WHEN p IS NULL THEN 'Root'
@@ -97,11 +98,11 @@ CONNECT BY PRIOR n = p
 
 ## [New Companies](https://www.hackerrank.com/challenges/the-company/problem?isFullScreen=true){: target="_blank" }
 
-![10-the-company(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/10-the-company(1).jpg)
-![11-the-company(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/11-the-company(2).jpg)
-![12-the-company(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/12-the-company(3).jpg)
-![13-the-company(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/13-the-company(4).jpg)
-![14-the-company(5)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/14-the-company(5).jpg)
+![11-the-company(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/11-the-company(1).jpg)
+![12-the-company(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/12-the-company(2).jpg)
+![13-the-company(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/13-the-company(3).jpg)
+![14-the-company(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/14-the-company(4).jpg)
+![15-the-company(5)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/15-the-company(5).jpg)
 
 ```sql
 SELECT c.company_code,
@@ -125,7 +126,7 @@ SELECT c.company_code,
 
 ## [Weather Observation Station 18](https://www.hackerrank.com/challenges/weather-observation-station-18/problem?isFullScreen=true){: target="_blank" }
 
-![15-weather-observation-station-18](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/15-weather-observation-station-18.jpg)
+![16-weather-observation-station-18](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/16-weather-observation-station-18.jpg)
 
 ```sql
 SELECT ROUND(ABS(MIN(lat_n) - MAX(lat_n)) + ABS(MIN(long_w) - MAX(long_w)), 4)
@@ -136,7 +137,7 @@ SELECT ROUND(ABS(MIN(lat_n) - MAX(lat_n)) + ABS(MIN(long_w) - MAX(long_w)), 4)
 
 ## [Weather Observation Station 19](https://www.hackerrank.com/challenges/weather-observation-station-19/problem?isFullScreen=true){: target="_blank" }
 
-![16-weather-observation-station-19](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/16-weather-observation-station-19.jpg)
+![17-weather-observation-station-19](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/17-weather-observation-station-19.jpg)
 
 ```sql
 SELECT ROUND(SQRT(POWER(MIN(lat_n) - MAX(lat_n), 2) + POWER(MIN(long_w) - MAX(long_w), 2)), 4)
@@ -147,7 +148,7 @@ SELECT ROUND(SQRT(POWER(MIN(lat_n) - MAX(lat_n), 2) + POWER(MIN(long_w) - MAX(lo
 
 ## [Weather Observation Station 20](https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true){: target="_blank" }
 
-![17-weather-observation-station-20](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/17-weather-observation-station-20.jpg)
+![18-weather-observation-station-20](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/18-weather-observation-station-20.jpg)
 
 ```sql
 SELECT ROUND(MEDIAN(lat_n) , 4)
@@ -156,9 +157,9 @@ SELECT ROUND(MEDIAN(lat_n) , 4)
 
 ## [The Report](https://www.hackerrank.com/challenges/the-report/problem?isFullScreen=true){: target="_blank" }
 
-![18-the-report(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/18-the-report(1).jpg)
-![19-the-report(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/19-the-report(2).jpg)
-![20-the-report(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/20-the-report(3).jpg)
+![19-the-report(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/19-the-report(1).jpg)
+![20-the-report(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/20-the-report(2).jpg)
+![21-the-report(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/21-the-report(3).jpg)
 
 ```sql
 SELECT CASE WHEN GRADE < 8 THEN 'NULL'
@@ -173,11 +174,11 @@ SELECT CASE WHEN GRADE < 8 THEN 'NULL'
 
 ## [Top Competitors](https://www.hackerrank.com/challenges/full-score/problem?isFullScreen=true){: target="_blank" }
 
-![21-full-score(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/21-full-score(1).jpg)
-![22-full-score(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/22-full-score(2).jpg)
-![23-full-score(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/23-full-score(3).jpg)
-![24-full-score(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/24-full-score(4).jpg)
-![25-full-score(5)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/25-full-score(5).jpg)
+![22-full-score(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/22-full-score(1).jpg)
+![23-full-score(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/23-full-score(2).jpg)
+![24-full-score(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/24-full-score(3).jpg)
+![25-full-score(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/25-full-score(4).jpg)
+![26-full-score(5)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/26-full-score(5).jpg)
 
 ```sql
  SELECT h.hacker_id, h.name
@@ -196,10 +197,10 @@ SELECT CASE WHEN GRADE < 8 THEN 'NULL'
 
 ## [Ollivander's Inventory](https://www.hackerrank.com/challenges/harry-potter-and-wands/problem?isFullScreen=true){: target="_blank" }
 
-![26-harry-potter-and-wands(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/26-harry-potter-and-wands(1).jpg)
-![27-harry-potter-and-wands(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/27-harry-potter-and-wands(2).jpg)
-![28-harry-potter-and-wands(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/28-harry-potter-and-wands(3).jpg)
-![29-harry-potter-and-wands(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/29-harry-potter-and-wands(4).jpg)
+![27-harry-potter-and-wands(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/27-harry-potter-and-wands(1).jpg)
+![28-harry-potter-and-wands(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/28-harry-potter-and-wands(2).jpg)
+![29-harry-potter-and-wands(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/29-harry-potter-and-wands(3).jpg)
+![30-harry-potter-and-wands(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/30-harry-potter-and-wands(4).jpg)
 
 ```sql
 SELECT w.id, p.age, w.coins_needed, w.power
@@ -219,10 +220,10 @@ SELECT w.id, p.age, w.coins_needed, w.power
 
 ## [Challenges](https://www.hackerrank.com/challenges/challenges/problem?isFullScreen=true){: target="_blank" }
 
-![30-challenges(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/30-challenges(1).jpg)
-![31-challenges(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/31-challenges(2).jpg)
-![32-challenges(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/32-challenges(3).jpg)
-![33-challenges(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/33-challenges(4).jpg)
+![31-challenges(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/31-challenges(1).jpg)
+![32-challenges(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/32-challenges(2).jpg)
+![33-challenges(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/33-challenges(3).jpg)
+![34-challenges(4)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/34-challenges(4).jpg)
 
 ```sql
 WITH t AS (SELECT c.hacker_id, h.name, COUNT(c.challenge_id) AS count
@@ -262,17 +263,17 @@ hacker별 hacker가 생성한 challenge의 총 개수를 구하되, 생성한 �
 
 |  count  |  COUNT(count)  |
 |:---------:|:-------------------:|
-|     1     |         126         |
-|    30     |          1           |
-|    25     |          1           |
-|    22     |          1           |
-|    34     |          1           |
-|    42     |          1           |
-|    29     |          1           |
-|     6      |          5           |
-|    28     |          1           |
-|    26     |          1           |
-|     ...     |          ...           |
+|     1     |         126          |
+|    30     |          1            |
+|    25     |          1            |
+|    22     |          1            |
+|    34     |          1            |
+|    42     |          1            |
+|    29     |          1            |
+|     6      |          5            |
+|    28     |          1            |
+|    26     |          1            |
+|     ...     |          ...            |
 
 위 테이블은 메인 쿼리의 `WHERE` 절에서 사용된 서브쿼리를 `HAVING` 절로 필터링하지 않았을 때(`SELECT count, COUNT(count) FROM t GROUP BY count`)의 출력 결과인데, count별 개수를 출력하고 있다. 즉, 위 테이블의 첫 번째 행의 의미는 어떤 hacker가 생성한 challenge의 총 개수가 1개인 경우가 총 126건 있다는 것이다.
 
@@ -280,38 +281,141 @@ hacker별 hacker가 생성한 challenge의 총 개수를 구하되, 생성한 �
 
 ## [Contest Leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true){: target="_blank" }
 
-![34-contest-leaderboard(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/34-contest-leaderboard(1).jpg)
-![35-contest-leaderboard(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/35-contest-leaderboard(2).jpg)
-![36-contest-leaderboard(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/36-contest-leaderboard(3).jpg)
+![35-contest-leaderboard(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/35-contest-leaderboard(1).jpg)
+![36-contest-leaderboard(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/36-contest-leaderboard(2).jpg)
+![37-contest-leaderboard(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/37-contest-leaderboard(3).jpg)
 
 ```sql
-
+SELECT h.hacker_id, h.name, SUM(sub.max) AS total_score
+  FROM hackers h
+ INNER JOIN (SELECT h.hacker_id, s.challenge_id, MAX(s.score) AS max
+               FROM hackers h
+              INNER JOIN submissions s
+                 ON h.hacker_id = s.hacker_id
+              WHERE s.score != 0
+              GROUP BY h.hacker_id, s.challenge_id) sub
+    ON h.hacker_id = sub.hacker_id
+ GROUP BY h.hacker_id, h.name
+ ORDER BY total_score DESC, hacker_id ASC;
 ```
+
+challenge에 대한 hacker별 최대 `score`의 합을 구하는 문제다. `score`가 0인 경우를 제외한다.
 
 ## [SQL Project Planning](https://www.hackerrank.com/challenges/sql-projects/problem?isFullScreen=true){: target="_blank" }
 
-![37-sql-projects(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/37-sql-projects(1).jpg)
-![38-sql-projects(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/38-sql-projects(2).jpg)
-![39-sql-projects(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/39-sql-projects(3).jpg)
+![38-sql-projects(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/38-sql-projects(1).jpg)
+![39-sql-projects(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/39-sql-projects(2).jpg)
+![40-sql-projects(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/40-sql-projects(3).jpg)
 
 ```sql
-
+SELECT MIN(start_date) AS min, MAX(end_date) AS max
+  FROM (WITH project_dates AS (SELECT start_date, end_date,
+                                      LAG(start_date, 1, start_date) OVER(ORDER BY start_date) AS prev_start_date
+                                 FROM projects)
+        SELECT start_date, end_date,
+               SUM(CASE WHEN start_date - prev_start_date = 1 THEN 0
+                        ELSE 1
+                    END) OVER(ORDER BY start_date) AS project_id
+  FROM project_dates)
+ GROUP BY project_id
+ ORDER BY max - min ASC, min ASC;
 ```
+
+![41-sql-projects-query-structure](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/41-sql-projects-query-structure.jpg)
+*쿼리 구조*
+
+`start_date`와 `end_date`의 차이가 하루라면 하나의 프로젝트로 보고, 해당 프로젝트가 시작된 날짜와 종료된 날짜를 출력하는 문제다. 이때 프로젝트의 시작된 날짜와 종료된 날짜의 차이를 기준으로 오름차순 정렬하고, 그 일수가 같다면 시작된 날짜를 기준으로 오름차순 정렬한다.
+
+```sql
+WITH project_dates AS (SELECT start_date, end_date,
+                              LAG(start_date, 1, start_date) OVER(ORDER BY start_date) AS prev_start_date
+                         FROM projects)
+SELECT start_date, end_date, prev_start_date,
+       SUM(CASE WHEN start_date - prev_start_date = 1 THEN 0
+                ELSE 1
+            END) OVER(ORDER BY start_date) AS project_id
+FROM project_dates;
+```
+
+|    start_date   |    end_date   |  prev_start_date  |  project_id  |
+|:----------------:|:---------------:|:--------------------:|:--------------:|
+|  2015-10-01  |  2015-10-02  |    2015-10-01    |        1        |
+|  2015-10-02  |  2015-10-03  |    2015-10-01    |        1        |
+|  2015-10-03  |  2015-10-04  |    2015-10-02    |        1        |
+|  2015-10-04  |  2015-10-05  |    2015-10-03    |        1        |
+|  2015-10-11  |  2015-10-12  |    2015-10-04    |        2        |
+|  2015-10-12  |  2015-10-13  |    2015-10-11    |        2        |
+|  2015-10-15  |  2015-10-16  |    2015-10-12    |        3        |
+|  2015-10-17  |  2015-10-18  |    2015-10-15    |        4        |
+|  2015-10-19  |  2015-10-20  |    2015-10-17    |        5        |
+|  2015-10-21  |  2015-10-22  |    2015-10-19    |        6        |
+|  2015-10-25  |  2015-10-26  |    2015-10-21    |        7        |
+|  2015-10-26  |  2015-10-27  |    2015-10-25    |        7        |
+|  2015-10-27  |  2015-10-28  |    2015-10-26    |        7        |
+|  2015-10-28  |  2015-10-29  |    2015-10-27    |        7        |
+|  2015-10-29  |  2015-10-30  |    2015-10-28    |        7        |
+|  2015-10-30  |  2015-10-31  |    2015-10-29    |        7        |
+|  2015-11-01  |  2015-11-02  |    2015-10-30    |        8        |
+|  2015-11-04  |  2015-11-05  |    2015-11-01    |        9        |
+|  2015-11-05  |  2015-11-06  |    2015-11-04    |        9        |
+|  2015-11-06  |  2015-11-07  |    2015-11-05    |        9        |
+|  2015-11-07  |  2015-11-08  |    2015-11-06    |        9        |
+|  2015-11-11  |  2015-11-12  |    2015-11-07    |       10       |
+|  2015-11-12  |  2015-11-13  |    2015-11-11    |       10       |
+|  2015-11-17  |  2015-11-18  |    2015-11-12    |       11       |
+
+위 쿼리와 테이블은 서브쿼리(인라인 뷰)와 그 출력 결과다. 설명을 위해 `WITH` 절의 `project_dates` 테이블을 `FROM` 절로 갖는 `SELECT` 절에 `project_dates` 테이블의 `prev_start_date`를 추가했다.
+
+`WITH` 절에서 `LAG()` 함수를 사용하여 이전 행의 `start_date` 값을 함께 출력한다. `LAG()` 함수의 세 번째 인자는 이전 행의 `start_date`가 `NULL` 일 때 전달한 세 번째 인자 값을 반환한다.
+
+이후 프로젝트를 식별하기 위해 `WITH` 절의 `project_dates` 테이블에서 누적합(`project_id`)을 구한다. `SUM()` 함수와 `OVER()` 함수를 함께 사용하면 누적합을 구할 수 있다.
+
+누적합(`project_id`)으로 식별된 프로젝트의 프로젝트가 시작된 날짜와 종료된 날짜를 한 행에 출력해야 하기 때문에 누적합을 구한 출력을 서브쿼리(인라인 뷰)로 두고 누적합(`project_id`)을 그룹핑한다. 이때 주의해야 할 것은 두 번째 정렬 조건에 `min ASC` 대신 `start_date ASC` 을 명시하면 에러가 난다. `GROUP BY` 절을 사용하는 경우 `GROUP BY` 절에 명시된 컬럼이나, 그룹함수에 사용된 컬럼만 명시할 수 있다.
+
+```sql
+WITH cte_cnt AS
+    (SELECT task_id, start_date, end_date,
+            CASE WHEN start_date <> LAG(end_date) OVER(ORDER BY start_date) THEN 1 
+                 ELSE 0 
+             END AS cnt
+            FROM projects),
+     cte_grp AS
+    (SELECT start_date, end_date, SUM(cnt) OVER(ORDER BY start_date) AS grp
+       FROM cte_cnt)
+SELECT MIN(start_date) AS start_date, MAX(end_date) AS end_date
+  FROM cte_grp
+ GROUP BY grp
+ ORDER BY end_date - start_date ASC, start_date ASC;
+```
+
+위 쿼리처럼 풀 수도 있다.
 
 ## [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true){: target="_blank" }
 
-![40-placements(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/40-placements(1).jpg)
-![41-placements(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/41-placements(2).jpg)
-![42-placements(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/42-placements(3).jpg)
+![42-placements(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/42-placements(1).jpg)
+![43-placements(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/43-placements(2).jpg)
+![44-placements(3)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/44-placements(3).jpg)
 
 ```sql
-
+SELECT name
+  FROM (SELECT s.name, p.salary AS student_salary, f.friend_id, (SELECT salary
+                                                                   FROM packages
+                                                                  WHERE id = f.friend_id) AS friend_salary
+          FROM students s
+ INNER JOIN friends f
+    ON s.id = f.id
+ INNER JOIN packages p
+    ON s.id = p.id)
+ WHERE student_salary < friend_salary
+ ORDER BY friend_salary ASC;
 ```
+
+친구의 `salary`가 자신의 `salary`보다 높은 학생을 친구의 `salary`를 기준으로 오름차순 출력하는 문제다.
 
 ## [Symmetric Pairs](https://www.hackerrank.com/challenges/symmetric-pairs/problem?isFullScreen=true){: target="_blank" }
 
-![43-symmetric-pairs(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/43-symmetric-pairs(1).jpg)
-![44-symmetric-pairs(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/44-symmetric-pairs(2).jpg)
+![45-symmetric-pairs(1)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/45-symmetric-pairs(1).jpg)
+![46-symmetric-pairs(2)](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/46-symmetric-pairs(2).jpg)
 
 ```sql
 SELECT f1.*
@@ -322,23 +426,100 @@ SELECT f1.*
 HAVING COUNT(*) > 1 OR f1.x < f1.y
  ORDER BY f1.x ASC;
 ```
-
+두 쌍 $ (X_1, Y_1) $, $ (X_2, Y_2) $이 있을 때, $ X_1 = Y_2 $ and $ X_2 = Y_1 $를 만족하는 대칭 쌍을 $ X $를 기준으로 오름차순 출력하는 문제다. 주의해야 할 점은 대칭쌍은 최소 두 개의 행이 존재해야한다는 것이다. 예를 들어, $ X_1 $와 $ Y_1 $가 각각 1인 행이 한 개만 존재한다면 이 쌍은 대칭 쌍이 아니다.
 
 ## [Print Prime Numbers](https://www.hackerrank.com/challenges/print-prime-numbers/problem?isFullScreen=true){: target="_blank" }
 
-![45-print-prime-numbers](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/45-print-prime-numbers.jpg)
+![47-print-prime-numbers](/assets/img/posts/algorithm-problem/hackerrank/prepare-sql/difficulty/medium/47-print-prime-numbers.jpg)
 
 ```sql
+WITH t AS (SELECT  a.num
+             FROM (SELECT LEVEL AS num
+                     FROM dual
+                  CONNECT BY LEVEL <= 1000) a
+            CROSS JOIN (SELECT LEVEL AS num
+                          FROM dual
+                       CONNECT BY LEVEL <= 1000) b
+            WHERE a.num != 1 AND b.num != 1 AND MOD(a.num, b.num) = 0
+            GROUP BY a.num
+           HAVING COUNT(a.num) = 1
+            ORDER BY a.num ASC)
 SELECT LISTAGG(num, '&') WITHIN GROUP (ORDER BY num) AS PRIME_NUM
-  FROM (SELECT  a.num
-          FROM (SELECT LEVEL AS num
-                  FROM dual
-               CONNECT BY LEVEL <= 1000) a
+  FROM t;
+```
+
+앰퍼샌드(&) 기호를 구분자를 사용해서 1000이하의 소수를 일렬로 오름차순 출력하는 문제다.
+
+```sql
+SELECT  a.num
+  FROM (SELECT LEVEL AS num
+          FROM dual
+       CONNECT BY LEVEL <= 3) a
+ CROSS JOIN (SELECT LEVEL AS num
+               FROM dual
+            CONNECT BY LEVEL <= 2) b
+```
+
+|  a.num  |
+|:---------:|
+|     1     |
+|     1     |
+|     2     |
+|     2     |
+|     3     |
+|     3     |
+
+위 쿼리와 테이블은 `WITH` 절의 `t` 테이블을 정의하는 쿼리와 그 출력 값이다. 설명을 위해 인라인 뷰인 `a` 테이블과 `b` 테이블의 `CONNECT BY` 절의 조건을 각각 `LEVEL <= 3`과 `LEVEL <= 2`로 바꾸고, `WHERE` 절 이후의 절을 전부 제거했다. 
+
+- `a.num` = **1**
+	+ `b.num` = 1
+- `a.num` = **1**
+	+ `b.num` = 2
+- `a.num` = **2**
+	+ `b.num` = 1
+- `a.num` = **2**
+	+ `b.num` = 2
+- `a.num` = **3**
+	+ `b.num` = 1
+- `a.num` = **3**
+	+ `b.num` = 2
+
+1부터 3까지 총 3개의 행을 갖는 `a` 테이블과 1부터 2까지 총 2개의 행을 갖는 `b` 테이블을 `CROSS JOIN`하면 카테시안의 곱(n * m)이 발생하여 총 6(2 * 3)개의 행을 갖는 테이블이 된다. 즉, `a` 테이블의 `a.num`(1 ~ 3)에 `b` 테이블의 `b.num`(1 ~ 2)이 할당되는 형식인데, `WITH` 절에서는 `a.num`만 출력하도록 했으니 위와 같은 출력 값이 나오게 되는 것이다.
+
+```sql
+SELECT  a.num
+  FROM (SELECT LEVEL AS num
+          FROM dual
+       CONNECT BY LEVEL <= 1000) a
  CROSS JOIN (SELECT LEVEL AS num
                FROM dual
             CONNECT BY LEVEL <= 1000) b
  WHERE a.num != 1 AND b.num != 1 AND MOD(a.num, b.num) = 0
  GROUP BY a.num
 HAVING COUNT(a.num) = 1
- ORDER BY a.num ASC);
+ ORDER BY a.num ASC)
 ```
+
+다시 원래의 `WITH` 절로 돌아오자면 1은 소수가 아니기 때문에 `WHERE` 절에서 `a.num`과 `b.num`은 1이 아니라는 조건(`a.num != 1 AND b.num != 1`)을 명시함으로써 제외한다. 이때 `a.num`뿐만 아니라 `b.num`도 포함시킨 이유는 `WHERE` 절의 다른 조건인 `MOD(a.num, b.num) = 0`와 `HAVING` 절의 `COUNT(a.num) = 1` 때문이다.
+
+- `a.num` = **2**
+	+ ~~`b.num` = 1~~
+		* ~~`MOD(2, 1) = 0` 만족 → `a.num`은 2 출력~~
+- `a.num` = **2**
+	+ `b.num` = 2
+		* `MOD(2, 2) = 0` 만족 → `a.num`은 2 출력
+
+이제 `a.num`이 1인 경우는 제외됐기 때문에 2부터 예로 들자면 `MOD(a.num, b.num) = 0` 조건의 첫 번째 인자인 `a.num`에 2가 들어가고 원래대로라면 두 번째 인자로 `b.num`의 첫 번째 값인 1부터 할당되겠지만, `a.num`과 마찬가지로 `b.num`이 1인 경우도 제외했기 때문에 2가 할당된다. 즉, `MOD(2, 2) = 0`를 만족함으로써 결국 `WHERE` 절에 명시된 모든 조건들은 만족하게 되면서 `a.num`은 총 1개의 2를 가지게 된다. 
+
+- `a.num` = **2**
+	+ `b.num` = 1
+		* `MOD(2, 1) = 0` 만족 → `a.num`은 2 출력
+- `a.num` = **2**
+	+ `b.num` = 2
+		* `MOD(2, 2) = 0` 만족 → `a.num`은 2 출력
+
+만약 `b.num`은 1이 아니라는 조건을 명시하지 않았다면 그전에 `MOD(2, 1) = 0`을 만족하게 되어 총 2개의 2를 가지게 될텐데, 이때 `a.num`을 그룹핑 했기 때문에 `HAVING` 절의 `COUNT(a.num) = 1`을 만족하지 못하게 되어 2는 소수임에도 불구하고 출력되지 않게 되는 것이다.
+
+
+> `JOIN` 연산자 이후에 hierachical_query_clause(`CONNECT BY` 절)이 와야되기 때문에 `a` 테이블의 `CONNECT BY` 절을 인라인 뷰로 두지 않으면 에러가 발생한다.
+{: .prompt-info }

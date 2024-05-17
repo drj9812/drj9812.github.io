@@ -42,7 +42,7 @@ image:
 ```
 {: file="_includes/js-selector.html" }
 
-보통 Chirpy 테마를 GitHub Fork 방식으로 구축한 경우, 이미 `_includes/js-selector.html`{: .filepath }에 MathJax 라이브러리를 추가하는 위 코드가 포함되어 있다. 따라서 `_includes/js-selector.html`{: .filepath }에 위 코드만 명시되어 있다면 지금도 MathJax를 사용할 수 있지만, Chirpy 테마의 공식 Reposiotry에서 최근 [커밋 히스토리](https://github.com/cotes2020/jekyll-theme-chirpy/commit/44f552cbcee83d037de0e59496bf6bb19eea2691){: taregt="_blank" }를 확인해 보니, MathJax 라이브러리를 추가하는 코드를 더 이상 `_includes/js-selector.html`{: .filepath }에서 관리하지 않고 따로 자바스크립트 파일을 생성해서 관리하려는 것 같다. 
+보통 Chirpy 테마를 GitHub Fork 방식으로 구축한 경우, 이미 `_includes/js-selector.html`{: .filepath }에 MathJax 라이브러리를 추가하는 위 코드가 포함되어 있다. 따라서 `_includes/js-selector.html`{: .filepath }에 위 코드만 명시되어 있다면 지금도 MathJax를 사용할 수 있지만, Chirpy 테마의 공식 Reposiotry에서 최근 [커밋 히스토리](https://github.com/cotes2020/jekyll-theme-chirpy/commit/44f552cbcee83d037de0e59496bf6bb19eea2691){: taregt="_blank" }를 확인해 보면, MathJax 라이브러리를 추가하는 코드를 더 이상 `_includes/js-selector.html`{: .filepath }에서 관리하지 않고 따로 자바스크립트 파일을 생성해서 관리하려는 것 같다. 
 
 MathJax를 자바스크립트 파일을 생성해서 관리하는 방식이 아직 정식 릴리즈는 아니지만 직접 적용해 보니 사용하는 데 큰 문제는 없는 것 같다. 설명에 의하면 이 방식을 따를 경우 필요에 따라 옵션을 변경하거나 확장을 추가하는 것과 같은 작업을 할 수 있다고 한다.
 
