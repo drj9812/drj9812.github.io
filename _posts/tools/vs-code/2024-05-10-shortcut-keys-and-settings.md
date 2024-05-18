@@ -20,6 +20,9 @@ image:
 	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
 - 익스텐션(Extensions) 창
 	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>
+- 동일한 문자열 바꾸기
+	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>
+	+ <kbd>Ctrl</kbd> + <kbd>F2</kbd>
 
 ## 설정
 

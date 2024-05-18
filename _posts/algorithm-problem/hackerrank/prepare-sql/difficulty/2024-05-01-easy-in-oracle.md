@@ -195,7 +195,7 @@ SELECT DISTINCT(city)
  WHERE REGEXP_LIKE(city, '^[^aeiou]|[^aeiou]$', 'i');
 ```
 
-정규 표현식에서 `i`는 "또는"이라는 의미다.
+정규 표현식에서 `|`는 "또는"이라는 의미다.
 
 ## [Weather Observation Station 12](https://www.hackerrank.com/challenges/weather-observation-station-12/problem?isFullScreen=true){: target="_blank" }
 

@@ -246,6 +246,16 @@ CONNECT BY LEVEL < 2
 		* <https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/SELECT.html>{: target="_blank" }
 	+ 메인 쿼리의 `SELECT LEVEL FROM dual CONNECT BY LEVEL < 2` 절을 인라인 뷰로 두면 해결 가능
 
+```sql
+SELECT empno
+  FROM emp
+ INNER JOIN dept
+    ON emp.deptno = dept.deptno;
+```
+
+- 테이블 별칭 꼭 명시 안 해도 됨
+- Ambiguous한 컬럼이 아닌 경우 컬럼 소유자(테이블) 명시 안 해도 됨
+
 ## 참고자료
 
 - 한국데이터산업진흥원, SQL 자격검정 실전문제(서울: 한국데이터산업진흥원, 2016), 279.
