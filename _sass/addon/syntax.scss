@@ -2,29 +2,32 @@
 * The syntax highlight.
 */
 
-@import 'colors/syntax-light';
-@import 'colors/syntax-dark';
+// Change syntax-dark to syntax-gruvbox-dark.scss
+//@import 'colors/syntax-light';
+//@import 'colors/syntax-dark';
+@import 'colors/syntax-gruvbox-light.scss';
+@import 'colors/syntax-gruvbox-dark.scss';
 
 html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),
     &[data-mode='light'] {
-      @include light-syntax;
+      @include gruvbox-light-syntax;
     }
 
     &[data-mode='dark'] {
-      @include dark-syntax;
+      @include gruvbox-dark-syntax;
     }
   }
 
   @media (prefers-color-scheme: dark) {
     &:not([data-mode]),
     &[data-mode='dark'] {
-      @include dark-syntax;
+      @include gruvbox-dark-syntax;
     }
 
     &[data-mode='light'] {
-      @include light-syntax;
+      @include gruvbox-light-syntax;
     }
   }
 }

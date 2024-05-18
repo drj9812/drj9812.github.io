@@ -1,17 +1,17 @@
 ---
-title: "[Jekyll]Chirpy 테마를 적용한 GitHub 블로그에 MathJax 라이브러리 추가 및 사용하기"
+title: "[Jekyll | Chirpy]GitHub 블로그에 MathJax 라이브러리 추가 및 사용하기"
 categories: [Tools, Jekyll]
 tags: [Jekyll, Chirpy, GitHub, GitHub Pages, GitHub 블로그, MathJax]
 math: true
 image:
-  path: /assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/01-mathjax-logo.jpg
+  path: /assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/01-mathjax-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: MathJax
 ---
 
-# Chirpy 테마를 적용한 GitHub 블로그에 MathJax 라이브러리 추가 및 사용하기
+# GitHub 블로그에 MathJax 라이브러리 추가 및 사용하기
 
-![02-js-selector.html(1)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/02-js-selector.html(1).jpg)
+![02-js-selector.html(1)](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/02-js-selector.html(1).jpg)
 *`_includes/js-selector.html`{: .filepath }*
 
 ```javascript
@@ -48,16 +48,16 @@ MathJax를 자바스크립트 파일을 생성해서 관리하는 방식이 아�
 
 ## MathJax 자바스크립트 파일 생성
 
-![03-js-selector.html(2)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/03-js-selector.html(2).jpg)
+![03-js-selector.html(2)](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/03-js-selector.html(2).jpg)
 *`_includes/js-selector.html`{: .filepath } > MathJax 라이브러리 추가 코드 주석 또는 제거 > `<script src="{{ '/assets/js/data/mathjax.js' | relative_url }}"></script>` 추가*
 
-![04-create-mathjax.js](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/04-create-mathjax.js.jpg)
+![04-create-mathjax.js](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/04-create-mathjax.js.jpg)
 *`assets/js/data/mathjax.js`{: .filepath } 생성*
 
 > 만약 블로그를 Chipry의 GtiHub Fork 방식이 아닌, Using the Chirpy Starter 방식으로 구축했다면 Chirpy 테마가 설치된 디렉토리(`bundle info --path jekyll-theme-chirpy` 명령어를 통해 나온 디렉토리)에 `mathjax.js`{: .filepath }을 생성하면 된다.
 {: .prompt-info }
 
-![05-mathjax.js](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/05-mathjax.js.jpg)
+![05-mathjax.js](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/05-mathjax.js.jpg)
 *`assets/js/data/mathjax.js`{: .filepath }*
 
 ```javascript
@@ -109,23 +109,23 @@ math: true
 
 웹 사이트 성능상의 이유로, 수학적 기능은 기본적으로 로드되지 않기 때문에 추가한 MathJax를 사용하려면 위와 같이 포스팅할 파일의 Front Matter를 통해 활성화해야 한다.
 
-![06-test](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/06-test.jpg)
+![06-test](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/06-test.jpg)
 *테스트*
 
-![07-result-test](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/07-result-test.jpg)
+![07-result-test](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/07-result-test.jpg)
 *테스트 결과*
 
 ## MathJax 기능
 
-![08-right-click(1)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/08-right-click(1).jpg)
+![08-right-click(1)](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/08-right-click(1).jpg)
 *렌더링된 수식 우클릭*
 
 위와 같이 렌더링된 수식을 우클릭하면 수식을 다른 표현식으로 표시하거나 여러 설정들을 조정할 수 있다.
 
-![09-right-click(2)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/09-right-click(2).jpg)
+![09-right-click(2)](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/09-right-click(2).jpg)
 *렌더링된 수식 우클릭 > `Show Math AS` > `MathML Code`*
 
-![10-right-click(3)](/assets/img/posts/tools/jekyll/add-and-use-mathjax-library-to-github-blog-with-chirpy-theme/10-right-click(3).jpg)
+![10-right-click(3)](/assets/img/posts/tools/jekyll/chirpy/add-and-use-mathjax-library-to-github-blog/10-right-click(3).jpg)
 *렌더링된 수식 우클릭 > `Show Math AS` > `Tex Commands`*
 
 ## 참고자료

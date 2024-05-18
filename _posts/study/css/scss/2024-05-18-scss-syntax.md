@@ -16,9 +16,25 @@ image:
 $primary-color: #3498db;
 
 body {
-  background-color: $primary-color;
+  background-color: $primary-color; // 변수 사용
 }
 ```
+
+- `$변수명: 값;`: 변수 정의
+- CSS 전처리기에서 주로 사용
+
+```scss
+ @mixin gruvbox-dark-syntax {
+  --language-border-color: #2d2d2d; // 사용자 정의 속성
+}
+
+.element {
+  border: 1px solid var(--language-border-color); // 사용자 정의 속성 사용
+}
+```
+
+- `--속성명: 속성값;`: 사용자 정의 속성 정의
+- `var()` 함수를 통해 사용
 
 ## 상속(Inheritance)
 

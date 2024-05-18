@@ -2,7 +2,7 @@
  * The syntax dark mode styles.
  */
 
-@mixin dark-syntax {
+@mixin gruvbox-dark-syntax {
   /* --- custom light colors --- */
   --language-border-color: #2d2d2d;
   --highlight-bg-color: #151515;
@@ -20,25 +20,18 @@
     color: #87939d;
   }
 
-  /* --- Syntax highlight theme from `rougify style base16.dark` --- */
-
-  .highlight table td {
-    padding: 5px;
-  }
-
-  .highlight table pre {
-    margin: 0;
-  }
+  /* --- Syntax highlight theme from `rougify style gruvbox.dark` --- */
 
   .highlight,
   .highlight .w {
-    color: #d0d0d0;
-    background-color: #151515;
+    color: #fbf1c7;
+    background-color: #282828;
   }
 
   .highlight .err {
-    color: #151515;
-    background-color: #ac4142;
+    color: #fb4934;
+    background-color: #282828;
+    font-weight: bold;
   }
 
   .highlight .c,
@@ -48,39 +41,40 @@
   .highlight .cpf,
   .highlight .c1,
   .highlight .cs {
-    color: #848484;
+    color: #928374;
+    font-style: italic;
   }
 
   .highlight .cp {
-    color: #f4bf75;
+    color: #8ec07c;
   }
 
   .highlight .nt {
-    color: #f4bf75;
+    color: #fb4934;
   }
 
   .highlight .o,
   .highlight .ow {
-    color: #d0d0d0;
+    color: #fbf1c7;
   }
 
   .highlight .p,
   .highlight .pi {
-    color: #d0d0d0;
+    color: #fbf1c7;
   }
 
   .highlight .gi {
-    color: #90a959;
+    color: #b8bb26;
+    background-color: #282828;
   }
 
   .highlight .gd {
-    color: #f08a8b;
-    background-color: #320000;
+    color: #fb4934;
+    background-color: #282828;
   }
 
   .highlight .gh {
-    color: #6a9fb5;
-    background-color: #151515;
+    color: #b8bb26;
     font-weight: bold;
   }
 
@@ -89,19 +83,19 @@
   .highlight .kp,
   .highlight .kr,
   .highlight .kv {
-    color: #aa759f;
+    color: #fb4934;
   }
 
   .highlight .kc {
-    color: #d28445;
+    color: #d3869b;
   }
 
   .highlight .kt {
-    color: #d28445;
+    color: #fabd2f;
   }
 
   .highlight .kd {
-    color: #d28445;
+    color: #fe8019;
   }
 
   .highlight .s,
@@ -113,39 +107,42 @@
   .highlight .sh,
   .highlight .sx,
   .highlight .s1 {
-    color: #90a959;
-  }
-
-  .highlight .sa {
-    color: #aa759f;
-  }
-
-  .highlight .sr {
-    color: #75b5aa;
+    color: #b8bb26;
+    font-style: italic;
   }
 
   .highlight .si {
-    color: #b76d45;
+    color: #b8bb26;
+    font-style: italic;
+  }
+
+  .highlight .sr {
+    color: #b8bb26;
+    font-style: italic;
+  }
+
+  .highlight .sa {
+    color: #fb4934;
   }
 
   .highlight .se {
-    color: #b76d45;
+    color: #fe8019;
   }
 
   .highlight .nn {
-    color: #f4bf75;
+    color: #8ec07c;
   }
 
   .highlight .nc {
-    color: #f4bf75;
+    color: #8ec07c;
   }
 
   .highlight .no {
-    color: #f4bf75;
+    color: #d3869b;
   }
 
   .highlight .na {
-    color: #6a9fb5;
+    color: #b8bb26;
   }
 
   .highlight .m,
@@ -156,10 +153,12 @@
   .highlight .il,
   .highlight .mo,
   .highlight .mx {
-    color: #90a959;
+    color: #d3869b;
   }
 
   .highlight .ss {
-    color: #90a959;
+    color: #83a598;
   }
 }
+
+/* dark-syntax */

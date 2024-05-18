@@ -23,6 +23,10 @@ image:
 - 동일한 문자열 바꾸기
 	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>
 	+ <kbd>Ctrl</kbd> + <kbd>F2</kbd>
+- 선택한 코드 자동 들여쓰기
+	+ <kbd>Ctrl</kbd> + <kbd>K</kbd> 이후 <kbd>Ctrl</kbd> + <kbd>F</kbd>
+- 전체 코드 자동 들여쓰기
+	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>
 
 ## 설정
 
