@@ -54,7 +54,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-    id: https://drj9812.goatcoutner.com/count
+    id: drj9812
 
 # Pageviews settings
 pageviews:
