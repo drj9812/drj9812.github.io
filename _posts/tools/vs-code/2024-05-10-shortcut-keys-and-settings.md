@@ -26,7 +26,7 @@ image:
 - 선택한 코드 자동 들여쓰기
 	+ <kbd>Ctrl</kbd> + <kbd>K</kbd> 이후 <kbd>Ctrl</kbd> + <kbd>F</kbd>
 - 전체 코드 자동 들여쓰기
-	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>
+	+ <kbd>Shift</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>
 
 ## 설정
 

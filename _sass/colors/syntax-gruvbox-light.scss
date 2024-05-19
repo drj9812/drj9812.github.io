@@ -2,7 +2,7 @@
  * The syntax light mode code snippet colors.
  */
 
-@mixin gruvbox-light-syntax {
+ @mixin gruvbox-light-syntax {
     /* --- custom light colors --- */
     --language-border-color: #2d2d2d;
     --highlight-bg-color: #151515;
@@ -24,12 +24,12 @@
     .highlight,
     .highlight .w {
         color: #fbf1c7;
-        background-color: #282828;
+        background-color: #151515;
     }
 
     .highlight .err {
         color: #fb4934;
-        background-color: #282828;
+        background-color: #151515;
         font-weight: bold;
     }
 
@@ -64,12 +64,12 @@
 
     .highlight .gi {
         color: #b8bb26;
-        background-color: #282828;
+        background-color: #151515;
     }
 
     .highlight .gd {
         color: #fb4934;
-        background-color: #282828;
+        background-color: #151515;
     }
 
     .highlight .gh {

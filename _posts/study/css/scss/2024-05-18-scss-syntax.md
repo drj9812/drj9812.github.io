@@ -69,6 +69,20 @@ body {
 
 ## 조건문(Control Directives)
 
+### @media
+
+```scss
+@media screen and (min-width: 768px) {
+  /* 화면 너비가 768px 이상인 경우에 적용될 스타일 */
+  body {
+    font-size: 16px;
+  }
+}
+```
+
+- 미디어 쿼리 정의
+- 미디어 유형 또는 장치 특성에 따라 CSS 스타일을 적용하는 조건을 정의
+
 ## 데이터 유형(Data Types)
 
 ## 연산자(Operators)
