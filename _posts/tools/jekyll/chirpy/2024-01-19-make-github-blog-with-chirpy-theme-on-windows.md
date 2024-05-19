@@ -16,7 +16,7 @@ image:
 
 ![01-chirpy-getting-started(1)](/assets/img/posts/tools/jekyll/chirpy/make-github-blog-with-chirpy-theme-on-windows/01-chirpy-getting-started(1).png)
 
-위 [Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 새 repository를 만드는 방법에는 두 가지가 있는데, 이 글에선 맞춤형 개발에 적합한 GitHub Fork 방식을 사용한다.
+위 [Chirpy 테마 시작 가이드](https://chirpy.cotes.page/posts/getting-started/){: target="_blank" }에 의하면 새 repository를 만드는 방법에는 두 가지가 있는데, **이 글에선 맞춤형 개발에 적합한 GitHub Fork 방식을 사용한다.**
 
 ## 개발 환경
 2024.01.19일 기준
@@ -148,8 +148,8 @@ $ bundler -v
 *Fork한 Repository > `<> Code` > `Copy url to clipboard`*
 
 ```console
-$ cd clone할 디렉토리
-$ git clone 복사한 url
+$ cd clone할_디렉토리
+$ git clone 복사한_url
 ```
 
 Fork한 Repository의 소스코드들을 로컬에 복제한다.
@@ -159,7 +159,7 @@ Fork한 Repository의 소스코드들을 로컬에 복제한다.
 ![27-bundle-install](/assets/img/posts/tools/jekyll/chirpy/make-github-blog-with-chirpy-theme-on-windows/27-bundle-install.png)
 
 ```console
-$ cd clone한 디렉토리
+$ cd clone한_디렉토리
 $ bundle install
 ```
 
@@ -202,7 +202,7 @@ $ bundle exec jekyll serve
 
 ```console
 $ git add -A
-$ git commit -m "커밋 메시지"
+$ git commit -m "커밋_메시지"
 $ git push
 ```
 

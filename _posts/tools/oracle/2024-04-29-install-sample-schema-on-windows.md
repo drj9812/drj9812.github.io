@@ -81,13 +81,13 @@ SQL> ALTER session SET "_ORACLE_SCRIPT"=true;
 ![06-change-session](/assets/img/posts/tools/oracle/install-sample-schema-on-windows/06-change-session.jpg)
 
 ```console
-SQL> @?/demo/schema/human_resources/실행할 SQL 스크립트 파일
+SQL> @?/demo/schema/human_resources/실행할_SQL_스크립트_파일
 
-Enter a password for the user HR: 비밀번호 입력
+Enter a password for the user HR: 비밀번호_입력
 
-Enter a tablespace for HR [USERS]: 테이블스페이스 입력
+Enter a tablespace for HR [USERS]: 테이블스페이스_입력
 
-Do you want to overwrite the schema, if it already exists? [YES|no]: YES 또는 no 입력
+Do you want to overwrite the schema, if it already exists? [YES|no]: YES_또는_no_입력
 ```
 
 ![07-run-hr_install.sql](/assets/img/posts/tools/oracle/install-sample-schema-on-windows/07-run-hr_install.sql.jpg)

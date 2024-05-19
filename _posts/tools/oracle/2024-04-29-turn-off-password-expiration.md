@@ -53,7 +53,7 @@ SQL> SELECT resource_name, limit FROM dba_profiles WHERE profile = 'DEFAULT' AND
 #### 비밀번호 변경
 
 ```console
-SQL> ALTER user 계정 이름 IDENTIFIED BY 비밀번호 입력;
+SQL> ALTER user 계정 이름 IDENTIFIED BY 비밀번호_입력;
 ```
 
 ![04-change-password](/assets/img/posts/tools/oracle/turn-off-password-expiration/04-change-password.jpg)

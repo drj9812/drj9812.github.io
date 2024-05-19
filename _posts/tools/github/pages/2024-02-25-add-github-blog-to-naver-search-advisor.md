@@ -28,7 +28,7 @@ image:
 
 ```console
 $ git add -A
-$ git commit -m "커밋 메시지"
+$ git commit -m "커밋_메시지"
 $ git push
 ```
 
@@ -113,7 +113,7 @@ layout: null
 
 ```console
 $ git add -A
-$ git commit -m "커밋 메시지"
+$ git commit -m "커밋_메시지"
 $ git push
 ```
 

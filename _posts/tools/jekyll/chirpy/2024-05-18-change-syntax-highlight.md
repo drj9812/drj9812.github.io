@@ -19,7 +19,7 @@ image:
 <https://spsarolkar.github.io/rouge-theme-preview/>{: target="_blank" }에 들어가서 변경할 문법 강조 스타일을 확인한다.
 
 ```bash
-$ bash cd 루트 디렉토리
+$ bash cd 루트_디렉토리
 $ bash rougify help style
 ```
 
@@ -28,7 +28,7 @@ $ bash rougify help style
 ## 스타일 파일 설치
 
 ```bash
-$ bash rougify style 설치할 스타일 이름 > 설치할 디렉토리/파일명.scss
+$ bash rougify style 설치할_스타일_이름 > 설치할_디렉토리/파일명.scss
 ```
 
 위 명령어를 통해 확인한 스타일을 설치한다. 설치할 디렉토리와 파일명은 자유롭게 설정해도 되지만, Chirpy 테마의 경우 `_sass`{: .filepath } 폴더에서 `_sass/colors`{: .filepath } 폴더를 참조하는 구조로 문법 강조를 설정하고 있기 때문에 `_sass/colors` 폴더에 설치하는 것을 권장한다.
@@ -114,7 +114,7 @@ $ bash rougify style 설치할 스타일 이름 > 설치할 디렉토리/파일�
 ![04-modify-syntax.scss](/assets/img/posts/tools/jekyll/chirpy/change-syntax-highlight/04-modify-syntax.scss.jpg)
 *`_sass/addon/syntax.scss`{: .filepath }*
 
-`_sass/addon`{: .filepath } 폴더의 `systax.scss`{: .filepath }이 설치한 스타일 파일을 불러올(`@import`) 수 있도록 수정해야 한다.
+설치한 스타일 파일을 `_sass/addon`{: .filepath } 폴더의 `systax.scss`{: .filepath }이 불러올(`@import`) 수 있도록 수정해야 한다.
 
 **화면 모드에 따라 문법 강조 스타일이 바뀌도록 2개의 스타일 파일을 설치한 경우,** 기존 `@import` 문의 파일명을 설치한 파일명으로 모두 수정함으로써 불러올 수 있도록 한다. 이때 불러온(설치한) 파일의 mixin은 prefers-color-scheme 미디어 쿼리가 감지하고 반환한 값(`light`, `dark`)에 따라 사용(`@include`)되므로, `@include` 문을 사용하여 이러한 mixin을 적절하게 배치하려면 각 미디어 쿼리에 맞게 불러온 파일에서 정의한 mixin 이름으로 수정해야 한다.
 

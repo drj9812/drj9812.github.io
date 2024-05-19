@@ -28,11 +28,11 @@ Jekyll에서 MD 파일로 작성된 파일은 HTML 파일로 변환되는데, �
 
 [https://talk.jekyllrb.com/t/chirpy-theme-a-tag-is-missing-a-reference-error/8731](https://talk.jekyllrb.com/t/chirpy-theme-a-tag-is-missing-a-reference-error/8731){: target="_blank" }
 
-검색을 통해 나와 같은 고충을 겪는 사람이 올린 질문 글을 발견했다.
+검색을 통해 나와 같은 고충을 겪고 있는 분의 질문 글을 발견했다.
 
 답변에 의하면 게시글의 작성자 정보를 담고 있는 `_data/authors.yml`{: .filepath }이 불완전할 경우 문제가 발생할 수 있다고 한다.
 
-![03-author-link](/assets/img/posts/tools/github/github-actions/a-tag-is-missing-a-reference-error/03-author-link.png)
+![03-author-link](/assets/img/posts/tools/github/github-actions/a-tag-is-missing-a-reference-error/03-author-link.jpg)
 
 게시글을 작성될 때 작성자의 이름과 하이퍼링크는 `_config.yml`{: .filepath } 또는 `_data/authors.yml`{: .filepath }에 명시된 정보들을 바탕으로 설정된다.
 

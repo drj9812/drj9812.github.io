@@ -19,7 +19,7 @@ image:
 *`Install`*
 
 ![04-install-utterances(2)](/assets/img/posts/tools/jekyll/chirpy/add-comments-to-github-blog-using-utterances/04-install-utterances(2).png)
-*`Only select repositories` > `Select repositories` > 적용할 repsository 선택*
+*`Only select repositories` > `Select repositories` > 적용할 Repsository 선택*
 
 ![05-install-utterances(3)](/assets/img/posts/tools/jekyll/chirpy/add-comments-to-github-blog-using-utterances/05-install-utterances(3).png)
 *`Install`*
@@ -66,7 +66,7 @@ uttreances는 블로그의 각 게시물에 대해 하나의 `Issues`를 사용�
 
 ```console
 $ git add -A
-$ git commit -m "커밋 메시지"
+$ git commit -m "커밋_메시지"
 $ git push
 ```
 

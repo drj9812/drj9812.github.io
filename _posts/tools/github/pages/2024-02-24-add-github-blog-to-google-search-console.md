@@ -45,7 +45,7 @@ Search Console은 구글에서 무료로 제공하는 서비스로, 웹사이트
 
 ```console
 $ git add -A
-$ git commit -m "커밋 메시지"
+$ git commit -m "커밋_메시지"
 $ git push
 ```
 
