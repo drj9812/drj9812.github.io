@@ -27,7 +27,8 @@ image:
 	+ <kbd>Ctrl</kbd> + <kbd>K</kbd> 이후 <kbd>Ctrl</kbd> + <kbd>F</kbd>
 - 전체 코드 자동 들여쓰기
 	+ <kbd>Shift</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>
-
+- 설정 창
+	+ <kbd>Ctrl</kbd> + <kbd>,</kbd
 ## 설정
 
 ### 한국어 설정
@@ -44,7 +45,7 @@ image:
 ### 기본 터미널 변경
 
 ![change-default-terminal(1)](/assets/img/posts/tools/vs-code/shortcut-keys-and-settings/change-default-terminal(1).jpg)
-*커맨드 팔레트(`Ctrl` + `Shift` + `P`) > "select default profile" 검색 > `터미널: 기본 프로필 선택`*
+*커맨드 팔레트(<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) > "select default profile" 검색 > `터미널: 기본 프로필 선택`*
 
 ![change-default-terminal(2)](/assets/img/posts/tools/vs-code/shortcut-keys-and-settings/change-default-terminal(2).jpg)
-*기본으로 설정할 터미널 선택*
+*기본으로 설정할 터미널 선택

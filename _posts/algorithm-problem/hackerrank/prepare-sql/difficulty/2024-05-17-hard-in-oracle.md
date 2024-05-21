@@ -68,7 +68,7 @@ WITH t1 AS (SELECT contest_duration.sequence_date,
              INNER JOIN hackers hackers
                 ON hackers_dense_rank.hacker_id = hackers.hacker_id),
      t2 AS (SELECT sequence_date,
-                   COUNT(DISTINCT hacker_id) AS every_submissions_cnt
+                   COUNT(DISTINCT(hacker_id)) AS every_submissions_cnt
               FROM t1
              WHERE lv = rnk
              GROUP BY sequence_date),
@@ -165,7 +165,7 @@ SELECT submission_date,
 
 ```sql
 SELECT sequence_date,
-       COUNT(DISTINCT hacker_id) AS every_submissions_cnt
+       COUNT(DISTINCT(hacker_id)) AS every_submissions_cnt
   FROM t1
  WHERE lv = rnk
  GROUP BY sequence_date;

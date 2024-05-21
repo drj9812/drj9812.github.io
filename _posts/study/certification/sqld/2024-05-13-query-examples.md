@@ -48,6 +48,68 @@ SELECT submission_date, hacker_id, COUNT(hacker_id) AS cnt, score
  GROUP BY submission_date, hacker_id, score;
 ```
 
+- `GROUP BY` 절에 명시되어있다면, 집계함수 뒤에 컬럼 명시 가능
+
+```sql
+WITH t AS (SELECT '빨간' a, '사과' b FROM dual
+            UNION ALL
+           SELECT '파란', '사과' FROM dual
+            UNION ALL
+           SELECT '빨간', '자두' FROM dual)
+SELECT *
+  FROM t
+ WHERE (a, b) NOT IN (('빨간', '사과'));
+```
+
+| 파란 | 사과 |
+| 빨간 | 자두 |
+
+- Oracle
+  + SQL Server는 `NOT IN` 연산자를 지원하지 않음
+
+```sql
+WITH t AS (SELECT '빨간' a, '사과' b FROM dual
+            UNION ALL
+           SELECT '파란', '사과' FROM dual
+            UNION ALL
+           SELECT '빨간', '자두' FROM dual)
+SELECT *
+  FROM t
+ WHERE a NOT IN ('빨간')
+       AND
+       b NOT IN ('사과')
+```
+
+- `NULL`
+
+```sql
+SELECT SUM(sal)
+  FROM emp
+ HAVING SUM(sal) > 10;
+ ```
+
+```sql
+SELECT 1
+  FROM emp
+HAVING COUNT(*) > 10;
+```
+
+```sql
+SELECT MAX(sal)
+  FROM emp;
+```
+
+ - `GROUP BY` 절을 사용하지 않아도 `HAVING` 절을 사용할 수 있고, 집계함수도 사용할 수 있음
+
+```sql
+SELECT employee_id, salary
+  FROM employees
+ WHERE salary IN (SELECT MAX(salary) FROM employees WHERE department_id = 30);
+```
+
+- 단일행 서브쿼리의 비교연산자로 다중행 서브쿼리의 비교연산자를 사용할 수 있음
+  + 그 반대는 불가능
+
 ## DML
 
 ### INSERT
@@ -261,6 +323,61 @@ SELECT empno
 
 - 테이블 별칭 꼭 명시 안 해도 됨
 - Ambiguous한 컬럼이 아닌 경우 컬럼 소유자(테이블) 명시 안 해도 됨
+
+### SELF JOIN
+
+```sql
+SELECT a.*, b.*
+  FROM 일자별매출 a, 일자별매출 b
+ WHERE a.일자 >= b.일자
+ ORDER BY a.일자 ASC;
+```
+
+|    일자    | 매출액 |    일자_1   | 매출액_1 |
+|:----------:|:------:|:----------:|---------:|
+| 2015-11-01 |   1000 | 2015-11-01 |   1000   |
+| 2015-11-02 |   1000 | 2015-11-01 |   1000   |
+| 2015-11-02 |   1000 | 2015-11-02 |   1000   |
+| 2015-11-03 |   1000 | 2015-11-01 |   1000   |
+| 2015-11-03 |   1000 | 2015-11-02 |   1000   |
+| 2015-11-03 |   1000 | 2015-11-03 |   1000   |
+|     ...    |   1000 |     ...    |   1000   |
+
+```sql
+SELECT a.일자, SUM(b.매출액) AS 누적매출액
+  FROM 일자별매출 a, 일자별매출 b
+ WHERE a.일자 >= b.일자
+ GROUP BY a.일자
+ ORDER BY a.일자 ASC;
+ ```
+
+|    일자    | 누적매출액 |
+|:----------:|:---------:|
+| 2015-11-01 |    1000   |
+| 2015-11-02 |    2000   |
+| 2015-11-03 |    3000   |
+| 2015-11-04 |    4000   |
+| 2015-11-05 |    5000   |
+| 2015-11-06 |    6000   |
+|     ...    |     ...   |
+
+## 계층형 질의
+
+```sql
+ SELECT employee_id, first_name, last_name, manager_id, hire_date
+   FROM employees
+  START WITH manager_id IS NULL
+CONNECT BY PRIOR employee_id = manager_id
+                 AND
+                 hire_date BETWEEN DATE '2999-01-05' AND DATE '2999-01-10';
+```
+
+| employee_id | first_name | last_name | manager_id |      hire_date      |
+|:-----------:|:----------:|:---------:|:----------:|:-------------------:|
+|     100	    |   Steven	 |   King		 |   `NULL`   | 2013/06/17 00:00:00 |
+
+- 오라클의 계층형 쿼리에서 `START WITH` 절에 의해 시작되는 행은 `CONNECT BY` 절의 조건을 따르지 않음
+  + `START WITH` 절에 의해 선택된 루트 노드는 `CONNECT BY` 절의 조건을 만족하지 않아도 결과에 포함될 수 있음
 
 ## 참고자료
 

@@ -108,7 +108,7 @@ image:
 </beans>
 ```
 
-> Java EE 웹 애플리케이션의 배치 서술자(deployment descriptor)인 `web.xml` 파일(웹 애플리케이션의 설정 및 구성 정보를 정의하는 XML 파일) 내에서 `<context-param>` 태그를 사용하여 XML 기반의 컨테이너 설정 파일의 위치를 명시할 수 있다. 이렇게 함으로써 해당 설정 파일의 위치를 애플리케이션에 알리고, 컨테이너가 해당 설정 파일을 인식하여 적용할 수 있게 된다. 설정 파일의 위치를 명시함으로써 컨테이너가 애플리케이션을 올바르게 구성하고 실행할 수 있도록 한다.
+> Java EE 웹 애플리케이션의 배치 서술자(deployment descriptor)인 `web.xml`{: .filepath }(웹 애플리케이션의 설정 및 구성 정보를 정의하는 XML 파일) 내에서 `<context-param>` 태그를 사용하여 XML 기반의 컨테이너 설정 파일의 위치를 명시할 수 있다. 이렇게 함으로써 해당 설정 파일의 위치를 애플리케이션에 알리고, 컨테이너가 해당 설정 파일을 인식하여 적용할 수 있게 된다. 설정 파일의 위치를 명시함으로써 컨테이너가 애플리케이션을 올바르게 구성하고 실행할 수 있도록 한다.
 {: .prompt-info }
 
 #### 컨텍스트 생성
@@ -154,7 +154,7 @@ myBean.doSomething();
 - 주로 Spring MVC 프로젝트에서 `DispatcherServlet`에 의해 사용됨
 	+ `DispatcherServlet`을 생성하고 생성자에 `XmlWebApplicationContext`를 전달하여 `DispatcherServlet`이 생성된 스프링 컨텍스트를 사용할 수 있도록 함
 
-> 위의 코드는 단독으로 실행되는 Java 애플리케이션이 아니라 스프링 웹 애플리케이션 내부에서 사용되어야 한다. 일반적으로 Spring MVC 프로젝트에서는 `web.xml` 파일이나 `JavaConfig`를 사용하여 `DispatcherServlet`을 설정하고 등록하게 된다.
+> 위의 코드는 단독으로 실행되는 Java 애플리케이션이 아니라 스프링 웹 애플리케이션 내부에서 사용되어야 한다. 일반적으로 Spring MVC 프로젝트에서는 `web.xml`{: .filepath }이나 `JavaConfig`를 사용하여 `DispatcherServlet`을 설정하고 등록하게 된다.
 {: .prompt-info }
 
 ### 어노테이션 기반

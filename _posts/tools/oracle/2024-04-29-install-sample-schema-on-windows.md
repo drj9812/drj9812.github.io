@@ -105,7 +105,7 @@ Do you want to overwrite the schema, if it already exists? [YES|no]: YES_또는_
 - Do you want to overwrite the schema, if it already exists? [YES\|no]
 	+ 이미 해당 스키마가 존재하는 경우 스키마를 덮어쓸 것인지 여부를 묻는 메시지
 
-> `@?/demo/schema/human_resources/실행할 SQL 스크립트 파일` 이후에 나오는 메시지는 버전, 실행할 SQL 스크립트 파일에 따라 다를 수 있다.
+> `@?/demo/schema/human_resources/실행할_SQL_스크립트_파일` 이후에 나오는 메시지는 버전, 실행할 SQL 스크립트 파일에 따라 다를 수 있다.
 {: .prompt-info }
 
 ![08-installation](/assets/img/posts/tools/oracle/install-sample-schema-on-windows/08-installation.jpg)
@@ -123,7 +123,7 @@ Do you want to overwrite the schema, if it already exists? [YES|no]: YES_또는_
 	+ product_media: pm
 	+ sales_history: sh
 
-> `ALTER USER 사용자 이름 ACCOUNT UNLOCK IDENTIFIED BY 비밀번호 입력;` 명령어를 통해 비밀번호를 변경할 수 있다.
+> `ALTER USER 사용자 이름 ACCOUNT UNLOCK IDENTIFIED BY 비밀번호_입력;` 명령어를 통해 비밀번호를 변경할 수 있다.
 {: .prompt-info }
 
 ![10-check-installation.jpg](/assets/img/posts/tools/oracle/install-sample-schema-on-windows/10-check-installation.jpg)
