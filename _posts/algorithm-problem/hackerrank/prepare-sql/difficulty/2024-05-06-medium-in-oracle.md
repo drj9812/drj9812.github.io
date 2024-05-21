@@ -57,9 +57,9 @@ SELECT doctor, professor, singer, actor
 
 만약 위와 같이 `FROM` 절에서 서브쿼리(인라인 뷰)를 사용하지 않고 컬럼이 두개(`name`, `occupation`)밖에 존재하지 않는 `occupations` 테이블을 그대로 사용한다면, Value 컬럼과 Unstack 컬럼으로 선택되지 않은 나머지 컬럼이 존재하지 않기 때문에 Stack 컬럼이 없게 된다.
 
-|  doctor  |  professor  |    singer   |     actor     |
-|:----------:|:-------------:|:------------:|:-------------:|
-|    Priya  |   Priyanka   |  Kristeen  |  Samantha  |
+| doctor | professor |  singer  |  actor   |
+|:------:|:---------:|:--------:|:--------:|
+|  Priya |  Priyanka | Kristeen | Samantha |
 
 즉, `FROM` 절에서 서브쿼리를 사용하지 않은 위 쿼리의 출력은 위와 같게 된다.
 
@@ -460,7 +460,7 @@ SELECT  a.num
             CONNECT BY LEVEL <= 2) b
 ```
 
-|  a.num  |
+|   a.num   |
 |:---------:|
 |     1     |
 |     1     |

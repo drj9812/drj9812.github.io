@@ -42,6 +42,12 @@ SELECT MIN(sal) AS min, MAX(sal) AS max
 - <font color="red">에러</font>
 	+ **`GROUP BY` 절을 사용하는 경우 `GROUP BY` 절에 명시된 컬럼이나, 그룹함수에 사용된 컬럼만 명시 가능**
 
+```sql
+SELECT submission_date, hacker_id, COUNT(hacker_id) AS cnt, score
+  FROM submissions
+ GROUP BY submission_date, hacker_id, score;
+```
+
 ## DML
 
 ### INSERT
@@ -186,7 +192,7 @@ RENAME stadium TO stadium_jsc;
 ## 함수
 
 ```sql
-SELECT TO_CHAR(TO_DATE('2015.01.10 10', 'YYYY.MM.DD HH24') + 1/24/(60/10), 'YYYY.MM.DD HH24:MI:SS)
+SELECT TO_CHAR(TO_DATE('2015.01.10 10', 'YYYY.MM.DD HH24') + 1/24/(60/10), 'YYYY.MM.DD HH24:MI:SS')
   FROM DUAL;
 ```
 
@@ -205,11 +211,11 @@ SELECT ename, empno, mg, NULLIF(mgr, 7698) AS nm
 - 오라클
 - `mgr` 컬럼이 "7698"과 같으면 `NULL` 반환
 
-|  c1  |  c2  |  c3  |
-|:-----:|:-----:|:-----:|
-|   1  |   2   |   3  |
-|       |   2   |   3  |
-|       |        |   3  |
+|  c1  |  c2 |  c3  |
+|:-----|:---:|:----:|
+|   1  |  2  |   3  |
+|      |  2  |   3  |
+|      |     |   3  |
 
 ```sql
 SELECT SUM(COALESCE(c1, c2, c3))
@@ -237,8 +243,8 @@ SELECT TOP(2) WITH TIES ename, sal
    FROM dual
 CONNECT BY LEVEL < 2
   CROSS JOIN (SELECT LEVEL
-               FROM daul
-               CONNECT BY LEVEL < 2);
+                FROM daul
+             CONNECT BY LEVEL < 2);
 ```
 
 - <font color="red">에러</font>
