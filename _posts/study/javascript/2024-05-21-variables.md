@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript]변수(variable)"
+title: "[JavaScript]변수(Variable)"
 categories: [Study, JavaScript]
 tags: [JavaScript, 자바스크립트, JS]
 image:
@@ -8,7 +8,7 @@ image:
   alt: JavaSript
 ---
 
-# 변수(variable)
+# 변수(Variable)
 
 ## 참고자료
 
