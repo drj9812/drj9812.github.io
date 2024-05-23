@@ -1,7 +1,7 @@
 ---
 title: "[Eclipse | Error]The server does not support version 5.0 of the J2EE Web module specification"
 categories: [Tools, Eclipse]
-tags: [Eclipse, 이클립스, import, 에러, Error]
+tags: [Eclipse, 이클립스, Tomcat, 톰캣, Error, 에러]
 image:
   path: /assets/img/posts/tools/eclipse/01-eclipse-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
@@ -23,7 +23,7 @@ image:
 
 ## 원인 분석
 
-`The server does not support version 5.0 of the J2EE Web module specification` 에러는 나의 **톰캣 버전에서 실행하려는 웹 애플리케이션이 J2EE(Web module) 5.0 사양을 지원하지 않는다는 것을 의미**한다. J2EE(Web module) 5.0은 특정 버전의 서블릿과 JSP 사양을 의미하며, 이는 톰캣 9.0에서 지원하는 사양이 아니다. 여기서 말하는 **"J2EE(Web module)"는 이클립스의 다이나믹 웹 프로젝트(Dynamic Web Project)에서 설정된 웹 모듈 사양 버전을 의미**한다. 다이나믹 웹 프로젝트는 Java EE 사양을 따르는 웹 애플리케이션을 개발하는 프로젝트 유형이다.
+`The server does not support version 5.0 of the J2EE Web module specification` 에러는 나의 **톰캣(서버) 버전에서 실행하려는 웹 애플리케이션이 J2EE(Web module) 5.0 사양을 지원하지 않는다는 것을 의미**한다. J2EE(Web module) 5.0은 특정 버전의 서블릿과 JSP 사양을 의미하며, 이는 톰캣 9.0에서 지원하는 사양이 아니다. 여기서 말하는 **'J2EE(Web module)'는 이클립스의 다이나믹 웹 프로젝트(Dynamic Web Project)에서 설정된 웹 모듈 사양 버전을 의미**한다. 다이나믹 웹 프로젝트는 Java EE 사양을 따르는 웹 애플리케이션을 개발하는 프로젝트 유형이다.
 
 해결 방법 중 하나는 **프로젝트를 해당 버전의 사양에 맞게 업그레이드**하는 것이다. 또는 **톰캣 9.0에서 지원하는 더 낮은 버전의 J2EE(Web module) 사양을 사용**하는 것도 가능하다. 
 
