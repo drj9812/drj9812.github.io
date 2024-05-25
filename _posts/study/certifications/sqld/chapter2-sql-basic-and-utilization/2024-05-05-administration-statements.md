@@ -75,7 +75,7 @@ INSERT INTO 테이블(컬럼1, 컬럼2, ...) VALUES(값1, 값2, ...);
 - 테이블의 각 컬럼별 데이터 타입과 사이즈에 맞게 입력
 - 문자 컬럼에 숫자값 입력 가능
 	+ 권장되지 않음
-- 숫자 컬럼에 "001"과 같은 문자값 입력 가능
+- 숫자 컬럼에 '001'과 같은 문자값 입력 가능
 	+ 권장되지 않음
 
 ![03-ex-result-insert](/assets/img/posts/study/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/03-ex-result-insert.jpg)
@@ -124,7 +124,7 @@ DELETE[FROM] 테이블명
 
 - 데이터를 삭제할 때 사용
 	+ `WHERE` 절로 수정 대상 선택 가능
-		* `WHERE` 절이 없으면 모든 행의 데이터가 삭제됨
+		* **`WHERE` 절이 없으면 모든 행의 데이터가 삭제됨**
 - 행 단위 실행
 
 #### 예시
@@ -170,7 +170,7 @@ USING 참조테이블
 	+ 이미 `MERGE INTO`절에 수정할 테이블명이 명시되어 있으므로
 - `SET` 절의 왼쪽이 수정 테이블, 오른쪽이 참조 테이블 컬럼
 - `INSERT` 문에는 `INTO`절 없이 `VALUES`로 참조 컬럼명 전달
-	+ 이미 `USING` 절에 참조할 테이블명이 명시되어 있으므로
+	+ 이미 `MERGE INTO`절에 입력할 테이블명이 명시되어 있으므로
 
 ![12-ex-result-merge](/assets/img/posts/study/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/12-ex-result-merge.jpg)
 *`merge_old` 테이블을 `merge_new` 테이블에 병합*
@@ -231,6 +231,9 @@ SAVEPOINT savepoint_name;
 - 사용자가 원하는 위치에 원하는 이름으로 설정 가능
 - `ROLLBACK TO savepoint_name` 명령어로 원하는 지점으로 원복 가능
 	+ `COMMIT` 이전으로는 원복 불가
+- SQL Server
+    + `SAVEPOINT TRANSACTION savepoint_name;`
+        * `ROLLBACK TRANSACTION savepoint_naem;`
 
 ##### 예시
 
@@ -257,6 +260,8 @@ SAVEPOINT savepoint_name;
 - 명령어를 실행하면 즉시 저장
 	+ 원복 불가
 	+ AUTO `COMMIT`
+        * SQL Server는 AUTO `COMMIT`을 비활성화할 수 있음
+        * 오라클도 23c부터 AUTO COMMIT`을 비활성화할 수 있음
 
 ### CREATE
 
@@ -310,12 +315,12 @@ SELECT *
 
 ### 데이터 타입
 
-|  데이터 타입  |                                              설명                                               |
-|:------------:|:-----------------------------------------------------------------------------------------------:|
-|    CHAR(n)   | 고정형 문자 타입으로 사이즈 전달 필수, 사이즈만큼 확정형 데이터가 입력됨(빈 자리수는 공백으로 채워짐) |
-|  VARCHAR2(n) |   가변형 문자 타입으로 사이즈 전달 필수, 사이즈보다 작은 문자 값이 입력되더라도 입력 값 그대로 유지   |
-| NUMBER(p, s) |             숫자형 타입으로 자리수 생략 가능, 소수점 자리 제한 시 s 전달(p는 총 자리수)             |
-|     DATE     |                                 날짜 타입으로 사이즈 전달 불가                                    |
+|   데이터 타입   |                                              설명                                               |
+|:--------------:|:-----------------------------------------------------------------------------------------------:|
+|    `CHAR(n)`   | 고정형 문자 타입으로 사이즈 전달 필수, 사이즈만큼 확정형 데이터가 입력됨(빈 자리수는 공백으로 채워짐) |
+|  `VARCHAR2(n)` |   가변형 문자 타입으로 사이즈 전달 필수, 사이즈보다 작은 문자 값이 입력되더라도 입력 값 그대로 유지   |
+| `NUMBER(p, s)` |             숫자형 타입으로 자리수 생략 가능, 소수점 자리 제한 시 s 전달(p는 총 자리수)             |
+|     `DATE`     |                                 날짜 타입으로 사이즈 전달 불가                                    |
 
 - SQL Server
 	+ `VARCHAR2` → `VARCHAR`
@@ -323,7 +328,7 @@ SELECT *
 	+ 문자 타입도 사이즈 생략 가능
 		* 생략 시 1
 
-> 오라클과 달리 SQL Server의 `VARCHAR` 타입의 경우 문자 타입 입력 시 제한된 길이보다 큰 "공백을 포함한 문자열" 값을 입력하면 고정 길이에 맞게 값에서 뒤의 공백을 제거하고 에러없이 입력된다.
+> 오라클과 달리 SQL Server의 `VARCHAR` 타입의 경우 문자 타입 입력 시 제한된 길이보다 큰 '공백을 포함한 문자열' 값을 입력하면 고정 길이에 맞게 값에서 뒤의 공백을 제거하고 에러없이 입력된다.
 {: .prompt-tip }
 
 #### 예시
@@ -566,19 +571,7 @@ TRUNCATE TABLE 테이블명;
 - 테이블 생성, 컬럼 추가 시 정의 가능
 - 이미 생성된 컬럼에 제약 조건만 추가 가능
 
-#### Primary Key(기본 키)
-
-- 유일한 식별자
-	+ 각 행을 구별할 수 있는 식별자 기능
-- 중복, `NULL`을 허용하지 않음
-	* `UNIQUE` + `NOT NULL`
-- 특정 컬럼에 기본 키를 생성하면 `NOT NULL` 속성이 자동 부여
-	+ <font color="red">CTAS(Create Table As Select)로 테이블 복사 시 복사되지 않음</font>
-- 하나의 테이블에 여러 기본 키를 생성할 수 없음
-- 하나의 기본 키를 여러 컬럼과 결합하여 생성할 수 있음
-- 기본 키 생성 시 자동으로 `UNIQUE INDEX` 생성
-
-##### 문법
+#### 문법
 
 ```sql
 CRATEE TABLE [소유자.]테이블명(
@@ -614,6 +607,18 @@ ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
 
 - 제약 조건 삭제
 
+#### Primary Key(기본 키)
+
+- 유일한 식별자
+	+ 각 행을 구별할 수 있는 식별자 기능
+- 중복, `NULL`을 허용하지 않음
+	* `UNIQUE` + `NOT NULL`
+- 특정 컬럼에 기본 키를 생성하면 `NOT NULL` 속성이 자동 부여
+	+ <font color="red">CTAS(Create Table As Select)로 테이블 복사 시 복사되지 않음</font>
+- 하나의 테이블에 여러 기본 키를 생성할 수 없음
+- 하나의 기본 키를 여러 컬럼과 결합하여 생성할 수 있음
+- 기본 키 생성 시 자동으로 `UNIQUE INDEX` 생성
+
 ##### 예시
 
 ![36-ex-create-pk(1)](/assets/img/posts/study/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/36-ex-create-pk(1).jpg)
@@ -638,7 +643,7 @@ ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
 ![40-ex-unique](/assets/img/posts/study/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/40-ex-unique.jpg)
 
 - 중복을 허용하지 않음
-- **`NULL`은 허용**
+- **`NULL` 허용**
 - `UNIQUE` 인덱스 자동 생성
 
 #### NOT NULL
@@ -647,10 +652,13 @@ ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
 
 - 다른 제약 조건과 다르게 컬럼의 특징을 나타냄
 	+ <font color="red">CTAS(Create Table As Select)로 복제 시 같이 복제됨</font>
-- 컬럼 생성 시 `NOT NULL`을 선언하지 않으면 Nullable 컬럼으로 생성됨
+- **컬럼 생성 시 `NOT NULL`을 선언하지 않으면 Nullable 컬럼으로 생성됨**
+    + `NOT NULL` 제약 조건을 가진 컬럼을 수정할 때 `NOT NULL` 제약 조건을 명시하지 않으면 Nullable 컬럼으로 수정됨
 - 이미 만들어진 컬럼에 **`NOT NULL` 선언 시 제약 조건 생성이 아닌 컬럼 수정(`MODIFY`)으로 해결**
+- `NOT NULL` 제약 조건의 컬럼을 `NOT NULL` 제약 조건으로 수정할 수 없음
+    + 오라클
 
-> 애초에 모든 컬럼은 `NOT NULL` 또는 `NOT NULL` 제약 조건이 아니기 때문에 `NOT NULL` 제약 조건은 추가(`ADD`)가 아닌 수정(`MODIFY`)를 통해 "변경"해야 한다.
+> 애초에 모든 컬럼은 `NOT NULL` 또는 `NOT NULL` 제약 조건이 아니기 때문에 `NOT NULL` 제약 조건은 추가(`ADD`)가 아닌 수정(`MODIFY`)를 통해 '변경'해야 한다.
 {: .prompt-info }
 
 #### FOREIGN KEY
@@ -678,7 +686,7 @@ CREATE TABLE 테이블명(
 *부모 테이블(`dept_test1`)에 PK를 설정하고, 자식 테이블(`emp_test1`)에 부모 테이블의 PK를 참조하는 FK 생성*
 
 > 참조(부모) 테이블의 참조 컬럼(Reference key)이 사전에 Primary Key 또는 Unique Key를 가져야 한다.
-{: .prompt-info }
+{: .prompt-warn }
 
 ![43-ex-fk(2)](/assets/img/posts/study/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/43-ex-fk(2).jpg)
 *자식 테이블(`emp_test1`)에서 10번 부서원 삭제*
@@ -959,4 +967,3 @@ CREATE ROLE 롤명;
 
 - [홍은혜, "SQLD 2과목 PART3. 관리 구문 완벽정리", 홍쌤의 데이터랩, 2024-02-25](https://www.youtube.com/watch?v=ijpxmi4DPj4&list=PLbflMVhwy2jPIAzArCK90mqFlTtndFigS&index=4){: target="_blank" }
 - 한국데이터산업진흥원, SQL 자격검정 실전문제(서울: 한국데이터산업진흥원, 2016), 279.
-- [yunamom, Study with yuna](https://yunamom.tistory.com/){: target="_blank" }

@@ -71,5 +71,3 @@ image:
 ## 참고자료
 
 - [홍은혜, "SQLD 완벽정리 부록편", 홍쌤의 데이터랩, 2024-03-02](https://www.youtube.com/watch?v=ovGGaIGL2Ys&list=PLbflMVhwy2jPIAzArCK90mqFlTtndFigS&index=5){: target="_blank" }
-- 한국데이터산업진흥원, SQL 자격검정 실전문제(서울: 한국데이터산업진흥원, 2016), 279.
-- [yunamom, Study with yuna](https://yunamom.tistory.com/){: target="_blank" }
