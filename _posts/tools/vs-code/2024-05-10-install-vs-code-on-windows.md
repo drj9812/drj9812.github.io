@@ -27,7 +27,7 @@ image:
 	+ 일반적으로 개발자나 기술적으로 더 앞서 있는 사용자들을 대상으로 함
 	+ 주로 새로운 기능이나 개선 사항을 확인하고, 미리 테스트하며, 피드백을 제공하려는 사용자들에게 인기가 있음
 
-## Sourcetree 설치 파일 실행
+## VS Code 설치 파일 실행
 
 ![02-install-vs-code(1)](/assets/img/posts/tools/vs-code/install-vs-code-on-windows/02-install-vs-code(1).jpg)
 *다운로드된 파일 실행*
