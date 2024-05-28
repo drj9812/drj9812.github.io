@@ -1,9 +1,9 @@
 ---
-title: "[Website | 강의]김영한, \"스프링 부트와 JPA 활용1 - 프로젝트 환경 설정\""
-categories: [Programming, Website]
+title: "[Web | 강의]김영한, \"스프링 부트와 JPA 활용1 - 프로젝트 환경 설정\""
+categories: [Programming, Web]
 tags: [Programming, Java, 자바, Spring Boot, 스프링 부트, JPA, Thymeleaf, H2 Database, 인프런, Inflearn, 김영한]
 image:
-  path: /assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/01-using-spring-boot-and-jpa-logo.jpg
+  path: /assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/01-using-spring-boot-and-jpa-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: 김영한, "실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발"
 ---
@@ -30,13 +30,13 @@ image:
 
 ### 프로젝트 생성
 
-![01-create-project(1)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/01-create-project(1).jpg)
+![01-create-project(1)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/01-create-project(1).jpg)
 *`Project Explorer` 창 내에서 우클릭 > `New` > `Project...`*
 
-![02-create-project(2)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/02-create-project(2).jpg)
+![02-create-project(2)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/02-create-project(2).jpg)
 *`Spring Boot/Spring Starter Project` > `Next >`*
 
-![03-create-project(3)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/03-create-project(3).jpg)
+![03-create-project(3)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/03-create-project(3).jpg)
 *설정 > `Next >`
 
 - `Group`
@@ -51,7 +51,7 @@ image:
 	+ 소스 코드의 패키지 이름
 	+ `groupId.artifactId` 형식 권장
 
-![04-create-project(4)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/04-create-project(4).jpg)
+![04-create-project(4)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/04-create-project(4).jpg)
 *라이브러리 검색 후 추가 > `Next >`*
 
 - Spring Web
@@ -76,7 +76,7 @@ image:
 > 스프링 부트 3.0 버전 이상을 사용할 때는 Java는 17 버전 이상, H2 Database는 2.1.214 버전 이상을 사용해야 하며, 오라클과 자바 라이센스 문제로 `javax` 패키지 이름을 `jakarta`로 변경해야 한다.
 {: .prompt-info } 
 
-![05-create-project(5)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/05-create-project(5).jpg)
+![05-create-project(5)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/05-create-project(5).jpg)
 *`Finish`*
 
 ```groovy
@@ -138,18 +138,18 @@ tasks.named('test') {
 > 스프링 부트 2.2 버전부터는 기본적으로 JUnit 5를 지원하기 때문에 JUnit 4를 사용하려면 `dependencies` 에 `testImplementation("org.junit.vintage:junit-vintage-engine") { exclude group: "org.hamcrest", module: "hamcrest-core" }` 코드를 추가한다.(정확히 말하면 JUnit5에서 JUnit4의 프로그램을 돌릴 수 있도록 하는 설정)
 {: .prompt-info }
 
-![06-create-project(6)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/06-create-project(6).jpg)
+![06-create-project(6)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/06-create-project(6).jpg)
 *애플리케이션 실행 > 로그창에 나오는 포트 번호 확인*
 
 > Main 메서드는 Spring Starter Project로 프로젝트를 생성할 때 같이 생성된다.
 {: .prompt-info }
 
-![07-create-project(7)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/07-create-project(7).jpg)
+![07-create-project(7)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/07-create-project(7).jpg)
 *주소창에 `localhost:포트 번호` 또는 `http://127.0.0.1:포트 번호/`입력*
 
 위와 같은 페이지가 나타나면 성공이다.
 
-![08-create-project(8)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/08-create-project(8).jpg)
+![08-create-project(8)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/08-create-project(8).jpg)
 
 스프링 부트는 기본적으로 JUnit을 내장하고 있는데, 기본 테스트 클래스를 실행하여 정상적으로 작동되는지 확인한다.
 
@@ -162,7 +162,7 @@ $ gradlew dependencies --configuration compileClasspath
 
 강의에서 사용하는 인텔리제이와 달리 이클립스에서는 Gradle 기반의 프로젝트의 의존성 계층 구조를 보여주는 기능을 제공하지 않아 위와 같이 명령어를 사용해 cmd 창에서 직접 확인해야 한다.
 
-![09-browse-library](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/09-browse-library.jpg)
+![09-browse-library](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/09-browse-library.jpg)
 
 - lombok: Java 개발에서 반복적인 코드 작성을 줄여주는 라이브러리
 - spring-boot-starter-data-jpa
@@ -277,11 +277,11 @@ public class HelloController {
 
 <a id="anchor1"></a>
 
-![10-view-configuration(1)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/10-view-configuration(1).jpg)
+![10-view-configuration(1)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/10-view-configuration(1).jpg)
 
 `<p>` 태그의 content인 "안녕하세요. 손님"이라는 문자열은 렌더링되어 "안녕하세요. Hello!!"로 대체되었다. 또한, 페이지 소스코드에서 확인할 수 있듯이 브라우저는 타임리프의 `th:` 속성을 알지 못한다. 
 
-![11-view-configuration(2)](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/11-view-configuration(2).jpg)
+![11-view-configuration(2)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/11-view-configuration(2).jpg)
 
 [서버에서 동적으로 HTML 코드를 생성하여 렌더링된 페이지의 출력 결과](#anchor1)와 다르게 hello.html{: .filepath }을 직접 열 경우 순수 HTML 코드가 출력되어 `<p>` 태그의 content인 "안녕하세요. 손님"이라는 문자열이 그대로 출력되었다는 것을 알 수 있다.
 
@@ -291,7 +291,7 @@ public class HelloController {
 
 ### JPA와 DB 설정, 동작 확인
 
-![12-project-structure](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/12-project-structure.jpg)
+![12-project-structure](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/12-project-structure.jpg)
 
 ```yaml
 spring:
@@ -499,10 +499,10 @@ class MemberRepositoryTest {
 
  <div style="display: flex;">
     <figure style="flex: 1; margin-left: 10px;">
-        <img src="/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/13-test-jpa.jpg" style="width: 100%;" alt="01-field-class">
+        <img src="/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/13-test-jpa.jpg" style="width: 100%;" alt="01-field-class">
     </figure>
     <figure style="flex: 1; margin-right: 10px;">
-        <img src="/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/14-test-jpa-result.jpg" style="width: 100%;" alt="02-getdeclaredfields()">
+        <img src="/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/14-test-jpa-result.jpg" style="width: 100%;" alt="02-getdeclaredfields()">
     </figure>
 </div>
 
@@ -522,7 +522,7 @@ $ cd libs
 $ java -jar jpashop-0.0.1-SNAPSHOT.jar
 ```
 
-![15-result-build-jar](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/project-configuration/15-result-build-jar.jpg)
+![15-result-build-jar](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/15-result-build-jar.jpg)
 *결과*
 
 ## 다음 글

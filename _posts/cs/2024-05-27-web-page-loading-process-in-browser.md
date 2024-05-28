@@ -1,6 +1,6 @@
 ---
-title: "[Web]브라우저에서 웹 페이지 로딩 과정"
-categories: [CS, Web]
+title: "[CS]브라우저에서 웹 페이지 로딩 과정"
+categories: [CS]
 tags: [CS, Web, 웹, Browser, 브라우저]
 ---
 

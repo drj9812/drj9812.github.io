@@ -29,6 +29,8 @@ image:
 	+ <kbd>Shift</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>
 - 설정 창
 	+ <kbd>Ctrl</kbd> + <kbd>,</kbd>
+- 줄 삭제
+	+ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>
 
 ## 설정
 

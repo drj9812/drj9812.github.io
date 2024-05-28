@@ -1,9 +1,9 @@
 ---
-title: "[Website | 강의]김영한, \"스프링 부트와 JPA 활용1 - 도메인 분석 설계\""
-categories: [Programming, Website]
+title: "[Web | 강의]김영한, \"스프링 부트와 JPA 활용1 - 도메인 분석 설계\""
+categories: [Programming, Web]
 tags: [Programming, Java, 자바, Spring Boot, 스프링 부트, JPA, 인프런, Inflearn, 김영한]
 image:
-  path: /assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/01-using-spring-boot-and-jpa-logo.jpg
+  path: /assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/01-using-spring-boot-and-jpa-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: 김영한, "실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발"
 ---
@@ -32,7 +32,7 @@ image:
 
 ## 요구사항 분석
 
-![01-requirement](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/01-requirement.jpg)
+![01-requirement](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/01-requirement.jpg)
 *요구사항*
 
 | 요구사항 명 |          기능 ID        |    기능 명   | 필수 데이터 |
@@ -48,7 +48,7 @@ image:
 
 ## 도메인 모델과 테이블 설계
 
-![02-domain-model](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/02-domain-model.jpg)
+![02-domain-model](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/02-domain-model.jpg)
 *도메인 모델*
 
 - 회원과 주문은 일대다(1:N) 관계
@@ -61,7 +61,7 @@ image:
 
 ### Entity 분석
 
-![03-entity](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/03-entity.jpg)
+![03-entity](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/03-entity.jpg)
 *Entity*
 
 #### 회원(Member)
@@ -135,7 +135,7 @@ image:
 
 ### 테이블 분석
 
-![04-table](/assets/img/posts/programming/website/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/04-table.jpg)
+![04-table](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/domain-analysis-design/04-table.jpg)
 *Table*
 
 > 상품(ITEM) 테이블은 싱글 테이블 전략을 사용한 것이다.
