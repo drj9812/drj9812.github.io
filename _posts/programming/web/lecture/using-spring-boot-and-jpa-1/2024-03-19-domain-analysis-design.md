@@ -589,7 +589,7 @@ System.out.println(member.getOrders().getClass()); // class org.hibernate.collec
 2. `.`(점) > `_`(언더스코어)
 3. 대문자 > 소문자
 
-#### 적용 2 단계
+#### 적용 2단계
 
 1. 논리명 생성: 명시적으로 컬럼, 테이블명을 직접 적지 않으면 `ImplicitNamingStrategy` 사용
 	- `spring.jpa.hibernate.naming.implicit-strategy`: 테이블이나, 컬럼명을 명시하지 않을 때 논리명 적용
