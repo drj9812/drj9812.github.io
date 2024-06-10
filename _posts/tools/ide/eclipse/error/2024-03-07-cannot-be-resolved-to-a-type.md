@@ -30,7 +30,7 @@ Import한 프로젝트에 컴파일 에러가 발생했다.
 - `The project was not built since its build path is incomplete. Cannot find the class file for java.lang.Object. Fix the build path then try building this project`
 - `The type java.lang.Object cannot be resolved. it is indirectly referenced from required .class files`
 
-프로젝트를 빌드하는 데 문제가 생겨 `java.lang.Object`의 클래스 파일을 찾을 수 없다는 말이다. Import한 프로젝트의 JDK 버전과 현재 사용중인 JDK 버전이 일치하지 않을 경우 발생한다.
+프로젝트를 빌드하는 데 문제가 생겨 `java.lang.Object`의 클래스 파일을 찾을 수 없다는 말이다. **Import한 프로젝트의 JDK 버전과 현재 사용중인 JDK 버전이 일치하지 않을 경우 발생한다.**
 
 ## 해결 방법
 
