@@ -92,6 +92,6 @@ $ bash git rebase 병합할_브랜치명
 ![12-ex-conflict(12)](/assets/img/posts/tools/git/merge-and-rebase/12-ex-conflict(12).jpg)
 *브랜치 정리 결과*
 
-# 참고자료
+## 참고자료
 
 - [얄코, "제대로 파는 Git & GitHub - 깃 끝.장.내.기", 얄팍한 코딩사전, 2022-01-21](https://www.youtube.com/watch?v=1I3hMwQU6GU){: target="_blank" }

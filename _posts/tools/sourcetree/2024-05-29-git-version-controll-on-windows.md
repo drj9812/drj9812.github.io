@@ -1,11 +1,11 @@
 ---
-title: "[SourceTree]Git 버전 관리(Windows)"
-categories: [Tools, SourceTree]
-tags: [SourceTree, 소스트리, Git, 깃]
+title: "[Sourcetree]Git 버전 관리(Windows)"
+categories: [Tools, Sourcetree]
+tags: [Sourcetree, 소스트리, Git, 깃]
 image:
   path: /assets/img/posts/tools/sourcetree/01-sourcetree-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
-  alt: SourceTree
+  alt: Sourcetree
 ---
 
 # Git 버전 관리(Windows)
@@ -51,6 +51,6 @@ image:
 ![11-reset(4)](/assets/img/posts/tools/sourcetree/git-version-controll-on-windows/11-reset(4).jpg)
 *`Reset` 완료*
 
-# 참고자료
+## 참고자료
 
 - [얄코, "제대로 파는 Git & GitHub - 깃 끝.장.내.기", 얄팍한 코딩사전, 2022-01-21](https://www.youtube.com/watch?v=1I3hMwQU6GU){: target="_blank" }

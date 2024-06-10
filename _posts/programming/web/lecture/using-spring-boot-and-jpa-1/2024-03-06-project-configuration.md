@@ -135,7 +135,7 @@ tasks.named('test') {
 > Maven은 프로젝트 빌드 설정을 XML 형식으로 작성한다.
 {: .prompt-info }
 
-> 스프링 부트 2.2 버전부터는 기본적으로 JUnit 5를 지원하기 때문에 JUnit 4를 사용하려면 `dependencies` 에 `testImplementation("org.junit.vintage:junit-vintage-engine") { exclude group: "org.hamcrest", module: "hamcrest-core" }` 코드를 추가한다.(정확히 말하면 JUnit5에서 JUnit4의 프로그램을 돌릴 수 있도록 하는 설정)
+> 스프링 부트 2.2 버전부터는 기본적으로 JUnit 5를 지원하기 때문에 JUnit 4를 사용하려면 `dependencies` 에 `testImplementation("org.junit.vintage:junit-vintage-engine") { exclude group: "org.hamcrest", module: "hamcrest-core" }` 코드를 추가한다(정확히 말하면 JUnit 5에서 JUnit 4의 프로그램을 돌릴 수 있도록 하는 설정)
 {: .prompt-info }
 
 ![06-create-project(6)](/assets/img/posts/programming/web/lecture/using-spring-boot-and-jpa-1/project-configuration/06-create-project(6).jpg)
