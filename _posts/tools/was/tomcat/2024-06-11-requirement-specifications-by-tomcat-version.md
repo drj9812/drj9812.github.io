@@ -47,7 +47,7 @@ image:
 ### 9.x(Stable)
 
 - Tomcat 8.0.x 및 8.5.x를 기반으로 구축된 버전
-- Java EE 스펙 구현
+- Java EE 8 스펙 구현
     + Servlet 4.0
     + JSP 2.3
     + EL 3.0
