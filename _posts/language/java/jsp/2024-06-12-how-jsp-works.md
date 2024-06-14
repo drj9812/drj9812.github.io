@@ -28,16 +28,16 @@ image:
 - JSP 스크립트 요소 중 **표현식(Expression)**은 변환된 Servlet의 `_jspService()` 메서드 안에서 **`out.print()` 으로 변환**
 - JSP 스크립트 요소 중 **선언문(Declaration)**에 작성된 소스는 변환된 Servlet의 **멤버 메서드로 변환**
 - JSP에 작성된 **HTML 태그**는 변환된 Servlet의 `_jspService()` 메서드 안에서 **`out.write()` 메서드로 변환**
-- **page 디렉티브 태그**는 JSP 엔진에게 페이지에 대한 지시를 제공하며, 이 지시는 JSP 엔진이 JSP 파일을 Servlet으로 변환할 때 참고됨
+- **page 디렉티브**는 JSP 엔진에게 페이지에 대한 지시를 제공하며, 이 지시는 JSP 엔진이 JSP 파일을 Servlet으로 변환할 때 참고됨
 
 ### 예시
 
 #### scriptlet.jsp
 
 ```html
-<%@page import="com.itwill.jsp1.model.Contact" %>
-<%@page import="java.util.ArrayList"%>
-<%@page language="java"
+<%@ page import="com.itwill.jsp1.model.Contact" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page language="java"
         contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"
         trimDirectiveWhitespaces="true"%>
@@ -408,9 +408,9 @@ public void _jspService(final jakarta.servlet.http.HttpServletRequest request,
 ##### page 디렉티브 태그
 
 ```jsp
-<%@page import="com.itwill.jsp1.model.Contact" %>
-<%@page import="java.util.ArrayList"%>
-<%@page language="java"
+<%@ page import="com.itwill.jsp1.model.Contact" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page language="java"
         contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"
         trimDirectiveWhitespaces="true"%>

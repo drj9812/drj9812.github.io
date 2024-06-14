@@ -64,4 +64,6 @@ image:
 - 이러한 Apache Tomcat 버전은 수명이 종료되었으므로 사용자는 지원되는 버전으로 업그레이드하는 것을 권장
 
 ## 참고자료
+
 - ["Which version?", Apache Tomcat, Date unknown](https://tomcat.apache.org/whichversion.html){: target="_blank" }
+- <https://jakarta.ee/specifications/pages/>{: target="_blank" }
