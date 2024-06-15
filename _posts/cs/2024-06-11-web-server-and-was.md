@@ -35,6 +35,29 @@ tags: [CS, Web Server, WAS]
     + 생성 및 전달에 더 많은 서버 자원이 필요하고, 로딩 시간이 길어질 수 있음
 - 온라인 상점의 제품 목록 페이지, 소셜 미디어의 피드
 
+#### 처리 방법
+
+##### 스크립트 방식
+
+- 클라이언트가 서버에 웹 문서를 요청하면 웹 문서에 동적인 요소를 포함하는 방식
+- PHP
+- ASP.NET Web Forms
+  + VBScript 또는 JavaScript 기반
+- JSP
+  + Java 기반
+
+##### 재생성 방식
+
+- 클라이언트가 서버에 웹 문서를 요청하면 서버가 다른 애플리케이션을 통해 웹 문서를 재생성하여 제공하는 방식
+- CGI(Common Gateway Interface)
+  + Perl, Python, C 등 다양한 언어로 작성된 외부 프로그램
+- Node.js with Express
+  + JavaScript와 Express 프레임워크를 사용하는 서버 애플리케이션
+- Ruby on Rails
+  + Ruby 기반의 서버 애플리케이션 프레임워크
+- Servlet
+  + Java 기반의 서버 애플리케이션
+
 ## Web Server와 WAS의 차이
 
 ![02-web-service-architecture(1)](/assets/img/posts/cs/web/web-server-and-was/02-web-service-architecture(1).jpg)
@@ -47,6 +70,7 @@ tags: [CS, Web Server, WAS]
     + 하드웨어적 개념
 - **클라이언트(웹 브라우저 또는 웹 크롤러)로부터 HTTP 요청을 받아 정적인 컨텐츠를 제공**하는 컴퓨터 프로그램
     + 소프트웨어적 개념
+    + HTTP라는 프로토콜을 기반으로 동작하므로 HTTP 서버라고도 불림
 - Apache Server, Nginx, IIS(Windows 전용 Web Server) 등
 
 #### Web Server의 기능
@@ -55,6 +79,8 @@ tags: [CS, Web Server, WAS]
     + WAS를 거치지 않고 바로 자원을 제공
 - 동적인 컨텐츠 제공을 위한 요청 전달
     + 클라이언트의 요청(Request)을 WAS에 보내고, WAS가 처리한 결과를 클라이언트에게 전달(Response)
+- 요청 파일이 없거나 문제가 발생하면 정해진 코드 값으로 응답
+- 클라이언트로부터의 요청에 대한 기본 사용자 인증(Basic Authentication) 처리
 
 ### WAS(Web Application Server)
 
@@ -71,14 +97,14 @@ tags: [CS, Web Server, WAS]
 
 - Web Server + Web Container
 - Web Server 기능들을 구조적으로 분리하여 처리하고자하는 목적으로 제시됨
-    + 분산 트랜젝션, 보안, 메시징, 쓰레드 처리 등의 기능을 처리하는 분산 환경에서 사용됨
+    + 분산 트랜잭션, 보안, 메시징, 쓰레드 처리 등의 기능을 처리하는 분산 환경에서 사용됨
     + DB와 같이 수행됨
 
 #### WAS의 주요 기능
 
 - 프로그램 실행 환경과 DB 접속 기능 제공
-- 여러 개의 트랜젝션 관린 가능
 - 업무를 처리하는 비즈니스 로직 수행
+- 엔터프라이즈 환경에서 필요한 트랜잭션 보안, 트래픽 관리, DB 커넥션 풀, 사용자 관리 기능 등
 
 ### Web Server와 WAS를 구분하는 이유
 
@@ -89,6 +115,10 @@ tags: [CS, Web Server, WAS]
 #### WAS가 필요한 이유
 
 웹 페이지는 정적 컨텐츠와 동적 컨텐츠가 모두 존재한다. 사용자의 요청에 맞게 적절한 동적 컨텐츠를 만들어서 제공해야 한다. 이때, Web Server만을 이용한다면 사용자가 원하는 요청에 대한 결과값을 모두 미리 만들어 놓고 서비스를 해야 한다. 하지만 이렇게 수행하기에는 자원이 절대적으로 부족하다. 따라서 WAS를 통해 요청에 맞는 데이터를 DB에서 가져와서 비즈니스 로직에 맞게 그때 그때 결과를 만들어서 제공함으로써 자원을 효율적으로 사용할 수 있다.
+
+웹 서버에서는 클라이언트로부터의 요청을 다양한 목적으로 서비스하기 위해 HTML뿐만 아니라 다양한 형식의 문서와 웹 애플리케이션을 처리한다. 그런데 여러 웹 클라이언트로부터의 요구를 웹 서버 단독으로 처리하면 서버의 처리량이 많아지고 속도 및 보안 같은 성능에 문제가 생긴다. 또한, 웹과 C/S(Client/Server) 환경을 모두 필요로 할 때는 웹 기반의 요청과 C/S 환경 기반의 요청을 각각 개별적으로 처리하도록 구축하여야 한다.
+
+이러한 여러 가지 이유로 여러 개의 서버를 병렬로 처리하는 방법을 쓰기도 하지만, 웹 서버의 기능을 분리해서 처리하려는 목적으로 WAS를 사용한다. 클라이언트로부터 요청받은 일과 화면에 표현하는 로직(Presentation Logic)까지만 웹 서버에서 담당하고, 다양한 기능을 수행하는 로직(Business Logic)은 컨테이너가 담당하도록 WAS에서 일을 나누어 역할을 분담하는 것이다.
 
 #### WAS가 Web Server의 기능도 모두 수행하면 되지 않을까?
 
@@ -167,3 +197,4 @@ Web Server를 WAS 앞에 두고 필요한 WAS들을 Web Server에 플러그인 �
 
 - [heejeong Kwon, "[Web] Web Server와 WAS의 차이와 웹 서비스 구조", Heee's Development Blog, 2018-10-27](https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html){: target="_blank" }
 - [melonicedlatte, "웹 서버와 WAS, 컨테이너의 개념 알아보기", Easy is Perfect, 2019-06-23](https://melonicedlatte.com/web/2019/06/23/210300.html){: target="_blank" }
+- 오정임, 처음 해보는 Servlet & JSP 웹 프로그래밍(부천: 루비페이퍼, 2023), 608.

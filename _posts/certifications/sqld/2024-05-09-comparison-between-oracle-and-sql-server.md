@@ -53,7 +53,7 @@ image:
 - 오라클은 DDL만 AUTO `COMMIT`
 	+ DML의 경우 수동 `COMMIT`
 - SQL Server는 DML, DDL 모두 AUTO `COMMIT`이 기본
-	+ `TRANSACTION` 선언으로 트랜젝션별 수동 `COMMIT` 또는 `ROLLBACK` 처리 가능
+	+ `TRANSACTION` 선언으로 트랜잭션별 수동 `COMMIT` 또는 `ROLLBACK` 처리 가능
 - 세션별 또는 IDE별 설정 변경 가능
 	+ 오라클도 AUTO `COMMIT` 설정 변경 가능
 

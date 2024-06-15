@@ -18,6 +18,9 @@ image:
 
 클라이언트가 JSP 페이지를 요청하면 웹 서버는 이 HTTP 요청을 수신하고 WAS에 요청을 위임한다. 최초 요청인 경우에는 Servlet이 존재하지 않으므로 해당 JSP 파일은 **JSP 엔진(Jasper) 의해 Java 파일로 변환되며 이 파일은 Servlet(`HttpServlet` 클래스를 상속받는 클래스) 역할을 수행**한다. Servlet 엔진(Servlet 컨테이너)은 변환된 Servlet 클래스를 이용하여 Servlet 객체 생성 후 `_jspInit()` 메서드를 통해 초기화하고 `_jspService()` 메서드를 실행해 클라이언트의 요청을 처리한다. `_jspInit()`, `_jspService()` 메서드는 각각 `HttpServlet` 클래스에 정의된 `init()`, `service()` 메서드를 오버라이딩한 메서드다.
 
+> JSP 엔진(JSP 컨테이너)는 JSP 파일을 Servlet 소스로 변환 및 컴파일까지만 담당하는 프로그래밍이며, 변환된 Servlet의 수행은 Servlet 엔진이 담당한다.
+{: .prompt-info }
+
 > 개발자는 Servlet 엔진을 설치 한 후 서블릿 엔진에게 자기가 개발한 비즈니스 로직, 즉 클래스 파일과 해당 클래스 파일을 어느 요청에서 실행해야 하는지 알려줘야 한다. 이때 우리는 Servlet 엔진이 이해할 수 있는 형태로 클래스 파일을 작성해야 한다. 구체적으로 Servlet 엔진이 이해할 수 있는 클래스란 `javax.servlet.http.HttpServlet`을 상속받는 서브 클래스를 의미하며, 우리는 `HttpServlet` 클래스를 상속받는 클래스를 작성해 특정 형식에 맞춰 압축해 전달해준다. 이렇게 Servlet 엔진을 이용해 개발자는 서버를 처음부터 구현하지 않고도 각기 다른 비즈니스 로직을 구현하고 배포할 수 있다.
 {: .prompt-info }
 
