@@ -1,5 +1,5 @@
 ---
-title: "[Tomcat]버전 별 요구 스펙"
+title: "[Tomcat]버전별 요구 스펙"
 categories: [Tools, WAS]
 tags: [WAS, Tomcat, 톰캣]
 image:
@@ -8,7 +8,7 @@ image:
   alt: Apache Tomcat
 ---
 
-# 버전 별 요구 스펙
+# 버전별 요구 스펙
 
 - 2024-06-11 기준
 

@@ -1035,4 +1035,4 @@ REGEXP_COUNT(원본, 찾을문자열, 시작위치, [옵션])
 ## 참고자료
 
 - [홍은혜, "SQLD 2과목 PART2. SQL 활용 완벽 정리(2024 신유형 반영)", 홍쌤의 데이터랩, 2024-02-20](https://www.youtube.com/watch?v=EXx6fjxycSY&list=PLbflMVhwy2jPIAzArCK90mqFlTtndFigS&index=3){: target="_blank" }
-- 한국데이터산업진흥원, SQL 자격검정 실전문제(서울: 한국데이터산업진흥원, 2016), 279.
+- 한국데이터산업진흥원, *SQL 자격검정 실전문제*(서울: 한국데이터산업진흥원, 2016), 279.

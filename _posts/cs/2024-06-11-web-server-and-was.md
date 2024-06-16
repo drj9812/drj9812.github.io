@@ -197,4 +197,4 @@ Web Server를 WAS 앞에 두고 필요한 WAS들을 Web Server에 플러그인 �
 
 - [heejeong Kwon, "[Web] Web Server와 WAS의 차이와 웹 서비스 구조", Heee's Development Blog, 2018-10-27](https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html){: target="_blank" }
 - [melonicedlatte, "웹 서버와 WAS, 컨테이너의 개념 알아보기", Easy is Perfect, 2019-06-23](https://melonicedlatte.com/web/2019/06/23/210300.html){: target="_blank" }
-- 오정임, 처음 해보는 Servlet & JSP 웹 프로그래밍(부천: 루비페이퍼, 2023), 608.
+- 오정임, *처음 해보는 Servlet & JSP 웹 프로그래밍*(부천: 루비페이퍼, 2017), 608.
