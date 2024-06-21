@@ -86,6 +86,7 @@ public void _jspService(final jakarta.servlet.http.HttpServletRequest request,
 - `_jspService()` 메서드 내의 `out.print()` 문으로 변환
 - 표현식은 값을 간단히 출력하는 데 유용하며, 표현식 안에 복잡한 로직을 포함시키는 것은 피하는 것이 좋음
   + 변수 값, 계산 결과, 또는 메서드 호출 결과를 출력
+- 페이지가 요청될 때마다 실행
 
 ## 선언문(Declaration)
 
@@ -112,6 +113,7 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 - JSP 페이지에 변수나 메서드를 선언하는 데 사용
 - Servlet 클래스의 멤버 변수나 메서드로 포함됨
+  + 클래스 수준에서 한 번만 실행
 
 ## 디렉티브(Directive)
 
@@ -125,11 +127,11 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 ```jsp
 <%@ page import="com.itwill.jsp1.model.Contact" %>
-<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java"
         contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"
-        trimDirectiveWhitespaces="true"%>
+        trimDirectiveWhitespaces="true" %>
 ```
 {: file="scriptlet.jsp" }
 
@@ -198,7 +200,7 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 <body>
   <%@ include file="header.jsp" %>
   <main>
-		<h1>메인 페이지</h1>
+    <h1>메인 페이지</h1>
     <a href="./">인덱스 페이지</a>
   </main>
   <%@ include file ="footer.jspf" %>
@@ -208,32 +210,33 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 - JSP 페이지 내에서 다른 JSP 페이지나 HTML 파일의 내용을 포함시키기 위해 사용
   + 웹 페이지에서 자주 반복되는 내용이 있고, 그 내용이 바뀌지 않는다면 JSP 조각을 만들어놓고 부품을 조립하듯이 원하는 위치에다가 띄우는 것
 - 컴파일 시 포함될 파일의 내용이 현재 JSP 페이지에 복사
-  + JSP 페이지가 컴파일될 때 포함된 파일의 내용이 통합된 하나의 서블릿 파일이 생성
+  + **JSP 페이지가 컴파일될 때 포함된 파일의 내용이 통합된 하나의 Servlet 파일이 생성**
   + 포함된 파일이 현재 페이지의 일부로 간주되어 컴파일 시점에 병합
 - 일반적으로 컴파일 시점에 병합되므로 런타임 오버헤드가 없음
-
-#### <jsp:include> 액션 태그와의 비교
-
-- 포함시점
-  + include 디렉티브: 컴파일 시점에 포함
-  + `<jsp:include>` 액션 태그: 런타임 시점에 포함
-- 변경 반영
-  + include 디렉티브: 포함된 파일이 변경되면 포함하는 파일을 다시 컴파일해야 변경 내용이 반영
-  + `<jsp:include>` 액션 태그: 포함된 파일이 변경되면 즉시 반영
-- 성능
-  + include 디렉티브: 컴파일 시점에 병합되므로 런타임 오버헤드가 없음
-  + `<jsp:include>` 액션 태그: 런타임 시점에 포함되므로 약간의 오버헤드가 발생할 수 있음
-- 사용 용도
-  + include 디렉티브: 페이지의 일부분이 고정적이고 변경이 적을 때 사용
- + `<jsp:include>` 액션 태그: 페이지의 일부분이 동적으로 변경되거나 자주 업데이트될 때 사용
-- 파일 경로
-  + include 디렉티브: 포함할 파일의 경로를 상대 경로로 지정
-  + `<jsp:include>` 액션 태그: 포함할 파일의 경로를 상대 경로 또는 절대 경로로 지정할 수 있음
-- 파일 확장자
-  + include 디렉티브: JSP 파일, JSPF 파일, HTML, 텍스트 파일
-  + `<jsp:include>` 액션 태그: JSP 파일
+- 참조
+  + [[Java \| JSP]include 디렉티브와 include 액션 태그의 차이](https://drj9812.github.io/posts/the-difference-between-include-directive-and-include-action-tag/){: target="_blank" }
 
 ### taglib
+
+```jsp
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+  <head>
+    <title>JSTL forEach Example</title>
+  </head>
+  <body>
+    <c:set var="items" value="${['Apple', 'Banana', 'Cherry']}" />
+    
+    <h2>Fruits List:</h2>
+    <c:forEach var="fruit" items="${ items }">
+      <p>${fruit}</p>
+    </c:forEach>
+  </body>
+</html>
+```
+
+- 사용자가 정의한 태그 라이브러리를 JSP 페이지에서 사용할 수 있도록 선언
+- 자주 사용되는 로직을 재사용 가능한 태그로 정의하여 JSP 페이지에서 사용할 수 있게 함
 
 ## 주석(Comment)
 
@@ -244,7 +247,7 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 | Java 주석 | `/* ... */` 또는 `// ...`	| 스크립트릿이나 선언문 내부에서 사용되며, 클라이언트에게 보이지 않음 |
 
 ```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"n %>
 <!DOCTYPE html>
 <html>
   <head>

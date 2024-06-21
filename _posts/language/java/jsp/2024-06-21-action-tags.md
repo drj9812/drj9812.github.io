@@ -24,6 +24,11 @@ image:
 ```
 
 - 자바빈을 선언하고, 인스턴스화하며, 스코프 내에서 사용하도록 설정
+- `id`: 인스턴스 이름
+- `class`: 클래스 경로
+- `scope`
+  + 생성한 자바빈 객체를 저장할 곳
+  + Default page
 
 ## jsp:setProperty
 
@@ -55,6 +60,8 @@ image:
 
 - 다른 JSP 파일을 현재 페이지에 포함
 - 정적인 포함(inlcude 디렉티브)과는 다르게 동적으로 실행
+- 참조
+  + [[Java \| JSP]include 디렉티브와 include 액션 태그의 차이](https://drj9812.github.io/posts/the-difference-between-include-directive-and-include-action-tag/){: target="_blank" }
 
 ## jsp:forward
 
@@ -79,9 +86,9 @@ image:
 ## 예시
 
 ```jsp
-<%@ page import="com.itwill.jsp1.model.Contact"%>
+<%@ page import="com.itwill.jsp1.model.Contact" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
 <html>
   <head>
