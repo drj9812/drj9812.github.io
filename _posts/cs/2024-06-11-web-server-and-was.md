@@ -162,7 +162,6 @@ Web Server를 WAS 앞에 두고 필요한 WAS들을 Web Server에 플러그인 �
 5. `HttpServletRequest`와 `HttpServletResponse` 객체를 생성하여 Servlet에 전달
     1. Thread는 Servlet의 `service()` 메서드를 호출
     2. `service()` 메서드는 요청에 맞게 `doGet()` 또는 `doPost()` 메서드를 호출
-    3. `protected doGet(HttpServletRequest request, HttpServletResponse response)`
 6. `doGet()` 또는 `doPost()` 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 Response 객체에 담아 WAS에 전달
 7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달
 8. 생성된 Thread를 종료하고, `HttpServletRequest`와 `HttpServletResponse` 객체를 제거
