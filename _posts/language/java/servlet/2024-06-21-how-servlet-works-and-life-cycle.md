@@ -50,7 +50,7 @@ public class lifeCycleServlet extends HttpServlet {
     }
 }
 ```
-{: name="lifeCycleServlet.java" }
+{: file="lifeCycleServlet.java" }
 
 ## 클라이언트 요청 수신
 
@@ -92,6 +92,9 @@ public class lifeCycleServlet extends HttpServlet {
 - Servlet은 HTML, JSON, XML 등의 형식으로 응답을 생성
 - DB 조회 결과나 다른 자원으로부터 받은 데이터를 사용하여 동적인 내용을 생성할 수 있음
 
+> Content-Type은 `PrintWriter` 객체를 얻기 전에 설정하는 것이 좋다. 그렇지 않으면 응답의 Content-Type이 올바르게 설정되지 않을 수 있다.
+{: .prompt-warning }
+
 ## 응답 전송
 
 ![06-send-response](/assets/img/posts/language/java/servlet/how-servlet-works-and-life-cycle/06-send-response.jpg)
@@ -103,7 +106,7 @@ public class lifeCycleServlet extends HttpServlet {
 
 ![07-destroy()](/assets/img/posts/language/java/servlet/how-servlet-works-and-life-cycle/07-destroy().jpg)
 
-- Servlet이 메모리에서 제거될 때 `destroy()` 메서드를 호출하여 자원을 정리하고 인스턴스를 제거
+- **Servlet이 메모리에서 제거될 때 `destroy()` 메서드를 호출**하여 자원을 정리하고 인스턴스를 제거
   + 서버 종료
   + Servlet 재배포
   + Servlet 언로드
