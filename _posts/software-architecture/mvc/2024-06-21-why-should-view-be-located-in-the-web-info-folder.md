@@ -6,7 +6,7 @@ tags: [Software Architecture, Design Pattern, 디자인 패턴, MVC]
 
 # 왜 VIEW는 WEB-INFO 폴더에 위치해야 하는가
 
-## 보안 강화:
+## 보안 강화
 
 `/WEB-INF/`{: .filepath } 내의 JSP 파일은 URL로 직접 접근할 수 없다. 예를 들어, `http://example.com/WEB-INF/view.jsp`와 같은 요청은 서버에 의해 차단된다. 이렇게 함으로써 JSP 파일이 외부에 노출되지 않도록 하여 보안을 강화할 수 있다.
 
