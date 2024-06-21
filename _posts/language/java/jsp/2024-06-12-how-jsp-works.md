@@ -32,6 +32,8 @@ image:
 - JSP 스크립트 요소 중 **선언문(Declaration)**에 작성된 소스는 변환된 Servlet의 **멤버 메서드로 변환**
 - JSP에 작성된 **HTML 태그**는 변환된 Servlet의 `_jspService()` 메서드 안에서 **`out.write()` 메서드로 변환**
 - **page 디렉티브**는 JSP 엔진에게 페이지에 대한 지시를 제공하며, 이 지시는 JSP 엔진이 JSP 파일을 Servlet으로 변환할 때 참고됨
+- 참조
+  + [[JSP]스크립팅 요소](https://drj9812.github.io/posts/scripting-elements/){: target="_blank" }
 
 ### 예시
 
@@ -456,8 +458,9 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 ## 로드 및 실행
 
 - 컴파일된 Servlet 클래스 파일이 로드되고, 서블릿 컨테이너에 의해 인스턴스화됨
-- Servlet의 `init()` 메서드가 호출되어 초기화 작업이 수행됨
-- 클라이언트의 요청이 들어오면 서블릿의 `service()` 메서드가 호출되고, 이 메소드 내에서 doGet(), doPost() 등의 메소드가 호출되어 요청을 처리
+- Servlet의 `_jspInit()` 메서드가 호출되어 초기화 작업이 수행됨
+- 클라이언트의 요청이 들어오면 서블릿의 `_jspService()` 메서드가 호출되고, 이 메소드 내에서 `doGet()`, `doPost()` 등의 메서드가 호출되어 요청을 처리
+  + 응답
 
 ## 응답 및 전송
 

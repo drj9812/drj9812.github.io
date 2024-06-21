@@ -10,13 +10,13 @@ tags: [CS, Web Server, WAS]
 
 ![01-static-pages-and-dynamic-pages](/assets/img/posts/cs/web/web-server-and-was/01-static-pages-and-dynamic-pages.jpg)
 
-|    특징   |     정적 페이지      |          동적 페이지          |
-|:---------:|:-------------------:|:-----------------------------:|
-|   콘텐츠  |         고정적       |             가변적            |
-| 생성 방식	| HTML 파일로 직접 작성 |       서버에서 실시간 생성     |
-| 로딩 속도 |          빠름	       |         상대적으로 느림        |
-|  유지보수 |     파일 수정 필요    | 코드와 데이터베이스 관리 필요  |
-| 사용 사례	|    정보 제공 사이트   |      사용자 상호작용 사이      |
+|    특징   |     정적 페이지      |      동적 페이지    |
+|:---------:|:-------------------:|:-------------------:|
+|   콘텐츠  |         고정적       |        가변적       |
+| 생성 방식	| HTML 파일로 직접 작성 | 서버에서 실시간 생성 |
+| 로딩 속도 |          빠름	       |   상대적으로 느림    |
+|  유지보수 |     파일 수정 필요    |  코드와 DB 관리 필요 |
+| 사용 사례	|    정보 제공 사이트   | 사용자 상호작용 사이 |
 
 ### 정적 페이지(Static Pages)
 
@@ -155,43 +155,46 @@ Web Server를 WAS 앞에 두고 필요한 WAS들을 Web Server에 플러그인 �
 ![03-web-service-architecture(2)](/assets/img/posts/cs/web/web-server-and-was/03-web-service-architecture(2).jpg)
 *Web Service Architecture 예시: 위 예시 말고 다른 구조가 될 수도 있다.*
 
-1. Web Server는 웹 브라우저 클라이언트로부터 HTTP 요청을 받는다.
-2. Web Server는 클라이언트의 요청(Request)을 WAS에 보낸다.
-3. WAS는 관련된 Servlet을 메모리에 올린다.
-4. WAS는 web.xml을 참조하여 해당 Servlet에 대한 Thread를 생성한다. (Thread Pool 이용)
-5. HttpServletRequest와 HttpServletResponse 객체를 생성하여 Servlet에 전달한다.
-    1. Thread는 Servlet의 service() 메서드를 호출한다.
-    2. service() 메서드는 요청에 맞게 doGet() 또는 doPost() 메서드를 호출한다.
-    3. protected doGet(HttpServletRequest request, HttpServletResponse response)
-6. doGet() 또는 doPost() 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 Response 객체에 담아 WAS에 전달한다.
-7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달한다.
-8. 생성된 Thread를 종료하고, HttpServletRequest와 HttpServletResponse 객체를 제거한다.
+1. Web Server는 웹 브라우저 클라이언트로부터 HTTP 요청을 받음
+2. Web Server는 클라이언트의 요청(Request)을 WAS에 보냄
+3. WAS는 관련된 Servlet을 메모리에 올림
+4. WAS는 `web.xml`{: .filpath }을 참조하여 해당 Servlet에 대한 Thread를 생성(Thread Pool 이용)
+5. `HttpServletRequest`와 `HttpServletResponse` 객체를 생성하여 Servlet에 전달
+    1. Thread는 Servlet의 `service()` 메서드를 호출
+    2. `service()` 메서드는 요청에 맞게 `doGet()` 또는 `doPost()` 메서드를 호출
+    3. `protected doGet(HttpServletRequest request, HttpServletResponse response)`
+6. `doGet()` 또는 `doPost()` 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 Response 객체에 담아 WAS에 전달
+7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달
+8. 생성된 Thread를 종료하고, `HttpServletRequest`와 `HttpServletResponse` 객체를 제거
+
+> `destroy()` 메서드는 Servlet이 메모리에서 제거될 때(서버 종료, Servlet 재배포, Servlet 언로드, Servlet 컨테이너의 재설정) 호출된다.
+{: .prompt-info }
 
 ## DBMS와 MiddleWare의 개념
 
 ### DBMS(Database Management System)
 
 - 다수의 사용자들이 DB 내의 데이터를 접근할 수 있도록 해주는 소프트웨어
-- DBMS는 보통 Server 형태로 서비스를 제공한다.
+- DBMS는 보통 Server 형태로 서비스를 제공
 - MySQL, MariaDB, Oracle, PostgreSQL 등
 
 #### DBMS Server에 직접 접속해서 동작하는 Client Program의 문제점
 
-- Client에 로직이 많아지고 이에 따라 Client Program의 크기가 커진다.
-- 로직이 변경될 때마다 매번 배포가 되어야 한다.
-- Client에 대부분의 로직이 포함되어 배포가 되기 때문에 보안에 취약하다.
+- 클라이언트에 로직이 많아지고 이에 따라 Client Program의 크기가 커짐
+- 로직이 변경될 때마다 매번 배포가 되어야 함
+- Client에 대부분의 로직이 포함되어 배포가 되기 때문에 보안에 취약
 - 이를 해결하기 위해 아래와 같은 MiddlWare가 등장
 
 ### MiddleWare
 
 - Client - MiddleWare Server - DB Server(DBMS)
 - 동작 과정
-    1. Client는 단순히 요청만 중앙에 있는 MiddleWare Server에게 보낸다.
-    2. MiddleWare Server에서 대부분의 로직이 수행된다.
-    3. 이때, 데이터를 조작할 일이 있으면 DBMS에 부탁한다.
-    4. 로직의 결과를 Client에게 전송한다.
-    5. Client는 그 결과를 화면에 보여준다.
-- 비즈니스 로직을 Client와 DBMS 사이의 MiddleWare Server에서 동작하도록 함으로써 Client는 입력과 출력만 담당하게 된다.
+    1. 클라이언트는 단순히 요청만 중앙에 있는 MiddleWare Server에게 전달
+    2. MiddleWare Server에서 대부분의 로직이 수행된
+    3. 이때, 데이터를 조작할 일이 있으면 DBMS에 부탁
+    4. 로직의 결과를 Client에게 전송
+    5. Client는 그 결과를 화면에 보여줌
+- 비즈니스 로직을 클라이언트와 DBMS 사이의 MiddleWare Server에서 동작하도록 함으로써 클라이언트는 입력과 출력만 담당
 
 ## 참고자료
 
