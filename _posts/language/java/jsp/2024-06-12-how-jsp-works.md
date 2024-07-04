@@ -10,11 +10,11 @@ image:
 
 # JSP의 동작 과정
 
-![the-process-by-which-jsp-is-converted-to-servlet](/assets/img/posts/language/java/jsp/how-jsp-works/the-process-by-which-jsp-is-converted-to-servlet.jpg)
+![01-the-process-by-which-jsp-is-converted-to-servlet(1)](/assets/img/posts/language/java/jsp/how-jsp-works/01-the-process-by-which-jsp-is-converted-to-servlet(1).jpg)
 
 ## Servlet 변환
 
-![the-process-by-which-jsp-is-converted-to-servlet(1)](/assets/img/posts/language/java/jsp/how-jsp-works/the-process-by-which-jsp-is-converted-to-servlet(1).jpg)
+![02-the-process-by-which-jsp-is-converted-to-servlet(2)](/assets/img/posts/language/java/jsp/how-jsp-works/02-the-process-by-which-jsp-is-converted-to-servlet(2).jpg)
 
 클라이언트가 JSP 페이지를 요청하면 웹 서버는 이 HTTP 요청을 수신하고 WAS에 요청을 위임한다. 최초 요청인 경우에는 Servlet이 존재하지 않으므로 해당 JSP 파일은 **JSP 엔진(Jasper) 의해 Java 파일로 변환되며 이 파일은 Servlet(`HttpServlet` 클래스를 상속받는 클래스) 역할을 수행**한다. Servlet 엔진(Servlet 컨테이너)은 변환된 Servlet 클래스를 이용하여 Servlet 객체 생성 후 `_jspInit()` 메서드를 통해 초기화하고 `_jspService()` 메서드를 실행해 클라이언트의 요청을 처리한다. `_jspInit()`, `_jspService()` 메서드는 각각 `HttpServlet` 클래스에 정의된 `init()`, `service()` 메서드를 오버라이딩한 메서드다.
 
@@ -451,7 +451,7 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 ## 컴파일
 
-![class-file](/assets/img/posts/language/java/jsp/how-jsp-works/class-file.jpg)
+![03-class-file](/assets/img/posts/language/java/jsp/how-jsp-works/03-class-file.jpg)
 
 - 변환된 `.java`{: .filepath }(Servlet)은 Java 컴파일러에 의해 컴파일되어 `.class`{: .filepath } 파일로 변환
 
@@ -464,7 +464,7 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 ## 응답 및 전송
 
-![result-jsp](/assets/img/posts/language/java/jsp/how-jsp-works/result-jsp.jpg)
+![04-result-jsp](/assets/img/posts/language/java/jsp/how-jsp-works/04-result-jsp.jpg)
 
 - Servlet이 클라이언트 요청을 처리한 후, 결과를 생성하여 클라이언트에게 응답으로 전송
   + 응답은 HTML, JSON, XML 등 다양한 형식일 수 있음

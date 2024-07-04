@@ -3,9 +3,9 @@ title: "[SQLD | 2과목]SQL 기본 및 활용 - SQL 활용(2024)"
 categories: [Certifications, SQLD]
 tags: [Certification, 자격증, SQLD]
 image:
-  path: /assets/img/posts/certifications/sqld/01-sqld-logo.jpg
+  path: /assets/img/posts/certifications/sqld/01-kdata-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
-  alt: SQLD
+  alt: 한국데이터산업진흥원
 ---
 
 |    구분   |        시험과목      |             과목별 세부 내용           | 문항수 |       배점       |  과락 기준  |     검정시간    |
@@ -23,14 +23,14 @@ image:
 |              |            함수          |
 |              |         `WHERE` 절       |
 |              | `GROUBP BY`, `HAVING` 절 |
-|              |            JOIN          |
-|              |          표준 JOIN       |
+|              |            조인          |
+|              |          표준 조인       |
 | **SQL 활용** |          서브 쿼리        |
 |              |         집합 연산자       |
 |              |          그룹 함수        |
 |              |         윈도우 함수       |
 |              |         TOP N 쿼리        |
-|              |   계층형 질의와 셀프 JOIN  |
+|              |   계층형 질의와 셀프 조인  |
 |              | `PIVOT` 절과 `UNPIVOT` 절 |
 |              |         정규 표현식       |
 |  관리 구문   |             DML           |
@@ -85,7 +85,7 @@ image:
 
 ##### 스칼라 서브쿼리
 
-![01-ex-scalar-subquery](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/01-ex-scalar-subquery.jpg)
+![01-ex-scalar-subquery](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/01-ex-scalar-subquery.jpg)
 *`emp` 테이블의 각 직원의 사번, 이름과 부서이름을 출력*
 
 ```sql
@@ -105,7 +105,7 @@ SELECT * | 컬럼명 | 표현식, (SELECT * | 컬럼명 표현식
 
 #### 인라인 뷰(Inline View)
 
-![02-ex-inline-view](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/02-ex-inline-view.jpg)
+![02-ex-inline-view](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/02-ex-inline-view.jpg)
 *`emp` 테이블에서 부서별 최대 급여자를 출력하되, 최대 급여와 함께 출력*
 
 ```sql
@@ -133,7 +133,7 @@ SELECT * | 컬럼명 | 표현식
 
 ###### 단일행 서브쿼리
 
-![03-ex-where-subquery](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/03-ex-where-subquery.jpg)
+![03-ex-where-subquery](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/03-ex-where-subquery.jpg)
 
 - **서브쿼리 결과로 1개의 행이 반환**되는 형태
 
@@ -153,7 +153,7 @@ SELECT * | 컬럼명 | 표현식
 
 ###### 다중행 서브쿼리
 
-![04-ex-where-multiple-subquery](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/04-ex-where-multiple-subquery.jpg)
+![04-ex-where-multiple-subquery](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/04-ex-where-multiple-subquery.jpg)
 *`emp` 테이블에서 부서번호가 10인 급여자들의 급여보다 큰 급여자들 출력*
 
 - **서브쿼리 결과로 여러 행이 반환되는 형태**
@@ -176,7 +176,7 @@ SELECT * | 컬럼명 | 표현식
 
 ###### 다중컬럼 서브쿼리
 
-![05-ex-where-mulity-column-subquery](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/05-ex-where-mulity-column-subquery.jpg)
+![05-ex-where-mulity-column-subquery](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/05-ex-where-mulity-column-subquery.jpg)
 *`emp` 테이블에서 부서별 최대 급여자 출력*
 
 - **서브쿼리 결과로 여러 컬럼이 반환되는 형태**
@@ -187,7 +187,7 @@ SELECT * | 컬럼명 | 표현식
 
 ###### 상호 연관 서브쿼리
 
-![06-ex-correlated-subquery](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/06-ex-correlated-subquery.jpg)
+![06-ex-correlated-subquery](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/06-ex-correlated-subquery.jpg)
 *`emp` 테이블에서 부서별로 해당 부서의 평균 급여보다 높은 급여를 받는 사원 정보 출력*
 
 - **메인 쿼리와 서브쿼리의 비교를 수행하는 형태**
@@ -214,7 +214,7 @@ SELECT * | 컬럼명 | 표현식
 
 #### UNION
 
-![07-ex-union](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/07-ex-union.jpg)
+![07-ex-union](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/07-ex-union.jpg)
 *10번 부서 소속이 아닌 직원 정보와 20번 소속 직원 정보가 각각 분리되어있다고 가정할 때 두 집합의 합집합(중복 X)*
  
 - 중복된 데이터는 한 번만 출력
@@ -224,7 +224,7 @@ SELECT * | 컬럼명 | 표현식
 
 #### UNION ALL
 
-![08-ex-union-all](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/08-ex-union-all.jpg)
+![08-ex-union-all](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/08-ex-union-all.jpg)
 *10번 부서 소속이 아닌 직원 정보와 20번 소속 직원 정보가 각각 분리되어있다고 가정할 때 두 집합의 합집합(중복 O)*
 
 - 중복된 데이터도 전체 출력
@@ -232,7 +232,7 @@ SELECT * | 컬럼명 | 표현식
 
 ### 교집합
 
-![09-ex-intersect](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/09-ex-intersect.jpg)
+![09-ex-intersect](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/09-ex-intersect.jpg)
 *10번 부서 정보와 20번 부서 정보가 각각 분리되어있다고 가정할 때 두 집합의 교집합*
 
 - 두 집합 사이에 `INTERSECT` 연산자 명시
@@ -240,7 +240,7 @@ SELECT * | 컬럼명 | 표현식
 
 ### 차집합
 
-![10-ex-minus](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/10-ex-minus.jpg)
+![10-ex-minus](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/10-ex-minus.jpg)
 *10번이 아닌 부서 정보와 20번 부서 정보가 각각 분리되어있다 가정할 때 두 집합의 차집합*
 
 - 두 집합 사이에 `MINUS` 연산자 명시
@@ -268,7 +268,7 @@ SELECT * | 컬럼명 | 표현식
 
 ### COUNT()
 
-![11-ex-count()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/11-ex-count().jpg)
+![11-ex-count()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/11-ex-count().jpg)
 *각 커럼의 count 결과*
 
 - 행의 수를 세는 함수
@@ -285,7 +285,7 @@ SELECT * | 컬럼명 | 표현식
 
 ### AVG()
 
-![12-ex-avg()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/12-ex-avg().jpg)
+![12-ex-avg()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/12-ex-avg().jpg)
 
 - 평균 출력
 - 숫자 컬럼만 전달 가능
@@ -329,18 +329,18 @@ SELECT * | 컬럼명 | 표현식
 
 ##### 예시
 
-![13-grouping-sets()(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/13-grouping-sets()(1).jpg)
+![13-grouping-sets()(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/13-grouping-sets()(1).jpg)
 *부서번호별 급여의 총 합 결과와 직무별 급여의 총 합 결과의 합집합*
 
-![14-grouping-sets()(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/14-grouping-sets()(2).jpg)
+![14-grouping-sets()(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/14-grouping-sets()(2).jpg)
 *`UNION ALL`로 대체 가능*
 
-![15-grouping-sets()(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/15-grouping-sets()(3).jpg)
+![15-grouping-sets()(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/15-grouping-sets()(3).jpg)
 *전체 총계 출력 가능*
 	
 #### ROLLUP(a, b)
 
-![16-ex-rollup()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/16-ex-rollup().jpg)
+![16-ex-rollup()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/16-ex-rollup().jpg)
 
 - **`a`별, (`a`, `b`)별, 전체 그룹 연산 결과 출력**
 - <font color="red">그룹으로 묶을 대상의 나열 순서가 중요함</font>
@@ -350,7 +350,7 @@ SELECT * | 컬럼명 | 표현식
 
 #### CUBE(a, b)
 
-![17-ex-cube()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/17-ex-cube().jpg)
+![17-ex-cube()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/17-ex-cube().jpg)
 
 - **`a`별, `b`별, (`a`,`b`)별 전체 그룹 연산 결과 출력**
 - **그룹으로 묶을 대상의 나열 순서가 중요하지 않음**
@@ -361,7 +361,7 @@ SELECT * | 컬럼명 | 표현식
 
 ## 윈도우 함수
 
-![18-error-group-function](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/18-error-group-function.jpg)
+![18-error-group-function](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/18-error-group-function.jpg)
 *윈도우 함수가 필요한 이유: 전체를 출력하는 컬럼과 그룹 함수의 결과는 함께 출력할 수 없음*
 
 ```sql
@@ -394,13 +394,13 @@ SELECT 윈도우 함수([대상]) OVER([PARTITION BY 컬럼]
 
 #### ROWS, RANGE의 차이
 
-![19-ex-over()-rows](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/19-ex-over()-rows.jpg)
+![19-ex-over()-rows](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/19-ex-over()-rows.jpg)
 *ROWS*
 
 - `ROWS`: 값이 같더라도 각 행씩 연산
 	+ `BETWEEN a AND b` 필수
 
-![20-ex-over()-range](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/20-ex-over()-range.jpg)
+![20-ex-over()-range](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/20-ex-over()-range.jpg)
 *RANGE*
 
 - `RANGE`: 같은 값의 경우 하나의 범위로 묶어서 동시 연산
@@ -408,7 +408,7 @@ SELECT 윈도우 함수([대상]) OVER([PARTITION BY 컬럼]
 
 #### BETWEEN a AND b
 
-![21-ex-between-a-and-b](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/21-ex-between-a-and-b.jpg)
+![21-ex-between-a-and-b](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/21-ex-between-a-and-b.jpg)
 
 - a: 시작점 정의
 	+ `CURRENT ROW`: 현재 행부터
@@ -435,7 +435,7 @@ SELECT 그룹함수(대상), OVER([PARTITION BY 컬럼]
 
 #### SUM OVER()
 
-![22-ex-sum-window-function](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/22-ex-sum-window-function.jpg)
+![22-ex-sum-window-function](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/22-ex-sum-window-function.jpg)
 *각 직원 정보와 함께 급여 총합 추력*
 
 - 전체 총합, 그룹별 총합 출력 가능
@@ -444,7 +444,7 @@ SELECT 그룹함수(대상), OVER([PARTITION BY 컬럼]
 
 #### RANK() WITHIN GROUP()
 
-![23-ex-rank()-within-group()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/23-ex-rank()-within-group().jpg)
+![23-ex-rank()-within-group()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/23-ex-rank()-within-group().jpg)
 *`emp` 테이블에서 3000의 전체 급여 순위 출력*
 
 ```sql
@@ -457,7 +457,7 @@ SELECT RANK(값) WITHIN GROUP(ORDER BY 컬럼);
 
 #### RANK() OVER()
 
-![24-ex-rank()-over()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/24-ex-rank()-over().jpg)
+![24-ex-rank()-over()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/24-ex-rank()-over().jpg)
 *각 직원의 급여의 전체 순위*
 
 ```sql
@@ -470,14 +470,14 @@ SELECT RANK() OVER([PARTITION BY 컬럼]
 	+ `ORDER BY` 절에 순위를 구할 대상 명시
 		* 여러 대상 명시 가능
 
-![25-ex-rank()-over(partition-by)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/25-ex-rank()-over(partition-by).jpg)
+![25-ex-rank()-over(partition-by)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/25-ex-rank()-over(partition-by).jpg)
 *각 직원의 급여의 부서별 순위*
 
 - 그룹 내 순위 구할 때는 `PARTITION BY` 절 사용
 
 #### DENSE_RANK()
 
-![26-ex-rank(),dense_rank()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/26-ex-rank(),dense_rank().jpg)
+![26-ex-rank(),dense_rank()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/26-ex-rank(),dense_rank().jpg)
 *`RANK()`, `DENSE_RANK()` 비교*
 
 - **누적 순위**
@@ -486,7 +486,7 @@ SELECT RANK() OVER([PARTITION BY 컬럼]
 
 #### ROW_NUMBER()
 
-![27-ex-rank(),dense_rank(),row_number()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/27-ex-rank(),dense_rank(),row_number().jpg)
+![27-ex-rank(),dense_rank(),row_number()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/27-ex-rank(),dense_rank(),row_number().jpg)
 *`RANK()`, `DENSE_RANK()`, `ROW_NUMBER()` 비교*
 
 - **연속된 행 번호**
@@ -494,7 +494,7 @@ SELECT RANK() OVER([PARTITION BY 컬럼]
 
 ### LAG(), LEAD()
 
-![28-ex-lag()(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/28-ex-lag()(1).jpg)
+![28-ex-lag()(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/28-ex-lag()(1).jpg)
 *`emp` 테이블에서 바로 이전 입사자와의 급여 비교*
 
 ```sql
@@ -508,17 +508,17 @@ SELECT LAG(컬럼,
 - 세 번째 인자는 선택적(default) 값으로, 현재 행에 대한 이전 행의 값이 없는 경우에 반환할 값을 지정
 - **`ORDER BY` 절 필수**
 
-![28-ex-lag()(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/28-ex-lag()(2).jpg)
+![28-ex-lag()(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/28-ex-lag()(2).jpg)
 
 > 이전/이후 값을 가져올 때 이전 값이 같더라도 항상 행의 순서대로 이전/이후의 값을 가져오기 때문에 `ORDER BY` 절을 통해 사용자가 원하는 행 배치의 이전/이후 값을 가져올 수 있다.
 {: .prompt-info }
 
 ### FIRST_VALUE(), LAST_VALUE()
 
-![29-ex-first_value()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/29-ex-first_value().jpg)
+![29-ex-first_value()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/29-ex-first_value().jpg)
 *`FIRST_VALUE()` 함수를 사용한 최솟값, 최댓값 출력*
 
-![30-ex-last_value()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/30-ex-last_value().jpg)
+![30-ex-last_value()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/30-ex-last_value().jpg)
 *`LAST_VALUE()` 함수를 사용한 최댓값 출력*
 
 - 정렬 순서대로 **정해진 범위에서의 처음 값, 마지막 값 출력**
@@ -526,7 +526,7 @@ SELECT LAG(컬럼,
 
 ### NTILE()
 
-![31-ex-ntile()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/31-ex-ntile().jpg)
+![31-ex-ntile()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/31-ex-ntile().jpg)
 *`NTILE()` 함수를 사용한 그룹 분리*
 
 ```sql
@@ -543,7 +543,7 @@ SELECT NTILE(n) OVER([PARTITON BY 컬럼]
 
 #### RATIO_TO_REPORT()
 
-![32-ex-ratio_to_report()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/32-ex-ratio_to_report().jpg)
+![32-ex-ratio_to_report()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/32-ex-ratio_to_report().jpg)
 *`RATIO_TO_REPORT()` 함수를 사용한 부서 내의 각 값의 비율*
 
 ```sql
@@ -556,7 +556,7 @@ RATIO_TO_REPORT(대상) OVER([PARTITION BY ...]);
 
 #### CUME_DIST()
 
-![33-ex-ratio_to_report(),cume_dist()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/33-ex-ratio_to_report(),cume_dist().jpg)
+![33-ex-ratio_to_report(),cume_dist()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/33-ex-ratio_to_report(),cume_dist().jpg)
 *`RATIO_TO_REPORT()`, `CUME_DIST()` 함수를 사용한 누적 비율 비교*
 
 ```sql
@@ -571,7 +571,7 @@ CUME_DIST() OVER([PARTITION BY 컬럼]
 
 #### PERCENT_RANK()
 
-![34-ex-percent_rank()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/34-ex-percent_rank().jpg)
+![34-ex-percent_rank()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/34-ex-percent_rank().jpg)
 
 ```sql
 PERCENT_RANK() OVER([PARTITION BY ...]
@@ -592,7 +592,7 @@ PERCENT_RANK() OVER([PARTITION BY ...]
 
 #### ROWNUM
 
-![35-ex-top-n-query-with-rownum(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/35-ex-top-n-query-with-rownum(1).jpg)
+![35-ex-top-n-query-with-rownum(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/35-ex-top-n-query-with-rownum(1).jpg)
 
 - 출력된 데이터를 기준으로 행 번호 부여
 - 절대적인 행 번호가 아닌 가상의 번호이므로 특정 행을 지정할 수 없음
@@ -602,16 +602,16 @@ PERCENT_RANK() OVER([PARTITION BY ...]
 
 ##### ROWNUM의 잘못된 사용
 
-![36-ex-top-n-query-with-rownum(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/36-ex-top-n-query-with-rownum(2).jpg)
+![36-ex-top-n-query-with-rownum(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/36-ex-top-n-query-with-rownum(2).jpg)
 
 - 크다(`WHERE > n`) 조건 전달 불가
 
-![37-ex-top-n-query-with-rownum(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/37-ex-top-n-query-with-rownum(3).jpg)
+![37-ex-top-n-query-with-rownum(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/37-ex-top-n-query-with-rownum(3).jpg)
 
 - 항상 불변하는 절대적 번호가 아니므로 `=` 연산자 단독 전달 불가
 	+ 1이 먼저 정의가 되야 함
 
-![38-ex-top-n-query-with-rownum(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/38-ex-top-n-query-with-rownum(4).jpg)
+![38-ex-top-n-query-with-rownum(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/38-ex-top-n-query-with-rownum(4).jpg)
 *`emp` 테이블에서 급여가 높은 순서대로 상위 5명의 직원 정보 출력*
 
 - 실제로 상위 명 출력 안됨
@@ -619,7 +619,7 @@ PERCENT_RANK() OVER([PARTITION BY ...]
 - `WHERE` 절에 의해 먼저 5개를 추출한 뒤 이 결과 집합에 대해 정렬 수행하므로 의도한대로 출력되지 않음
 	+ 서브쿼리(인라인 뷰)를 사용하여 `sal`에 대해 내림차순 정렬을 해놓고 상위 5개를 가져와야 함
 
-![39-ex-top-n-query-with-rownum(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/39-ex-top-n-query-with-rownum(5).jpg)
+![39-ex-top-n-query-with-rownum(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/39-ex-top-n-query-with-rownum(5).jpg)
 *`emp` 테이블에서 상위 4~6순위의 급여를 갖는 직원 정보 출력*
 
 - `ROWNUM`의 시작 값(1)이 정의되지 않았으므로 1을 건너뛰고 그 다음 행 번호에 대한 추출 불가
@@ -627,7 +627,7 @@ PERCENT_RANK() OVER([PARTITION BY ...]
 
 #### RANK()
 
-![40-ex-top-n-query-with-rank()-over()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/40-ex-top-n-query-with-rank()-over().jpg)
+![40-ex-top-n-query-with-rank()-over()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/40-ex-top-n-query-with-rank()-over().jpg)
 *`emp` 테이블에서 상위 4~6순위의 급여를 갖는 직원 정보 출력*
 
 #### FETCH 
@@ -667,13 +667,13 @@ OFFSET n { ROW | ROWS }
 
 ##### 예시
 
-![41-ex-top-n-query-with-fetch(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/41-ex-top-n-query-with-fetch(1).jpg)
+![41-ex-top-n-query-with-fetch(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/41-ex-top-n-query-with-fetch(1).jpg)
 *`emp` 테이블에서 급여가 높은 상위 5명 직원 정보 출력*
 
 - `FIRST` 대신 `NEXT` 사용해도 상관없음
 - `ROWS` 대신 `ROW` 사용해도 상관없음
 
-![42-ex-top-n-query-with-fetch(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/42-ex-top-n-query-with-fetch(2).jpg)
+![42-ex-top-n-query-with-fetch(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/42-ex-top-n-query-with-fetch(2).jpg)
 *`emp` 테이블에서 급여가 높은 순서대로 4~6번째에 해당하는 직원 정보 출력*
 
 - `FIRST` 대신 `NEXT` 사용해도 상관없음
@@ -710,26 +710,26 @@ CONNECT BY PRIOR 연결조건;
 
 ### 예시
 
-![43-ex-hierarchical-query(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/43-ex-hierarchical-query(1).jpg)
+![43-ex-hierarchical-query(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/43-ex-hierarchical-query(1).jpg)
 *`dept2` 테이블에 대해 각 부서의 레벨을 출력(최상위 부서가 1레벨)*
 
-![44-ex-hierarchical-query(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/44-ex-hierarchical-query(2).jpg)
+![44-ex-hierarchical-query(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/44-ex-hierarchical-query(2).jpg)
 *`dept2` 테이블에 대해 각 부서의 레벨을 출력(최상위 부서가 1레벨)의 잘못된 예*
 
-![45-ex-hierarchical-query(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/45-ex-hierarchical-query(3).jpg)
+![45-ex-hierarchical-query(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/45-ex-hierarchical-query(3).jpg)
 *연결 조건에 추가 조건이 붙는 경우*
 
 - `CONNECT BY` 절에서의 추가 조건은 메인 쿼리에서의 대상을 선택하기 위함이 아닌, 연결 조건의 일부라고 해석해야 함
 
-![46-ex-hierarchical-query(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/46-ex-hierarchical-query(4).jpg)
+![46-ex-hierarchical-query(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/46-ex-hierarchical-query(4).jpg)
 *`dept2` 테이블에서 부서의 상하관계를 들여쓰기를 반영해서 출력*
 
-![47-ex-hierarchical-query(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/47-ex-hierarchical-query(5).jpg)
+![47-ex-hierarchical-query(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/47-ex-hierarchical-query(5).jpg)
 *`dep2` 테이블에서 영업 1팀 기준 상위 부서들을 출력*
 
 ### 계층형 질의 가상 컬럼, 함수
 
-![48-ex-hierarchical-query-virtual-column-and-virtual-function](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/48-ex-hierarchical-query-virtual-column-and-virtual-function.jpg)
+![48-ex-hierarchical-query-virtual-column-and-virtual-function](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/48-ex-hierarchical-query-virtual-column-and-virtual-function.jpg)
 
 #### 계층형 질의 가상 컬럼
 
@@ -756,7 +756,7 @@ CONNECT BY PRIOR 연결조건;
 
 #### Long Data(Tidy data)
 
-![49-long-data](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/49-long-data.jpg)
+![49-long-data](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/49-long-data.jpg)
 
 - 하나의 속성이 하나의 컬럼으로 정의되어 값들이 여러 행으로 쌓이는 구조
 - RDBMS의 테이블 설계 방식
@@ -764,7 +764,7 @@ CONNECT BY PRIOR 연결조건;
 
 #### Wide Data(Cross table)
 
-![50-wide-data](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/50-wide-data.jpg)
+![50-wide-data](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/50-wide-data.jpg)
 
 - 행과 컬럼에 유의미한 정보 전달을 목적으로 작성하는 교차표
 - 하나의 속성 값이 여러 컬럼으로 분리되어 표현
@@ -776,17 +776,17 @@ CONNECT BY PRIOR 연결조건;
 
 #### Pivot
 
-![51-long-to-wide.jpg](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/51-long-to-wide.jpg)
+![51-long-to-wide.jpg](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/51-long-to-wide.jpg)
 *Long Data → Wide Data* 
 
 #### Unpivot
 
-![52-wide-to-long](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/52-wide-to-long.jpg)
+![52-wide-to-long](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/52-wide-to-long.jpg)
 *Wide Data → Long Data*
 
 ### PIVOT()
 
-![53-ex-pivot-table](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/53-ex-pivot-table.jpg)
+![53-ex-pivot-table](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/53-ex-pivot-table.jpg)
 
 ```sql
 SELECT *
@@ -805,12 +805,12 @@ SELECT *
 
 #### 예시
 
-![54-ex-pivot()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/54-ex-pivot().jpg)
+![54-ex-pivot()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/54-ex-pivot().jpg)
 *`emp` 테이블에서 `job`별, `deptno`별 도수(COUNT) 출력*
 
 ### UNPIVOT()
 
-![55-ex-unpivot-table](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/55-ex-unpivot-table.jpg)
+![55-ex-unpivot-table](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/55-ex-unpivot-table.jpg)
 
 ```sql
  SELECT *
@@ -830,7 +830,7 @@ UNPIVOT (Value컬럼명 FOR Stack컬럼명 IN (값1, 값2, 값, ...));
 
 #### 예시
 
-![56-ex-unpivot()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/56-ex-unpivot().jpg)
+![56-ex-unpivot()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/56-ex-unpivot().jpg)
 
 - `IN` 연산자 뒤의 값은 Unstack 데이터의 컬럼명이 숫자지만, 컬럼명은 문자로 저장되므로 문자열로 전달해야 함
 
@@ -886,7 +886,7 @@ UNPIVOT (Value컬럼명 FOR Stack컬럼명 IN (값1, 값2, 값, ...));
 
 ### 예시
 
-![57-ex-regexp](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/57-ex-regexp.jpg)
+![57-ex-regexp](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/57-ex-regexp.jpg)
 *전화번호의 일반화*
 
 - 전화번호는 숫자와 하이픈(`-`)으로 구성
@@ -913,31 +913,31 @@ REGEXP_REPLACE(대상, 찾을문자열, [바꿀문자열], [검색위치], [발�
 
 #### 예시
 
-![58-ex-regexp_replace()(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/58-ex-regexp_replace()(1).jpg)
+![58-ex-regexp_replace()(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/58-ex-regexp_replace()(1).jpg)
 *`id`에서 숫자 삭제*
 
 - 빈 문자열을 전달하여 숫자를 모두 삭제 처리
 
-![59-ex-regexp_replace()(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/59-ex-regexp_replace()(2).jpg)
+![59-ex-regexp_replace()(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/59-ex-regexp_replace()(2).jpg)
 *`id`에서 특수기호 삭제*
 
 - `\w`는 문자와 숫자, `_`를 포함
 - `\W`는 `\w`의 반대 집합이므로 문자와 숫자, `_`가 아닌 특수기호와 공백을 의미
 
-![60-ex-regexp_replace()(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/60-ex-regexp_replace()(3).jpg)
+![60-ex-regexp_replace()(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/60-ex-regexp_replace()(3).jpg)
 *`professor` 테이블의 `id`에[서 문자와 문자 바로 뒤에 오는 숫자를 삭제(대소문자 구분 X)*
 
-![61-ex-regexp_replace()(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/61-ex-regexp_replace()(4).jpg)
+![61-ex-regexp_replace()(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/61-ex-regexp_replace()(4).jpg)
 *`kong-12`에서 `g-1`을 지우는 방법*
 
-![62-ex-regexp_replace()(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/62-ex-regexp_replace()(5).jpg)
+![62-ex-regexp_replace()(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/62-ex-regexp_replace()(5).jpg)
 *`product` 테이블의 상품명에서 괄호를 포함해서 괄호 안에 들어가는 모든 글자 삭제*
 
 - 괄호는 서브 그룹을 만드는 정규 표현식이므로 일반 괄호를 표현하기 위해서는 `\)`로 전달해야 함
 - `\(.+\)`
 	+ `()` 안에 개행을 제외한 모든 값 허용
 
-![63-ex-regexp_replace()(6)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/63-ex-regexp_replace()(6).jpg)
+![63-ex-regexp_replace()(6)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/63-ex-regexp_replace()(6).jpg)
 *`student` 테이블의 이름에서 두 번째 발견된 문자 값을 `X`로 치환*
 
 - 문자 삭제 시 찾고자 하는 시작 위치와 발견 횟수를 전달할 수 있음
@@ -960,12 +960,12 @@ REGEXP_SUBSTR(대상, 패턴, [검색위치], [발견횟수], [옵션], [추출�
 
 #### 예시
 
-![64-ex-regexp_substr()(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/64-ex-regexp_substr()(1).jpg)
+![64-ex-regexp_substr()(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/64-ex-regexp_substr()(1).jpg)
 *전화번호를 분리하여 지역번호 추출*
 
 - `추출그룹`을 사용하기 위해 `옵션` 인자에 `NULL`을 전달
 
-![65-ex-regexp_substr()(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/65-ex-regexp_substr()(2).jpg)
+![65-ex-regexp_substr()(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/65-ex-regexp_substr()(2).jpg)
 *서브 패턴을 활용해서 이메일 아이디 추출*
 
 - `추출그룹`을 사용하기 위해 `옵션` 인자에 `NULL`을 전달
@@ -984,12 +984,12 @@ REGEXP_INSTR(원본, 찾을문자열, [시작위치], [발견횟수])
 
 #### 예시
 
-![66-ex-regexp_instr()(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/66-ex-regexp_instr()(1).jpg)
+![66-ex-regexp_instr()(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/66-ex-regexp_instr()(1).jpg)
 *`id` 값에서 두 번째 발견된 숫자 위치*
 
 - `\d`는 숫자를 나타내는 표현이고, 뒤에 횟수를 지정하지 않으면 한 자리수의 숫자를 의미함
 
-![67-ex-regexp_instr()(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/67-ex-regexp_instr()(2).jpg)
+![67-ex-regexp_instr()(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/67-ex-regexp_instr()(2).jpg)
 *정규 표현식을 사용한 패턴에 일치하는 n번째 문자열 위치 출력*
 
 - 다음과 같은 문자열에서 공백이 아닌 문자열의 반복들 중 처음부터 스캔하여 두 번째 발견된 것의 위치 반환
@@ -1008,7 +1008,7 @@ REGEXP_LIKE(원본, 찾을문자열, [옵션])
 
 #### 예시
 
-![68-ex-regexp_like()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/68-ex-regexp_like().jpg)
+![68-ex-regexp_like()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/68-ex-regexp_like().jpg)
 *`id` 값이 숫자로 끝나는 교수 정보 출력*
 
 ### REGEXP_COUNT()
@@ -1023,7 +1023,7 @@ REGEXP_COUNT(원본, 찾을문자열, 시작위치, [옵션])
 
 #### 예시
 
-![69-ex-regexp_count()](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/sql-utilization/69-ex-regexp_count().jpg)
+![69-ex-regexp_count()](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/sql-utilization/69-ex-regexp_count().jpg)
 *`id` 값이 숫자로 끝나는 교수 정보 출력*
 
 - `\d`는 한 자리수의 숫자를 의미하고, `\d+`는 연속적인 숫자를 의미하므로 COUNT 시 연속적인 숫자를 하나로 취급함

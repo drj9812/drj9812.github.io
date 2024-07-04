@@ -3,9 +3,9 @@ title: "[SQLD | 2과목]SQL 기본 및 활용 - 관리 구문(2024)"
 categories: [Certifications, SQLD]
 tags: [Certification, 자격증, SQLD]
 image:
-  path: /assets/img/posts/certifications/sqld/01-sqld-logo.jpg
+  path: /assets/img/posts/certifications/sqld/01-kdata-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
-  alt: SQLD
+  alt: 한국데이터산업진흥원
 ---
 
 |    구분   |        시험과목      |             과목별 세부 내용           | 문항수 |       배점       |  과락 기준  |     검정시간    |
@@ -23,17 +23,17 @@ image:
 |              |            함수          |
 |              |         `WHERE` 절       |
 |              | `GROUBP BY`, `HAVING` 절 |
-|              |            JOIN          |
-|              |          표준 JOIN       |
+|              |            조인          |
+|              |          표준 조인       |
 |   SQL 활용   |          서브 쿼리        |
 |              |         집합 연산자       |
 |              |          그룹 함수        |
 |              |         윈도우 함수       |
 |              |         TOP N 쿼리        |
-|              |   계층형 질의와 셀프 JOIN  |
+|              |   계층형 질의와 셀프 조인  |
 |              | `PIVOT` 절과 `UNPIVOT` 절 |
 |              |         정규 표현식       |
-| **관리 구문** |             DML           |
+| **관리 구문** |            DML           |
 |              |             TCL           |
 |              |             DDL           |
 |              |             DCL           |
@@ -66,10 +66,10 @@ INSERT INTO 테이블(컬럼1, 컬럼2, ...) VALUES(값1, 값2, ...);
 
 #### 예시
 
-![01-merge_old-table(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/01-merge_old-table(1).jpg)
+![01-merge_old-table(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/01-merge_old-table(1).jpg)
 *`merge_old` 테이블*
 
-![02-ex-insert(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/02-ex-insert(1).jpg)
+![02-ex-insert(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/02-ex-insert(1).jpg)
 *여러 행을 한 행씩 `INSERT`*
 
 - 테이블의 각 컬럼별 데이터 타입과 사이즈에 맞게 입력
@@ -78,10 +78,10 @@ INSERT INTO 테이블(컬럼1, 컬럼2, ...) VALUES(값1, 값2, ...);
 - 숫자 컬럼에 '001'과 같은 문자값 입력 가능
 	+ 권장되지 않음
 
-![03-ex-result-insert](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/03-ex-result-insert.jpg)
+![03-ex-result-insert](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/03-ex-result-insert.jpg)
 *여러 행을 한 행씩 `INSERT`한 결과*
 
-![04-ex-insert(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/04-ex-insert(2).jpg)
+![04-ex-insert(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/04-ex-insert(2).jpg)
 *서브 쿼리를 사용한 여러 행 `INSERT`*
 
 ### UPDATE
@@ -106,13 +106,13 @@ UPDATE 테이블명
 
 #### 예시
 
-![05-ex-update(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/05-ex-update(1).jpg)
+![05-ex-update(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/05-ex-update(1).jpg)
 *americano의 `price`를 1500으로 변경*
 
-![06-ex-update(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/06-ex-update(2).jpg)
+![06-ex-update(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/06-ex-update(2).jpg)
 *3번의 `name`을 hot_milk로, `price`를 2500으로 변경*
 
-![07-ex-update(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/07-ex-update(3).jpg)
+![07-ex-update(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/07-ex-update(3).jpg)
 *서브 쿼리를 사용해서 여러 컬럼 동시 수정*
 
 ### DELETE
@@ -129,7 +129,7 @@ DELETE[FROM] 테이블명
 
 #### 예시
 
-![08-ex-delete](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/08-ex-delete.jpg)
+![08-ex-delete](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/08-ex-delete.jpg)
 *`no`가 3인 행 삭제*
 
 ### MERGE
@@ -153,13 +153,13 @@ USING 참조테이블
 
 #### 예시
 
-![09-merge_new-table](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/09-merge_new-table.jpg)
+![09-merge_new-table](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/09-merge_new-table.jpg)
 *`merge_new` 테이블*
 
-![10-merge_old-table(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/10-merge_old-table(2).jpg)
+![10-merge_old-table(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/10-merge_old-table(2).jpg)
 *`merge_old` 테이블*
 
-![11-ex-merge](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/11-ex-merge.jpg)
+![11-ex-merge](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/11-ex-merge.jpg)
 *`merge_old` 테이블을 `merge_new` 테이블에 병합*
 
 - 수정할 테이블명을 `MERGE INTO` 절에 명시
@@ -172,7 +172,7 @@ USING 참조테이블
 - `INSERT` 문에는 `INTO`절 없이 `VALUES`로 참조 컬럼명 전달
 	+ 이미 `MERGE INTO`절에 입력할 테이블명이 명시되어 있으므로
 
-![12-ex-result-merge](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/12-ex-result-merge.jpg)
+![12-ex-result-merge](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/12-ex-result-merge.jpg)
 *`merge_old` 테이블을 `merge_new` 테이블에 병합*
 
 ## TCL(Transaction Control Language)
@@ -237,13 +237,13 @@ SAVEPOINT savepoint_name;
 
 ##### 예시
 
-![13-rollback_test-table](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/13-rollback_test-table.jpg)
+![13-rollback_test-table](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/13-rollback_test-table.jpg)
 *`rollback_test` 테이블*
 
-![14-ex-rollback](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/14-ex-rollback.jpg)
+![14-ex-rollback](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/14-ex-rollback.jpg)
 *여러 DML 수행*
 
-![15-ex-result-rollback.](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/15-ex-result-rollback.jpg)
+![15-ex-result-rollback.](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/15-ex-result-rollback.jpg)
 *결과*
 
 - `SAVEPOINT` 이전에 수행한 `UDPATE`는 취소되지 않음
@@ -297,18 +297,18 @@ SELECT *
 
 #### 예시
 
-![16-ex-create(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/16-ex-create(1).jpg)
+![16-ex-create(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/16-ex-create(1).jpg)
 *`merge_old` 테이블 생성*
 
-![17-ex-create(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/17-ex-create(2).jpg)
+![17-ex-create(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/17-ex-create(2).jpg)
 *`emp` 테이블을 복제하여 `test` 테이블 생성*
 
-![18-ex-create(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/18-ex-create(3).jpg)
+![18-ex-create(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/18-ex-create(3).jpg)
 *`emp` 테이블의 데이터 없이 구조만 복제*
 
 - 항상 거짓인 조건을 `SELECT` 절에 전달하면, 데이터는 아무것도 출력되지 않지만 컬럼 정보들은 출력됨
 
-![19-ex-create(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/19-ex-create(4).jpg)
+![19-ex-create(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/19-ex-create(4).jpg)
 *테이블 복제 시 컬럼명 변경 가능*
 
 - `SELECT` 절에서 `AS`를 사용하여 컬럼명을 변경할 수도 있음
@@ -333,22 +333,22 @@ SELECT *
 
 #### 예시
 
-![20-data-type(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/20-data-type(1).jpg)
+![20-data-type(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/20-data-type(1).jpg)
 *NUMBER(7,2)의 경우 총 자리수가 7을 초과할 수 없음*
 
-![21-data-type(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/21-data-type(2).jpg)
+![21-data-type(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/21-data-type(2).jpg)
 *`CHAR` 타입의 데이터 입력*
 
 - `col2` 컬럼에 7보다 작은 문자열을 삽입해도 모두 7의 사이즈로 할당됨
 
-![22-data-type(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/22-data-type(3).jpg)
+![22-data-type(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/22-data-type(3).jpg)
 *`VARCHAR` 타입의 데이터 입력*
 
 - 컬럼 사이즈와 상관없이 입력된 문자열의 크기 그대로 저장됨
 
 #### CHAR 타입 컬럼의 문자 상수 비교
 
-![23-data-type(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/23-data-type(4).jpg)
+![23-data-type(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/23-data-type(4).jpg)
 *`CHAR` 타입끼리 비교 시 뒤 공백 무시, 앞 공백 중요*
 
 - 왼쪽에서부터 서로 다른 문자가 나올 때까지 비교
@@ -358,7 +358,7 @@ SELECT *
 	+ **앞의 공백은 무시할 수 없음**
 		* 'ORACLE'과 ' ORACLE'은 서로 다른 값
 
-![24-data-type(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/24-data-type(5).jpg)
+![24-data-type(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/24-data-type(5).jpg)
 *문자값 정렬*
 
 - 달라진 첫 번째 문자 값에 따라 문자의 크기를 결정
@@ -370,14 +370,14 @@ SELECT *
 
 #### VARCHAR 타입 컬럼의 문자 상수 비교
 
-![25-data-type(6)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/25-data-type(6).jpg)
+![25-data-type(6)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/25-data-type(6).jpg)
 *`VARCHAR` 타입끼리의 비교*
 
 - 왼쪽에서부터 서로 다른 문자가 나올 때까지 비교하여 **공백을 포함한 모든 값이 같을 때 같은 값으로 인정**
 
 #### 문자 타입 컬럼의 숫자 상수 비교
 
-![26-data-type(7)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/26-data-type(7).jpg)
+![26-data-type(7)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/26-data-type(7).jpg)
 *문자 컬럼과 숫자 상수의 비교(이미 문자 컬럼에 숫자로 변경 불가능한 문자가 있는 경우)*
 
 - <font color="red">항상 숫자에 맞춰 형 변환 후 비교</font>
@@ -389,14 +389,14 @@ SELECT *
 
 #### 숫자 타입 컬럼의 문자 상수(숫자로 변경 가능한) 비교
 
-![27-data-type(8)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/27-data-type(8).jpg)
+![27-data-type(8)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/27-data-type(8).jpg)
 *숫자 컬럼과 문자 상수의 비교*
 
 - 문자와 숫자 비교 시 숫자에 맞춰 비교하게 되는데, 문자 컬럼이 아닌 문자 상수를 숫자 타입으로 바꾸는 것은 제한이 없으므로 언제나 비교 가능
 
 #### 문자 컬럼에 숫자 상수 입력
 
-![28-data-type(9)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/28-data-type(9).jpg)
+![28-data-type(9)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/28-data-type(9).jpg)
 
 - 문자 컬럼에 숫자 상수 입력 가능
 - 숫자 컬럼에 숫자처럼 생긴 문자 상수 입력 가능
@@ -424,15 +424,15 @@ ALTER TABLE 테이블명
 
 ##### 예시
 
-![29-ex-alter(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/29-ex-alter(1).jpg)
+![29-ex-alter(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/29-ex-alter(1).jpg)
 *동시에 여러 컬럼을 추가할 경우 반드시 괄호와 함께 전달*
 
-![30-ex-alter(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/30-ex-alter(2).jpg)
+![30-ex-alter(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/30-ex-alter(2).jpg)
 *컬럼 추가 시 `NOT NULL` 속성 전달 불가*
 
 - 컬럼 추가 시 모두 `NULL`인 값이 추가되므로 `NOT NULL` 속성을 전달할 수 없음
 
-![31-ex-alter(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/31-ex-alter(3).jpg)
+![31-ex-alter(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/31-ex-alter(3).jpg)
 *컬럼 추가 시 `DEFAULT`를 선언하면 `NOT NULL` 속성 전달 가능*
 
 > `NOT NULL` 속성은 `DEFAULT` 값을 선언한 뒤 명시되야 하므로 순서를 주의한다.
@@ -471,21 +471,21 @@ ALTER TABLE 테이블명 MODIFY(컬럼명 DEFAULT 값);
 
 ##### 예시
 
-![32-ex-alter(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/32-ex-alter(4).jpg)
+![32-ex-alter(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/32-ex-alter(4).jpg)
 *여러 컬럼 사이즈 수정*
 
 - 최대 길이보다 크거나 같은 사이즈로 변경 가능
 
-![33-ex-alter(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/33-ex-alter(5).jpg)
+![33-ex-alter(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/33-ex-alter(5).jpg)
 *컬럼 데이터 타입 변경*
 
 - 데이터 타입이 일치하지 않아도 `NULL`이면 변경 가능
 - 데이터 타입이 일치하지 않고, `NULL`이 아니면 변경 불가능
 
-![34-ex-alter(6)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/34-ex-alter(6).jpg)
+![34-ex-alter(6)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/34-ex-alter(6).jpg)
 *`CHAR` ↔ `VARCHAR` 데이터 타입 변경*
 
-![35-ex-alter(7)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/35-ex-alter(7).jpg)
+![35-ex-alter(7)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/35-ex-alter(7).jpg)
 *`DEFAULT` 값이 설정되지 않은 컬럼에 `DEFAULT` 값 설정*
 
 - `INSERT` 시 `sal` 컬럼에 값을 명시하지 않으면 "3000" 입력
@@ -621,18 +621,18 @@ ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
 
 ##### 예시
 
-![36-ex-create-pk(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/36-ex-create-pk(1).jpg)
+![36-ex-create-pk(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/36-ex-create-pk(1).jpg)
 *테이블 생성 시 이름 전달 없이 제약 조건 설정*
 
 - 제약 조건 생성 시 이름을 설정하지 않으면 자동으로 이름이 부여됨
 
-![37-ex-create-pk(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/37-ex-create-pk(2).jpg)
+![37-ex-create-pk(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/37-ex-create-pk(2).jpg)
 *테이블 생성 시 이름을 전달해서 제약 조건 설정*
 
-![38-ex-create-pk(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/38-ex-create-pk(3).jpg)
+![38-ex-create-pk(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/38-ex-create-pk(3).jpg)
 *컬럼 추가 시 제약 조건 생성*
 
-![39-ex-create-pk(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/39-ex-create-pk(4).jpg)
+![39-ex-create-pk(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/39-ex-create-pk(4).jpg)
 *이미 존재하는 컬럼에 제약 조건만 생성*
 
 - `PRIMARY KEY(컬럼명)`으로 생성할 제약 조건의 컬럼명을 명시해야 함
@@ -640,7 +640,7 @@ ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
 
 #### UNIQUE
 
-![40-ex-unique](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/40-ex-unique.jpg)
+![40-ex-unique](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/40-ex-unique.jpg)
 
 - 중복을 허용하지 않음
 - **`NULL` 허용**
@@ -648,7 +648,7 @@ ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
 
 #### NOT NULL
 
-![41-ex-not-null](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/41-ex-not-null.jpg)
+![41-ex-not-null](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/41-ex-not-null.jpg)
 
 - 다른 제약 조건과 다르게 컬럼의 특징을 나타냄
 	+ <font color="red">CTAS(Create Table As Select)로 복제 시 같이 복제됨</font>
@@ -682,53 +682,53 @@ CREATE TABLE 테이블명(
 
 ##### 예시
 
-![42-ex-fk(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/42-ex-fk(1).jpg)
+![42-ex-fk(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/42-ex-fk(1).jpg)
 *부모 테이블(`dept_test1`)에 PK를 설정하고, 자식 테이블(`emp_test1`)에 부모 테이블의 PK를 참조하는 FK 생성*
 
 > 참조(부모) 테이블의 참조 컬럼(Reference key)이 사전에 Primary Key 또는 Unique Key를 가져야 한다.
 {: .prompt-warn }
 
-![43-ex-fk(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/43-ex-fk(2).jpg)
+![43-ex-fk(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/43-ex-fk(2).jpg)
 *자식 테이블(`emp_test1`)에서 10번 부서원 삭제*
 
 - 자식 테이블의 FK는 언제나 삭제 가능
 
-![44-ex-fk(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/44-ex-fk(3).jpg)
+![44-ex-fk(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/44-ex-fk(3).jpg)
 *자식 테이블(`emp_test1`)에서 20번 부서원을 50번으로 변경 불가능*
 
 - 자식 테이블의 FK 변경은 제약이 있을 수 있음
 	+ **부모 테이블에 50번 부서번호가 정의되어 있지 않아 자식 테이블에서 해당 값으로 수정 불가능**
 
-![45-ex-fk(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/45-ex-fk(4).jpg)
+![45-ex-fk(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/45-ex-fk(4).jpg)
 *자식 테이블(`emp_test1`)에서 50번 부서원 입력 불가능*
 
 - 자식 테이블의 FK 삽입은 제약이 있을 수 있음
 	+ **부모 테이블에 50번 부서번호가 정의되어 있지 않아 자식 테이블에서 해당 값으로 입력 불가능**
  
-![46-ex-fk(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/46-ex-fk(5).jpg)
+![46-ex-fk(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/46-ex-fk(5).jpg)
 *부모 테이블(`dept_test1`)에서 10번 부서원 삭제 불가능*
 
 - 부모 테이블의 PK 삭제는 제약이 있을 수 있음
 	+ **20번 부서 정보가 자식 테이블에 존재하므로 삭제 불가능**
 
-![47-ex-fk(6)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/47-ex-fk(6).jpg)
+![47-ex-fk(6)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/47-ex-fk(6).jpg)
 *부모 테이블(`dept_test1`)에서 20번 부서원의 부서번호를 60번으로 변경 불가능*
 
 - 부모 테이블의 PK 변경은 제약이 있을 수 있음
 	+ **20번 부서 정보가 자식 테이블에 존재하므로 다른 값으로 변경 불가능**
 
-![48-ex-fk-on-delete-cascade(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/48-ex-fk-on-delete-cascade(1).jpg)
+![48-ex-fk-on-delete-cascade(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/48-ex-fk-on-delete-cascade(1).jpg)
 *자식 테이블(`emp_test1`)에서 `ON DELETE CASCADE` 옵션으로 FK를 생성*
 
-![49-ex-fk-on-delete-cascade(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/49-ex-fk-on-delete-cascade(2).jpg)
+![49-ex-fk-on-delete-cascade(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/49-ex-fk-on-delete-cascade(2).jpg)
 *부모 데이터 삭제*
 
 - 부모 데이터 삭제 시, 자식 데이터도 함께 삭제됨
 
-![50-ex-fk-on-delete-set-null(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/50-ex-fk-on-delete-set-null(1).jpg)
+![50-ex-fk-on-delete-set-null(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/50-ex-fk-on-delete-set-null(1).jpg)
 *자식 테이블(`emp_test1`)에서 `ON DELETE SET NULL` 옵션으로 FK를 생성*
 
-![51-ex-fk-on-delete-set-null(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/51-ex-fk-on-delete-set-null(2).jpg)
+![51-ex-fk-on-delete-set-null(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/51-ex-fk-on-delete-set-null(2).jpg)
 *부모 데이터 삭제*
 
 - 자식 테이블의 데이터도 함께 삭제되지 않음
@@ -736,7 +736,7 @@ CREATE TABLE 테이블명(
 
 #### CHECK
 
-![52-ex-check](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/52-ex-check.jpg)
+![52-ex-check](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/52-ex-check.jpg)
 *`emp_test1` 테이블의 `sal` 값은 0 이상이어야 한다는 `CHECK` 제약 조건 추가*
 
 - 데이터의 무결성을 유지하기 위하여 테이블의 특정 컬럼을 설정하는 제약
@@ -795,7 +795,7 @@ DROP VIEW 뷰명;
 
 ##### 예시
 
-![53-ex-view](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/53-ex-view.jpg)
+![53-ex-view](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/53-ex-view.jpg)
 *`emp` 테이블과 `dept` 테이블을 JOIN하는 복합 뷰의 생성 및 조회*
 
 #### 시퀀스(SEQUENCE)
@@ -867,10 +867,10 @@ GRANT 권한 ON 테이블명 TO 유저;
 
 #### 예시
 
-![54-ex-grant(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/54-ex-grant(1).jpg)
+![54-ex-grant(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/54-ex-grant(1).jpg)
 *`professor` 테이블 소유자의 오브젝트 권한 부여*
 
-![55-ex-grant(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/55-ex-grant(2).jpg)
+![55-ex-grant(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/55-ex-grant(2).jpg)
 *관리자 권한으로 시스템 권한 부여*
 
 ### REVOKE
@@ -899,21 +899,21 @@ CREATE ROLE 롤명;
 
 #### 예시
 
-![56-ex-role(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/56-ex-role(1).jpg)
+![56-ex-role(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/56-ex-role(1).jpg)
 *`ROLE` 생성*
 
-![57-ex-role(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/57-ex-role(2).jpg)
+![57-ex-role(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/57-ex-role(2).jpg)
 *`ROLE`에 권한 담기*
 
-![58-ex-role(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/58-ex-role(3).jpg)
+![58-ex-role(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/58-ex-role(3).jpg)
 *`hr` 계정에 `ROLE` 부여*
 
-![59-ex-role(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/59-ex-role(4).jpg)
+![59-ex-role(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/59-ex-role(4).jpg)
 *`ROLE`의 권한 회수*
 
 - `ROLE`에서 회수된 권한은 즉시 반영되므로 다시 `ROLE`을 부여할 필요가 없음
 
-![60-ex-role(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/60-ex-role(5).jpg)
+![60-ex-role(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/60-ex-role(5).jpg)
 *`ROLE`을 통해 `hr` 계정에 부여한 권한 직접 회수*
 
 - `ROLE`을 통해 부여한 권한은 직접 회수할 수 없음
@@ -937,29 +937,29 @@ CREATE ROLE 롤명;
 
 #### 예시
 
-![61-ex-grant-option(1)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/61-ex-grant-option(1).jpg)
+![61-ex-grant-option(1)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/61-ex-grant-option(1).jpg)
 *권한 부여*
 
-![62-ex-grant-option(2)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/62-ex-grant-option(2).jpg)
+![62-ex-grant-option(2)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/62-ex-grant-option(2).jpg)
 *중간 관리자가 부여한 오브젝트 권한을 관리자가 직접 회수*
 
 - 중간 관리자를 통해 부여한 제 3계정의 권한은 관리자가 직접 회수할 수 없음
 
-![63-ex-grant-option(3)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/63-ex-grant-option(3).jpg)
+![63-ex-grant-option(3)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/63-ex-grant-option(3).jpg)
 *중간 관리자에게 부여된 오브젝트 권한을 관리자가 직접 회수*
 
 - 중간 관리자에게 부여된 권한은 관리자가 직접 회수할 수 있음
 	+ 회수 시 중간 관리자를 통해 제 3의 계정에 부여된 권한도 함께 회수됨
 
-![64-ex-grant-option(4)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/64-ex-grant-option(4).jpg)
+![64-ex-grant-option(4)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/64-ex-grant-option(4).jpg)
 
 - 중간 관리자에게 부여된 권한이 회수되면, 중간 관리자가 제 3의 계정에 부여한 권한도 함께 회수됨
 
-![65-ex-grant-option(5)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/65-ex-grant-option(5).jpg)
+![65-ex-grant-option(5)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/65-ex-grant-option(5).jpg)
 
 - 제 3의 계정에 부여된 권한을 관리자가 직접 회수할 수 있음
 
-![66-ex-grant-option(6)](/assets/img/posts/certifications/sqld/chapter2-sql-basic-and-utilization/administration-statements/66-ex-grant-option(6).jpg)
+![66-ex-grant-option(6)](/assets/img/posts/certifications/sqld/2-sql-basic-and-utilization/administration-statements/66-ex-grant-option(6).jpg)
 
 - 중간 관리자의 시스템 권한을 회수하더라도 중간 관리자가 제 3의 계정에게 부여한 권한은 회수되지 않음
 

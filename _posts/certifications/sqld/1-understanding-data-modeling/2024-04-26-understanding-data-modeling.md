@@ -3,9 +3,9 @@ title: "[SQLD | 1과목]데이터 모델링의 이해 - 데이터 모델링의 �
 categories: [Certifications, SQLD]
 tags: [Certification, 자격증, SQLD]
 image:
-  path: /assets/img/posts/certifications/sqld/01-sqld-logo.jpg
+  path: /assets/img/posts/certifications/sqld/01-kdata-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
-  alt: SQLD
+  alt: 한국데이터산업진흥원
 ---
 
 |    구분   |          시험과목        |               과목별 세부 내용             | 문항수 |       배점       |  과락 기준  |     검정시간    |
@@ -24,9 +24,9 @@ image:
 |                          |           관계           |
 |                          |          식별자          |
 |     데이터 모델과 SQL     |          정규화          |
-|                          |     관계와 `JOIN`의 이해  |
+|                          |      관계와 조인의 이해   |
 |                          |  모델이 표현하는 트랜잭션  |
-|                          |     `NULL` 속성의 이해    |
+|                          |      Null 속성의 이해     |
 |                          | 본질 식별자 vs 인조 식별자 |
 
 ## 데이터 모델의 이해
@@ -236,7 +236,7 @@ image:
 
 ### Entity와 인스턴스 표기법
 
-![01-entity-and-instance-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/understanding-data-modeling/01-entity-and-instance-notation.jpg)
+![01-entity-and-instance-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/understanding-data-modeling/01-entity-and-instance-notation.jpg)
 
 - Entity는 사각형으로 표현
 - 속성은 조금씩 다름
@@ -245,13 +245,13 @@ image:
 
 #### IE 표기법
 
-![02-ie-entity-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/understanding-data-modeling/02-ie-entity-notation.jpg)
+![02-ie-entity-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/understanding-data-modeling/02-ie-entity-notation.jpg)
 
 - 주 식별자를 네모 칸 가장 위에 표시
 
 #### Barker 표기법
 
-![03-barker-entity-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/understanding-data-modeling/03-barker-entity-notation.jpg)
+![03-barker-entity-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/understanding-data-modeling/03-barker-entity-notation.jpg)
 
 - 주 식별자 앞에 '#' 문자를 표시
 - '○'는 Nullable
@@ -575,11 +575,11 @@ image:
 
 #### IE 표기법
 
-![04-ie-primary-identifier-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/understanding-data-modeling/04-ie-primary-identifier-notation.jpg)
+![04-ie-primary-identifier-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/understanding-data-modeling/04-ie-primary-identifier-notation.jpg)
 
 #### Barker 표기법
 
-![05-barker-primary-identifier-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/understanding-data-modeling/05-barker-primary-identifier-notation.jpg)
+![05-barker-primary-identifier-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/understanding-data-modeling/05-barker-primary-identifier-notation.jpg)
 
 ### 주 식별자 도출 기준
 

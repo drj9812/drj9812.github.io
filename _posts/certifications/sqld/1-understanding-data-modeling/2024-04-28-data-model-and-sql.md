@@ -3,9 +3,9 @@ title: "[SQLD | 1과목]데이터 모델링의 이해 - 데이터 모델과 SQL(
 categories: [Certifications, SQLD]
 tags: [Certification, 자격증, SQLD]
 image:
-  path: /assets/img/posts/certifications/sqld/01-sqld-logo.jpg
+  path: /assets/img/posts/certifications/sqld/01-kdata-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
-  alt: SQLD
+  alt: 한국데이터산업진흥원
 ---
 
 |    구분   |          시험과목        |               과목별 세부 내용             | 문항수 |       배점       |  과락 기준  |     검정시간    |
@@ -24,9 +24,9 @@ image:
 |                          |           관계           |
 |                          |          식별자          |
 |   **데이터 모델과 SQL**   |          정규화          |
-|                          |     관계와 `JOIN`의 이해  |
+|                          |      관계와 조인의 이해   |
 |                          |  모델이 표현하는 트랜잭션  |
-|                          |     `NULL` 속성의 이해    |
+|                          |      Null 속성의 이해     |
 |                          | 본질 식별자 vs 인조 식별자 |
 
 ## 정규화
@@ -54,7 +54,7 @@ image:
 
 #### 제1 정규화(1NF)
 
-![01-1nf.jpg](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/01-1nf.jpg)
+![01-1nf.jpg](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/01-1nf.jpg)
 
 - 테이블의 컬럼이 원자성(한 속성이 하나의 값을 갖는 특성)을 갖도록 테이블을 분해하는 단계
 - 하나의 행과 컬럼의 값이 반드시 한 값만 입력되도록 행을 분리하는 단계
@@ -63,7 +63,7 @@ image:
 
 #### 제2 정규화(2NF)
 
-![02-2nf](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/02-2nf.jpg)
+![02-2nf](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/02-2nf.jpg)
 
 - 제1 정규화를 진행한 테이블에 대해 완전 함수 종속을 만들도록 테이블을 분해
 - **완전 함수 종속이란, 기본 키를 구성하는 모든 컬럼의 값이 다른 컬럼을 결정짓는 상태**
@@ -73,7 +73,7 @@ image:
 
 #### 제3 정규화(3NF)
 
-![03-3nf](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/03-3nf.jpg)
+![03-3nf](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/03-3nf.jpg)
 
 - 제2 정규화를 진행한 테이블에 대해 이행적 종속을 없애도록 테이블을 분리
 - 이행적 종속성이란 A → B, B → C의 관계가 성립할 때, A → C가 성립되는 것을 말함
@@ -114,11 +114,11 @@ image:
 - 특정 범위의 데이터만 자주 처리하는 경우
 - 요약/집계 정보가 자주 요구되는 경우
 
-## 관계와 JOIN의 이해
+## 관계와 조인의 이해
 
 ### 관계(Relationship)의 개념
 
-![04-relation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/04-relation.jpg)
+![04-relation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/04-relation.jpg)
 
 - **Entity의 인스턴스 사이의 논리적인 연관성**
 - Entity의 정의, 속성 정의 및 관계 정의에 따라서 다양하게 변할 수 있음
@@ -140,7 +140,7 @@ image:
  
 #### 예시
 
-![05-join](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/05-join.jpg)
+![05-join](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/05-join.jpg)
 
 ```sql
 SELECT a.계좌번호, b.관리점
@@ -155,7 +155,7 @@ SELECT a.계좌번호, b.관리점
 
 ### 계층형 데이터 모델
 
-![06-hierarchical-database-model](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/06-hierarchical-database-model.jpg)
+![06-hierarchical-database-model](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/06-hierarchical-database-model.jpg)
 
 - **자기 자신끼리 관계가 발생하는 것**
 - 하나의 Entity 내의 인스턴스끼리 계층 구조를 가지는 경우
@@ -164,7 +164,7 @@ SELECT a.계좌번호, b.관리점
 
 ### 상호배타적 관계
 
-![07-mutually-exclusive-relationship-ie-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/07-mutually-exclusive-relationship-ie-notation.jpg)
+![07-mutually-exclusive-relationship-ie-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/07-mutually-exclusive-relationship-ie-notation.jpg)
 
 - 두 테이블 중 하나만 가능한 관계
 - 주문 Entity는 고객번호 또는 법인번호 둘 중 하나만 상속될 수 있음
@@ -197,7 +197,7 @@ SELECT a.계좌번호, b.관리점
 
 #### IE 표기법
 
-![1083-essential-and-optional-relationship-ie-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/08-essential-and-optional-relationship-ie-notation.jpg)
+![1083-essential-and-optional-relationship-ie-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/08-essential-and-optional-relationship-ie-notation.jpg)
 
 - **원을 사용하여** 필수적 관계와 선택적 관계를 **구분**
 - **필수적 관계**에는 원을 그리지 않음
@@ -205,38 +205,38 @@ SELECT a.계좌번호, b.관리점
 
 #### Barker 표기법
 
-![09-essential-and-optional-relationship-barker-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/09-essential-and-optional-relationship-barker-notation.jpg)
+![09-essential-and-optional-relationship-barker-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/09-essential-and-optional-relationship-barker-notation.jpg)
 
 - **실선과 점선으로 구분**
 - **필수적 관계**는 관계선을 **실선**으로 표기
 - **선택적 관계**는 관계선을 **점선**으로 표기
 
-## NULL 속성의 이해
+## Null 속성의 이해
 
-### NULL이란
+### Null이란
 
 - DBMS에서 **아직 정해지지 않은 값을 의미**
 - 0과 빈문자열(`''`)과는 다른 개념
 - 모델 설계 시 각 컬럼별로 `NULL`을 허용할 지를 결정(Nullabe Column)
 
-### NULL의 특성
+### Null의 특성
 
-![10-null(1)](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/10-null(1).jpg)
+![10-null(1)](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/10-null(1).jpg)
 
 - **`NULL`을 포함한 연산 결과는 항상 `NULL`**
 - **`NULL` 값과의 비교연산은 항상 거짓을 반환**
 
-![11-null(2)](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/11-null(2).jpg)
+![11-null(2)](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/11-null(2).jpg)
 
-![12-null(3)](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/12-null(3).jpg)
+![12-null(3)](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/12-null(3).jpg)
 
-![13-null(4)](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/13-null(4).jpg)
+![13-null(4)](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/13-null(4).jpg)
 
 - 집계함수는 `NULL`을 제외한 연산 결과를 반환
 
-### NULL의 ERD 표기법
+### Null의 ERD 표기법
 
-![14-null-erd-notation](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/14-null-erd-notation.jpg)
+![14-null-erd-notation](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/14-null-erd-notation.jpg)
 
 - IE 표기법에서는`NULL` 허용 여부를 알 수 없음
 - Barker 표기법에서는 속성 앞에 '○'가 `NULL` 허용 속성을 의미함
@@ -261,19 +261,19 @@ SELECT a.계좌번호, b.관리점
 
 #### 기본 키를 `주문번호` + `상품번호`로 설계
 
-![15-ex-natural-Identifier-vs-artificial-identifier(1)](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/15-ex-natural-Identifier-vs-artificial-identifier(1).jpg)
+![15-ex-natural-Identifier-vs-artificial-identifier(1)](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/15-ex-natural-Identifier-vs-artificial-identifier(1).jpg)
 
 주문을 하면 `주문번호`와 `상품번호`가 필요하므로 본질 식별자(`주문번호` + `상품번호`)가 된다. 하지만, PK가 `주문번호` + `상품번호`일 경우 하나의 주문번호로 같은 상품의 주문 결과를 저장할 수 없게 된다.
 
 #### 기본 키를 `주문번호` + `주문순번`(주문순번이라는 컬럼을 생성)로 설계
 
-![16-ex-natural-Identifier-vs-artificial-identifier(2)](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/16-ex-natural-Identifier-vs-artificial-identifier(2).jpg)
+![16-ex-natural-Identifier-vs-artificial-identifier(2)](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/16-ex-natural-Identifier-vs-artificial-identifier(2).jpg)
 
 하나의 주문에 여러 상품에 대한 주문 결과를 저장하고, 이를 `주문순번`으로 구분한다. 하지만 매 주문마다 동일한 상품 주문 시 `주문순번`을 저장하기 위해 상품의 주문 횟수를 세어야 한다는 점이 불편하다. 즉, 사과를 총 3번 구매했으니 `주문순번`은 1, 2, 3 순서대로 입력되야 한다.
 
 #### 기본 키를 `주문상세번호`(인조식별자 생성)로 설계
 
-![17-ex-natural-Identifier-vs-artificial-identifier(3)](/assets/img/posts/certifications/sqld/chapter1-understanding-data-modeling/data-model-and-sql/17-ex-natural-Identifier-vs-artificial-identifier(3).jpg)
+![17-ex-natural-Identifier-vs-artificial-identifier(3)](/assets/img/posts/certifications/sqld/1-understanding-data-modeling/data-model-and-sql/17-ex-natural-Identifier-vs-artificial-identifier(3).jpg)
 
 `주문상세번호`로 각 주문이력을 구분하기 때문에 같은 주문의 같은 상품이력이 저정될 수 있다. 하지만, `주문상세번호`만이 주 식별자이므로 나머지 정보들이 불필요하게 중복 저장될 위험 발생하고, 실제 업무와 상관없는 `주문상세번호`를 주 식별자로 생성하면 불필요한 인덱스가 생성된다는 단점이 있다.
 
