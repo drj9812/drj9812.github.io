@@ -20,15 +20,15 @@ image:
 ## jsp:useBean
 
 ```jsp
-<jsp:useBean id="beanName" class="com.example.BeanClass" scope="page|request|session|application"/>
+<jsp:useBean id="beanName" class="com.example.BeanClass" scope="page | request | session | application"/>
 ```
 
 - 자바빈을 선언하고, 인스턴스화하며, 스코프 내에서 사용하도록 설정
 - `id`: 인스턴스 이름
 - `class`: 클래스 경로
-- `scope`
-  + 생성한 자바빈 객체를 저장할 곳
-  + Default page
+- `scope`: 생성한 자바빈 객체의 생존 범위
+  + deafult page
+  + [[Java \| JSP]내장 객체](https://drj9812.github.io/posts/implicit-objects/){: target="_blank" } 참조
 
 ## jsp:setProperty
 
@@ -120,3 +120,4 @@ image:
 ```
 
 ![01-result-ex](/assets/img/posts/language/java/jsp/action-tags/01-result-ex.jpg)
+*결과*

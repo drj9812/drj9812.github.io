@@ -1,10 +1,10 @@
 ---
-title: "[Design Pattern | MVC]왜 VIEW는 WEB-INFO 폴더에 위치해야 하는가"
+title: "[Design Pattern | MVC]왜 VIEW는 WEB-INF 폴더에 위치해야 하는가"
 categories: [Software Architecture, Design Patterns]
 tags: [Software Architecture, Design Pattern, 디자인 패턴, MVC]
 ---
 
-# 왜 VIEW는 WEB-INFO 폴더에 위치해야 하는가
+# 왜 VIEW는 WEB-INF 폴더에 위치해야 하는가
 
 ## 보안 강화
 
