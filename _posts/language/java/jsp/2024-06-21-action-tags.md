@@ -17,7 +17,7 @@ image:
   + 자바빈(JavaBean)을 사용할 때, 포함 파일을 처리할 때, 포워딩을 할 때 사용됨
 - 표준 태그 라이브러리(JSTL)와는 다르며, JSP 사양의 일부로 포함되어 있음
 
-## jsp:useBean
+## \<jsp:useBean>
 
 ```jsp
 <jsp:useBean id="beanName" class="com.example.BeanClass" scope="page | request | session | application"/>
@@ -30,7 +30,7 @@ image:
   + deafult page
   + [[Java \| JSP]내장 객체](https://drj9812.github.io/posts/implicit-objects/){: target="_blank" } 참조
 
-## jsp:setProperty
+## \<jsp:setProperty>
 
 ```jsp
 <jsp:setProperty name="beanName" property="propertyName" value="value"/>
@@ -44,7 +44,7 @@ image:
 
 - 또는 모든 프로퍼티를 설정할 수도 있음
 
-## jsp:getProperty
+## \<jsp:getProperty>
 
 ```jsp
 <jsp:getProperty name="beanName" property="propertyName"/>
@@ -52,7 +52,7 @@ image:
 
 - 자바빈의 프로퍼티 값을 JSP 출력으로 가져옴
 
-## jsp:include
+## \<jsp:include>
 
 ```jsp
 <jsp:include page="includedPage.jsp"/>
@@ -63,7 +63,18 @@ image:
 - 참조
   + [[Java \| JSP]include 디렉티브와 include 액션 태그의 차이](https://drj9812.github.io/posts/the-difference-between-include-directive-and-include-action-tag/){: target="_blank" }
 
-## jsp:forward
+## \<jsp:param>
+
+```jsp
+<jsp:include page="included.jsp">
+  <jsp:param name="paramName" value="paramValue" />
+</jsp:include>
+```
+
+- **다른 JSP 페이지나 JSP 커스텀 태그에 파라미터를 전달**할 때 사용
+- 주로 `<jsp:include>`나 `<jsp:forward>` 태그와 함께 사용됨
+
+## \<jsp:forward>
 
 ```jsp
 <jsp:forward page="nextPage.jsp"/>
@@ -71,7 +82,7 @@ image:
 
 - 현재 요청을 다른 JSP 페이지, 서블릿 또는 HTML 파일로 포워딩
 
-## jsp:plugin
+## \<jsp:plugin>
 
 ```jsp
 <jsp:plugin type="applet" code="AppletClass" codebase="classes/" width="300" height="300">

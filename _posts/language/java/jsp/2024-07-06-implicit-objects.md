@@ -31,6 +31,14 @@ image:
 
 ## request
 
+```jsp
+<%-- request 객체를 사용하여 클라이언트가 보낸 파라미터를 출력--%>
+<%
+String username = request.getParameter("username");
+out.println("Welcome, " + username);
+%>
+```
+
 - 클라이언트의 요청을 나타내는 객체로, HTTP 요청에 대한 정보를 포함
 
 ### 메서드
@@ -63,6 +71,15 @@ image:
 
 ## response
 
+```jsp
+<%-- response 객체를 사용하여 클라이언트에게 메시지 보내기 --%>
+<%
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+out.println("<h1>Hello World!</h1>");
+%>
+```
+
 - 서버가 클라이언트에게 보낼 응답을 나타내는 객체
 
 ### 메서드
@@ -74,6 +91,15 @@ image:
 
 ## session
 
+```jsp
+<%-- session 객체를 사용하여 세션에 사용자 이름을 저장 --%>
+<%
+session.setAttribute("username", "Alice");
+String username = (String) session.getAttribute("username");
+out.println("Hello, " + username);
+%>
+```
+
 - 사용자의 세션을 나타내는 객체로, 각 사용자마다 고유한 세션을 가짐
 
 ### 메서드
@@ -83,6 +109,14 @@ image:
 - `invalidate()`: 세션을 무효화
 
 ## application
+
+```jsp
+<%-- application 객체를 사용하여 웹 애플리케이션 초기화 매개변수를 가져오기--%>
+<%
+String adminEmail = application.getInitParameter("adminEmail");
+out.println("Admin email: " + adminEmail);
+%>
+```
 
 - Servlet 컨텍스트를 나타내는 객체로, 애플리케이션 전역에서 접근 가능한 속성을 관리
 
@@ -94,7 +128,12 @@ image:
 
 ## out
 
-- JSP 페이지에 출력을 보내는 객체로, JspWriter 클래스를 사용
+```jsp
+<%-- out 객체를 사용하여 HTML 코드를 출력 --%>
+<% out.println("<h2>Hello, JSP!</h2>"); %>
+```
+
+- JSP 페이지에 출력을 보내는 객체로, `JspWriter` 클래스를 사용
 
 ### 메서드
 
