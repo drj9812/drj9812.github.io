@@ -17,7 +17,7 @@ image:
 ![01-currently-supported-versions](/assets/img/posts/tools/was/tomcat/requirement-specifications-by-tomcat-version/01-currently-supported-versions.jpg)
 
 - Alpha
-    + 사양 및/또는 중요한 버그에 의해 요구되는 테스트되지 않은/누락된 기능이 대량으로 포함될 수 있음
+    + 사양 및 또는 중요한 버그에 의해 요구되는 테스트되지 않은 누락된 기능이 대량으로 포함될 수 있음
     + 어떤 시간 동안도 안정적으로 실행되지 않을 것으로 예상되는 버전
 - Beta
     + 일부 검증되지 않은 기능 및/또는 비교적 사소한 버그가 포함될 수 있음
