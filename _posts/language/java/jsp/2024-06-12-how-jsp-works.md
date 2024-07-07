@@ -16,7 +16,7 @@ image:
 
 ![02-the-process-by-which-jsp-is-converted-to-servlet(2)](/assets/img/posts/language/java/jsp/how-jsp-works/02-the-process-by-which-jsp-is-converted-to-servlet(2).jpg)
 
-클라이언트가 JSP 페이지를 요청하면 웹 서버는 이 HTTP 요청을 수신하고 WAS에 요청을 위임한다. 최초 요청인 경우에는 Servlet이 존재하지 않으므로 해당 JSP 파일은 **JSP 엔진(Jasper) 의해 Java 파일로 변환되며 이 파일은 Servlet(`HttpServlet` 클래스를 상속받는 클래스) 역할을 수행**한다. Servlet 엔진(Servlet 컨테이너)은 변환된 Servlet 클래스를 이용하여 Servlet 객체 생성 후 `_jspInit()` 메서드를 통해 초기화하고 `_jspService()` 메서드를 실행해 클라이언트의 요청을 처리한다. `_jspInit()`, `_jspService()` 메서드는 각각 `HttpServlet` 클래스에 정의된 `init()`, `service()` 메서드를 오버라이딩한 메서드다.
+클라이언트가 JSP 페이지를 요청하면 웹 서버는 이 HTTP 요청을 수신하고 WAS에 요청을 위임한다. 최초 요청인 경우에는 Servlet이 존재하지 않으므로 해당 JSP 파일은 **JSP 엔진(Jasper) 의해 Java 파일로 변환되며 이 파일은 Servlet(`HttpServlet` 클래스를 상속받는 클래스) 역할을 수행**한다. Servlet 엔진(Servlet 컨테이너)은 변환된 Servlet 클래스를 이용하여 Servlet 객체 생성 후 `_jspInit()` 메서드를 통해 초기화하고 `_jspService()` 메서드를 실행해 클라이언트의 요청을 처리한다.
 
 > JSP 엔진(JSP 컨테이너)는 JSP 파일을 Servlet 소스로 변환 및 컴파일까지만 담당하는 프로그래밍이며, 변환된 Servlet의 수행은 Servlet 엔진이 담당한다.
 {: .prompt-info }
@@ -295,7 +295,10 @@ public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase
 {: file="scriptlet_jsp.java" }
 
 - `public final class scriptlet_jsp extends org.apache.jasper.runtime.HttpJspBase`
-  + `HttpJspBase` 클래스는 `HttpServlet` 클래스를 상속받음
+  + `HttpJspBase` 클래스는 `HttpServlet` 클래스를 상속받는 추상 클래스
+    * `HttpJspBase` 추상 클래스는 `_jspService()` 추상 메서드를 가지고 있으며 `scriptlet_jsp` 클래스는 `_jspService()` 추상 메서드를 구현하여 클라이언트의 요청을 처리하는 것
+    * `HttpJspBase` 추상 클래스는 `HttpServlet` 클래스의 `service()` 메서드를 오버라이딩하는 데 이때 `jspService()` 메서드가 호출됨
+    * <https://github.com/apache/tomcat/blob/main/java/org/apache/jasper/runtime/HttpJspBase.java> 참조
 
 ##### 스크립트릿
 
