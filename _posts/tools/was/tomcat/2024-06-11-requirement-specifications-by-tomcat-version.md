@@ -37,6 +37,36 @@ image:
 
 ### 10.1.x(Stable)
 
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>개발환경 버전 체크</title>
+    <style>
+      span {
+        display: inline-block;
+        font-weight: bold;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>개발환경 버전</h2><hr>
+    <span>서버  </span>: 
+    <%= application.getServerInfo() %><br>
+    <span>서블릿  </span>: 
+    <%= application.getMajorVersion() %>.<%= application.getMinorVersion() %><br>
+    <span>JSP  </span>: 
+    <%= JspFactory.getDefaultFactory().getEngineInfo().getSpecificationVersion() %><br>
+  </body>
+</html>
+```
+
+![02-tomcat-10.1.9-version-spec](/assets/img/posts/tools/was/tomcat/requirement-specifications-by-tomcat-version/02-tomcat-10.1.9-version-spec.jpg)
+
 - Tomcat 10.0.x를 기반으로 구축된 버전
 - Jakarta EE 10 스펙 구현
     + Servlet 6.0
@@ -44,7 +74,40 @@ image:
     + EL 5.0
     + WebSocket 2.1 및 Authentication 3.0
 
+> 톰캣이 구현하는 스펙은 이클립스의 Dynamic Web Module의 버전과 무관하게 구현된다.
+{: .prompt-info }
+
 ### 9.x(Stable)
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>개발환경 버전 체크</title>
+    <style>
+      span {
+        display: inline-block;
+        font-weight: bold;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>개발환경 버전</h2><hr>
+    <span>서버  </span>: 
+    <%= application.getServerInfo() %><br>
+    <span>서블릿  </span>: 
+    <%= application.getMajorVersion() %>.<%= application.getMinorVersion() %><br>
+    <span>JSP  </span>: 
+    <%= JspFactory.getDefaultFactory().getEngineInfo().getSpecificationVersion() %><br>
+  </body>
+</html>
+```
+
+![03-tomcat-9.0.75-version-spec](/assets/img/posts/tools/was/tomcat/requirement-specifications-by-tomcat-version/03-tomcat-9.0.75-version-spec.jpg)
 
 - Tomcat 8.0.x 및 8.5.x를 기반으로 구축된 버전
 - Java EE 8 스펙 구현
@@ -57,9 +120,12 @@ image:
 - JSSE 커넥터(NIO 및 NIO2)와 함께 TLS 지원을 위해 OpenSSL 사용에 대한 지원 추가
 - TLS 가상 호스팅(SNI)에 대한 지원 추가
 
+> 톰캣이 구현하는 스펙은 이클립스의 Dynamic Web Module의 버전과 무관하게 구현된다.
+{: .prompt-info }
+
 ## 현재 지원되지 않는 버전
 
-![02-unsupported-versions](/assets/img/posts/tools/was/tomcat/requirement-specifications-by-tomcat-version/02-unsupported-versions.jpg)
+![04-unsupported-versions](/assets/img/posts/tools/was/tomcat/requirement-specifications-by-tomcat-version/02-unsupported-versions.jpg)
 
 - 이러한 Apache Tomcat 버전은 수명이 종료되었으므로 사용자는 지원되는 버전으로 업그레이드하는 것을 권장
 

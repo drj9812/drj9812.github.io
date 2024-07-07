@@ -44,10 +44,9 @@ image:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
 	       xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
-	       xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
-		 			    https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+	       xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
 	       id="WebApp_ID" version="5.0">
 	
     <display-name>spring1</display-name>

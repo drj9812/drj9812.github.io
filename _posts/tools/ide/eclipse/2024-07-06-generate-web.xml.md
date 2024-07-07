@@ -10,8 +10,8 @@ image:
 
 # web.xml 파일 생성하기
 
-![01-generate-web.xml-file](/assets/img/posts/tools/ide/eclipse/generate-web.xml-file/01-generate-web.xml-file.jpg)
+![01-generate-web.xml](/assets/img/posts/tools/ide/eclipse/generate-web.xml/01-generate-web.xml.jpg)
 *프로젝트 우클릭 > `Java EE Tools` > `Generate Deployment Descriptor Stub`*
 
-![02-result](/assets/img/posts/tools/ide/eclipse/generate-web.xml-file/02-result.jpg)
+![02-result](/assets/img/posts/tools/ide/eclipse/generate-web.xml/02-result.jpg)
 *결과*

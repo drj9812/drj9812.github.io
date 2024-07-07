@@ -42,7 +42,7 @@ image:
     * JDBC
   + Server
     * JNDI, JTA, EJB
-- Oracle과 Eclipse Foundation 간의 상표권 문제로 인해 Jakarta EE로 명칭이 바뀜
+- Oracle과 Eclipse Foundation 간의 상표권 문제로 인해 9 버전 이후부터 Jakarta EE로 명칭이 바뀜
 
 ### Java ME(Micro Edition)
 
