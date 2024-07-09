@@ -12,11 +12,11 @@ tags: [Software Architecture, Design Pattern, 디자인 패턴, MVC]
 
 ## MVC 패턴 준수
 
-MVC 패턴(Model 2)에서는 Servlet이 Controller 역할을 하고, JSP는 View 역할을 한다. Controller가 요청을 처리하고, 필요한 데이터를 준비한 후 JSP로 포워딩한다. JSP는 단순히 데이터를 출력하는 역할만 한다. 이 패턴을 유지하려면 JSP 파일이 Servlet을 통해서만 접근될 수 있어야 한다. 이렇게 함으로써 모든 요청이 컨트롤러를 통해 처리되도록 강제할 수 있다.
+MVC 패턴(Model 2)에서는 Servlet이 Controller 역할을 하고, JSP는 View 역할을 한다. Controller가 요청을 처리하고, 필요한 데이터를 준비한 후 JSP로 포워딩한다. JSP는 단순히 데이터를 출력하는 역할만 한다. 이 패턴을 유지하려면 **JSP 파일이 Servlet을 통해서만 접근**될 수 있어야 한다. 이렇게 함으로써 모든 요청이 **컨트롤러를 통해 처리**되도록 강제할 수 있다.
 
 ## 비즈니스 로직과의 분리
 
-JSP 파일이 외부에 노출되면 비즈니스 로직이 혼재될 수 있는 위험이 있다. JSP 파일이 `/WEB-INF/`{: .filepath }에 위치하면 오직 Controller에서만 접근할 수 있으므로 비즈니스 로직이 JSP 파일 내에 포함되는 것을 방지할 수 있다.
+JSP 파일이 외부에 노출되면 비즈니스 로직이 혼재될 수 있는 위험이 있다. JSP 파일이 `/WEB-INF/`{: .filepath }에 위치하면 **오직 Controller에서만 접근**할 수 있으므로 비즈니스 로직이 JSP 파일 내에 포함되는 것을 방지할 수 있다.
 
 ## 의도된 경로로의 접근 강제
 

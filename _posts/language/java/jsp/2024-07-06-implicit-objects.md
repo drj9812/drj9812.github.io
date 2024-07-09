@@ -87,7 +87,7 @@ out.println("<h1>Hello World!</h1>");
 - `setContentType(String type)`: 응답의 콘텐츠 타입을 설정
 - `getWriter()`: 응답에 출력할 수 있는 `PrintWriter` 객체를 반환
 - `addCookie(Cookie cookie)`: 응답에 쿠키를 추가
-- `sendRedirect(String location)`: 클라이언트를 다른 URL로 리디렉션
+- `sendRedirect(String location)`: 클라이언트를 다른 URL로 리다이렉션
 
 ## session
 
