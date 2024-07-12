@@ -11,7 +11,7 @@ image:
 # GitHub Repository에서 이클립스로 프로젝트 가져오기
 
 ![01-copy-url-to-clipboard](/assets/img/posts/tools/ide/eclipse/import-project-from-github-repository-to-eclipse/01-copy-url-to-clipboard.jpg)
-*Repositry > `Code` > `Copy url to clipboard`*
+*Repositry > `HTTPS` > `Code` > `Copy url to clipboard`*
 
 ![02-import(1)](/assets/img/posts/tools/ide/eclipse/import-project-from-github-repository-to-eclipse/02-import(1).jpg)
 *`File` > `Import..`*

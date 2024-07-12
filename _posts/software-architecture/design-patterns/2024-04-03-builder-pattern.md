@@ -8,13 +8,20 @@ tags: [Software Architecture, Design Pattern, 디자인 패턴, Builder Pattern,
 
 ## 빌더 패턴(Builder Pattern)이란?
 
-- 복잡한 객체의 생성 과정을 추상화하여 객체를 단계적으로 생성하는 디자인 패턴
-- 객체의 생성과 표현을 분리하여 복잡한 객체를 만들고, 클라이언트가 객체의 내부 표현과 독립적으로 생성할 수 있도록 하는 것이 목적
+- 복잡한 객체의 생성 과정을 추상화하여 **객체를 단계적으로 생성**하는 디자인 패턴
+- **객체의 생성과 표현을 분리**하여 복잡한 객체를 만들고, 클라이언트가 객체의 내부 표현과 독립적으로 생성할 수 있도록 하는 것이 목적
 - 주로 생성자에 매우 많은 매개변수가 필요한 경우나 객체 생성의 단계가 여러 단계인 경우에 사용됨
 
-## 빌더 패턴의 구성 요소
+## 빌더 패턴의 종류
 
-### Product(제품)
+### Classic 빌더 패턴
+
+- 가장 일반적인 형태로, 객체 생성을 위한 빌더 클래스를 사용
+- 빌더 클래스는 객체의 각 부분을 설정하는 메서드들을 제공하고, 마지막으로 `build()` 메서드를 호출하여 객체를 생성
+
+#### 구성 요소
+
+##### Product
 
 ```java
 class Product {
@@ -22,267 +29,132 @@ class Product {
     private String name;
     private int price;
 
-    public Computer(String name, int price) {
-	this.name = name;
-	this.price = price
+    public Product() {}
+
+    public Product(String name, int price) {
+        this.name = name;
+        this.price = price;
     }
-
-    // ...
+    
+    @Override
+    public String toString() {
+        return "Product[name=" + name + ", price=" + price + "]";
+    }
 }
 ```
 
-- 복잡한 객체를 나타냄
-- 이 객체는 생성되는 과정에서 Builder에 의해 구축됨
-
-### Builder(건축자)
+##### Builder
 
 ```java
-interface Builder {
-
-    Product build();
-}
-```
-
-- 제품을 생성하기 위한 인터페이스/추상 클래스를 정의
-- 이 인터페이스/추상 클래스에는 객체의 각 부분을 생성하기 위한 메서드가 포함됨
-
-### Concrete Builder(구체적 건축자)
-
-```java
-class ConcreteBuilder implements Builder {
+class Builder {
 
     private String name;
     private int price;
 
-    public ConcreteBuilder name(String name) {
+    public Builder name(String name) {
         this.name = name;
         return this;
     }
 
-    public ConcreteBuilder price(int Price) {
-        this.rrice = price;
+    public Builder price(int price) {
+        this.price = price;
         return this;
     }
 
-    @Override
     public Product build() {
-	// ...(구체적인 생성 로직)
+        // 구체적인 생성 로직
         return new Product(name, price);
     }
 }
-
 ```
 
-- Builder 인터페이스를 구현하여 제품을 실제로 구축하는 클래스
 - Product 클래스와 동일하게 필드를 구성
-- **객체 자신을 반환하는 setter를 생성**
+- **객체 자신(`return this`)을 반환하는 setter를 생성**
 	+ setter 호출 후 연속적으로 체이닝(Chaining)하여 호출할 수 있게 됨
 	+ 일반적인 setter와 다르다는 걸 구분하기 위해 메서드 이름을 `setField()` 형식이 아닌 `field()` 형식으로 작명
 - 이 클래스는 객체 생성을 위한 구체적인 로직을 구현
 
-### Director(감독자)
+#### 객체 생성 예시
 
 ```java
-class Director {
+public class test {
 
-    private Builder builder;
+    public static void main(String[] args) {
+        Product product = new Builder().name("컴퓨터").price(1000).build();
 
-    public Director(Builder builder) {
-        this.builder = builder;
-    }
-
-    public Product buildProduct() {
-        return builder
-                .setName("제품 이름")
-                .setPrice("10000")
-                .build();
+        System.out.println(product.toString()); // Prodcut[name=컴퓨터, price=1000]
     }
 }
-
 ```
 
-- 제품의 생성 과정을 조정하는 클래스
-- 이 클래스는 Builder 인터페이스를 사용하여 제품을 구축하는 메서드를 정의함
+### Simple 빌더 패턴
 
-## 예시
+- *Effective Java*에서 소개됨
+- **빌더 클래스를 제품 클래스의 내부 정적 클래스(`static inner class`)로 정의**하는 방법
+  + 빌더와 제품 클래스 간의 긴밀한 연관성을 유지하면서도, 빌더를 독립적으로 사용할 수 있게 해줌
+
+#### 구성 요소
+
+##### Product
 
 ```java
-// Product: 복잡한 객체를 나타내는 클래스
-class Computer {
+public class Product {
 
-    private String cpu;
-    private String gpu;
-    private int ram;
-    private int storage;
+    private String name;
+    private int price;
 
-    public Computer(String cpu, String gpu, int ram, int storage) {
-        this.cpu = cpu;
-        this.gpu = gpu;
-        this.ram = ram;
-        this.storage = storage;
+    private Product(Builder builder) {
+        this.name = builder.name;
+        this.price = builder.price;
     }
 
-    // Getter
+    public static class builder {
 
-    // 이 예시에서는 Setter 메서드를 생략했지만, 실제 프로젝트에서는 필요할 수 있다.
-    // ...
+        private String name;
+        private int price;
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder price(int price) {
+            this.price = price;
+            return this;
+        }
+
+        public Product build() {
+            return new Product(this);
+        }
+    }
 
     @Override
     public String toString() {
-        return "Computer(" +
-                "cpu='" + cpu + '\'' +
-                ", gpu='" + gpu + '\'' +
-                ", ram=" + ram +
-                ", storage=" + storage +
-                ')';
-    }
-}
-
-// Builder: Computer 객체를 생성하는 인터페이스
-interface ComputerBuilder {
-
-    Computer build();
-}
-
-// Concrete Builder: ComputerBuilder 인터페이스를 구현하여 Computer 객체를 생성하는 클래스
-class ComputerBuilderImpl implements ComputerBuilder {
-
-    private String cpu;
-    private String gpu;
-    private int ram;
-    private int storage;
-
-    public ComputerBuilderImpl() {
-        // 기본값 설정 등 초기화 작업 수행
-    }
-
-    public ComputerBuilderImpl cpu(String cpu) {
-        this.cpu = cpu;
-        return this;
-    }
-
-    public ComputerBuilderImpl gpu(String gpu) {
-        this.gpu = gpu;
-        return this;
-    }
-
-    public ComputerBuilderImpl ram(int ram) {
-        this.ram = ram;
-        return this;
-    }
-
-    public ComputerBuilderImpl storage(int storage) {
-        this.storage = storage;
-        return this;
-    }
-
-    @Override
-    public Computer build() {
-	// ...(구체적인 생성 로직)
-        return new Computer(cpu, gpu, ram, storage);
-    }
-}
-
-// Director: 객체 생성 과정을 조정하는 클래스
-class ComputerDirector {
-
-    private ComputerBuilder builder;
-
-    public ComputerDirector(ComputerBuilder builder) {
-        this.builder = builder;
-    }
-
-    public Computer buildComputer() {
-        return builder
-                .cpu("Intel Core i7")
-                .gpu("NVIDIA GeForce RTX 3080")
-                .ram(16)
-                .storage(512)
-                .build();
-    }
-}
-
-// Client: Builder 패턴을 사용하여 Computer 객체를 생성하는 예시
-public class Main {
-
-    public static void main(String[] args) {
-
-        ComputerBuilder builder = new ComputerBuilderImpl();
-        ComputerDirector director = new ComputerDirector(builder);
-
-        Computer computer = director.buildComputer();
-        System.out.println(computer); // Computer{cpu='Intel Core i7', gpu='NVIDIA GeForce RTX 3080', ram=16, storage=512}
+        return "Prodcut[name=" + name + ", price=" + price + "]";
     }
 }
 ```
+
+- 빌더 클래스를 통해서만 생성되도록 Product 클래스의 생성자를 `private`로 정의
+
+#### 객체 생성 예시
 
 ```java
-public class Book {
+public class test {
 
-    private String title;
-    private String author;
-    private String publisher;
-	
-    public Book(String title, String author, String publisher) {
-        this.title = title;
-	this.author = author;
-	this.publisher = publisher;
-    }
-	
-    public String toString() {
-        return String.format("Book(title=%s, author=%s, publisher=%s)", this.title, this.author, this.publisher);
-    }
-	
-    public static BookBuilder builder() {
-        return new BookBuilder();
-	// 외부 클래스는 static으로 선언된 내부 클래스의 private 생성자를 호출할 수 있음
-    }
-	
-    public static class BookBuilder {
-        private String title;
-        private String author;
-	private String publisher;
-		
-        private BookBuilder() {}
-		
-        public BookBuilder title(String title) {
-            this.title = title;
-            return this; // this : BookBuilder 타입으로 생성된 객체(인스턴스)
-	}
-		
-	public BookBuilder author(String author) {
-            this.author = author;
-            return this;
-	}
-		
-	public BookBuilder publisher(String publisher) {
-            this.publisher = publisher;
-            return this;
-	}
-		
-	public Book build() {
-	    return new Book(title, author, publisher);
-	}
-    }
-	
     public static void main(String[] args) {
+        Product product = new Product.Builder().name("TV").price(1000).build();
+        // Product product = new Builder().name("TV").price(5000).build();
 
-        // Book 타입의 객체 생성
-        Book book1 = new Book("하얼빈", "김훈", "문학동네");
-        System.out.println(book1); // Book(title=하얼빈, author=김훈, publisher=문학동네)
-		
-        Book book2 = new Book("홍길동", "허균", "조선");
-        System.out.println(book2); // Book(title=홍길동, author=허균, publisher=조선)
-		
-        Book book3 = new Book("허균", "홍길동전", "모름");
-        //생성자의 파라미터 이름을 모호하게 선언한다면 호출하는 입장에서 적절한 값을 입력할 수가 없음
-	System.out.println(book3); // Book(title=허균, author=홍길동전, publisher=모름)
-		
-	Book book4 = Book.builder().author("허균").title("홍길동전").build(); // 파라미터 순서 상관 없음
-	System.out.println(book4); // Book(title=홍길동전, author=허균, publisher=null)
-		
-	Book book5 = Book.builder().author("남궁성").title("자바의 정석").build();
-	System.out.println(book5); // Book(title=자바의 정석, author=남궁성, publisher=null)
+        System.out.println(product.toString()); // Prodcut[name=TV, price=5000]
     }
 }
 ```
+
+### Director 빌더 패턴
+
+- *Gof의 디자인 패턴*에서 소개됨
+
+## 참고자료
+
+- [인파_, *빌더(Builder) 패턴 - 완벽 마스터하기*, Inpa Dev, 2023-03-16](https://inpa.tistory.com/entry/GOF-%F0%9F%92%A0-%EB%B9%8C%EB%8D%94Builder-%ED%8C%A8%ED%84%B4-%EB%81%9D%ED%8C%90%EC%99%95-%EC%A0%95%EB%A6%AC){: target="_blank" }

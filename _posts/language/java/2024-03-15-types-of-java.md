@@ -53,5 +53,5 @@ image:
 
 ## 참고자료
 
-- [J4BEZ, "0 _4. 자바의 종류(Java SE, Jakarta EE, Java ME, Java FX)", 작은 고양이의 캣 타워, 2019-09-13](https://j4bez.tistory.com/13){: target="_blank" }
-- 오정임, 처음 해보는 Servlet & JSP 웹 프로그래밍(부천: 루비페이퍼, 2023), 608.
+- [J4BEZ, *0 _4. 자바의 종류(Java SE, Jakarta EE, Java ME, Java FX)*, 작은 고양이의 캣 타워, 2019-09-13](https://j4bez.tistory.com/13){: target="_blank" }
+- 오정임, *처음 해보는 Servlet & JSP 웹 프로그래밍*(부천: 루비페이퍼, 2023), 608.
