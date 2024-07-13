@@ -108,7 +108,7 @@ public class Product {
         this.price = builder.price;
     }
 
-    public static class builder {
+    public static class Builder {
 
         private String name;
         private int price;
@@ -150,6 +150,185 @@ public class test {
     }
 }
 ```
+
+#### 응용 예시
+
+```java
+public class User {
+
+    private long id; 
+    private String userid;
+    private String password;
+    private String email;
+    private long points;
+    
+    public User() {}
+
+    public User(Long id, String userid, String password, String email, Long points) {
+        this.id = id;
+        this.userid = userid;
+        this.password = password;
+        this.email = email;
+        this.points = points;
+    }
+
+    // ...
+
+    public static UserBuilder builder() {
+        return new UserBuilder();
+    }
+
+    public static class UserBuilder {
+    	
+        private Long id;
+        private String userid;
+        private String password;
+        private String email;
+        private Long points;
+        
+        private UserBuilder() {}
+        
+        public UserBuilder id(Long id) {
+            this.id = id;
+            return this;
+        }
+        
+        public UserBuilder userid(String userid) {
+            this.userid = userid;
+            return this;
+        }
+        
+        public UserBuilder password(String password) {
+            this.password = password;
+            return this;
+        }
+        
+        public UserBuilder email(String email) {
+            this.email = email;
+            return this;
+        }
+        
+        public UserBuilder points(Long points) {
+            this.points = points;
+            return this;
+        }
+        
+        public User build() {
+            return new User(id, userid, password, email, points);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", userid=" + userid + ", password=" + password + ", email=" + email + ", poinst="
+                + points + "]";
+    }
+}
+```
+{: file="User.java" }
+
+```java
+public class UserSignUpDto {
+
+    private String userid;
+    private String password;
+    private String email;
+
+    public UserSignUpDto() {}
+
+    private UserSignUpDto(String userid, String password, String email) {
+        this.userid = userid;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User toUser() {
+        return User.builder()
+                .userid(userid).password(password).email(email)
+                .build();
+    }
+
+    public static UserSignUpDtoBuilder builder() {
+        return new UserSignUpDtoBuilder();
+    }
+
+    // ...
+
+    public static class UserSignUpDtoBuilder {
+
+        private String userid;
+        private String password;
+        private String email;
+
+        private UserSignUpDtoBuilder() {}
+
+        public UserSignUpDtoBuilder userid(String userid) {
+            this.userid = userid;
+            return this;
+        }
+
+        public UserSignUpDtoBuilder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public UserSignUpDtoBuilder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public UserSignUpDto build() {
+            return new UserSignUpDto(userid, password, email);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "UserSignUpDto [userid=" + userid + ", password=" + password + ", email=" + email + "]";
+    }
+}
+```
+{: file="UserSignUpDto.java" }
+
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.itwill.post.domain.User;
+import com.itwill.post.dto.UserSignUpDto;
+import com.itwill.post.repository.UserDao;
+
+public class UserService {
+
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
+    
+    private final UserDao userDao = UserDao.getInstance();
+
+    private static UserService instance = null;
+
+    private UserService() {}
+
+    public static UserService getInstance() {
+        if (instance == null) {
+            instance = new UserService();
+        }
+        return instance;
+    }
+
+    public boolean signUp(UserSignUpDto dto) {
+        log.info("signUp(dto={})", dto);
+        
+        int result = userDao.insert(dto.toUser());
+        
+        if (result == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+```
+{: file="UserService.java" }
 
 ### Director 빌더 패턴
 
