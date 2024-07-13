@@ -2,7 +2,6 @@
 title: "[CS]OSI 7 계층과 TCP/IP 4 계층"
 categories: [CS]
 tags: [CS, OSI 7 Layer, TCP/IP 4 Layer]
-image:
 ---
 
 # OSI 7 계층과 TCP/IP 4 계층
