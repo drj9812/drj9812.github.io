@@ -14,7 +14,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 스밀라 # the main title
+title: 메모장 # the main title
 
 tagline: 잘못된 정보가 있을 수 있습니다. # it will display as the sub-title
 

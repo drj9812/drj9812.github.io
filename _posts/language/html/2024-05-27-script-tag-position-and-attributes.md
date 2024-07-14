@@ -16,7 +16,7 @@ image:
 
 ![01-script-in-head](/assets/img/posts/language/html/script-tag-position-and-attributes/01-script-in-head.jpg)
 
-- 브라우저가 스크립트를 발견하면 다운로드(Fetching) 및 실행(Executing)이 완료될 때까지 파싱이 일시 중단됩
+- 브라우저가 스크립트를 발견하면 다운로드(Fetching) 및 실행(Executing)이 완료될 때까지 파싱이 일시 중단됨
 - 스크립트의 용량이 크거나 개수가 많다면 사용자가 페이지를 보기까지 많은 시간이 소요될 수 있음
 
 ### <body>의 끝 부분
@@ -49,4 +49,4 @@ image:
 
 # 참고자료
 
-- [엘리, "자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향 \| 프론트엔드 개발자 입문편 (JavaScript ES5+)", 드림코딩, 2020-04-07](https://www.youtube.com/watch?v=tJieVCgGzhs&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=2){: target="_blank" }
+- [엘리, *자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향 \| 프론트엔드 개발자 입문편 (JavaScript ES5+)*, 드림코딩, 2020-04-07](https://www.youtube.com/watch?v=tJieVCgGzhs&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=2){: target="_blank" }
