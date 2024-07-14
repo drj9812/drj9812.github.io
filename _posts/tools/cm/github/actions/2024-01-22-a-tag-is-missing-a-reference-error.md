@@ -1,9 +1,9 @@
 ---
 title: "[GitHub | GitHub Actions]'a' tag is missing a reference 에러"
-categories: [Tools, Git]
-tags: [Git, 깃, GitHub, GitHub Actions, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 에러, Error]
+categories: [Tools, CM]
+tags: [CM, Git, 깃, GitHub, GitHub Actions, GitHub Pages, Jekyll, Chirpy, GitHub 블로그, 에러, Error]
 image:
-  path: /assets/img/posts/tools/git/github/github-actions/a-tag-is-missing-a-reference-error/01-github-actions-logo.jpg
+  path: /assets/img/posts/tools/cm/github/github-actions/01-github-actions-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: GitHub Actions
 ---
@@ -12,7 +12,7 @@ image:
 
 ## 개요
 
-![02-test-fail-during-build](/assets/img/posts/tools/git/github/github-actions/a-tag-is-missing-a-reference-error/02-test-fail-during-build.png)
+![01-test-fail-during-build](/assets/img/posts/tools/cm/github/github-actions/a-tag-is-missing-a-reference-error/01-test-fail-during-build.png)
 
 작성한 글이 로컬 서버에서 문제가 없다는 걸 확인한 뒤, 원격 저장소에 push 했는데 `'a' tag is missing a reference` 라는 이유로 빌드가 실패됐다.
 
@@ -32,22 +32,22 @@ Jekyll에서 MD 파일로 작성된 파일은 HTML 파일로 변환되는데, �
 
 답변에 의하면 게시글의 작성자 정보를 담고 있는 `_data/authors.yml`{: .filepath }이 불완전할 경우 문제가 발생할 수 있다고 한다.
 
-![03-author-link](/assets/img/posts/tools/git/github/github-actions/a-tag-is-missing-a-reference-error/03-author-link.jpg)
+![02-author-link](/assets/img/posts/tools/cm/github/github-actions/a-tag-is-missing-a-reference-error/02-author-link.jpg)
 
 게시글을 작성될 때 작성자의 이름과 하이퍼링크는 `_config.yml`{: .filepath } 또는 `_data/authors.yml`{: .filepath }에 명시된 정보들을 바탕으로 설정된다.
 
-![04-author-information](/assets/img/posts/tools/git/github/github-actions/a-tag-is-missing-a-reference-error/04-author-information.png)
+![03-author-information](/assets/img/posts/tools/cm/github/github-actions/a-tag-is-missing-a-reference-error/03-author-information.png)
 
 이때 `_config.yml`{: .filepath }이 `_data/authors.yml`{: .filepath }보다 우선되지만, 두 파일의 정보가 충돌이 되어 명시된 하이퍼링크의 주소가 답변처럼 불완전한 상태가 되는 것이 아닌가하는 생각이 들었다.
 
-![05-authors.yml-comment-out](/assets/img/posts/tools/git/github/github-actions/a-tag-is-missing-a-reference-error/05-authors.yml-comment-out.png)
+![04-authors.yml-comment-out](/assets/img/posts/tools/cm/github/github-actions/a-tag-is-missing-a-reference-error/04-authors.yml-comment-out.png)
 *`_data/authors.yml`{: .filepath }*
 
 그래서 `_data/authors.yml`{: .filepath }의 작성자 정보를 전부 주석 처리하고 push 해보았지만 에러는 사라지지 않았다.
 
 ## 해결 방법
 
-![06-pages-deploy.yml-test-site-comment-out](/assets/img/posts/tools/git/github/github-actions/a-tag-is-missing-a-reference-error/06-pages-deploy.yml-test-site-comment-out.png)
+![05-pages-deploy.yml-test-site-comment-out](/assets/img/posts/tools/cm/github/github-actions/a-tag-is-missing-a-reference-error/05-pages-deploy.yml-test-site-comment-out.png)
 *`.github/github-actions/workflows/pages-deploy.yml`{: .filepath } > Test site 단계 주석 처리 또는 제거*
 
 에러가 발생한 Github Actions의 Test Site 단계는 정적 웹사이트에 대한 HTML 검증 및 품질 테스트를 제공하는 도구인 html-proofer가 Jekyll로 빌드된 사이트를 테스트를 하도록 `.github/github-actions/workflows/pages-deploy.yml`{: .filepath }에 설정되어있다.
@@ -58,4 +58,4 @@ Jekyll에서 MD 파일로 작성된 파일은 HTML 파일로 변환되는데, �
 
 ## 참고자료
 
-- [Cotes Chung, "Writing a New Post", Chirpy, 2024-01-31](https://chirpy.cotes.page/posts/write-a-new-post/#author-information){: target="_blank" }
+- [Cotes Chung, *Writing a New Post*, Chirpy, 2024-01-31](https://chirpy.cotes.page/posts/write-a-new-post/#author-information){: target="_blank" }
