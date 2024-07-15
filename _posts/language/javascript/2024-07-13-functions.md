@@ -10,7 +10,7 @@ image:
 
 # 함수
 
-## 정의
+## 선언
 
 ### 함수 선언문(Function Declarations)
 
