@@ -55,6 +55,8 @@ console.log(ellie.age); // 20
 ellie.speak(); // ellie: hello!
 ```
 
+- 프로퍼티를 선언할 때 `var`, `const`, `let` 키워드를 사용하지 않음
+
 ### Getter와 Setter
 
 ```javascript
@@ -194,6 +196,164 @@ console.log(triangle instanceof Triangle); // true
 console.log(triangle instanceof Shape); // true
 console.log(triangle instanceof Object); // true
 ```
+
+## 오브젝트(Object)
+
+### 선언
+
+#### Object constructor syntax
+
+```javascript
+const person = new Person();
+```
+
+- 클래스의 생성자를 이용하여 생성
+
+#### Object literal syntax
+
+```javascript
+const person = { name: 'ellie', age: 4 };
+
+person.hasJob = true;
+console.log(person.hasJob); // true
+
+delete person.hasJob;
+console.log(person.hasJob); // undefined
+```
+
+- 클래스가 없어도 생성할 수 있음
+- 오브젝트를 정의한 후에 프로퍼티를 추가, 삭제할 수 있음
+  + JS는 런타임에 타입이 결정되는 언어
+
+### Computed properties
+
+```javascript
+const person = { name: 'ellie', age: 20 };
+
+console.log(person.name); // ellie
+
+// Computed properties
+console.log(person[name]) // undefined
+console.log(person['name']); // ellie
+
+// Computed properties를 이용한 프로퍼티 추가
+person['hashJob'] = true;
+console.log(person['hashJob']); // true
+```
+
+- Key는 항상 string 타입
+
+```javascript
+const person = { name: 'ellie', age: 20 };
+
+function printValue(obj, key) {
+  // console.log(obj.key); // undefined
+  console.log(obj[key]); // ellie
+}
+
+printValue(person, 'name'); 
+```
+
+- 동적으로 Key를 받아와야 할 때 사용
+
+### Property value shorthand
+
+```javascript
+const person1 = { name: 'bob', age: 1 };
+const person2 = { name: 'steve', age: 2 };
+const person3 = { name: 'dave'. age: 3 };
+const person4 = makePerson('ellie', 4);
+
+console.log(person4); // {name: "ellie", age: 4}
+
+function makePerson(name, age) {
+  return {
+    // name: name,
+    // age: age,
+
+    // Property value shorthand
+    name,
+    age,
+  }
+}
+```
+
+### Constructor Function
+
+```javascript
+// function makePerson(name, age) {
+//   return {
+//     name,
+//     age,
+//   }
+// }
+
+const person = new Person('ellie', 4);
+
+function Person(name, age) {
+  // this = {};
+  this.name = name;
+  this.age = age;
+  // return this; 
+}
+```
+
+- 다른 계산을 하지 않고 순수하게 오브젝트를 생성하는 함수
+- 대문자로 시작하도로 작명
+- 클래스의 생성자와 같은 문법으로 작성
+
+### in 연산자(Operator)
+
+```javascript
+const person = { name: 'ellie', age: 20 };
+
+console.log('name' in person); // true
+console.log('age' in person); // true
+
+console.log('random' in person); // false
+console.log(person.random); // undefined
+```
+
+- 오브젝트에 해당하는 Key가 있는지 확인하는 연산자
+
+### for... in 문
+
+```javascript
+const person = { name: 'ellie', age: 20 };
+
+for (key in person) {
+  console.log(key); // name
+                    // age
+}
+```
+
+- 객체의 모든 열거 가능한 속성을 반복(iterate)
+
+### Fun cloning
+
+```javascript
+const person1 = { name: 'ellie', age: 20 };
+const person2 = person1
+person2.name = 'coder';
+
+console.log(person); // {name: "coder", age: 20}
+
+// old way
+const person3 = {};
+
+for (key in person1) [
+  person3[key] = person1[key];
+]
+
+console.log(person3); // {name: "coder", age: 20}
+
+// new way
+const person4 = Object.assgin(person4, person);
+console.log(person4); // {name: "codeR", age: 20}
+```
+
+- `Object`의 `assign()` 메서드 활용
+  + JS의 모든 오브젝트는 `Object`를 상속함
 
 ## 참고자료
 

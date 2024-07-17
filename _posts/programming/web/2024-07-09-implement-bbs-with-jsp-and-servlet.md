@@ -20,6 +20,8 @@ tags: [Programming, Java, 자바, JSP, Servlet, BBS]
 
 ## 프로젝트 환경 설정
 
+### web.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
@@ -36,6 +38,8 @@ tags: [Programming, Java, 자바, JSP, Servlet, BBS]
 </web-app>
 ```
 {: file="web.xml" }
+
+### pom.xml
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -140,6 +144,8 @@ tags: [Programming, Java, 자바, JSP, Servlet, BBS]
 
 ### View
 
+#### WEB-INF/main.jsp
+
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
@@ -179,6 +185,8 @@ pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 </html>
 ```
 {: file="WEB-INF/main.jsp" } 
+
+#### WEB-INF/post/create.jsp
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -228,6 +236,8 @@ pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 ```
 {: file="WEB-INF/post/create.jsp" }
 
+#### WEB-INF/post/delete.jsp
+
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
@@ -266,6 +276,7 @@ pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 ```
 {: file="WEB-INF/post/delete.jsp" }
 
+#### WEB-INF/post/list.jsp
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -335,6 +346,7 @@ pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 ```
 {: file="WEB-INF/post/list.jsp" }
 
+##### WEB-INF/post/modify.jsp
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -393,6 +405,7 @@ pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 ```
 {: file="WEB-INF/post/modify.jsp" }
 
+#### WEB-INF/user/signin.jsp
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -427,6 +440,8 @@ pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 {: file="WEB-INF/user/signin.jsp" }
 
 ### Filter
+
+#### EncodingFilter.java
 
 ```java
 package com.itwill.post.filter;
@@ -501,6 +516,8 @@ public class EncodingFilter extends HttpFilter implements Filter {
 }
 ```
 {: file="EncodingFilter.java" }
+
+#### AuthenticationFilter.java
 
 ```java
 import jakarta.servlet.Filter;

@@ -1,20 +1,20 @@
 ---
-title: "[Java]Reflection API"
+title: "[Java | API]Reflection"
 categories: [Language, Java]
-tags: [Java, 자바, Reflection API]
+tags: [Java, 자바, Reflection]
 image:
   path: /assets/img/posts/language/java/01-java-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Java
 ---
 
-# Reflection API
+# Reflection
 
 ## 참조
 
 - [[Java]Class 클래스](https://drj9812.github.io/posts/class-class/){: target="_blank" }
 
-## Reflection API란?
+## Reflection이란?
 
 > *reflection*
 >
