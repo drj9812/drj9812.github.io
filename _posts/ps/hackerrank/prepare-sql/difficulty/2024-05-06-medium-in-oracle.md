@@ -13,9 +13,9 @@ image:
 
 ## [The PADS](https://www.hackerrank.com/challenges/the-pads/problem?isFullScreen=true){: target="_blank" }
 
-![01-the-pads(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/01-the-pads(1).jpg)
-![02-the-pads(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/02-the-pads(2).jpg)
-![03-the-pads(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/03-the-pads(3).jpg)
+![the-pads(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-pads(1).jpg)
+![the-pads(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-pads(2).jpg)
+![the-pads(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-pads(3).jpg)
 
 ```sql
 SELECT name || '(' || SUBSTR(occupation, 1,1) || ')'
@@ -30,9 +30,9 @@ SELECT 'There are a total of ' || TO_CHAR(COUNT(occupation)) || ' ' || LOWER(occ
 
 ## [Occupations](https://www.hackerrank.com/challenges/occupations/problem?isFullScreen=true){: target="_blank" }
 
-![04-occupations(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/04-occupations(1).jpg)
-![05-occupations(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/05-occupations(2).jpg)
-![06-occupations(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/06-occupations(3).jpg)
+![occupations(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/occupations(1).jpg)
+![occupations(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/occupations(2).jpg)
+![occupations(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/occupations(3).jpg)
 
 ```sql
 SELECT doctor, professor, singer, actor
@@ -44,7 +44,7 @@ SELECT doctor, professor, singer, actor
  ORDER BY rank ASC;
 ```
 
-![07-occupations-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/07-occupations-query-structure.jpg)
+![01-occupations-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/problems/01-occupations-query-structure.jpg)
 *쿼리 구조*
 
 `PIVOT()` 함수의 문법은 `PIVOT(Value컬럼명 FOR Unstack컬럼명 IN (값1, 값2, ... 값n)` 이다. 이때 Value 컬럼과 Unstack 컬럼은 `FROM` 절에 명시가 되어있어야 하고, Value 컬럼과 Unstack 컬럼으로 선택되지 않은 `FROM` 절의 모든 컬럼이 Stack 컬럼이 된다.
@@ -68,9 +68,9 @@ SELECT doctor, professor, singer, actor
 
 ## [Binary Tree Nodes](https://www.hackerrank.com/challenges/binary-search-tree-1?isFullScreen=true){: target="_blank" }
 
-![08-binary-search-tree-1(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/08-binary-search-tree-1(1).jpg)
-![09-binary-search-tree-1(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/09-binary-search-tree-1(2).jpg)
-![10-binary-search-tree-1(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/10-binary-search-tree-1(3).jpg)
+![binary-search-tree-1(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/binary-search-tree-1(1).jpg)
+![binary-search-tree-1(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/binary-search-tree-1(2).jpg)
+![binary-search-tree-1(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/binary-search-tree-1(3).jpg)
 
 ```sql
 SELECT n, CASE WHEN p IS NULL THEN 'Root'
@@ -98,11 +98,11 @@ CONNECT BY PRIOR n = p
 
 ## [New Companies](https://www.hackerrank.com/challenges/the-company/problem?isFullScreen=true){: target="_blank" }
 
-![11-the-company(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/11-the-company(1).jpg)
-![12-the-company(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/12-the-company(2).jpg)
-![13-the-company(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/13-the-company(3).jpg)
-![14-the-company(4)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/14-the-company(4).jpg)
-![15-the-company(5)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/15-the-company(5).jpg)
+![the-company(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-company(1).jpg)
+![the-company(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-company(2).jpg)
+![the-company(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-company(3).jpg)
+![the-company(4)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-company(4).jpg)
+![the-company(5)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-company(5).jpg)
 
 ```sql
 SELECT c.company_code,
@@ -126,7 +126,7 @@ SELECT c.company_code,
 
 ## [Weather Observation Station 18](https://www.hackerrank.com/challenges/weather-observation-station-18/problem?isFullScreen=true){: target="_blank" }
 
-![16-weather-observation-station-18](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/16-weather-observation-station-18.jpg)
+![weather-observation-station-18](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-18.jpg)
 
 ```sql
 SELECT ROUND(ABS(MIN(lat_n) - MAX(lat_n)) + ABS(MIN(long_w) - MAX(long_w)), 4)
@@ -137,7 +137,7 @@ SELECT ROUND(ABS(MIN(lat_n) - MAX(lat_n)) + ABS(MIN(long_w) - MAX(long_w)), 4)
 
 ## [Weather Observation Station 19](https://www.hackerrank.com/challenges/weather-observation-station-19/problem?isFullScreen=true){: target="_blank" }
 
-![17-weather-observation-station-19](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/17-weather-observation-station-19.jpg)
+![weather-observation-station-19](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-19.jpg)
 
 ```sql
 SELECT ROUND(SQRT(POWER(MIN(lat_n) - MAX(lat_n), 2) + POWER(MIN(long_w) - MAX(long_w), 2)), 4)
@@ -148,7 +148,7 @@ SELECT ROUND(SQRT(POWER(MIN(lat_n) - MAX(lat_n), 2) + POWER(MIN(long_w) - MAX(lo
 
 ## [Weather Observation Station 20](https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true){: target="_blank" }
 
-![18-weather-observation-station-20](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/18-weather-observation-station-20.jpg)
+![weather-observation-station-20](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-20.jpg)
 
 ```sql
 SELECT ROUND(MEDIAN(lat_n) , 4)
@@ -157,9 +157,9 @@ SELECT ROUND(MEDIAN(lat_n) , 4)
 
 ## [The Report](https://www.hackerrank.com/challenges/the-report/problem?isFullScreen=true){: target="_blank" }
 
-![19-the-report(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/19-the-report(1).jpg)
-![20-the-report(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/20-the-report(2).jpg)
-![21-the-report(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/21-the-report(3).jpg)
+![the-report(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-report(1).jpg)
+![the-report(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-report(2).jpg)
+![the-report(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-report(3).jpg)
 
 ```sql
 SELECT CASE WHEN GRADE < 8 THEN 'NULL'
@@ -174,11 +174,11 @@ SELECT CASE WHEN GRADE < 8 THEN 'NULL'
 
 ## [Top Competitors](https://www.hackerrank.com/challenges/full-score/problem?isFullScreen=true){: target="_blank" }
 
-![22-full-score(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/22-full-score(1).jpg)
-![23-full-score(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/23-full-score(2).jpg)
-![24-full-score(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/24-full-score(3).jpg)
-![25-full-score(4)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/25-full-score(4).jpg)
-![26-full-score(5)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/26-full-score(5).jpg)
+![full-score(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/full-score(1).jpg)
+![full-score(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/full-score(2).jpg)
+![full-score(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/full-score(3).jpg)
+![full-score(4)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/full-score(4).jpg)
+![full-score(5)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/full-score(5).jpg)
 
 ```sql
  SELECT h.hacker_id, h.name
@@ -197,10 +197,10 @@ SELECT CASE WHEN GRADE < 8 THEN 'NULL'
 
 ## [Ollivander's Inventory](https://www.hackerrank.com/challenges/harry-potter-and-wands/problem?isFullScreen=true){: target="_blank" }
 
-![27-harry-potter-and-wands(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/27-harry-potter-and-wands(1).jpg)
-![28-harry-potter-and-wands(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/28-harry-potter-and-wands(2).jpg)
-![29-harry-potter-and-wands(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/29-harry-potter-and-wands(3).jpg)
-![30-harry-potter-and-wands(4)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/30-harry-potter-and-wands(4).jpg)
+![harry-potter-and-wands(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/harry-potter-and-wands(1).jpg)
+![harry-potter-and-wands(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/harry-potter-and-wands(2).jpg)
+![harry-potter-and-wands(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/harry-potter-and-wands(3).jpg)
+![harry-potter-and-wands(4)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/harry-potter-and-wands(4).jpg)
 
 ```sql
 SELECT w.id, p.age, w.coins_needed, w.power
@@ -220,10 +220,10 @@ SELECT w.id, p.age, w.coins_needed, w.power
 
 ## [Challenges](https://www.hackerrank.com/challenges/challenges/problem?isFullScreen=true){: target="_blank" }
 
-![31-challenges(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/31-challenges(1).jpg)
-![32-challenges(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/32-challenges(2).jpg)
-![33-challenges(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/33-challenges(3).jpg)
-![34-challenges(4)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/34-challenges(4).jpg)
+![challenges(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/challenges(1).jpg)
+![challenges(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/challenges(2).jpg)
+![challenges(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/challenges(3).jpg)
+![challenges(4)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/challenges(4).jpg)
 
 ```sql
 WITH t AS (SELECT c.hacker_id, h.name, COUNT(c.challenge_id) AS count
@@ -281,9 +281,9 @@ hacker별 hacker가 생성한 challenge의 총 개수를 구하되, 생성한 �
 
 ## [Contest Leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true){: target="_blank" }
 
-![35-contest-leaderboard(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/35-contest-leaderboard(1).jpg)
-![36-contest-leaderboard(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/36-contest-leaderboard(2).jpg)
-![37-contest-leaderboard(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/37-contest-leaderboard(3).jpg)
+![contest-leaderboard(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/contest-leaderboard(1).jpg)
+![contest-leaderboard(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/contest-leaderboard(2).jpg)
+![contest-leaderboard(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/contest-leaderboard(3).jpg)
 
 ```sql
 SELECT h.hacker_id, h.name, SUM(sub.max) AS total_score
@@ -303,9 +303,9 @@ challenge에 대한 hacker별 최대 `score`의 합을 구하는 문제다. `sco
 
 ## [SQL Project Planning](https://www.hackerrank.com/challenges/sql-projects/problem?isFullScreen=true){: target="_blank" }
 
-![38-sql-projects(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/38-sql-projects(1).jpg)
-![39-sql-projects(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/39-sql-projects(2).jpg)
-![40-sql-projects(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/40-sql-projects(3).jpg)
+![sql-projects(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/sql-projects(1).jpg)
+![sql-projects(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/sql-projects(2).jpg)
+![sql-projects(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/sql-projects(3).jpg)
 
 ```sql
 SELECT MIN(start_date) AS min, MAX(end_date) AS max
@@ -321,7 +321,7 @@ SELECT MIN(start_date) AS min, MAX(end_date) AS max
  ORDER BY max - min ASC, min ASC;
 ```
 
-![41-sql-projects-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/41-sql-projects-query-structure.jpg)
+![02-sql-projects-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/problems/02-sql-projects-query-structure.jpg)
 *쿼리 구조*
 
 `start_date`와 `end_date`의 차이가 하루라면 하나의 프로젝트로 보고, 해당 프로젝트가 시작된 날짜와 종료된 날짜를 출력하는 문제다. 이때 프로젝트의 시작된 날짜와 종료된 날짜의 차이를 기준으로 오름차순 정렬하고, 그 일수가 같다면 시작된 날짜를 기준으로 오름차순 정렬한다.
@@ -392,9 +392,9 @@ SELECT MIN(start_date) AS start_date, MAX(end_date) AS end_date
 
 ## [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true){: target="_blank" }
 
-![42-placements(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/42-placements(1).jpg)
-![43-placements(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/43-placements(2).jpg)
-![44-placements(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/44-placements(3).jpg)
+![placements(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/placements(1).jpg)
+![placements(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/placements(2).jpg)
+![placements(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/placements(3).jpg)
 
 ```sql
 SELECT name
@@ -414,8 +414,8 @@ SELECT name
 
 ## [Symmetric Pairs](https://www.hackerrank.com/challenges/symmetric-pairs/problem?isFullScreen=true){: target="_blank" }
 
-![45-symmetric-pairs(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/45-symmetric-pairs(1).jpg)
-![46-symmetric-pairs(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/46-symmetric-pairs(2).jpg)
+![symmetric-pairs(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/symmetric-pairs(1).jpg)
+![symmetric-pairs(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/symmetric-pairs(2).jpg)
 
 ```sql
 SELECT f1.*
@@ -430,7 +430,7 @@ HAVING COUNT(*) > 1 OR f1.x < f1.y
 
 ## [Print Prime Numbers](https://www.hackerrank.com/challenges/print-prime-numbers/problem?isFullScreen=true){: target="_blank" }
 
-![47-print-prime-numbers](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium/47-print-prime-numbers.jpg)
+![print-prime-numbers](/assets/img/posts/ps/hackerrank/prepare-sql/problems/print-prime-numbers.jpg)
 
 ```sql
 WITH t AS (SELECT  a.num

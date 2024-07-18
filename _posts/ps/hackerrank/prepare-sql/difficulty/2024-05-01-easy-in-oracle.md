@@ -12,7 +12,7 @@ image:
 
 ## [Revising the Select Query I](https://www.hackerrank.com/challenges/revising-the-select-query/problem?isFullScreen=true){: target="_blank" }
 
-![01-revising-the-select-query-I](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/01-revising-the-select-query-I.jpg)
+![revising-the-select-query-I](/assets/img/posts/ps/hackerrank/prepare-sql/problems/revising-the-select-query-I.jpg)
 
 ```sql
 SELECT *
@@ -22,7 +22,7 @@ SELECT *
 
 ## [Revising the Select Query II](https://www.hackerrank.com/challenges/revising-the-select-query-2/problem?isFullScreen=true){: target="_blank" }
 
-![02-revising-the-select-query-II](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/02-revising-the-select-query-II.jpg)
+![revising-the-select-query-II](/assets/img/posts/ps/hackerrank/prepare-sql/problems/revising-the-select-query-II.jpg)
 
 ```sql
 SELECT name
@@ -32,7 +32,7 @@ SELECT name
 
 ## [Select All](https://www.hackerrank.com/challenges/select-all-sql/problem?isFullScreen=true){: target="_blank" }
 
-![03-select-all](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/03-select-all.jpg)
+![select-all](/assets/img/posts/ps/hackerrank/prepare-sql/problems/select-all.jpg)
 
 ```sql
 SELECT *
@@ -41,7 +41,7 @@ SELECT *
 
 ## [Select By Id](https://www.hackerrank.com/challenges/select-by-id/problem?isFullScreen=true){: target="_blank" }
 
-![04-select-by-id](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/04-select-by-id.jpg)
+![select-by-id](/assets/img/posts/ps/hackerrank/prepare-sql/problems/select-by-id.jpg)
 
 ```sql
 SELECT *
@@ -51,7 +51,7 @@ SELECT *
 
 ## [Japanese Cities' Attributes](https://www.hackerrank.com/challenges/japanese-cities-attributes/problem?isFullScreen=true){: target="_blank" }
 
-![05-japanese-cities-attributes](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/05-japanese-cities-attributes.jpg)
+![japanese-cities-attributes](/assets/img/posts/ps/hackerrank/prepare-sql/problems/japanese-cities-attributes.jpg)
 
 ```sql
 SELECT *
@@ -61,7 +61,7 @@ SELECT *
 
 ## [Japanese Cities' Names](https://www.hackerrank.com/challenges/japanese-cities-name/problem?isFullScreen=true){: target="_blank" }
 
-![06-japanese-cities-name](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/06-japanese-cities-name.jpg)
+![japanese-cities-name](/assets/img/posts/ps/hackerrank/prepare-sql/problems/japanese-cities-name.jpg)
 
 ```sql
 SELECT name
@@ -71,7 +71,7 @@ SELECT name
 
 ## [Weather Observation Station 1](https://www.hackerrank.com/challenges/weather-observation-station-1/problem?isFullScreen=true){: target="_blank" }
 
-![07-weather-observation-station-1](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/07-weather-observation-station-1.jpg)
+![weather-observation-station-1](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-1.jpg)
 
 ```sql
 SELECT city, state
@@ -80,7 +80,7 @@ SELECT city, state
 
 ## [Weather Observation Station 3](https://www.hackerrank.com/challenges/weather-observation-station-3/problem?isFullScreen=true){: target="_blank" }
 
-![08-weather-observation-station-3](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/08-weather-observation-station-3.jpg)
+![weather-observation-station-3](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-3.jpg)
 
 ```sql
 SELECT DISTINCT(city)
@@ -90,7 +90,7 @@ SELECT DISTINCT(city)
 
 ## [Weather Observation Station 4](https://www.hackerrank.com/challenges/weather-observation-station-4/problem?isFullScreen=true){: target="_blank" }
 
-![09-weather-observation-station-4](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/09-weather-observation-station-4.jpg)
+![weather-observation-station-4](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-4.jpg)
 
 ```sql
 SELECT COUNT(city) - COUNT(DISTINCT(city))
@@ -102,8 +102,8 @@ SELECT COUNT(city) - COUNT(DISTINCT(city))
 
 ## [Weather Observation Station 5](https://www.hackerrank.com/challenges/weather-observation-station-5/problem?isFullScreen=true){: target="_blank" }
 
-![10-weather-observation-station-5(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/10-weather-observation-station-5(1).jpg)
-![11-weather-observation-station-5(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/11-weather-observation-station-5(2).jpg)
+![weather-observation-station-5(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-5(1).jpg)
+![weather-observation-station-5(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-5(2).jpg)
 
 ```sql
 SELECT *
@@ -123,7 +123,7 @@ SELECT *
 
 ## [Weather Observation Station 6](https://www.hackerrank.com/challenges/weather-observation-station-6/problem?isFullScreen=true){: target="_blank" }
 
-![12-weather-observation-station-6](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/12-weather-observation-station-6.jpg)
+![weather-observation-station-6](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-6.jpg)
 
 ```sql
 SELECT city
@@ -137,7 +137,7 @@ SELECT city
 
 ## [Weather Observation Station 7](https://www.hackerrank.com/challenges/weather-observation-station-7?isFullScreen=true){: target="_blank" }
 
-![13-weather-observation-station-7](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/13-weather-observation-station-7.jpg)
+![weather-observation-station-7](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-7.jpg)
 
 ```sql
 SELECT DISTINCT(city)
@@ -149,7 +149,7 @@ SELECT DISTINCT(city)
 
 ## [Weather Observation Station 8](https://www.hackerrank.com/challenges/weather-observation-station-8/problem?isFullScreen=true){: target="_blank" }
 
-![14-weather-observation-station-8](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/14-weather-observation-station-8.jpg)
+![weather-observation-station-8](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-8.jpg)
 
 ```sql
 SELECT DISTINCT(city)
@@ -165,7 +165,7 @@ SELECT DISTINCT(city)
 
 ## [Weather Observation Station 9](https://www.hackerrank.com/challenges/weather-observation-station-9/problem?isFullScreen=true){: target="_blank" }
 
-![15-weather-observation-station-9](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/15-weather-observation-station-9.jpg)
+![weather-observation-station-9](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-9.jpg)
 
 ```sql
 SELECT DISTINCT(city)
@@ -177,7 +177,7 @@ SELECT DISTINCT(city)
 
 ## [Weather Observation Station 10](https://www.hackerrank.com/challenges/weather-observation-station-10/problem?isFullScreen=true){: target="_blank" }
 
-![16-weather-observation-station-10](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/16-weather-observation-station-10.jpg)
+![weather-observation-station-10](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-10.jpg)
 
 ```sql
 SELECT DISTINCT(city)
@@ -187,7 +187,7 @@ SELECT DISTINCT(city)
 
 ## [Weather Observation Station 11](https://www.hackerrank.com/challenges/weather-observation-station-11/problem?isFullScreen=true){: target="_blank" }
 
-![17-weather-observation-station-11](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/17-weather-observation-station-11.jpg)
+![weather-observation-station-11](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-11.jpg)
 
 ```sql
 SELECT DISTINCT(city)
@@ -199,7 +199,7 @@ SELECT DISTINCT(city)
 
 ## [Weather Observation Station 12](https://www.hackerrank.com/challenges/weather-observation-station-12/problem?isFullScreen=true){: target="_blank" }
 
-![18-weather-observation-station-12](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/18-weather-observation-station-12.jpg)
+![weather-observation-station-12](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-12.jpg)
 
 ```sql
 SELECT DISTINCT(city)
@@ -209,8 +209,8 @@ SELECT DISTINCT(city)
 
 ## [Higher Than 75 Marks](https://www.hackerrank.com/challenges/more-than-75-marks?isFullScreen=true){: target="_blank" }
 
-![19-more-than-75-marks(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/19-more-than-75-marks(1).jpg)
-![20-more-than-75-marks(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/20-more-than-75-marks(2).jpg)
+![more-than-75-marks(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/more-than-75-marks(1).jpg)
+![more-than-75-marks(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/more-than-75-marks(2).jpg)
 
 ```sql
 SELECT name
@@ -225,8 +225,8 @@ SELECT name
 
 ## [Employee Names](https://www.hackerrank.com/challenges/name-of-employees/problem?isFullScreen=true){: target="_blank" }
 
-![21-name-of-employees(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/21-name-of-employees(1).jpg)
-![22-name-of-employees(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/22-name-of-employees(2).jpg)
+![name-of-employees(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/name-of-employees(1).jpg)
+![name-of-employees(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/name-of-employees(2).jpg)
 
 ```sql
 SELECT name
@@ -236,9 +236,9 @@ SELECT name
 
 ## [Employee Salaries](https://www.hackerrank.com/challenges/salary-of-employees/problem?isFullScreen=true){: target="_blank" }
 
-![23-salary-of-emplyees(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/23-salary-of-emplyees(1).jpg)
-![24-salary-of-emplyees(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/24-salary-of-emplyees(2).jpg)
-![25-salary-of-emplyees(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/25-salary-of-emplyees(3).jpg)
+![salary-of-emplyees(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/salary-of-emplyees(1).jpg)
+![salary-of-emplyees(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/salary-of-emplyees(2).jpg)
+![salary-of-emplyees(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/salary-of-emplyees(3).jpg)
 
 ```sql
 SELECT name
@@ -249,9 +249,9 @@ SELECT name
 
 ## [Type of Triangle](https://www.hackerrank.com/challenges/what-type-of-triangle/problem?isFullScreen=true){: target="_blank" }
 
-![26-what-type-of-triangle(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/26-what-type-of-triangle(1).jpg)
-![27-what-type-of-triangle(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/27-what-type-of-triangle(2).jpg)
-![28-what-type-of-triangle(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/28-what-type-of-triangle(3).jpg)
+![what-type-of-triangle(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/what-type-of-triangle(1).jpg)
+![what-type-of-triangle(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/what-type-of-triangle(2).jpg)
+![what-type-of-triangle(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/what-type-of-triangle(3).jpg)
 
 ```sql
 SELECT CASE WHEN a + b <= c OR a + c <= b OR b + c <= a THEN 'Not A Triangle'
@@ -264,7 +264,7 @@ SELECT CASE WHEN a + b <= c OR a + c <= b OR b + c <= a THEN 'Not A Triangle'
 
 ## [Revising Aggregations - The Count Function](https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem?isFullScreen=true){: target="_blank" }
 
-![29-revising-aggregations-the-count-function](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/29-revising-aggregations-the-count-function.jpg)
+![revising-aggregations-the-count-function](/assets/img/posts/ps/hackerrank/prepare-sql/problems/revising-aggregations-the-count-function.jpg)
 
 ```sql
 SELECT COUNT(id)
@@ -274,7 +274,7 @@ SELECT COUNT(id)
 
 ## [Revising Aggregations - The Sum Function](https://www.hackerrank.com/challenges/revising-aggregations-sum/problem?isFullScreen=true){: target="_blank" }
 
-![30-revising-aggregations-sum](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/30-revising-aggregations-sum.jpg)
+![revising-aggregations-sum](/assets/img/posts/ps/hackerrank/prepare-sql/problems/revising-aggregations-sum.jpg)
 
 ```sql
 SELECT SUM(population)
@@ -284,7 +284,7 @@ SELECT SUM(population)
 
 ## [Revising Aggregations - Averages](https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem?isFullScreen=true){: target="_blank" }
 
-![31-revising-aggregations-the-average-function](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/31-revising-aggregations-the-average-function.jpg)
+![revising-aggregations-the-average-function](/assets/img/posts/ps/hackerrank/prepare-sql/problems/revising-aggregations-the-average-function.jpg)
 
 ```sql
 SELECT AVG(population)
@@ -294,7 +294,7 @@ SELECT AVG(population)
 
 ## [Average Population](https://www.hackerrank.com/challenges/average-population/problem?isFullScreen=true){: target="_blank" }
 
-![32-average-population](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/32-average-population.jpg)
+![average-population](/assets/img/posts/ps/hackerrank/prepare-sql/problems/average-population.jpg)
 
 ```sql
 SELECT FLOOR(AVG(population))
@@ -306,7 +306,7 @@ SELECT FLOOR(AVG(population))
 
 ## [Japan Population](https://www.hackerrank.com/challenges/japan-population/problem?isFullScreen=true){: target="_blank" }
 
-![33-japan-population](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/33-japan-population.jpg)
+![japan-population](/assets/img/posts/ps/hackerrank/prepare-sql/problems/japan-population.jpg)
 
 ```sql
 SELECT SUM(population)
@@ -316,7 +316,7 @@ SELECT SUM(population)
 
 ## [Population Density Difference](https://www.hackerrank.com/challenges/population-density-difference?isFullScreen=true){: target="_blank" }
 
-![34-population-density-difference](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/34-population-density-difference.jpg)
+![population-density-difference](/assets/img/posts/ps/hackerrank/prepare-sql/problems/population-density-difference.jpg)
 
 ```sql
 SELECT MAX(population) - MIN(population)
@@ -325,9 +325,9 @@ SELECT MAX(population) - MIN(population)
 
 ## [The Blunder](https://www.hackerrank.com/challenges/the-blunder?isFullScreen=true){: target="_blank" }
 
-![35-the-blunder(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/35-the-blunder(1).jpg)
-![36-the-blunder(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/36-the-blunder(2).jpg)
-![37-the-blunder(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/37-the-blunder(3).jpg)
+![the-blunder(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-blunder(1).jpg)
+![the-blunder(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-blunder(2).jpg)
+![the-blunder(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/the-blunder(3).jpg)
 
 ```sql
 SELECT CEIL(AVG(salary) - AVG(TO_NUMBER(REPLACE(TO_CHAR(salary), '0', ''))))
@@ -338,9 +338,9 @@ SELECT CEIL(AVG(salary) - AVG(TO_NUMBER(REPLACE(TO_CHAR(salary), '0', ''))))
 
 ## [Top Earners](https://www.hackerrank.com/challenges/earnings-of-employees?isFullScreen=true){: target="_blank" }
 
-![38-earnings-of-employees(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/38-earnings-of-employees(1).jpg)
-![39-earnings-of-employees(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/39-earnings-of-employees(2).jpg)
-![40-earnings-of-employees(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/40-earnings-of-employees(3).jpg)
+![earnings-of-employees(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/earnings-of-employees(1).jpg)
+![earnings-of-employees(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/earnings-of-employees(2).jpg)
+![earnings-of-employees(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/earnings-of-employees(3).jpg)
 
 ```sql
 SELECT MAX(salary * MONTHS) || ' ' || COUNT(employee_id)
@@ -351,7 +351,7 @@ SELECT MAX(salary * MONTHS) || ' ' || COUNT(employee_id)
 
 ## [Weather Observation Station 2](https://www.hackerrank.com/challenges/weather-observation-station-2/problem?isFullScreen=true){: target="_blank" }
 
-![41-weather-observation-station-2](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/41-weather-observation-station-2.jpg)
+![weather-observation-station-2](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-2.jpg)
 
 ```sql
 SELECT ROUND(SUM(lat_n), 2), ROUND(SUM(long_w), 2)
@@ -360,7 +360,7 @@ SELECT ROUND(SUM(lat_n), 2), ROUND(SUM(long_w), 2)
 
 ## [Weather Observation Station 13](https://www.hackerrank.com/challenges/weather-observation-station-13/problem?isFullScreen=true){: target="_blank" }
 
-![42-weather-observation-station-13](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/42-weather-observation-station-13.jpg)
+![weather-observation-station-13](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-13.jpg)
 
 ```sql
 SELECT TRUNC(SUM(lat_n), 4)
@@ -370,7 +370,7 @@ SELECT TRUNC(SUM(lat_n), 4)
 
 ## [Weather Observation Station 14](https://www.hackerrank.com/challenges/weather-observation-station-14/problem?isFullScreen=true){: target="_blank" }
 
-![43-weather-observation-station-14](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/43-weather-observation-station-14.jpg)
+![weather-observation-station-14](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-14.jpg)
 
 ```sql
 SELECT TRUNC(MAX(lat_n), 4)
@@ -380,7 +380,7 @@ SELECT TRUNC(MAX(lat_n), 4)
 
 ## [Weather Observation Station 15](https://www.hackerrank.com/challenges/weather-observation-station-15/problem?isFullScreen=true){: target="_blank" }
 
-![44-weather-observation-station-15](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/44-weather-observation-station-15.jpg)
+![weather-observation-station-15](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-15.jpg)
 
 ```sql
 SELECT ROUND(long_w, 4)
@@ -392,7 +392,7 @@ SELECT ROUND(long_w, 4)
 
 ## [Weather Observation Station 16](https://www.hackerrank.com/challenges/weather-observation-station-16/problem?isFullScreen=true){: target="_blank" }
 
-![45-weather-observation-station-16](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/45-weather-observation-station-16.jpg)
+![weather-observation-station-16](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-16.jpg)
 
 ```sql
 SELECT ROUND(MIN(lat_n), 4)
@@ -402,7 +402,7 @@ SELECT ROUND(MIN(lat_n), 4)
 
 ## [Weather Observation Station 17](https://www.hackerrank.com/challenges/weather-observation-station-17/problem?isFullScreen=true){: target="_blank" }
 
-![46-weather-observation-station-17](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/46-weather-observation-station-17.jpg)
+![weather-observation-station-17](/assets/img/posts/ps/hackerrank/prepare-sql/problems/weather-observation-station-17.jpg)
 
 ```sql
 SELECT ROUND(long_w, 4)
@@ -414,8 +414,8 @@ SELECT ROUND(long_w, 4)
 
 ## [Population Census](https://www.hackerrank.com/challenges/asian-population/problem?isFullScreen=true){: target="_blank" }
 
-![47-asian-population(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/47-asian-population(1).jpg)
-![48-asian-population(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/48-asian-population(2).jpg)
+![asian-population(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/asian-population(1).jpg)
+![asian-population(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/asian-population(2).jpg)
 
 ```sql
 SELECT SUM(city.population)
@@ -427,8 +427,8 @@ SELECT SUM(city.population)
 
 ## [African Cities](https://www.hackerrank.com/challenges/african-cities/problem?isFullScreen=true){: target="_blank" }
 
-![49-african-cities(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/49-african-cities(1).jpg)
-![50-african-cities(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/50-african-cities(2).jpg)
+![african-cities(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/african-cities(1).jpg)
+![african-cities(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/african-cities(2).jpg)
 
 ```sql
 SELECT city.name
@@ -440,8 +440,8 @@ SELECT city.name
 
 ## [Average Population of Each Continent](https://www.hackerrank.com/challenges/average-population-of-each-continent/problem?isFullScreen=true){: target="_blank" }
 
-![51-average-population-of-each-continent(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/51-average-population-of-each-continent(1).jpg)
-![52-average-population-of-each-continent(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/52-average-population-of-each-continent(2).jpg)
+![average-population-of-each-continent(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/average-population-of-each-continent(1).jpg)
+![average-population-of-each-continent(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/average-population-of-each-continent(2).jpg)
 
 ```sql
 SELECT country.continent, FLOOR(AVG(city.population))
@@ -453,7 +453,7 @@ SELECT country.continent, FLOOR(AVG(city.population))
 
 ## [Draw The Triangle 2](https://www.hackerrank.com/challenges/draw-the-triangle-1/problem?isFullScreen=true){: target="_blank" }
 
-![53-draw-the-triangle-1](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/53-draw-the-triangle-1.jpg)
+![draw-the-triangle-1](/assets/img/posts/ps/hackerrank/prepare-sql/problems/draw-the-triangle-1.jpg)
 
 ```sql
  SELECT LPAD('* ', (21 - LEVEL) * 2, '* ')
@@ -463,7 +463,7 @@ CONNECT BY LEVEL <= 20;
 
 ## [Draw The Triangle 2](https://www.hackerrank.com/challenges/draw-the-triangle-2/problem?isFullScreen=true){: target="_blank" }
 
-![54-draw-the-triangle-2](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/easy/54-draw-the-triangle-2.jpg)
+![draw-the-triangle-2](/assets/img/posts/ps/hackerrank/prepare-sql/problems/draw-the-triangle-2.jpg)
 
 ```sql
  SELECT LPAD('* ', LEVEL * 2, '* ')

@@ -1,14 +1,14 @@
 ---
-title: "[Python]자료 구조"
+title: "[Python]자료구조"
 categories: [Language, Python]
-tags: [Python, 파이썬, Data Structures, 자료 구조]
+tags: [Python, 파이썬, Data Structures, 자료구조]
 image:
   path: /assets/img/posts/language/python/01-python-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Python
 ---
 
-# 자료 구조
+# 자료구조
 
 ## 리스트(List)
 
@@ -291,7 +291,7 @@ print(s) # {1, 2, 3}
 ```
 
 - 중복된 데이터를 허용하지 않음
-- 인덱스 기반의 자료 구조가 아님(인덱스가 없음)
+- 인덱스 기반의 자료구조가 아님(인덱스가 없음)
     + 데이터의 저장 순서가 중요하지 않음
         * `{ 1, 2, 3 } = { 3, 1, 2 }`
         * **indexing, slicing 기능을 제공하지 않음**

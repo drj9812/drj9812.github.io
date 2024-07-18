@@ -13,9 +13,9 @@ image:
 
 ## [Interviews](https://www.hackerrank.com/challenges/interviews/problem?isFullScreen=true){: target="_blank" }
 
-![01-interviews(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/hard/01-interviews(1).jpg)
-![02-interviews(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/hard/02-interviews(2).jpg)
-![03-interviews(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/hard/03-interviews(3).jpg)
+![interviews(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/interviews(1).jpg)
+![interviews(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/interviews(2).jpg)
+![interviews(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/interviews(3).jpg)
 
 ```sql
 SELECT contests.contest_id, contests.hacker_id, contests.name,
@@ -46,9 +46,9 @@ SELECT contests.contest_id, contests.hacker_id, contests.name,
 
 ## [15 Days of Learning SQL](https://www.hackerrank.com/challenges/15-days-of-learning-sql/problem?isFullScreen=true){: target="_blank" }
 
-![04-15-days-of-learning-sql(1)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/hard/04-15-days-of-learning-sql(1).jpg)
-![05-15-days-of-learning-sql(2)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/hard/05-15-days-of-learning-sql(2).jpg)
-![06-15-days-of-learning-sql(3)](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/hard/06-15-days-of-learning-sql(3).jpg)
+![15-days-of-learning-sql(1)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/15-days-of-learning-sql(1).jpg)
+![15-days-of-learning-sql(2)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/15-days-of-learning-sql(2).jpg)
+![15-days-of-learning-sql(3)](/assets/img/posts/ps/hackerrank/prepare-sql/problems/15-days-of-learning-sql(3).jpg)
 
 ```sql
 WITH t1 AS (SELECT contest_duration.sequence_date,

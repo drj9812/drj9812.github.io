@@ -1,16 +1,16 @@
 ---
-title: "[Java]자료 구조"
+title: "[Java]자료구조"
 categories: [Language, Java]
-tags: [Java, 자바, Data Structures, 자료 구조, Iterable, Collection, List, ArrayList, LinkedList, Vetor, Stack, Queue,  Deque, Set, TreeSet, HashSet, Map, HashMa, LinkedHashMap, TreeMap]
+tags: [Java, 자바, Data Structures, 자료구조, Iterable, Collection, List, ArrayList, LinkedList, Vetor, Stack, Queue,  Deque, Set, TreeSet, HashSet, Map, HashMa, LinkedHashMap, TreeMap]
 image:
   path: /assets/img/posts/language/java/01-java-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Java
 ---
 
-# 자료 구조(Data Structures)
+# 자료구조(Data Structures)
 
-## 자료 구조(Data Structures)란?
+## 자료구조(Data Structures)란?
 
 - 효율적으로 접근하고 수정할 수 있도록 데이터를 구성하고 저장하는 법
 - 각 원소들이 논리적으로 정의된 규칙에 의해 나열되며, 자료에 대한 처리를 효율적으로 수행할 수 있도록 자료를 구분하여 표현한 것

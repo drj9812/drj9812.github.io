@@ -14,7 +14,7 @@ image:
 
 ## [2739번 - 구구단](https://www.acmicpc.net/problem/2739){: target="_blank" }
 
-![01-2739](/assets/img/posts/ps/boj/step/loop/01-2739.png)
+![2739](/assets/img/posts/ps/boj/problems/2739.png)
 
 ```java
 import java.util.scanner;
@@ -36,7 +36,7 @@ public class Main {
 
 ## [10950번 - A+B - 3](https://www.acmicpc.net/problem/10950){: target="_blank" }
 
-![02-10950](/assets/img/posts/ps/boj/step/loop/02-10950.png)
+![10950](/assets/img/posts/ps/boj/problems/10950.png)
 
 ```java
 import java.util.scanner;
@@ -63,7 +63,7 @@ public class Main {
 
 ## [8393번 - 합](https://www.acmicpc.net/problem/8393){: target="_blank" }
 
-![03-8393](/assets/img/posts/ps/boj/step/loop/03-8393.png)
+![8393](/assets/img/posts/ps/boj/problems/8393.png)
 
 ```java
 import java.util.scanner;
@@ -88,8 +88,8 @@ public class Main {
 
 ## [25304번 - 영수증](https://www.acmicpc.net/problem/25304){: target="_blank" }
 
-![04-25304(1)](/assets/img/posts/ps/boj/step/loop/04-25304(1).png)
-![05-25304(2)](/assets/img/posts/ps/boj/step/loop/05-25304(2).png)
+![25304(1)](/assets/img/posts/ps/boj/problems/25304(1).png)
+![25304(2)](/assets/img/posts/ps/boj/problems/25304(2).png)
 
 ```java
 import java.util.scanner;
@@ -124,8 +124,8 @@ public class Main {
 
 ## [25314번 - 코딩은 체육과목 입니다](https://www.acmicpc.net/problem/25314){: target="_blank" }
 
-![06-25314(1)](/assets/img/posts/ps/boj/step/loop/06-25314(1).png)
-![07-25314(2)](/assets/img/posts/ps/boj/step/loop/07-25314(2).png)
+![25314(1)](/assets/img/posts/ps/boj/problems/25314(1).png)
+![25314(2)](/assets/img/posts/ps/boj/problems/25314(2).png)
 
 ```java
 import java.util.scanner;
@@ -149,8 +149,8 @@ public class Main {
 
 ## [15552번 - 빠른 A+B](https://www.acmicpc.net/problem/15552){: target="_blank" }
 
-![08-15552(1)](/assets/img/posts/ps/boj/step/loop/08-15552(1).png)
-![09-15552(2)](/assets/img/posts/ps/boj/step/loop/09-15552(2).png)
+![15552(1)](/assets/img/posts/ps/boj/problems/15552(1).png)
+![15552(2)](/assets/img/posts/ps/boj/problems/15552(2).png)
 
 ```java
 import java.io.*;
@@ -189,7 +189,7 @@ public class Main {
 
 ## [11021번 - A+B - 7](https://www.acmicpc.net/problem/11021){: target="_blank" }
 
-![10-11021](/assets/img/posts/ps/boj/step/loop/10-11021.png)
+![11021](/assets/img/posts/ps/boj/problems/11021.png)
 
 ```java
 import java.io.*;
@@ -226,7 +226,7 @@ public class Main {
 
 ## [11022번 - A+B - 8](https://www.acmicpc.net/problem/11022){: target="_blank" }
 
-![11-11022](/assets/img/posts/ps/boj/step/loop/11-11022.png)
+![11022](/assets/img/posts/ps/boj/problems/11022.png)
 
 ```java
 import java.io.*;
@@ -263,7 +263,7 @@ public class Main {
 
 ## [2438번 - 별 찍기 - 1](https://www.acmicpc.net/problem/2438){: target="_blank" }
 
-![12-2438](/assets/img/posts/ps/boj/step/loop/12-2438.png)
+![2438](/assets/img/posts/ps/boj/problems/2438.png)
 
 ```java
 import java.io.*;
@@ -294,7 +294,7 @@ public class Main {
 
 ## [2439번 - 별 찍기 - 2](https://www.acmicpc.net/problem/2439){: target="_blank" }
 
-![13-2439](/assets/img/posts/ps/boj/step/loop/13-2439.png)
+![2439](/assets/img/posts/ps/boj/problems/2439.png)
 
 ```java
 import java.io.*;
@@ -334,7 +334,7 @@ public class Main {
 
 ## [10952번 - A+B - 5](https://www.acmicpc.net/problem/10952){: target="_blank" }
 
-![14-10952](/assets/img/posts/ps/boj/step/loop/14-10952.png)
+![10952](/assets/img/posts/ps/boj/problems/10952.png)
 
 ```java
 import java.io.*;
@@ -374,7 +374,7 @@ public class Main {
 
 ## [10951번 - A+B - 4](https://www.acmicpc.net/problem/10951){: target="_blank" }
 
-![15-10951](/assets/img/posts/ps/boj/step/loop/15-10951.png)
+![10951](/assets/img/posts/ps/boj/problems/10951.png)
 
 ```java
 import java.io.*;

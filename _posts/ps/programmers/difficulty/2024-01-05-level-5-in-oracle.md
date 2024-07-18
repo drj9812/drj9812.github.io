@@ -1,5 +1,5 @@
 ---
-title: "[프로그래머스 | SQL]레벨5(Oracle)"
+title: "[프로그래머스 | 모든 문제]레벨 5(Oracle)"
 categories: [PS, Programmers]
 tags: [PS, Algorithm, 알고리즘, Programmers, 프로그래머스, SQL, Oracle, 오라클, 레벨5]
 image:
@@ -8,15 +8,15 @@ image:
   alt: programmers
 ---
 
-# 레벨5(Oracle)
+# 레벨 5(Oracle)
 
 2024-01-05 기준 정답률 순
 
 ## [상품을 구매한 회원 비율 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/131534){: target="_blank" }
 
-![01-상품을-구매한-회원-비율-구하기(1)](/assets/img/posts/ps/programmers/sql/level/5/01-상품을-구매한-회원-비율-구하기(1).png)
-![02-상품을-구매한-회원-비율-구하기(2)](/assets/img/posts/ps/programmers/sql/level/5/02-상품을-구매한-회원-비율-구하기(2).png)
-![03-상품을-구매한-회원-비율-구하기(3)](/assets/img/posts/ps/programmers/sql/level/5/03-상품을-구매한-회원-비율-구하기(3).png)
+![상품을-구매한-회원-비율-구하기(1)](/assets/img/posts/ps/programmers/sql-problems/상품을-구매한-회원-비율-구하기(1).png)
+![상품을-구매한-회원-비율-구하기(2)](/assets/img/posts/ps/programmers/sql-problems/상품을-구매한-회원-비율-구하기(2).png)
+![상품을-구매한-회원-비율-구하기(3)](/assets/img/posts/ps/programmers/sql-problems/상품을-구매한-회원-비율-구하기(3).png)
 
 ```sql
 SELECT EXTRACT(YEAR FROM sales_date) AS year,
