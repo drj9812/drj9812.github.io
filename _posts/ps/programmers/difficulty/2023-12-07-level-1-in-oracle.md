@@ -1,5 +1,5 @@
 ---
-title: "[프로그래머스 | 모든 문제]레벨 1(Oracle)"
+title: "[프로그래머스]레벨 1 난이도 모든 문제(Oracle)"
 categories: [PS, Programmers]
 tags: [PS, Algorithm, 알고리즘, Programmers, 프로그래머스, SQL, Oracle, 오라클, 레벨1]
 image:
@@ -8,13 +8,13 @@ image:
   alt: programmers
 ---
 
-# 레벨 1(Oracle)
+# 레벨 1 난이도 모든 문제(Oracle)
 
 2023-12-07 기준 정답률 순
 
 ## [동물의 아이디와 이름](https://school.programmers.co.kr/learn/courses/30/lessons/59403){: target="_blank" }
 
-![동물의-아이디와-이름](/assets/img/posts/ps/programmers/all/level/1/동물의-아이디와-이름.png)
+![동물의-아이디와-이름](/assets/img/posts/ps/programmers/sql-problems/동물의-아이디와-이름.png)
 
 ```sql
 SELECT animal_id, name

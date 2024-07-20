@@ -1,5 +1,5 @@
 ---
-title: "[프로그래머스 | 모든 문제]레벨 5(Oracle)"
+title: "[프로그래머스]레벨 5 난이도 모든 문제(Oracle)"
 categories: [PS, Programmers]
 tags: [PS, Algorithm, 알고리즘, Programmers, 프로그래머스, SQL, Oracle, 오라클, 레벨5]
 image:
@@ -8,7 +8,7 @@ image:
   alt: programmers
 ---
 
-# 레벨 5(Oracle)
+# 레벨 5 난이도 모든 문제(Oracle)
 
 2024-01-05 기준 정답률 순
 

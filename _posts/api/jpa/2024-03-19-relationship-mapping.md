@@ -10,8 +10,6 @@ image:
 
 # 연관 관계 매핑
 
-<a id=anchor1></a>
-
 ## 연관 관계의 중요성
 
 ![01-no-relationship-design](/assets/img/posts/api/jpa/relationship-mapping/01-no-relationship-design.jpg)
@@ -51,9 +49,9 @@ public class Team {
 }
 ```
 
-[사진](#anchor1)과 같이 참조 대신에 외래 키를 그대로 사용한다고 가정해보자.
+[사진](#연관-관계의-중요성)과 같이 참조 대신에 외래 키를 그대로 사용한다고 가정해보자.
 
-<a id="anchor2"></a>
+<a id="anchor1"></a>
 
 ```java
 // 팀 저장
@@ -147,7 +145,7 @@ Member findMember = em.find(Member.class, member.getId());
 Team findTeam = findMember.getTeam();
 ```
 
-[두 객체 사이에 연관 관계가 없을 때](#anchor2)와 달리, `Team` 객체 자체를 인자로 넘겨 저장할 수 있고, **조회를 할 때 DB에 접근하지 않고 `Member` 객체의 참조 변수를 이용해 접근(객체 그래프 탐색)**할 수 있게 된다.
+[두 객체 사이에 연관 관계가 없을 때](#anchor1)와 달리, `Team` 객체 자체를 인자로 넘겨 저장할 수 있고, **조회를 할 때 DB에 접근하지 않고 `Member` 객체의 참조 변수를 이용해 접근(객체 그래프 탐색)**할 수 있게 된다.
 
 > 새로운 `Team` 객체를 생성해서 `Member` 객체의 `team` 값을 변경해주면 외래 키의 값이 새로운 `Team` 객체 값으로 바뀌게 되면서 DB의 연관 관계도 함께 바뀌게 된다.
 {: .prompt-info }
