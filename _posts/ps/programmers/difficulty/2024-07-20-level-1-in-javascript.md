@@ -29,7 +29,7 @@ const solution = (num1, num2) => num1 - num2;
 ```javascript
 const solution = (num1, num2) => num1 === num2 ? 1 : -1
 ```
-## [나이 출력]https://school.programmers.co.kr/learn/courses/30/lessons/120820(){: target="_blank" }
+## [나이 출력](https://school.programmers.co.kr/learn/courses/30/lessons/120820){: target="_blank" }
 
 ```javascript
 const solution = (age) => 2022 - age + 1;

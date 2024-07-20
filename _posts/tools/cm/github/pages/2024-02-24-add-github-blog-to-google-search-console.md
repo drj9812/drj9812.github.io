@@ -63,7 +63,7 @@ $ git push
 >
 > *사이트맵은 사이트에 있는 페이지, 동영상 및 기타 파일과 각 관계에 관한 정보를 제공하는 파일입니다. Google과 같은 검색엔진은 이 파일을 읽고 사이트를 더 효율적으로 크롤링합니다. 사이트맵은 내가 사이트에서 중요하다고 생각하는 페이지와 파일을 검색엔진에 알리고 중요한 관련 정보를 제공합니다. 관련 정보의 예로는 페이지가 마지막으로 업데이트된 시간, 페이지의 대체 언어 버전이 있습니다.*
 >
-> ["사이트맵 알아보기", Google 검색 센터, 2024-02-22](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=ko){: target=" _blank" }
+> [*사이트맵 알아보기*, Google 검색 센터, 2024-02-22](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=ko){: target=" _blank" }
 
 ![07-add-sitemap](/assets/img/posts/tools/cm/github/github-pages/add-github-blog-to-google-search-console/07-add-sitemap.png)
 *`Sitemaps` > sitemap.xml 입력 > `제출`*
