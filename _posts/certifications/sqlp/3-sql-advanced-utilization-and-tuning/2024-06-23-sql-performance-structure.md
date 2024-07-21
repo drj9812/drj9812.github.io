@@ -76,7 +76,7 @@ image:
 
 ### 프로세스
 
-> *SQL Server는 쓰레드(Thread) 기반 아키텍처이므로 프로세스 대신 쓰레드라는 표현을 써야 한다. SQL Server 뿐만 아니라 Oracle도 Windows 버전에선 쓰레드(Thread)를 사용하지만, 프로세스와 일일이 구분하면서 설명하려면 복잡해지므로 특별히 쓰레드를 언급해야 할 경우가 아니라면 간단히 ‘프로세스’로 통칭하기로 한다. 잠시 후 표로써 정리해 보이겠지만, 주요 쓰레드의 역할은 Oracle 프로세스와 크게 다르지 않다. 프로세스는 서버 프로세스(Server Processes)와 백그라운드 프로세스(Background Processes) 집합으로 나뉜다. **서버 프로세스는 전면에 나서 사용자가 던지는 각종 명령을 처리**하고, **백그라운드 프로세스는 뒤에서 묵묵히 주어진 역할을 수행**한다.*
+> *SQL Server는 Thread 기반 아키텍처이므로 프로세스 대신 Thread라는 표현을 써야 한다. SQL Server 뿐만 아니라 Oracle도 Windows 버전에선 Thread를 사용하지만, 프로세스와 일일이 구분하면서 설명하려면 복잡해지므로 특별히 쓰레드를 언급해야 할 경우가 아니라면 간단히 ‘프로세스’로 통칭하기로 한다. 잠시 후 표로써 정리해 보이겠지만, 주요 Thread의 역할은 Oracle 프로세스와 크게 다르지 않다. 프로세스는 서버 프로세스(Server Processes)와 백그라운드 프로세스(Background Processes) 집합으로 나뉜다. **서버 프로세스는 전면에 나서 사용자가 던지는 각종 명령을 처리**하고, **백그라운드 프로세스는 뒤에서 묵묵히 주어진 역할을 수행**한다.*
 
 #### 서버 프로세스(Server Processes)
 
@@ -694,9 +694,29 @@ SELECT /*+ FULL(EMP) */ -- 무효
 *디스크 I/O 경합*
 
 - 모든 DBMS는 데이터를 읽을 때 먼저 [버퍼 캐시](#db-버퍼-캐시db-buffer-cache)에서 찾아보고, 없을 경우 디스크에서 읽어와 버퍼 캐시에 적재한 후 작업을 수행
-  + 디스크 I/O가 필요할 때면 서버 프로세스는 I/O 호출을 하고 잠시 대기 상태에 빠짐
+  + **디스크 I/O가 필요할 때면 서버 프로세스는 CPU를 OS에 반환하고 I/O가 완료되기를 기다림**
+    * 블로킹(Blocking) I/O
     * 디스크 I/O 경합이 심할 수록 대기 시간도 길어짐
+    * **블로킹 상태에 빠진 서버 프로세스는 성능에 악영향을 미침**
   + **모든 데이터를 메모리(버퍼 캐시)에 상주시킬 수 없으므로, 디스크 I/O를 최소화하고 버퍼 캐시의 효율을 높이는 것이 데이터베이스 I/O 튜닝의 목표**
+
+##### 블로킹(Blocking) I/O 과정
+
+![blocking-io-process](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/blocking-io-process.jpg)
+*Blocking I/O 과정*
+
+1. I/O 요청
+  - 프로세스가 디스크에서 데이터를 읽어야 할 때, 해당 프로세스는 OS에게 I/O 요청
+2. CPU 반환
+  - I/O 요청을 한 후, 프로세스는 더 이상 즉시 수행할 작업이 없으므로, CPU를 OS에 반환
+    + 다른 프로세스들이 CPU를 사용할 수 있도록 하기 위함
+3. 수면 상태
+  - I/O 작업이 완료될 때까지 프로세스는 수면 상태로 전환
+    + 수면 상태에 있는 동안 프로세스는 대기 큐(Wait Queue)에 놓임
+4. I/O 완료 알림
+  - 디스크에서 데이터 읽기가 완료되면, OS는 해당 프로세스에 알림을 보냄
+5. 프로세스 재개
+  - 알림을 받은 프로세스는 대기 큐에서 깨워져 다시 실행 상태로 전환되고, CPU를 할당받아 이후 작업을 계속 수행
 
 #### 버퍼 캐시 히트율(Buffer Cache Hit Ratio)
 
@@ -706,7 +726,7 @@ $$ BHCR = (\frac{버퍼 캐시에서 곧바로 찾은 블록 수((Query + Curren
   + 물리적인 디스크 읽기를 수반하지 않고 곧바로 메모리에서 블록을 찾은 비율
     * Direct Path Read 방식이외의 모든 블록 읽기는 버퍼 캐시를 통해 이루어짐
 
-> 같은 블록을 반복적으로 액세스하는 형태의 SQL은 논리적인 I/O 요청이 비효율적으로 많이 발생함에도 불구하고 BCHR은 매우 높게 나타난다. 이는 BCHR이 성능지표로서 갖는 한계점이라 할 수 있다. 예를 들어 NL Join에서 작은 Inner 테이블을 반복적으로 룩업(Lookup)하는 경우가 그렇다. 작은 테이블을 반복 액세스하면 모든 블록이 메모리에서 찾아져 BCHR은 높겠지만 일량이 작지 않고, 블록을 찾는 과정에서 래치(Latch) 경합과 버퍼 Lock 경합까지 발생한다면 메모리 I/O 비용이 디스크 I/O 비용보다 커질 수 있다. 따라서 논리적으로 읽어야 할 블록 수의 절대량이 많다면 반드시 튜닝을 통해 논리적인 블록 읽기를 최소화해야 한다.
+> 같은 블록을 반복적으로 액세스하는 형태의 SQL은 논리적인 I/O 호출이 비효율적으로 많이 발생함에도 불구하고 BCHR은 매우 높게 나타난다. 이는 BCHR이 성능지표로서 갖는 한계점이라 할 수 있다. 예를 들어 NL Join에서 작은 Inner 테이블을 반복적으로 룩업(Lookup)하는 경우가 그렇다. 작은 테이블을 반복 액세스하면 모든 블록이 메모리에서 찾아져 BCHR은 높겠지만 일량이 작지 않고, 블록을 찾는 과정에서 래치(Latch) 경합과 버퍼 Lock 경합까지 발생한다면 메모리 I/O 비용이 디스크 I/O 비용보다 커질 수 있다. 따라서 논리적으로 읽어야 할 블록 수의 절대량이 많다면 반드시 튜닝을 통해 논리적인 블록 읽기를 최소화해야 한다.
 {: .prompt-info }
 
 ##### 예시
@@ -743,12 +763,12 @@ $$ BHCR = (\frac{버퍼 캐시에서 곧바로 찾은 블록 수((Query + Curren
 
 ![sequential-io-and-random-io.jpg](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/sequential-io-and-random-io.jpg)
 
-- Sequential 액세스
+- 순차 접근
   + 레코드간 **논리적 또는 물리적인 순서**를 따라 차례대로 읽어 나가는 방식
   + ⑤번
     * 포인터를 따라 논리적으로 연결돼 있는 인덱스 리프 블록에 위치한 레코드를 스캔
   + **I/O 성능을 높이기 위해서는 Sequential 액세스에 의한 선택 비중을 높여야 함**
-- Random 액세스
+- 임의 접근
   + 데이터 블록에 **임의로 접근**하는 방식
   + ①, ②, ③, ④, ⑥번
   + **I/O 성능을 높이기 위해서는 Random 액세스 발생량을 줄여야 함**
@@ -756,13 +776,122 @@ $$ BHCR = (\frac{버퍼 캐시에서 곧바로 찾은 블록 수((Query + Curren
 
 ### Single Block I/O, MultiBlock I/O
 
+- Single Block I/O
+  + 한번의 I/O 호출에 하나의 데이터 블록만 읽어 메모리에 적재하는 방식
+  + **인덱스를 통해 테이블에 접근할 때는, 기본적으로 인덱스와 테이블 블록 모두 이 방식을 사용**
+  + 인덱스 스캔 시 효율적임
+    * 인덱스 블록간 논리적 순서(이중 연결 리스트 구조로 연결된 순서)는 데이터 파일에 저장된 물리적인 순서와 다르기 때문임
+- MultiBlock I/O
+  + I/O 호출이 필요한 시점에, **인접한 블록들을 같이 읽어 메모리에 적재하는 방식**
+    * 인접한 블록이란 한 익스텐트(Extent)에 속한 블록을 의미하며, 달리 말하면, 익스텐트 범위를 넘어서까지 읽지 않음
+  + Table Full Scan처럼 물리적으로 저장된 순서에 따라 읽을 때는 인접한 블록들을 같이 읽는 것이 유리함
+- [[Database]Single Block I/O, MultiBlock I/O](https://drj9812.github.io/posts/single-block-io-and-multiblock-io/){: target="_blank" } 참고
+
+> 물리적으로 한 익스텐트에 속한 블록들을 I/O 호출 시점에 같이 메모리에 올렸는데, 그 블록들이 논리적 순서로는 한참 뒤쪽에 위치할 수 있다. 그러면 그 블록들은 실제 사용되지 못한 채 버퍼 상에서 밀려나는 일이 발생한다. 하나의 블록을 캐싱하려면 다른 블록을 밀어내야 하는데, 이런 현상이 자주 발생한다면 앞에서 소개한 버퍼 캐시 효율만 떨어뜨리게 된다. 대량의 데이터를 MultiBlock I/O 방식으로 읽을 때 Single Block I/O 보다 성능상 유리한 이유는 I/O 호출 발생 횟수를 줄여주기 때문이다.
+{: .prompt-info }
+
 ### I/O 효율화 원리
+
+- 필요한 최소 블록만 읽도록 SQL 작성
+- 최적의 옵티마이징 팩터 제공
+- 필요하다면, 옵티마이저 힌트를 사용해 최적의 액세스 경로로 유도
+
+> 논리적인 I/O 요청 횟수를 최소화하는 것이 I/O 효율화 튜닝의 핵심 원리다. I/O 때문에 시스템 성능이 낮게 측정될 때 하드웨어적인 방법을 통해 I/O 성능을 향상 시킬 수도 있다. 하지만 SQL 튜닝을 통해 I/O 발생 횟수 자체를 줄이는 것이 더 근본적이고 확실한 해결 방안이다.
+{: .prompt-info }
 
 #### 필요한 최소 블록만 읽도록 SQL 작성
 
+데이터베이스 성능은 I/O 효율에 달렸고, 이를 달성하려면 동일한 데이터를 중복 액세스하지 않고, 필요 명령을 사용자는 최소 일량을 요구하는 형태로 논리적인 집합을 정의하고, 효율적인 처리가 가능하도록 작성하는 것이 무엇보다 중요하다. 아래는 비효율적인 중복 액세스를 없애고 필요한 최소 블록만 액세스하도록 튜닝한 사례다.
+
+```sql
+SELECT a.카드번호 , a.거래금액 전일_거래금액 , b.거래금액 주간_거래금액 , c.거래금액 전월_거래금액 , d.거래금액 연중_거래금액
+  FROM (-- 전일거래실적
+       SELECT 카드번호, 거래금액
+         FROM 일별카드거래내역
+        WHERE 거래일자 = TO_CHAR(SYSDATE - 1, 'yyyymmdd')) a,
+       (-- 전주거래실적
+       SELECT 카드번호, SUM(거래금액) AS 거래금액
+         FROM 일별카드거래내역
+        WHERE 거래일자 BETWEEN TO_CHAR(SYSDATE - 7, 'yyyymmdd')
+              AND
+              TO_CHAR(SYSDATE - 1, 'yyyymmdd')
+        GROUP BY 카드번호) b,
+       (-- 전월거래실적
+       SELECT 카드번호, SUM(거래금액) AS 거래금액
+         FROM 일별카드거래내역
+        WHERE 거래일자 BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -1), 'yyyymm') || '01'
+              AND TO_CHAR(LAST_DAY(ADD_MONTHS(SYSDATE, -1)), 'yyyymmdd')
+        GROUP BY 카드번호) c,
+       ( -- 연중거래실적
+       SELECT 카드번호, SUM(거래금액) AS 거래금액
+         FROM 일별카드거래내역
+        WHERE 거래일자 BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -12), 'yyyymmdd')
+              AND TO_CHAR(SYSDATE -1, 'yyyymmdd')
+        GROUP BY 카드번호) d
+ WHERE b.카드번호 (+) = a.카드번호
+       AND
+       c.카드번호 (+) = a.카드번호
+       AND
+       d.카드번호 (+) = a.카드번호;
+```
+
+위 SQL은 어제 거래가 있었던 카드에 대한 전일, 주간, 전월, 연중 거래 실적을 집계하고 있다. 논리적인 전체 집합은 과거 1년치인데, 전일, 주간, 전월 데이터를 각각 액세스한 후 조인한 것을 볼 수 있다. 전일 데이터는 총 4번을 액세스한 셈이다. SQL을 아래와 같이 작성하면 과거 1년치 데이터를 한번만 읽고 전일, 주간, 전월 결과를 구할 수 있다. 즉 논리적인 집합 재구성을 통해 액세스해야 할 데이터 양을 최소화 할 수 있다.
+
+```sql
+SELECT 카드번호,
+       SUM(CASE WHEN 거래일자 = TO_CHAR(SYSDATE - 1, 'yyyymmdd') THEN 거래금액 END) AS 전일_거래금액,
+       SUM(CASE WHEN 거래일자 BETWEEN TO_CHAR(SYSDATE - 7, 'yyyymmdd')
+                                      AND
+                                      TO_CHAR(SYSDATE - 1, 'yyyymmdd') THEN 거래금액 END) AS 주간_거래금액,
+       SUM(CASE WHEN 거래일자 BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -1), 'yyyymm') || '01'
+                                      AND
+                                      TO_CHAR(last_day(ADD_MONTHS(SYSDATE, -1)), 'yyyymmdd') THEN 거래금액 END) AS 전월_거래금액,
+       SUM(거래금액) AS 연중_거래금액
+  FROM 일별카드거래내역
+ WHERE 거래일자 BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -12), 'yyyymmdd')
+       AND
+       TO_CHAR(SYSDATE - 1, 'yyyymmdd')
+ GROUP BY 카드번호
+HAVING SUM(CASE WHEN 거래일자 = TO_CHAR(SYSDATE - 1, 'yyyymmdd') THEN 거래금액 END) > 0;
+```
+
 #### 최적의 옵티마이징 팩터 제공
 
+옵티마이저가 블록 액세스를 최소화하면서 효율적으로 처리할 수 있도록 하려면 최적의 옵티마이징 팩터를 제공해 주어야 한다.
+
+- 전략적인 인덱스 구성
+  + 전략적인 인덱스 구성은 가장 기본적인 옵티마이징 팩터다.
+- DBMS가 제공하는 기능 활용
+  + 인덱스 외에도 DBMS가 제공하는 다양한 기능을 적극적으로 활용한다. 인덱스, 파티션, 클러스터, 윈도우 함수 등을 적극 활용해 옵티마이저가 최적의 선택을 할 수 있도록 한다.
+- 옵티마이저 모드 설정
+  + 옵티마이저 모드(전체 처리속도 최적화, 최초 응답속도 최적화)와 그 외 옵티마이저 행동에 영향을 미치는 일부 파라미터를 변경해 주는 것이 도움이 될 수 있다.
+- 통계정보
+  + 옵티마이저에게 정확한 정보를 제공한다.
+
 #### 필요하다면, 옵티마이저 힌트를 사용해 최적의 액세스 경로로 유도
+
+최적의 옵티마이징 팩터를 제공했다면 가급적 옵티마이저 판단에 맡기는 것이 바람직하지만 옵티마이저가 생각만큼 최적의 실행계획을 수립하지 못하는 경우가 종종 있다. 그럴 때는 어쩔 수 없이 힌트를 사용해야 한다. 아래는 옵티마이저 힌트를 이용해 실행계획을 제어하는 방법을 예시하고 있다.
+
+```sql
+-- Oracle
+SELECT /*+ leading(d) use_nl(e) index(d dept_loc_idx) */ *
+  FROM emp e, dept d
+ WHERE e.deptno = d.deptno
+       AND
+       d.loc = 'CHICAGO';
+
+-- SQL Server
+SELECT *
+  FROM dept d
+  WITH (INDEX(dept_loc_idx)), emp e
+ WHERE e.deptno = d.deptno
+       AND
+       d.loc = 'CHICAGO'
+OPTION (FORCE ORDER, LOOP JOIN);
+```
+옵티마이저 힌트를 사용할 때는 의도한 실행계획으로 수행되는지 반드시 확인해야 한다.
+
+CBO 기술이 고도로 발전하고 있긴 하지만 여러 가지 이유로 옵티마이저 힌트의 사용은 불가피하다. 따라서 데이터베이스 애플리케이션 개발자라면 인덱스, 조인, 옵티마이저의 기본 원리를 이해하고, 그것을 바탕으로 최적의 액세스 경로로 유도할 수 있는 능력을 필수적으로 갖추어야 한다. 3장부터 그런 원리들을 하나씩 학습하게 될 것이다.
 
 ## 참고자료
 

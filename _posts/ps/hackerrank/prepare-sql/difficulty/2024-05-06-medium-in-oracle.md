@@ -44,7 +44,7 @@ SELECT doctor, professor, singer, actor
  ORDER BY rank ASC;
 ```
 
-![01-occupations-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/problems/01-occupations-query-structure.jpg)
+![01-occupations-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium-in-oracle/01-occupations-query-structure.jpg)
 *쿼리 구조*
 
 `PIVOT()` 함수의 문법은 `PIVOT(Value컬럼명 FOR Unstack컬럼명 IN (값1, 값2, ... 값n)` 이다. 이때 Value 컬럼과 Unstack 컬럼은 `FROM` 절에 명시가 되어있어야 하고, Value 컬럼과 Unstack 컬럼으로 선택되지 않은 `FROM` 절의 모든 컬럼이 Stack 컬럼이 된다.
@@ -321,7 +321,7 @@ SELECT MIN(start_date) AS min, MAX(end_date) AS max
  ORDER BY max - min ASC, min ASC;
 ```
 
-![02-sql-projects-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/problems/02-sql-projects-query-structure.jpg)
+![02-sql-projects-query-structure](/assets/img/posts/ps/hackerrank/prepare-sql/difficulty/medium-in-oracle/02-sql-projects-query-structure.jpg)
 *쿼리 구조*
 
 `start_date`와 `end_date`의 차이가 하루라면 하나의 프로젝트로 보고, 해당 프로젝트가 시작된 날짜와 종료된 날짜를 출력하는 문제다. 이때 프로젝트의 시작된 날짜와 종료된 날짜의 차이를 기준으로 오름차순 정렬하고, 그 일수가 같다면 시작된 날짜를 기준으로 오름차순 정렬한다.
