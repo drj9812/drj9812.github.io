@@ -1,14 +1,14 @@
 ---
-title: "[프로그래머스]레벨 1 난이도 모든 문제(JavaScript)"
+title: "[프로그래머스]레벨 0 난이도 모든 문제(JavaScript)"
 categories: [PS, Programmers]
-tags: [PS, Algorithm, 알고리즘, Programmers, 프로그래머스, JavaScript, 레벨 1]
+tags: [PS, Algorithm, 알고리즘, Programmers, 프로그래머스, JavaScript, 레벨 0]
 image:
   path: /assets/img/posts/ps/programmers/01-programmers-logo.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: programmers
 ---
 
-# 레벨 1 난이도 모든 문제(JavaScript)
+# 레벨 0 난이도 모든 문제(JavaScript)
 
 - 2024-07-20 정답률 기준
 
@@ -195,4 +195,123 @@ const solution = (money) => {
 
 ```javascript
 const solution = (numbers, num1, num2) => numbers.slice(num1, num2 + 1);
+```
+## [순서쌍의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [개미 군단](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [모음 제거](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [숨어있는 숫자의 덧셈 (1)](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [암호 해독](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [대문자와 소문자](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [가장 큰 수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [n의 배수 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [문자열을 정수로 변환하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [문자열 정수의 합](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [정수 부분](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [뒤에서 5등 위로](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [뒤에서 5등까지](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [배열 비교하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [배열의 원소만큼 추가하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [rny_string](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [문자열 바꿔서 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [공백으로 구분하기 2](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [공백으로 구분하기 1](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
+```
+
+## [특정한 문자를 대문자로 바꾸기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+```javascript
+
 ```
