@@ -412,12 +412,6 @@ DB 버퍼 캐시에 가해지는 모든 변경사항을 로그 파일에 기록�
 ![10-role-of-each-sub-engine](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/10-role-of-each-sub-engine.jpg)
 *서브엔진별 역할*
 
-![15-parsing-schematic](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/15-parsing-schematic.jpg)
-*파싱 도식화*
-
-- SQL을 캐시에서 찾아 곧바로 실행단계로 넘어가는 것을 소프트 파싱(Soft Parsing)이라고 함
-- 캐시에서 SQL을 찾는 데 실패해 최적화 및 로우 소스 생성 단계까지 모두 거치는 것을 하드 파싱(Hard Parsing)이라고 함
-
 ##### 1. SQL 파싱
 
 - 사용자로부터 전달받은 SQL을 SQL 파서(Parser)가 파싱하는 단계
@@ -439,7 +433,7 @@ DB 버퍼 캐시에 가해지는 모든 변경사항을 로그 파일에 기록�
 ##### 2. SQL 최적화
 
 - **SQL 옵티마이저**가 미리 수집한 시스템 및 오브젝트 통계정보를 바탕으로 다양한 실행경로를 생성해서 비교한 후 **가장 효율적인 하나를 선택**하는 단계
-- DB 성능을 결정하는 가장 핵심적인 엔진
+  + 옵티마이저는 DB 성능을 결정하는 가장 핵심적인 엔진
 
 > SQL을 실행하려면 사전에 SQL 파싱과 최적화 과정을 거친다. 세부적인 SQL 처리 과정을 설명할 목적이 아니면 일반적으로 이 둘을 구분할 필요는 없다. 최적화 과정을 포함히 'SQL 파싱'이라고 표현하기도 하고, 파싱 과정을 포함해 'SQL 최적화'라고 표현하고디 한다. 여기서는 'SQL 최적화'라고 표현했다.
 {: .prompt-info }
@@ -448,207 +442,6 @@ DB 버퍼 캐시에 가해지는 모든 변경사항을 로그 파일에 기록�
 
 - SQL 옵티마이저가 선택한 실행경로를 실제 실행 가능한 코드 또는 프로시저 형태로 포맷팅하는 단계
 - 로우 소스 생성기(Row-Source Generator)가 담당
-
-#### SQL 옵티마이저
-
-![type-of-optimizer](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/type-of-optimizer.jpg)
-*옵티마이저의 종류*
-
-- 사용자가 원하는 작업을 가장 효율적으로 수행할 수 있는 **최적의 데이터 엑세스 경로(실행계획)를 선택해주는 DBMS의 핵심 엔진**
-  +  옵티마이저가 선택한 실행 방법의 적절성 여부는 질의의 수행 속도에 가장 큰 영향 미치게 됨
-- 자동차의 내비게이션과 흡사
-  + 경로를 검색하고 이동 경로를 미리 확인하는 기능
-  + 선택한 경로가 마음에 들지 않으면 검색모드를 변경하거나 경유지를 추가해서 운전자가 원하는 경로로 변경하는 기능
-  + 모의 주행 기능
-- **현재 대부분의 관계형 데이터베이스는 비용기반 옵티마이저만을 제공**
-  + 규칙기반 옵티마이저를 제공하더라도 신규 기능들에 대해서는 더 이상 지원하지 않음
-
-> SQL 옵티마이저를 DBWR, LGWR, PMON, SMON 같은 백그라운드 프로세스로 이해하기 쉽다. 서버 프로세스가 SQL을 전달하면, 옵티마이저가 최적화해서 실행계획을 돌려준다고 생각하는 것이다. 하지만, **옵티마이저는 별도 프로세스가 아니라 서버 프로세스가 가진 기능(Function)**일 뿐이다. SQL 파서와 로우 소스 생성기도 마찬가지다.
-{: .prompt-info }
-
-##### 옵티마이저 최적화 단계
-
-![1-3](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/1-3.jpg)
-
-1. 사용자로부터 전달받은 쿼리를 수행하는 데 후보군이 될만한 실행계획들을 찾음
-2. 데이터 딕셔너리(Data Dictionary)에 미리 수집해둔 오브젝트 통계 및 시스템 통계정보를 이용해 각 실행계획의 예상비용을 산정
-3. 최저 비용(Cost)을 나타내는 실행계획 선택
-
-##### 규칙기반 옵티마이저
-
-- 규칙(우선 순위)을 가지고 실행계획을 생성
-
-##### 비용기반 옵티마이저
-
-- SQL문을 처리하는데 필요한 비용이 가장 적은 실행계획을 선택하는 방식
-- 규칙기반 옵티마이저의 단점을 극복하기 위해서 출현
-
-#### 실행계획(Execution Plan)과 비용
-
-##### 실행계획
-
-![11-components-of-execution-plan](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/11-components-of-execution-plan.jpg)
-*실행계획 정보의 구성요소*
-
-```sql
-SELECT STATEMENT Optimizer=ALL_ROWS(Cost=209 Card=5 Bytes=175)
-  TABLE ACCESS (BY INDEX ROWID) OF 'EMP' (Cost=2 Card=5 Bytes=85)
-    NESTED LOOPS (Cost=209 Card=5 Bytes=175)
-      TABLE ACCESS (BY INDEX ROWID) OF 'DEPT' (Cost=207 Card=1 Bytes=18)
-        INDEX (RANGE SCAN) OF 'DEPT_LOC_IDX'(NON-UNIQUE) (Cost=7 Card=1)
-      INDEX (RANGE SCAN) OF 'EMP_DEPTNO_IDX'(NON-UNIQUE) (Cost-1 Card=5)
-```
-
-+ SQL 옵티마이저가 생성한 처리절차를 사용자가 확인할 수 있게 위와 같이 트리 구조로 표현한 것
-+ 실행계획을 통해 자신이 작성한 SQL이 테이블을 스캔하는지 인덱스를 스캔하는지 확인할 수 있음
-  * 인덱스를 스캔한다면 어떤 인덱스인지를 확인할 수 있고, 예상과 다른 방식으로 처리된다면 실행경로를 변경할 수 있음
-
-##### 비용
-
-- 비용은 쿼리를 수행하는 동안 발생할 것으로 예상하는 I/O 횟수 또는 예상 소요시간을 표현한 값
-- SQL 실행계획에 표시되는 비용은 실측치가 아닌 예상치임
-
-###### 예시
-
-```sql
--- 테이블 생성
-CREATE TABLE t
-    AS
-SELECT d.no, e.*
-  FROM emp e, (SELECT ROWNUM AS no
-                 FROM dual
-              CONNECT BY LEVEL <= 1000) d;
-
--- 인덱스 생성
-CREATE INDEX t_x01 ON t(deptno, no);
-CREATE INDEX t_x02 ON t(deptno, job, no);
-
--- SQL *PLUS에서 테이블 t에 대한 통계정보를 수집하는 명령어
-EXEC dbms_stats.gather_table_stats(user,'t');
-
-SELECT *
-  FROM t
- WHERE deptno = 10 AND no = 1;
-```
-
-![12-ex-execution-plan(1)](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/12-ex-execution-plan(1).jpg)
-*인덱스 `t_x01` 선택*
-
-```sql
--- 인덱스 t_x02를 사용하도록 힌트 지정
-SELECT /*+ index(t t_x02) */ *
-  FROM t
- WHERE deptno = 10 AND no = 1;
-```
-
-![13-ex-execution-plan(2)](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/13-ex-execution-plan(2).jpg)
-*인덱스 `t_x02` 선택*
-
-```sql
--- Table Full Scan 하도록 힌트 지정
-SELECT /*+ full(t) */ *
-  FROM t
- WHERE deptno = 10 AND no = 1;
-```
-
-![14-ex-execution-plan(3)](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/14-ex-execution-plan(3).jpg)
-
-- 옵티마이저가 인덱스 `t_xo1`를 선택한 근거가 비용(Cost)임을 알 수 있음
-
-##### SQL 처리 흐름도
-
-- SQL의 내부적인 처리 절차를 시각적으로 표현한 도표
-  + 실행계획의 시각화
-
-#### 옵티마이저 힌트
-
-```sql
-SELECT /*+ INDEX(A 고객_PK) */
-       고객명, 연락처, 주소, 가입일시
-  FROM 고객 A
- WHERE 고객ID = '000000008';
-```
-
-- **옵티마이저에게 특정한 실행계획을 선택하도록 지시하는 방법**
-  + 통계정보가 정화하지 않거나 기타 다른 이유로 옵티마이저가 잘못된 판단을 할 수 있어, 직접 인덱스를 지정하거나 조인 방식을 변경함으로써 더 좋은 실행계획으로 유도하는 것
-- **성능 최적화**를 위해 사용되며
-- 쿼리 내에 주석 형태로 삽입되며, 주석 기호에 `+`를 붙이면 됨
-  + `--+ INDEX(A 고객_PK)`와 같은 방식도 있지만 권장되지 않음
-  + 힌트 이후의 코드들이 전부 주석처리 됨
-
-> 옵티마이저의 자율적 판단에 의한 선택이 큰 손실을 발생시킬 수 있기 때문에 힌트는 빈틈없이 기술되어야 한다.
-{: .prompt-warning }
-
-##### 주의사항
-
-- 옵티마이저는 힌트를 선택 가능한 옵션 정도가 아닌, 사용자로부터 주어진 명령어로 인식
-  + Oracle은 힌트 잘못 기술하거나 잘못된 참조 시 에러가 발생하지 않음
-  + SQL Server는 에러 발생
-
-```sql
-/*+ INDEX(A A_X01) INDEX(B, B_X03) */ -- 모두 유효
-/*+ INDEX(C), FULL(D) */ -- 첫 번째 힌트만 유효
-```
-
-- 힌트 안에 인자를 나열할 때 콤마(`,`)를 사용할 수 있음
-- 힌트와 힌트 사이에 콤마(`,`)를 사용할 수 없음
-
-```sql
-SELECT /*+ FULL(SCOTT.EMP) */ -- 무효
-  FROM emp;
-```
-
-- 테이블을 지정할 때 스키마명을 사용할 수 없음
-
-```sql
-SELECT /*+ FULL(EMP) */ -- 무효
-  FROM emp; e
-```
-
-- `FROM` 절에 별칭을 지정했는데 힌트에서 별칭을 사용하지 않으면 그 힌트는 무시됨
-
-##### 종류
-
-|    분류    |                    힌트                      |  설명 |
-|:----------:|:-------------------------------------------:|:--:|
-| 최적화 목표 |                 all_rows                    | 전체 처리속도 최적화 |
-|            |               forst_rows(n)                 | 최초 N건 응답속도 최적화 |
-| 액세스 경로 |                   full                      | Table Full Scan으로 유도 |
-|            |                  cluster                    |  |
-|            |                    hash                     |  |
-|            |               index, no_index               | Index Scan으로 유도 |
-|            |            index_asc, index_desc            | Index 순서대로 스캔하도록 유도 |
-|            |                index_combine                | |
-|            |                 index_join                  | |
-|            |           index_ffs, no_index_ffs           | Index Fast Full Scan 으로 유도 및 방지 |
-|            |            index_ss, no_index_ss            | Index Skip Scan으로 유도 및 방지 |
-|            |         index_ss_asc, index_ss_desc         | |
-|  쿼리 변환  |          no_query_transformation            | |
-|            |                 use_concat                  | `OR` 또는 IN-List 조건을 OR-Expansion으로 유도 |
-|            |                  no_expand                  | `OR` 또는 IN-List 조건에 대한 OR-Expansion 방지 |
-|            |             rewrite, no_rewrite             | |
-|            |               merge, no_merge               | 뷰 머징 유도 및 방지 |
-|            | star_transformation, no_star_transformation | |
-|            |                fact, no_fact                | |
-|            |              unnest, no_unnest              | 서브쿼리 Unnesting 유도 및 방지 |
-|  조인 순서  |                   ordered                   | `FROM` 절에 나열된 순서대로 조인 |
-|            |                    leading                  | `LEADING` 힌트 괄호에 기술한 순서대로 조인 |
-|  조인 방식  |              use_nl, no_use_nl              | NL 조인으로 유도 및 방지 |
-|            |              use_nl_with_index              | |
-|            |           use_merge, no_use_merge           | 소트 머지 조인으로 유도 및 방지|
-|            |            use_hash, no_use_hash            | 해시 조인으로 유도 및 방지|
-|  병렬 처리 |             parallel, no_parallel            | 테이블 스캔 또는 DML을 병렬방식으로 처리하도록 유도 및 방지|
-|            |                  pq_distribute               | 병렬 수행 시 데이터 분배 방식 결정|
-|            |        parallel_index, no_parallel_index     | 인덱스 스캔을 병렬 방식으로 처리하도록 유도 및 방지|
-|    기타    |               append, noappend               | Direct-Path Insert로 유도 및 방지 |
-|            |                 cache, nocache               | |
-|            |            push_pred, no_push_pred           | 조인 조거건 Pushdown 유도 및 방지|
-|            |            push_subq, no_push_subq           | 서브쿼리를 가급적 빨리/늦게 필터링하도록 유도 |
-|            |                   qb_name                    | |
-|            |             cursor_sharing_exact             | |
-|            |                 driving_site                 | DB Link Remote 쿼리에 대한 최적화 및 실행 주체 지정(Local 또는 Reomote) |
-|            |               dynamic_sampling               | |
-|            |              model_min_analysis              | |
 
 ## 데이터베이스 I/O 메커니즘
 
@@ -678,7 +471,7 @@ SELECT /*+ FULL(EMP) */ -- 무효
     * **블로킹 상태에 빠진 서버 프로세스는 성능에 악영향을 미침**
   + <font color="red">모든 데이터를 메모리(버퍼 캐시)에 상주시킬 수 없으므로, 디스크 I/O를 최소화하고 버퍼 캐시의 효율을 높이는 것이 데이터베이스 I/O 튜닝의 목표</font>
 - 데이터의 입력이나 삭제가 없어도 디스크 I/O는 SQL을 실행할 때 마다 다름
-  + 
+
 > 데이터의 입력이나 삭제가 없어도 디스크 I/O는 SQL을 실행할 때 마다 다르다. 첫 번째 실행할 때보다 두번째 실행할 때 줄어들고, 세 번째 실행할 땐 더 줄어든다. 연속해서 실행하면 DB 버퍼캐시에서 해당 테이블 블록의 점유율이 점점 높아지기 때문이다. 한참 후에 다시 실행하면 반대로 물리적 I/O가 늘어난다. DB 버퍼 캐시가 다른 테이블 블록으로 채워지기 때문이다.
 {: .prompt-info }
 
