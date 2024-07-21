@@ -8,8 +8,21 @@ tags: [Database, 데이터베이스, DB, index, 인덱스, Sequential Access, �
 
 ## 순차 접근(Sequential Access)
 
+![01-sequential-access-and-radom-access](/assets/img/posts/database/sequential-access-and-radom-access/01-sequential-access-and-radom-access.jpg)
+*굵은 실선 화살표*
+
+- 레코드간 **논리적 또는 물리적인 순서**를 따라 차례대로 읽어 나가는 방식
+  + 인덱스 리프 블록은 앞뒤를 가리키는 주소값을 통해 논리적으로 서로 연결돼 있음
 - **인덱스가 쿼리의 조건을 만족하는 범위를 효율적으로 찾을 수 있는 경우에 사용됨**
   + 인덱스에 명시된 컬럼이 쿼리의 조건에 포함된 경우
+- **I/O 성능을 높이기 위해서는 순차 접근에 의한 선택 비중을 높여야 함**
+- 사진의 굵은 실선 화살표
+  + 포인터를 따라 논리적으로 연결돼 있는 인덱스 리프 블록에 위치한 레코드를 스캔
+  + 논리적 연결고리를 가지고 있지 않는 테이블은 세그먼트 헤더에 저장된 익스텐트 맵을 이용해 각 인스텐트의 첫 번째 블록 뒤에 연속해서 저장된 블록을 순서대로 읽음
+    * Full Table Scan
+
+> 테이블을 스캔할 때는 테이블 세그먼트 헤더에 저장된 익스텐트 맵을 이용한다. 익스텐트 맵을 통해 각 익스텐트의 첫 번째 블록 DBA를 알 수 있다. 익스텐트는 연속된 블록 집합이므로 테이블을 스캔할 때는 첫 번째 블록 뒤에 연속해서 저장된 블록을 읽으면 된다.
+{: .prompt-info }
 
 ### 예시
 
@@ -89,10 +102,16 @@ SELECT /*+ index(t t_idx) */ count(*)
 
 ## 임의 접근(Random Access)
 
+![01-sequential-access-and-radom-access](/assets/img/posts/database/sequential-access-and-radom-access/01-sequential-access-and-radom-access.jpg)
+*점선 화살표*
+
+- 레코드 하나를 읽기 위해 데이터 블록에 한 블록씩 **임의로 접근**하는 방식
 - **인덱스가 쿼리의 조건을 직접적으로 만족하지 못할 때 사용됨**
   + 인덱스에 포함된 컬럼이 쿼리의 조건에 전부 포함되지 않는 경우
     * 인덱스와 대응되는 쿼리의 조건을 인덱스를 통해 찾고, 대응되지 않은 쿼리의 조건은 인덱스 스캔 후에 임의로 접근
 - 인덱스 스캔에 의해 얻은 ROWID를 통해 접근
+- **I/O 성능을 높이기 위해서는 임의 접근 발생량을 줄여야 함**
+- 사진의 점선 화살표
 
 ```sql
 -- 인덱스 제거 후, 단일 컬럼 인덱스 생성

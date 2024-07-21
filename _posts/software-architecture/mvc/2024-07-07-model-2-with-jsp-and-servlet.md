@@ -70,4 +70,4 @@ Controller는 클라이언트의 요청에 대해 응답한다. 위 Controller�
 ![response-result](/assets/img/posts/software-architecture/design-patterns/mvc/model-2-with-jsp-and-servlet/response-result.jpg)
 *응답 결과*
 
-클라이언트는 View(`/WEB-INF/view.jsp`{: .filepath })를 응답받는다. Controller에서 포워드 방식으로 응답했기 때문에 요청 주소('http://localhost:8090/jsp1/mvc')는 바뀌지 않았다.
+클라이언트는 View(`/WEB-INF/view.jsp`{: .filepath })를 응답받는다. Controller에서 포워드 방식으로 응답했기 때문에 요청 주소(http://localhost:8090/jsp1/mvc)는 바뀌지 않았다.

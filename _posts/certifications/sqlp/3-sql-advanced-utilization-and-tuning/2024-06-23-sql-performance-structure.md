@@ -141,26 +141,36 @@ image:
 
 ##### 블록(Block), 페이지(Page)
 
+![block](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/block.jpg)
+
 - 대부분 DBMS에서 **I/O는 블록 단위**로 이루어짐
   + **하나의 레코드에서 하나의 칼럼만을 읽으려 할 때도 레코드가 속한 블록 전체를 읽게 됨**
-  + Oracle은 블록(Block)이라고 하고, SQL Server는 페이지(Page)라고 함
+  + Oracle은 블록(Block)이라는 용어를 사용하고, DB2, SQL Server는 페이지(Page)라는 용어를 사용함
+- 하나의 블록은 하나의 테이블이 독점함
+  + 한 익스텐트에 담긴 블록은 모두 같은 테이블
 - <font color="red">SQL 성능을 좌우하는 가장 중요한 성능지표는 액세스하는 블록 개수이며, 옵티마이저의 판단에 가장 큰 영향을 미치는 것도 액세스해야 할 블록 개수임</font>
   + 옵티마이저가 인덱스를 이용해 테이블을 액세스할지 아니면 Full Table Scan 할지를 결정하는 데 있어 가장 중요한 판단 기준은 읽어야 할 레코드 수가 아니라 읽어야 하는 블록 개수임
 - Oracle은 2KB, 4KB, 8KB, 16KB, 32KB, 64KB의 다양한 블록 크기를 사용
   + default 8KB
-  + SQL Server에선 8KB 단일 크기를 사용
+  + SQL Server에선 8KB 단일 크기의 페이지 사용
+
+> - 모든 데이터 블록은 디스크 상에서 몇 번 Datafile의 몇 번째 블록를 나타내는 자신만의 고유 주소값인 DBA(Data Block Address)를 갖는다. 데이터를 읽고 쓰는 단위가 블록이므로 데이터를 읽으려면 먼저 DBA부터 확인해야 한다. 인덱스를 이용해 테이블 레코드를 읽을 때는 인덱스 ROWID를 이용한다. ROWID는 DBA + 로우 번호(블록 내 순번)로 구성되므로 이를 분해하면 읽어야 할 테이블 레코드가 저장된 DBA를 알 수 있다. 테이블을 스캔할 때는 테이블 세그먼트 헤더에 저장된 익스텐트 맵을 이용한다. 익스텐트 맵을 통해 각 익스텐트의 첫 번째 블록 DBA를 알 수 있다. 익스텐트는 연속된 블록 집합이므로 테이블을 스캔할 때는 첫 번째 블록 뒤에 연속해서 저장된 블록을 읽으면 된다.
+{: .prompt-info }
 
 ##### 익스텐트(Extent)
 
+![extent](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/extent.jpg)
+
+- 연속된 블록들의 집합
 - **테이블 스페이스로부터 공간을 할당받는 단위**
   + 테이블이나 인덱스에 데이터를 입력하다가 공간이 부족해지면 해당 오브젝트가 속한 테이블 스페이스(물리적으로는 데이터 파일)로부터 정해진 익스텐트 크기의 연속된 블록을 할당받음
     * 블록 크기가 8KB인 상태에서 64KB 단위로 익스텐트를 할당받도록 정의했다면, 공간이 부족할 때마다 테이블 스페이스로부터 8개의 연속된 블록을 찾아(찾지 못하면 새로 생성) 세그먼트에 할당함
-- **익스텐트 내 블록은 논리적으로 인접하지만, 익스텐트끼리 서로 인접하지는 않음**
-  + 어떤 세그먼트에 익스텐트 2개가 할당됐는데, 데이터 파일 내에서 이 둘이 서로 멀리 떨어져 있을 수 있음
+- **익스텐트 내 블록은 논리적으로 인접하지만, 익스텐트끼리 서로 인접하지는 않을 수 있음*
+  + 파일 경합을 줄이기 위해 DBMS가 데이터를 가능한 여러 Datafile로 분산 저장
 - **Oracle은 다양한 크기의 익스텐트를 사용**하지만, **SQL Server에선 8개 페이지의 익스텐트만을 사용**
   + SQL Server의 페이지 크기는 8KB로 고정됐으므로 익스텐트는 항상 64KB
-- **Oracle은 한 익스텐트에 속한 모든 블록을 단일 오브젝트가 사용**
-  + **SQL Server에서는 2개 이상 오브젝트가 나누어 사용할 수도 있음**
+- Oracle은 단일 오브젝트가 사용
+  + SQL Server에서는 여러 오브젝트가 같이 사용할 수도 있음
 
 ###### SQL Server의 익스텐트
 
@@ -173,15 +183,39 @@ image:
 
 ##### 세그먼트(Segment), Heap/Index
 
+```sql
+SELECT segment_type, tablespace_name, extent_id, file_id, block_id, blocks
+  FROM dba_extents
+ WHERE owner = user
+       AND
+       segment_name = 'MY_SEGMENT'
+ ORDER BY extent_id;
+```
+
+| segment_type | tablespace_name | extent_id | file_id | block_id | blocks |
+|:------------:|:---------------:|:---------:|:-------:|:--------:|:------:|
+|     TABLE    |      USERS      |     0     |    1    |     1    |   4    |
+|     TABLE    |      USERS      |     1     |    1    |     9    |   4    |
+|     TABLE    |      USERS      |     2     |    2    |     1    |   4    |
+|     TABLE    |      USERS      |     3     |    2    |     5    |   4    |
+|     TABLE    |      USERS      |     4     |    2    |    13    |   4    |
+|     TABLE    |      USERS      |     5     |    3    |     1    |   4    |
+|     TABLE    |      USERS      |     6     |    4    |     9    |   4    |
+|     TABLE    |      USERS      |     7     |    5    |     5    |   4    |
+|     TABLE    |      USERS      |     8     |    5    |    17    |   4    |
+
 - **테이블, 인덱스, Undo처럼 저장공간을 필요로 하는 데이터베이스 오브젝트**
   + 저장공간을 필요로 한다는 것은 한 개 이상의 익스텐트를 사용함을 뜻함
 - 파티션 테이블(또는 인덱스)을 만들면 내부적으로 여러 개의 세그먼트가 생성됨(1:M 관계)
-  + 다른 오브젝트는 세그먼트와 1:1 관계를 갖음
+  + **다른 오브젝트는 세그먼트와 1:1 관계를 갖음**
     * 하나의 테이블을 생성하면 내부적으로 하나의 테이블 세그먼트가 생성되고, 하나의 인덱스를 생성하면 내부적으로 하나의 세그먼트가 생성됨
 - 하나의 세그먼트는 자신이 속한 테이블 스페이스 내 여러 데이터 파일에 걸쳐 저장될 수 있음
   +  세그먼트에 할당된 익스텐트가 여러 데이터 파일에 흩어져 저장되는 것이며, 그래야 디스크 경합을 줄이고 I/O 분산 효과를 얻을 수 있음
+- LOB(Large Obejct) 컬럼은 그 자체가 하나의 세그먼트를 구성하므로 자신이 속한 테이블과 다른 별도 공간에 값을 저장함
 
 ##### 테이블 스페이스, 파일 그룹(File Group)
+
+![tablespace](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/tablespace.jpg)
 
 - **세그먼트를 담는 컨테이너**로서, 여러 데이터 파일로 구성됨
 - 사용자는 세그먼트를 위한 테이블 스페이스를 지정할 뿐, **실제 값을 저장할 데이터 파일을 선택하고 익스텐트를 할당하는 것은 DBMS의 몫**
@@ -190,12 +224,6 @@ image:
   + 한 테이블 스페이스가 여러 데이터 파일로 구성되기 때문
 - 특정 세그먼트에 할당된 모든 익스텐트는 해당 세그먼트와 관련된 테이블 스페이스 내에서만 존재
   + 한 세그먼트가 여러 테이블 스페이스에 걸쳐 저장될 수는 없음
-
-![06-oracle-save-structure](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/06-oracle-save-structure.jpg)
-*Oracle 저장 구조*
-
-![07-sql-server-save-structure](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/07-sql-server-save-structure.jpg)
-*SQL Server 저장 구조*
 
 #### 임시 데이터 파일
 
@@ -237,11 +265,11 @@ CREATE temporary tablespace big_temp tempfile '/usr/local/oracle/oradata/ora10g/
 ##### Transaction 로그
 
 - Oracle의 Online Redo 로그와 대응되는 **SQL Server의 로그 파일**
-- 주(Primary 또는 Main) Datafile마다, 즉 데이터베이스마다 Transaction 로그 파일(`.ldf`{: .filpath })이 하나씩 생성됨
+- 주(Primary 또는 Main) Datafile마다, 즉 데이터베이스마다 Transaction 로그 파일(`.ldf`{: .filepath })이 하나씩 생성됨
 - Transaction 로그 파일은 내부적으로 ‘가상 로그 파일’이라 불리는 더 작은 단위의 세그먼트로 나뉘며, 이 가상 로그 파일의 개수가 너무 많아지지 않도록(조각화가 발생하지 않도록) 옵션을 지정하는 게 좋음
   + 로그 파일을 애초에 넉넉한 크기로 만들어 자동 증가가 발생하지 않도록 하거나, 어쩔 수 없이 자동 증가한다면 증가하는 단위를 크게 지정
 
-##### Archived(=Offline) Rado 로그
+##### Archived(=Offline) Redo 로그
 
 - Oracle에서 Online Redo 로그가 재사용되기 전에 다른 위치로 백업해 둔 파일
 - 디스크가 깨지는 등 물리적인 저장 매체에 문제가 생겼을 때 데이터베이스(또는 미디어) 복구를 위해 사용됨
@@ -263,13 +291,17 @@ CREATE temporary tablespace big_temp tempfile '/usr/local/oracle/oradata/ora10g/
 
 ##### DB 버퍼 캐시(DB Buffer Cache)
 
+![db-buffuer-cache](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/db-buffuer-cache.jpg)
+
 - **데이터 파일로부터 읽어 들인 데이터 블록을 담는 캐시 영역**
+  + 데이터 캐시
 - 인스턴스에 접속한 모든 사용자 프로세스는 서버 프로세스를 통해 DB 버퍼 캐시의 버퍼 블록을 동시에(내부적으로는 버퍼 Lock을 통해 직렬화) 액세스할 수 있음
 - 일부 Direct Path Read 메커니즘이 작동하는 경우를 제외하면, **모든 블록 읽기는 버퍼 캐시를 통해 이루어짐**
   + 읽고자 하는 블록을 먼저 버퍼 캐시에서 찾아보고 없을 때 디스크에서 읽음
     * 디스크에서 읽을 때도 먼저 버퍼 캐시에 적재한 후에 읽음
 - 데이터 변경도 버퍼 캐시에 적재된 블록을 통해 이루어짐
   + 변경된 블록(Dirty 버퍼 블록)을 주기적으로 데이터 파일에 기록하는 작업은 DBWR 프로세스의 몫
+- **SGA에 속하므로 같은 블록을 읽는 여러 프로세스가 동일한 블록을 읽을 때 이점을 제공**
 - 메모리 I/O는 전기적 신호에 불과하기 때문에 디스크 I/O에 비교할 수 없을 정도로 빠름
   + 디스크 I/O는 물리적으로 액세스 암(Arm)이 움직이면서 헤드를 통해 이루어지기 때문에 속도가 느림
   + 디스크에서 읽은 데이터 블록을 메모리 상에 보관해 두는 기능이 모든 데이터베이스 시스템에 필수적인 이유
@@ -303,12 +335,14 @@ CREATE temporary tablespace big_temp tempfile '/usr/local/oracle/oradata/ora10g/
 ###### 딕셔너리(Dictionary) 캐시
 
 - 테이블, 인덱스 같은 오브젝트는 물론 테이블 스페이스, 데이터 파일, 세그먼트, 익스텐트, 사용자, 제약에 관한 **메타 정보를 저장**하는 곳
-- 딕셔너리 정보를 캐싱하는 메모리 영역
+  + 로우(Row) 단위 I/O
+    * 딕셔너리 캐시는 로우 캐시(Row Cache)라고도 불림
 + `주문` 테이블을 예로 들면, 입력한 주문 데이터는 데이터 파일에 저장됐다가 버퍼 캐시를 경유해 읽히지만, 테이블 메타 정보는 딕셔너리에 저장됐다가 딕셔너리 캐시를 경유해 읽힘
 
 ###### 라이브러리 캐시
 
-- **사용자가 수행한 SQL 문과 실행계획, 저장 프로시저를 저장해 두는 캐시 영역**
+- **사용자가 수행한 SQL 문과 실행계획, DB 저장형 함수/프로시저를 저장해 두는 캐시 영역**
+  + 코드 캐시
 - 사용자가 SQL 명령어를 통해 결과집합을 요청하면 이를 최적으로(가장 적은 리소스를 사용하면서 가장 빠르게) 수행하기 위한 처리 plan
   + 빠른 쿼리 수행을 위해 내부적으로 생성한 일종의 프로시저
 - [SQL 최적화 과정](#sql-최적화-과정)을 거쳐 생성됨
@@ -509,6 +543,15 @@ log buffer space
 2. 데이터 딕셔너리(Data Dictionary)에 미리 수집해둔 오브젝트 통계 및 시스템 통계정보를 이용해 각 실행계획의 예상비용을 산정
 3. 최저 비용을 나타내는 실행계획 선택
 
+##### 규칙기반 옵티마이저
+
+- 규칙(우선 순위)을 가지고 실행계획을 생성
+
+##### 비용기반 옵티마이저
+
+- SQL문을 처리하는데 필요한 비용이 가장 적은 실행계획을 선택하는 방식
+- 규칙기반 옵티마이저의 단점을 극복하기 위해서 출현
+
 #### 실행계획(Execution Plan)과 비용
 
 ##### 실행계획
@@ -581,6 +624,11 @@ SELECT /*+ full(t) */ *
 
 - 옵티마이저가 인덱스 `t_xo1`를 선택한 근거가 비용(Cost)임을 알 수 있음
 
+##### SQL 처리 흐름도
+
+- SQL의 내부적인 처리 절차를 시각적으로 표현한 도표
+  + 실행 계획의 시각화
+
 #### 옵티마이저 힌트
 
 ```sql
@@ -627,7 +675,6 @@ SELECT /*+ FULL(EMP) */ -- 무효
 ```
 
 - `FROM` 절에 별칭을 지정했는데 힌트에서 별칭을 사용하지 않으면 그 힌트는 무시됨
-
 
 ##### 종류
 
@@ -693,12 +740,16 @@ SELECT /*+ FULL(EMP) */ -- 무효
 ![disk-io](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/disk-io.jpg)
 *디스크 I/O 경합*
 
-- 모든 DBMS는 데이터를 읽을 때 먼저 [버퍼 캐시](#db-버퍼-캐시db-buffer-cache)에서 찾아보고, 없을 경우 디스크에서 읽어와 버퍼 캐시에 적재한 후 작업을 수행
+- 모든 DBMS는 데이터를 읽을 때 먼저 [버퍼 캐시](#db-버퍼-캐시db-buffer-cache)에서 찾아보고(메모리 I/O), 없을 경우 디스크에서 읽어와(디스크 I/O) 버퍼 캐시에 적재한 후 작업을 수행
   + **디스크 I/O가 필요할 때면 서버 프로세스는 CPU를 OS에 반환하고 I/O가 완료되기를 기다림**
     * 블로킹(Blocking) I/O
     * 디스크 I/O 경합이 심할 수록 대기 시간도 길어짐
     * **블로킹 상태에 빠진 서버 프로세스는 성능에 악영향을 미침**
-  + **모든 데이터를 메모리(버퍼 캐시)에 상주시킬 수 없으므로, 디스크 I/O를 최소화하고 버퍼 캐시의 효율을 높이는 것이 데이터베이스 I/O 튜닝의 목표**
+  + <font color="red">모든 데이터를 메모리(버퍼 캐시)에 상주시킬 수 없으므로, 디스크 I/O를 최소화하고 버퍼 캐시의 효율을 높이는 것이 데이터베이스 I/O 튜닝의 목표</font>
+- 데이터의 입력이나 삭제가 없어도 디스크 I/O는 SQL을 실행할 때 마다 다름
+  + 
+> 데이터의 입력이나 삭제가 없어도 디스크 I/O는 SQL을 실행할 때 마다 다르다. 첫 번째 실행할 때보다 두번째 실행할 때 줄어들고, 세 번째 실행할 땐 더 줄어든다. 연속해서 실행하면 DB 버퍼캐시에서 해당 테이블 블록의 점유율이 점점 높아지기 때문이다. 한참 후에 다시 실행하면 반대로 물리적 I/O가 늘어난다. DB 버퍼 캐시가 다른 테이블 블록으로 채워지기 때문이다.
+{: .prompt-info }
 
 ##### 블로킹(Blocking) I/O 과정
 
@@ -725,6 +776,8 @@ $$ BHCR = (\frac{버퍼 캐시에서 곧바로 찾은 블록 수((Query + Curren
 - 버퍼 캐시 효율을 측정하는 지표로서, 전체 읽은 블록 중에서 메모리 버퍼 캐시에서 찾은 비율을 나타냄
   + 물리적인 디스크 읽기를 수반하지 않고 곧바로 메모리에서 블록을 찾은 비율
     * Direct Path Read 방식이외의 모든 블록 읽기는 버퍼 캐시를 통해 이루어짐
+  + SQL 성능을 향상시키려면 디스크 I/O가 아닌 메모리 I/O를 줄이는 것이 효율적임
+- 전용 서버 방식을 사용하는 OLTP(Online Transaction Processing)성 애플리케이션이라면 시스템 레벨에서 평균 99% 히트율을 달성해야 함
 
 > 같은 블록을 반복적으로 액세스하는 형태의 SQL은 논리적인 I/O 호출이 비효율적으로 많이 발생함에도 불구하고 BCHR은 매우 높게 나타난다. 이는 BCHR이 성능지표로서 갖는 한계점이라 할 수 있다. 예를 들어 NL Join에서 작은 Inner 테이블을 반복적으로 룩업(Lookup)하는 경우가 그렇다. 작은 테이블을 반복 액세스하면 모든 블록이 메모리에서 찾아져 BCHR은 높겠지만 일량이 작지 않고, 블록을 찾는 과정에서 래치(Latch) 경합과 버퍼 Lock 경합까지 발생한다면 메모리 I/O 비용이 디스크 I/O 비용보다 커질 수 있다. 따라서 논리적으로 읽어야 할 블록 수의 절대량이 많다면 반드시 튜닝을 통해 논리적인 블록 읽기를 최소화해야 한다.
 {: .prompt-info }
@@ -763,22 +816,27 @@ $$ BHCR = (\frac{버퍼 캐시에서 곧바로 찾은 블록 수((Query + Curren
 
 ![sequential-io-and-random-io.jpg](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/sequential-io-and-random-io.jpg)
 
-- 순차 접근
+- 순차 접근(Sequential Access)
   + 레코드간 **논리적 또는 물리적인 순서**를 따라 차례대로 읽어 나가는 방식
-  + ⑤번
-    * 포인터를 따라 논리적으로 연결돼 있는 인덱스 리프 블록에 위치한 레코드를 스캔
+    * 사진의 ⑤번
   + **I/O 성능을 높이기 위해서는 Sequential 액세스에 의한 선택 비중을 높여야 함**
-- 임의 접근
-  + 데이터 블록에 **임의로 접근**하는 방식
-  + ①, ②, ③, ④, ⑥번
+- 임의 접근(Random Access)
+  + 레코드 하나를 읽기 위해 데이터 블록에 한 블록씩 **임의로 접근**하는 방식
+    * 사진의 ①, ②, ③, ④, ⑥번
   + **I/O 성능을 높이기 위해서는 Random 액세스 발생량을 줄여야 함**
-- [순차 접근(Sequential Access), 임의 접근(Random Access)](https://drj9812.github.io/posts/sequential-access-and-radom-access/){: target="_blank" } 참고
+
+> [순차 접근(Sequential Access), 임의 접근(Random Access)](https://drj9812.github.io/posts/sequential-access-and-radom-access/){: target="_blank" } 참고
+{: .prompt-tip }
 
 ### Single Block I/O, MultiBlock I/O
 
 - Single Block I/O
   + 한번의 I/O 호출에 하나의 데이터 블록만 읽어 메모리에 적재하는 방식
   + **인덱스를 통해 테이블에 접근할 때는, 기본적으로 인덱스와 테이블 블록 모두 이 방식을 사용**
+    * 인덱스 루트 블록을 읽을 때
+    * 인덱스 루트 블록에서 얻은 주소 정보로 브랜치 블록을 읽을 때
+    * 인덱스 브랜치 블록에서 얻은 주소 정보로 리프 블록을 읽을 때
+    * 인덱스 리프 블록에서 얻은 주소 정보로 테이블 블록을 읽을 때`
   + 인덱스 스캔 시 효율적임
     * 인덱스 블록간 논리적 순서(이중 연결 리스트 구조로 연결된 순서)는 데이터 파일에 저장된 물리적인 순서와 다르기 때문임
 - MultiBlock I/O
@@ -895,9 +953,10 @@ CBO 기술이 고도로 발전하고 있긴 하지만 여러 가지 이유로 �
 
 ## 참고자료
 
+- 한국데이터산업진흥원, *SQL 자격검정 실전문제*(서울: 한국데이터산업진흥원, 2016), 279.
 - [admin, *데이터베이스 아키텍쳐*, 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=2&mod=document&uid=357){: target="_blank" }
 - [admin, *데이터베이스 I/O 원리*, 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=2&mod=document&uid=360){: target="_blank" }
-- 한국데이터산업진흥원, *SQL 자격검정 실전문제*(서울: 한국데이터산업진흥원, 2016), 279.
+- [admin, *옵티마이저와 실행계획*, 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=354){: target="_blank" }
 - 조시형, *친절한 SQL 튜닝*(서울: 디비안, 2018), 560.
 - 조시형, *국가공인 SQLP 자격검정 핵심노트 Ⅰ*(서울: 디비안, 2021), 272
 - 조시형, *국가공인 SQLP 자격검정 핵심노트 Ⅱ*(서울: 디비안, 2021), 278
