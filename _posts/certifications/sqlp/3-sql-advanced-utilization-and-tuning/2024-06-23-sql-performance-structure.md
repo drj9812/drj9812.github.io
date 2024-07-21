@@ -147,6 +147,7 @@ image:
 - <font color="red">SQL 성능을 좌우하는 가장 중요한 성능지표는 액세스하는 블록 개수이며, 옵티마이저의 판단에 가장 큰 영향을 미치는 것도 액세스해야 할 블록 개수임</font>
   + 옵티마이저가 인덱스를 이용해 테이블을 액세스할지 아니면 Full Table Scan 할지를 결정하는 데 있어 가장 중요한 판단 기준은 읽어야 할 레코드 수가 아니라 읽어야 하는 블록 개수임
 - Oracle은 2KB, 4KB, 8KB, 16KB, 32KB, 64KB의 다양한 블록 크기를 사용
+  + default 8KB
   + SQL Server에선 8KB 단일 크기를 사용
 
 ##### 익스텐트(Extent)
@@ -264,7 +265,7 @@ CREATE temporary tablespace big_temp tempfile '/usr/local/oracle/oradata/ora10g/
 
 - **데이터 파일로부터 읽어 들인 데이터 블록을 담는 캐시 영역**
 - 인스턴스에 접속한 모든 사용자 프로세스는 서버 프로세스를 통해 DB 버퍼 캐시의 버퍼 블록을 동시에(내부적으로는 버퍼 Lock을 통해 직렬화) 액세스할 수 있음
-- 일부 Direct Path Read 메커니즘이 작동하는 경우를 제외하면, 모든 블록 읽기는 버퍼 캐시를 통해 이루어짐
+- 일부 Direct Path Read 메커니즘이 작동하는 경우를 제외하면, **모든 블록 읽기는 버퍼 캐시를 통해 이루어짐**
   + 읽고자 하는 블록을 먼저 버퍼 캐시에서 찾아보고 없을 때 디스크에서 읽음
     * 디스크에서 읽을 때도 먼저 버퍼 캐시에 적재한 후에 읽음
 - 데이터 변경도 버퍼 캐시에 적재된 블록을 통해 이루어짐
@@ -313,7 +314,7 @@ CREATE temporary tablespace big_temp tempfile '/usr/local/oracle/oradata/ora10g/
 - [SQL 최적화 과정](#sql-최적화-과정)을 거쳐 생성됨
   + SQL 파싱, SQL 최적화, 로우 소스 생성
 
-> 쿼리 구문을 분석해서 문법 오류 및 실행 권한 등을 체크하고, 최적화(Optimization) 과정을 거쳐 실행계획을 만들고, SQL 실행엔진이 이해할 수 있는 형태로 포맷팅하는 전 과정을 [하드 파싱(Hard Parsing)](#소프트-파싱-vs-하드-파싱)이라고 한다. 특히 최적화 과정은 하드 파싱을 무겁게 만드는 가장 결정적 요인인데, 같은 SQL을 처리하려고 이런 무거운 작업을 반복 수행하는 것은 매우 비효율적이다. 이를 방지하기 위해 캐시 공간을 따로 두게 되었고, 그것이 바로 라이브러리 캐시 영역이다. 캐싱된 SQL과 그 실행계획의 재사용성을 높이는 것은 SQL 수행 성능을 높이고 DBMS 부하를 최소화하는 핵심 원리 중 한가지다.
+> 쿼리 구문을 분석해서 문법 오류 및 실행 권한 등을 체크하고, 최적화(Optimization) 과정을 거쳐 실행계획을 만들고, SQL 실행엔진이 이해할 수 있는 형태로 포맷팅하는 전 과정을 하드 파싱(Hard Parsing)이라고 한다. 특히 최적화 과정은 하드 파싱을 무겁게 만드는 가장 결정적 요인인데, 같은 SQL을 처리하려고 이런 무거운 작업을 반복 수행하는 것은 매우 비효율적이다. 이를 방지하기 위해 캐시 공간을 따로 두게 되었고, 그것이 바로 라이브러리 캐시 영역이다. 캐싱된 SQL과 그 실행계획의 재사용성을 높이는 것은 SQL 수행 성능을 높이고 DBMS 부하를 최소화하는 핵심 원리 중 한가지다.
 {: .prompt-info }
 
 ##### 로그 버퍼(Log Buffer)
@@ -451,6 +452,12 @@ log buffer space
 
 ![10-role-of-each-sub-engine](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/10-role-of-each-sub-engine.jpg)
 *서브엔진별 역할*
+
+![15-parsing-schematic](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/15-parsing-schematic.jpg)
+*파싱 도식화*
+
+- SQL을 캐시에서 찾아 곧바로 실행단계로 넘어가는 것을 소프트 파싱(Soft Parsing)이라고 함
+- 캐시에서 SQL을 찾는 데 실패해 최적화 및 로우 소스 생성 단계까지 모두 거치는 것을 하드 파싱(Hard Parsing)이라고 함
 
 ##### 1. SQL 파싱
 
@@ -652,10 +659,10 @@ SELECT /*+ FULL(EMP) */ -- 무효
 |            |              use_nl_with_index              | |
 |            |           use_merge, no_use_merge           | 소트 머지 조인으로 유도 및 방지|
 |            |            use_hash, no_use_hash            | 해시 조인으로 유도 및 방지|
-|  병렬 처리  |            parallel, no_parallel            | 테이블 스캔 또는 DML을 병렬방식으로 처리하도록 유도 및 방지|
-|            |                 pq_distribute               | 병렬 수행 시 데이터 분배 방식 결정|
-|            |       parallel_index, no_parallel_index     | 인덱스 스캔을 병렬 방식으로 처리하도록 유도 및 방지|
-|    기타     |               append, noappend              | Direct-Path Insert로 유도 및 방지 |
+|  병렬 처리 |             parallel, no_parallel            | 테이블 스캔 또는 DML을 병렬방식으로 처리하도록 유도 및 방지|
+|            |                  pq_distribute               | 병렬 수행 시 데이터 분배 방식 결정|
+|            |        parallel_index, no_parallel_index     | 인덱스 스캔을 병렬 방식으로 처리하도록 유도 및 방지|
+|    기타    |               append, noappend               | Direct-Path Insert로 유도 및 방지 |
 |            |                 cache, nocache               | |
 |            |            push_pred, no_push_pred           | 조인 조거건 Pushdown 유도 및 방지|
 |            |            push_subq, no_push_subq           | 서브쿼리를 가급적 빨리/늦게 필터링하도록 유도 |
@@ -665,56 +672,102 @@ SELECT /*+ FULL(EMP) */ -- 무효
 |            |               dynamic_sampling               | |
 |            |              model_min_analysis              | |
 
-### SQL 공유 및 재사용
-
-#### 소프트 파싱 vs. 하드 파싱
-
-![15-parsing-schematic](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/15-parsing-schematic.jpg)
-*파싱 도식화*
-
-- SQL을 캐시에서 찾아 곧바로 실행단계로 넘어가는 것을 소프트 파싱(Soft Parsing)이라고 함
-- 캐시에서 SQL을 찾는 데 실패해 최적화 및 로우 소스 생성 단계까지 모두 거치는 것을 하드 파싱(Hard Parsing)이라고 함
-
-#### SQL 최적화 과정은 왜 하드(Hard)한가
-
-> *예를 들어, 다섯 개 테이블을 조인하는 쿼리문 하나를 최적화하는 데도 무수히 많은 경우의 수가 존재한다. 조인 순서만 고려해도 120(=5!)가지다. 여기에 NL 조인, 소트 머지 조인, 해시 조인 등 다양한 조인 방식이 있다. 테이블 전체를 스캔할지, 인덱스를 이용할지를 결정해야 하고, 인덱스 스캔에도 Index Range Scan, Index Unique Scan, Index Full Scan, Index Fast Full Scan, Index Skip Scan 등 다양한 방식이 제공된다. 게다가, 사용할 수 있는 인덱스가 테이블당 하나뿐이겠는가.*
->
-> *대충 계산해도 수십만 가지 경우의 수가 존재한다. 알고리즘과 하드웨어가 발전하면서 워낙 빠르게 처리하다 보니 잘 느끼지 못하겠지만, SQL 옵티마이저는 순식간에 엄청나게 많은 연산을 한다. 그 과정에 옵티마이저가 사용하는 정보는 다음과 같다.*
->
-> - *테이블, 컬럼, 인덱스 구조에 관한 기본 정보*
-> - *오브젝트 통계: 테이블 통계, 인덱스 통계, (히스토그램을 포함한) 컬럼 통계*
-> - *시스템 통계: CPU 속도, Single Block I/O 속도, Multiblock I/O 속도 등*
-> - *옵티마이저 관련 파라미터*
->
-> *하나의 쿼리를 수행하는 데 있어 후보긴 될만한 무수히 많은 실행결로를 도출하고, 짧은 순간에 딕셔너리와 통계정보를 읽어 각각에 대한 효율성을 판단하는 과정을 결코 가벼울(soft) 수 없다. 데이터베이스에서 이루어지는 처리 과정은 대부분 I/O 작업에 집중되는 반면, **하드 파싱은 CPU를 많이 소비**하는 몇 안되는 작업 중 하나다.*
->
-> *이렇게 어려운(=hard) 작업을 거쳐 생성한 내부 프로시저를 한 번만 사용하고 버린다면 이만저만한 비효율이 아니다. 라이브러리 캐시가 필요한 이유가 바로 여기에 있다.*
-
-#### 바인드 변수의 중요성
-
-##### 이름없는 SQL 문제
-
-- **SQL 쿼리는 따로 이름이 존재하지 않고, SQL 텍스트 자체가 이름 역할을 함**
-  + 사용자 정의 함수/프로시저, 트리거, 패키지 등은 생성할 때부터 이름을 갖음
-    * 컴파일한 상태로 딕셔너리에 저장되며, 사용자가 삭제하지 않는 한 영구적으로 보관됨
-  + **SQL 쿼리 그 자체는 딕셔너리에 저장되지 않음**
-    + 사용자 정의 함수/프로시저와 달리 영구 저장되지 않음
-
-> SQL 쿼리는 그 텍스트 자체가 이름 역할을 하므로, SQL 쿼리가 수정되면 새로운 객체로 인식된다. 개발 과정에서 SQL 쿼리는 자주 변경되기 때문에, 이를 모두 저장하려면 많은 저장 공간이 필요하다. 이러한 이유로 대부분의 DBMS는 SQL 쿼리를 영구적으로 저장하지 않는 방식을 채택하고 있다.
-{: .prompt-info }
-
-> 딕셔너리에 저장되는 함수, 프로시저, 트리거, 패키지와 마찬가지로, SQL 쿼리도 라이브러리 캐시에 적재된다. 라이브러리 캐시는 SQL 쿼리의 실행 계획을 저장하여 동일한 쿼리가 반복적으로 실행될 때 빠르게 재사용할 수 있도록 한다. 이를 통해 데이터베이스의 성능을 최적화하고 쿼리 실행 속도를 높일 수 있다.
-{: .prompt-info }
-
-##### 공유 가능 SQL
-
-
 ## 데이터베이스 I/O 메커니즘
+
+### 블록 단위 I/O
+
+- 모든 DBMS에서 I/O는 블록 단위로 이루어짐
+  + 특정 레코드 하나를 읽고 싶어도 해당 블록을 통째로 읽음
+- **SQL 성능을 좌우하는 가장 중요한 성능지표는 액세스하는 블록의 개수**
+  + 블록의 개수가 옵티마이저의 판단에 가장 큰 영향을 미침
+- 블록 단위 I/O는 버퍼 캐시와 데이터 파일 I/O 모두에 적용됨
+  + 데이터 파일에서 DB 버퍼 캐시로 블록을 적재할 때
+  + 데이터 파일에서 블록을 직접 읽고 쓸 때
+  + 버퍼 캐시에서 블록을 읽고 쓸 때
+  + 버퍼 캐시에서 변경된 블록을 다시 데이터 파일에 쓸 때
+
+### 메모리 I/O, 디스크 I/O
+
+#### I/O 효율화 튜닝의 중요성
+
+![disk-io](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/disk-io.jpg)
+*디스크 I/O 경합*
+
+- 모든 DBMS는 데이터를 읽을 때 먼저 [버퍼 캐시](#db-버퍼-캐시db-buffer-cache)에서 찾아보고, 없을 경우 디스크에서 읽어와 버퍼 캐시에 적재한 후 작업을 수행
+  + 디스크 I/O가 필요할 때면 서버 프로세스는 I/O 호출을 하고 잠시 대기 상태에 빠짐
+    * 디스크 I/O 경합이 심할 수록 대기 시간도 길어짐
+  + **모든 데이터를 메모리(버퍼 캐시)에 상주시킬 수 없으므로, 디스크 I/O를 최소화하고 버퍼 캐시의 효율을 높이는 것이 데이터베이스 I/O 튜닝의 목표**
+
+#### 버퍼 캐시 히트율(Buffer Cache Hit Ratio)
+
+$$ BHCR = (\frac{버퍼 캐시에서 곧바로 찾은 블록 수((Query + Current) - Disk)}{총 읽은 블록 수(Query + Current)}) \times 100 $$
+
+- 버퍼 캐시 효율을 측정하는 지표로서, 전체 읽은 블록 중에서 메모리 버퍼 캐시에서 찾은 비율을 나타냄
+  + 물리적인 디스크 읽기를 수반하지 않고 곧바로 메모리에서 블록을 찾은 비율
+    * Direct Path Read 방식이외의 모든 블록 읽기는 버퍼 캐시를 통해 이루어짐
+
+> 같은 블록을 반복적으로 액세스하는 형태의 SQL은 논리적인 I/O 요청이 비효율적으로 많이 발생함에도 불구하고 BCHR은 매우 높게 나타난다. 이는 BCHR이 성능지표로서 갖는 한계점이라 할 수 있다. 예를 들어 NL Join에서 작은 Inner 테이블을 반복적으로 룩업(Lookup)하는 경우가 그렇다. 작은 테이블을 반복 액세스하면 모든 블록이 메모리에서 찾아져 BCHR은 높겠지만 일량이 작지 않고, 블록을 찾는 과정에서 래치(Latch) 경합과 버퍼 Lock 경합까지 발생한다면 메모리 I/O 비용이 디스크 I/O 비용보다 커질 수 있다. 따라서 논리적으로 읽어야 할 블록 수의 절대량이 많다면 반드시 튜닝을 통해 논리적인 블록 읽기를 최소화해야 한다.
+{: .prompt-info }
+
+##### 예시
+
+|    Call   |  Count  |    Cpu   |  Elapsed |  Disk  |  Query  | Current |  Rows  |
+|:---------:|:-------:|:--------:|:--------:|:------:|:-------:|:-------:|:------:| 
+|   Parse   |    15   |   0.00   |   0.08   |    0   |    0    |    0    |    0   | 
+|  Execute  |    44   |   0.03   |   0.03   |    0   |    0    |    0    |    0   | 
+|   Fetch   |    44   |   0.01   |   0.13   |   18   |   822   |    0    |   44   | 
+| **Total** | **103** | **0.04** | **0.25** | **18** | **822** |  **0**  | **44** |
+
+- `Parse`
+  + SQL 문을 구문 분석하는 단계
+  + 15번의 파싱 호출이 발생했고, CPU 시간은 0.00초, 경과 시간은 0.08초
+- `Execute`
+  + SQL 문을 실행하는 단계
+  + 44번의 실행 호출이 발생했고, CPU 시간은 0.03초, 경과 시간도 0.03초
+- `Fetch`
+  + 실행된 SQL 문의 결과를 가져오는 단계
+  + 44번의 페치 호출이 발생했고, CPU 시간은 0.01초, 경과 시간은 0.13초
+  + 디스크 I/O는 18번 발생했으며, 822개의 질의가 수행됨
+  + 현재(current) 값은 없으며, 44개의 행이 반환됨
+- `Total`
+  + 전체 합계
+
+> 총 읽은 블록 수(Query + Current)가 디스크로부터 읽은 블록 수를 이미 포함하므로, 총 읽은 블록 수를 840개(Disk + Query + Current)로 잘못 해석하지 않도록 주의하자.
+{: .prompt-warn }
+
+#### 네트워크, 파일시스템 캐시가 I/O 효율에 미치는 영향
+
+> *대용량 데이터를 읽고 쓰는 데 다양한 네트워크 기술(DB서버와 스토리지 간에 NAS 서버나 SAN을 사용)이 사용됨에 따라 네트워크 속도도 SQL 성능에 크게 영향을 미치고 있다. 이에 하드웨어나 DBMS 벤더는 네트워크를 통한 데이터 전송속도를 향상시키려고 노력하고 있지만, 네트워크 전송량이 많을 수 밖에 없도록 SQL을 작성한다면 결코 좋은 성능을 기대할 수 없다. 따라서 SQL을 작성할 때는 다양한 I/O 튜닝 기법을 사용해서 네트워크 전송량을 줄이려고 노력하는 것이 중요하다. RAC 같은 클러스터링(Clustering) 데이터베이스 환경에선 인스턴스 간 캐시된 블록을 공유하므로 메모리 I/O 성능에도 네트워크 속도가 지대한 영향을 미치게 되었다. 같은 양의 디스크 I/O가 발생하더라도 I/O 대기 시간이 크게 차이 날 때가 있다. 디스크 경합 때문일 수도 있고, OS에서 지원하는 파일 시스템 버퍼 캐시와 SAN 캐시 때문일 수도 있다. SAN 캐시는 크다고 문제될 것이 없지만, 파일 시스템 버퍼캐시는 최소화해야 한다. 데이터베이스 자체적으로 캐시 영역을 갖고 있으므로 이를 위한 공간을 크게 할당하는 것이 더 효과적이다. 네트워크 문제이든, 파일시스템 문제이든 I/O 성능에 관한 가장 확실하고 근본적인 해결책은 논리적인 블록 요청 횟수를 최소화하는 것이다.*
+
+### Sequential I/O, Random I/O
+
+![sequential-io-and-random-io.jpg](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-performance-structure/sequential-io-and-random-io.jpg)
+
+- Sequential 액세스
+  + 레코드간 **논리적 또는 물리적인 순서**를 따라 차례대로 읽어 나가는 방식
+  + ⑤번
+    * 포인터를 따라 논리적으로 연결돼 있는 인덱스 리프 블록에 위치한 레코드를 스캔
+  + **I/O 성능을 높이기 위해서는 Sequential 액세스에 의한 선택 비중을 높여야 함**
+- Random 액세스
+  + 데이터 블록에 **임의로 접근**하는 방식
+  + ①, ②, ③, ④, ⑥번
+  + **I/O 성능을 높이기 위해서는 Random 액세스 발생량을 줄여야 함**
+- [순차 접근(Sequential Access), 임의 접근(Random Access)](https://drj9812.github.io/posts/sequential-access-and-radom-access/){: target="_blank" } 참고
+
+### Single Block I/O, MultiBlock I/O
+
+### I/O 효율화 원리
+
+#### 필요한 최소 블록만 읽도록 SQL 작성
+
+#### 최적의 옵티마이징 팩터 제공
+
+#### 필요하다면, 옵티마이저 힌트를 사용해 최적의 액세스 경로로 유도
 
 ## 참고자료
 
-- [admin, "데이터베이스 아키텍쳐", 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=2&mod=document&uid=357){: target="_blank" }
-- [admin, "데이터베이스 I/O 원리", 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=2&mod=document&uid=360){: target="_blank" }
+- [admin, *데이터베이스 아키텍쳐*, 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=2&mod=document&uid=357){: target="_blank" }
+- [admin, *데이터베이스 I/O 원리*, 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=2&mod=document&uid=360){: target="_blank" }
 - 한국데이터산업진흥원, *SQL 자격검정 실전문제*(서울: 한국데이터산업진흥원, 2016), 279.
 - 조시형, *친절한 SQL 튜닝*(서울: 디비안, 2018), 560.
 - 조시형, *국가공인 SQLP 자격검정 핵심노트 Ⅰ*(서울: 디비안, 2021), 272

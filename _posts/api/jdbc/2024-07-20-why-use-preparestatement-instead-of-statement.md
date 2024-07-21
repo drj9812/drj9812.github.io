@@ -1,5 +1,5 @@
 ---
-title: "[JDBC]Statement 대신 PrepareStatment를 사용해야 이유"
+title: "[JDBC]Statement 대신 PrepareStatment를 사용해야 하는 이유"
 tags: [Java, 자바, JDBC]
 image:
   path: /assets/img/posts/language/java/01-java-logo.jpg
@@ -7,7 +7,7 @@ image:
   alt: Java
 ---
 
-# createStatement() 대신 prepareStatement()를 사용해야 이유
+# Statement 대신 PrepareStatment를 사용해야 하는 이유
 
 ## Statement
 
@@ -62,7 +62,7 @@ conn.close();
 SELECT * FROM CUSTOMER WHERE LOGIN_ID :1
 ```
 
-라이브러리 캐시를 조회해 보면, 로그인과 관련해서 위 SQL 하나만 발견된다.
+라이브러리 캐시를 조회해 보면, 로그인과 관련해서 위 SQL 하나만 발견된다. 이 SQL에 대한 하드 파싱은 최초 한 번만 일어나고, 캐싱된 SQL은 여러 사용자가 공유하면서 재사용한다.
 
 ## 참고자료
 
