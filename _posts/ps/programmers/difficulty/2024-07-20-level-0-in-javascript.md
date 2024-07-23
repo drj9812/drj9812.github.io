@@ -196,10 +196,27 @@ const solution = (money) => {
 ```javascript
 const solution = (numbers, num1, num2) => numbers.slice(num1, num2 + 1);
 ```
-## [순서쌍의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+
+## [순서쌍의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/120836){: target="_blank" }
 
 ```javascript
+const solution = (n) => {
+  let pairCount = 0;
 
+  if (n === 1) {
+    pairCount = 1;
+  } else {
+    pairCount = 2;
+  }
+
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      pairCount++;
+    }
+  }
+
+  return pairCount;
+}
 ```
 
 ## [개미 군단](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }

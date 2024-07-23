@@ -67,7 +67,9 @@ image:
 2. 데이터 딕셔너리(Data Dictionary)에 미리 수집해둔 오브젝트 통계 및 시스템 통계정보를 이용해 각 실행계획의 예상비용을 산정
 3. 최저 비용(Cost)을 나타내는 실행계획 선택
 
-#### 규칙기반 옵티마이저
+#### 옵티마이저의 종류
+
+##### 규칙기반 옵티마이저
 
 - 규칙(우선 순위)을 가지고 실행계획을 생성
 
@@ -119,7 +121,7 @@ SELECT ENAME FROM EMP WHERE JOB = 'SALESMAN' AND SAL BETWEEN 3000 AND 6000 INDEX
 
 Execution Plan ------------------------------------------------------------ SELECT STATEMENT Optimizer=CHOOSE TABLE ACCESS (BY INDEX ROWID) OF 'EMP' INDEX (RANGE SCAN) OF 'EMP_JOB' (NON-UNIQUE)
 
-#### 비용기반 옵티마이저
+##### 비용기반 옵티마이저
 
 - SQL문을 처리하는데 필요한 비용이 가장 적은 실행계획을 선택하는 방식
 - 규칙기반 옵티마이저의 단점을 극복하기 위해서 출현
@@ -241,7 +243,7 @@ SELECT /*+ INDEX(A 고객_PK) */
 > 옵티마이저의 자율적 판단에 의한 선택이 큰 손실을 발생시킬 수 있기 때문에 힌트는 빈틈없이 기술되어야 한다.
 {: .prompt-warning }
 
-#### 주의사항
+#### 힌트가 무시되는 경우
 
 - 옵티마이저는 힌트를 선택 가능한 옵션 정도가 아닌, 사용자로부터 주어진 명령어로 인식
   + Oracle은 힌트 잘못 기술하거나 잘못된 참조 시 에러가 발생하지 않음
@@ -268,6 +270,14 @@ SELECT /*+ FULL(EMP) */ -- 무효
 ```
 
 - `FROM` 절에 별칭을 지정했는데 힌트에서 별칭을 사용하지 않으면 그 힌트는 무시됨
+
+- 논리적으로 불가능한 액세스 경로
+  + `JOIN` 절에 등치(`=`) 조건이 하나도 없는데 해시 `JOIN`으로 유도하는 경우
+  + 테이블 전체 건수를 COUNT하는 쿼리에 `NULL`을 허용하는 단일 컬럼으로 생선 인덱스를 사용하도록 힌트를 지정하는 경우
+- 의미적으로 맞지 않는 힌트 기술
+  + 서브 쿼리에 unnest와 push_subq를 같이 기술
+- 옵티마이저에 의해 내부적으로 쿼리가 변환된 경우
+- 버그
 
 #### 종류
 
@@ -312,6 +322,48 @@ SELECT /*+ FULL(EMP) */ -- 무효
 |            |               dynamic_sampling               | |
 |            |              model_min_analysis              | |
 
+### SQL 최적화 과정
+
+![09-sql-optimization-and-execution-process](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-optimizer/09-sql-optimization-and-execution-process.jpg)
+*SQL 최적화 및 수행 과정*
+
+![10-role-of-each-sub-engine](/assets/img/posts/certifications/sqlp/3-sql-advanced-utilization-and-tuning/sql-optimizer/10-role-of-each-sub-engine.jpg)
+*서브엔진별 역할*
+
+#### 1. SQL 파싱
+
+- 사용자로부터 전달받은 SQL을 SQL 파서(Parser)가 파싱하는 단계
+
+##### 파서의 역할
+
+- 파싱 트리 생성
+  + SQL 문을 이루는 개별 구성요소를 분석해서 쿼리의 구조를 나타내는 파싱 트리 생성
+- Syntax 체크
+  + **문법적 오류가 없는지 확인**
+    * 사용할 수 없는 키워드 사용
+    * 올바르지 않은 순서
+    * 누락된 키워드
+- Semantic 체크
+  + **의미상 오류가 없는지 확인**
+    * 존재하지 않는 테이블 또는 컬럼 사용
+    * 사용한 오브젝트에 대한 권한 확인
+
+#### 2. SQL 최적화
+
+- **SQL 옵티마이저**가 미리 수집한 시스템 및 오브젝트 통계정보를 바탕으로 다양한 실행경로를 생성해서 비교한 후 **가장 효율적인 하나를 선택**하는 단계
+  + 옵티마이저는 DB 성능을 결정하는 가장 핵심적인 엔진
+  + 딕셔너리 캐시에 미리 수집해 둔 오브젝트 통계 및 시스템 정보를 활용
+
+> SQL을 실행하려면 사전에 SQL 파싱과 최적화 과정을 거친다. 세부적인 SQL 처리 과정을 설명할 목적이 아니면 일반적으로 이 둘을 구분할 필요는 없다. 최적화 과정을 포함히 'SQL 파싱'이라고 표현하기도 하고, 파싱 과정을 포함해 'SQL 최적화'라고 표현하고디 한다. 여기서는 'SQL 최적화'라고 표현했다.
+{: .prompt-info }
+
+#### 3. 로우 소스 생성
+
+- SQL 옵티마이저가 선택한 실행경로를 실제 실행 가능한 코드 또는 프로시저 형태로 포맷팅하는 단계
+- 로우 소스 생성기(Row-Source Generator)가 담당
+
+### 최적화 목표
+
 ## SQL 공유 및 재사용
 
 ### 소프트 파싱, 하드 파싱
@@ -328,6 +380,8 @@ SELECT /*+ FULL(EMP) */ -- 무효
 
 #### 이름없는 SQL 문제
 
+- SQL은 따로 이름이 없고, SQL 텍스트 자체가 이름임
+
 #### 공유 가능 SQL
 
 - [[JDBC]Statement 대신 PrepareStatment를 사용해야 하는 이유](https://drj9812.github.io/posts/why-use-preparestatement-instead-of-statement/){: target="_blank" } 참고
@@ -338,5 +392,7 @@ SELECT /*+ FULL(EMP) */ -- 무효
 
 - 한국데이터산업진흥원, *SQL 자격검정 실전문제*(서울: 한국데이터산업진흥원, 2016), 279.
 - 조시형, *친절한 SQL 튜닝*(서울: 디비안, 2018), 560.
+- [admin, *옵티마이저와 실행계획*, 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=354){: target="_blank" }
+- [admin, *옵티마이저*, 데이터온에어, 2021-02-15](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=2&mod=document&uid=364){: target="_blank" }
 - 조시형, *국가공인 SQLP 자격검정 핵심노트 Ⅰ*(서울: 디비안, 2021), 272
 - 조시형, *국가공인 SQLP 자격검정 핵심노트 Ⅱ*(서울: 디비안, 2021), 278

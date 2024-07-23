@@ -43,6 +43,11 @@ const solution = (s) => {
 
 ## [문자열을 정수로 바꾸기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 
+```javascript
+// const solution = (s) => Number(s); // 소수점 무시 X
+const solution = (s) => parseInt(s); // 소수점 무시
+```
+
 ## [자릿수 더하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 
 ## [자연수 뒤집어 배열로 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
