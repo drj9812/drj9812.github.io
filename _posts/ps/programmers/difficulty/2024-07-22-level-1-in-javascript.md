@@ -12,7 +12,7 @@ image:
 
 - 2024-07-22 정답률 기준
 
-## [문자열 내 p와 y의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [문자열 내 p와 y의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/12916){: target="_blank" }
 
 ```javascript
 const solution = (s) => {
@@ -41,14 +41,20 @@ const solution = (s) => {
 };
 ```
 
-## [문자열을 정수로 바꾸기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [문자열을 정수로 바꾸기](https://school.programmers.co.kr/learn/courses/30/lessons/12925){: target="_blank" }
 
 ```javascript
 // const solution = (s) => Number(s); // 소수점 무시 X
 const solution = (s) => parseInt(s); // 소수점 무시
 ```
 
-## [자릿수 더하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [자릿수 더하기](https://school.programmers.co.kr/learn/courses/30/lessons/12931){: target="_blank" }
+
+```javascript
+const solution = (N) => (N + '').split('').reduce((prev, curr) => {
+  return prev + Number(curr); 
+}, 0);
+```
 
 ## [자연수 뒤집어 배열로 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 

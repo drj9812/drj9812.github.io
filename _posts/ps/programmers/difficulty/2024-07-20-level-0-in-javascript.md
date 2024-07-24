@@ -219,10 +219,22 @@ const solution = (n) => {
 }
 ```
 
-## [개미 군단](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [개미 군단](https://school.programmers.co.kr/learn/courses/30/lessons/120837){: target="_blank" }
 
 ```javascript
+const solution = (hp) => {
+  let count = 0;
 
+  count += Math.floor(hp / 5);
+  hp %= 5;
+
+  count += Math.floor(hp / 3);
+  hp %= 3;
+
+  count += hp;
+
+  return count;
+}
 ```
 
 ## [모음 제거](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
