@@ -13,9 +13,9 @@ image:
 ## Statement
 
 ```java
-String SQLStmt = "SELECT * FROM CUSTOMER WHERE LOGIN_ID = '" + login_id + "'";
+String sql = "SELECT * FROM customer WHERE login_id = '" + login_id + "'";
 Statement st = con.createStatement();
-ResultSet rs = st.executeQuery(SQLStmt);
+ResultSet rs = st.executeQuery(sql);
 
 if (rs.next()){
     // do anything
@@ -43,8 +43,8 @@ SELECT * FROM CUSTOMER WHERE LOGIN_ID 'karajan'
 ## PrepareStatement
 
 ```java
-String SQLStmt = "SELECT * FROM CUSTOMER WHERE LOGIN_ID = '" + login_id + "'";
-PrepareStatement st = con.prepareStatement(SQLStmt);
+String sql = "SELECT * FROM customer WHERE login_id = ?";
+PrepareStatement st = con.prepareStatement(sql);
 st.setString(1, login_id);
 ResultSet rs = st.executeQuery();
 
