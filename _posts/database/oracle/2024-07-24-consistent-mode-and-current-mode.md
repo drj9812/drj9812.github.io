@@ -10,7 +10,7 @@ image:
 
 # Consistent 모드, Current 모드
 
-## Consitetn 모드
+## Consitent 모드
 
 ###### SQL Trace
 

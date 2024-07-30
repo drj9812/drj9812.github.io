@@ -34,7 +34,3 @@ tags: [Software Architecture, Design Pattern, 디자인 패턴, Domain Model Pat
 
 - 관련 객체를 그룹화하고 상호작용을 캡슐화하기 위해 사용됨
 - 일반적으로 하나의 주요 객체가 다른 객체를 관리하고 이를 통해 데이터 일관성을 보장
-
-## 참고자료
-
-- [Author, "Title", Source, Date](URL){: target="_blank" }

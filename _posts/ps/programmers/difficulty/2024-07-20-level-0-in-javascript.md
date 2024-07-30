@@ -237,6 +237,43 @@ const solution = (hp) => {
 }
 ```
 
+## [편지](https://school.programmers.co.kr/learn/courses/30/lessons/120898){: target="_balnk" }
+
+```javascript
+const solution = (message) => message.length * 2;
+```
+
+## [세균 증식](https://school.programmers.co.kr/learn/courses/30/lessons/120910){: target="_blank" }
+
+```javascript
+const solution = (n, t) => n * 2 ** t;
+```
+
+## [특정 문자 제거하기](https://school.programmers.co.kr/learn/courses/30/120826){: target="_blank" }
+
+```javascript
+// const solution = (my_string, letter) => {
+//     const arr = my_string.split('');
+    
+//     return arr.reduce((prev, curr) => {
+//         if (curr !== letter) {
+//             prev.push(curr);
+//         }
+//         return prev;
+//     }, []).join('');
+// };
+
+const solution = (my_string, letter) => my_string.split(letter).join('');
+```
+
+주석처럼 풀었는데 그냥 `split()` 함수를 사용하면 된다.
+
+## [배열의 유사도](https://school.programmers.co.kr/learn/courses/30/lessons/120903){: target="_blank" }
+
+```javascript
+const solution = (s1, s2) => s1.filter((e) => s2.includes(e)).length;
+```
+
 ## [모음 제거](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 
 ```javascript
