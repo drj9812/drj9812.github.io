@@ -611,4 +611,45 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 
 ### Datasource
 
+#### HikariDataSourceUtil.java
+
+```java
+package com.itwill.post.datasource;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+public class HikariDataSourceUtil {
+    // 싱글톤
+    private HikariDataSource ds;
+    private static HikariDataSourceUtil instance = null;
+
+    private HikariDataSourceUtil () {
+        // HikariCP 환경 설정 객체
+        HikariConfig config = new HikariConfig();
+
+        config.setDriverClassName("oracle.jdbc.OracleDriver");
+        config.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:xe");
+        config.setUsername("scott");
+        config.setPassword("tiger");
+
+        // DataSource 객체 생성
+        ds = new HikariDataSource(config);
+    };
+
+    public static HikariDataSourceUtil getInstance() {
+        if (instance == null) {
+            instance = new HikariDataSourceUtil();
+        }
+
+        return instance;
+    }
+
+    public HikariDataSource getDataSource() {
+        return ds;
+    }
+}
+```
+{: file="HikariDataSourceUtil.java" }
+
 ### Repository

@@ -130,6 +130,9 @@ SELECT object_id
 
 인덱스로부터 조건을 만족하는 22,934건을 읽어 그 횟수만큼 테이블을 Random 액세스하였다. 최종적으로 한 건이 선택된 것에 비해 너무 많은 Random 액세스가 발생했다. 아래는 인덱스를 변경하여 테이블 Random 액세스 발생량을 줄인 결과다.
 
+> 추가 조건인 `object_name = 'all_objects'` 는 인덱스에 포함되지 않지만, `WHERE owner = 'sys'` 조건이 인덱스 `t_idx`의 `owner` 컬럼에 정확히 일치하기 때문에 먼저 `owner` 조건을 만족하는 인덱스 엔트리들을 찾고, 해당 엔트리들 중에서 `object_name` 조건을 추가로 필터링함으로써 Index Full Scan이 아닌 Index Range Scan이 사용되었다.
+{: .prompt-info }
+
 ```sql
 -- 인덱스 제거 후, 복합 인덱스 생성
 DROP INDEX t_idx;

@@ -274,46 +274,214 @@ const solution = (my_string, letter) => my_string.split(letter).join('');
 const solution = (s1, s2) => s1.filter((e) => s2.includes(e)).length;
 ```
 
-## [모음 제거](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [모음 제거](https://school.programmers.co.kr/learn/courses/30/lessons/120849){: target="_blank" }
 
 ```javascript
+const solution = (my_string) => my_string.split('').filter((e) => {
+  return e !== 'a' && e !== 'e' && e !== 'i' && e !== 'o' && e !== 'u';
+}).join('');
 
+// const solution = (my_string) => my_string.replace(/[aeiou]/g, '');
+
+// const solution = (my_string) => {
+//   const vowels = ['a', 'e', 'i', 'o', 'u'];
+//   return my_string.split('').filter((e) => !vowels.includes(e)).join('');
+// }
 ```
 
-## [숨어있는 숫자의 덧셈 (1)](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+주석 처리된 코드처럼 푸는 게 더 깔끔한 것 같다.
+
+## [숨어있는 숫자의 덧셈 (1)](https://school.programmers.co.kr/learn/courses/30/lessons/120851){: target="_blank" }
 
 ```javascript
+const solution = (my_string) => {
 
+  return my_string.split('').reduce((prev, curr) => {
+    let num = Number(curr);
+
+    return Number.isInteger(num) ? prev + num : prev;
+  }, 0);
+};
 ```
 
-## [암호 해독](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [암호 해독](https://school.programmers.co.kr/learn/courses/30/lessons/120892){: target="_blank" }
 
 ```javascript
+const solution = (cipher, code) => {
+  const arr = cipher.split('');
+  let index = 0;
 
+  return arr.reduce((prev, curr) => {
+    index++;
+
+    return index % code === 0 ? prev + curr : prev 
+    }, '');
+};
 ```
 
-## [대문자와 소문자](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [대문자와 소문자](https://school.programmers.co.kr/learn/courses/30/lessons/120893){: target="_blank" }
 
 ```javascript
+const solution = (my_string) => {
 
+  return my_string.split('').map((e) => {
+
+    return e === e.toUpperCase() ? e.toLowerCase() : e.toUpperCase();
+  }).join('');
+};
 ```
 
-## [가장 큰 수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [짝수 홀수 개수](https://school.programmers.co.kr/learn/courses/30/lessons/120824){: target="_blank" }
 
 ```javascript
+// const solution = (num_list) => {
+//   return [
+//     num_list.filter((num) => num % 2 === 0).length,
+//     num_list.filter((num) => num % 2 === 1).length,
+//   ];
+// }
 
+// const solution = (num_list) => {
+//   const answer = [0,0];
+// 
+//   for(let a of num_list){
+//     answer[a % 2] += 1
+//   }
+// 
+//   return answer;
+// }
+
+const solution = (num_list) => {
+  const arr = [];
+  let count = 0;
+
+  for (let i = 0; i < num_list.length; i++) {
+    if (num_list[i] % 2 === 0) {
+      count++;
+    }
+  }
+
+  arr.push(count);
+  arr.push(num_list.length - count);
+  
+  return arr;
+}
 ```
 
-## [n의 배수 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [가장 큰 수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/120899){: target="_blank" }
 
 ```javascript
+// const solution = (array) => {
+//   let max = 0;
+//
+//   for (e of array) {
+//     if (e > max) {
+//       max = e;
+//     } 
+//   }
+//
+//   return [max, array.indexOf(max)];
+// };
 
+const solution = (array) => {
+  let max = Math.max(...array);
+
+  return [max, array.indexOf(max)];
+}
 ```
 
-## [문자열을 정수로 변환하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [n의 배수 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/120905){: target="_blank" }
 
 ```javascript
+const solution = (n, numlist) => numlist.filter((e) => e % n === 0);
+```
 
+## [문자열을 정수로 변환하기](https://school.programmers.co.kr/learn/courses/30/lessons/181850){: target="_blank" }
+
+```javascript
+const solution = (flo) => Math.trunc(flo);
+```
+
+## [뒤에서 5등까지](https://school.programmers.co.kr/learn/courses/30/lessons/181853){: target="_blank" }
+
+```javascript
+const solution = (num_list) => num_list.sort((a, b) => a - b).splice(0, 5);
+```
+
+## [배열 비교하기](https://school.programmers.co.kr/learn/courses/30/lessons/181856){: target="_blank" }
+
+```javascript
+const solution = (arr1, arr2) => {
+  const total1 = arr1.reduce((prev, curr) => prev + curr);
+  const total2 = arr2.reduce((prev, curr) => prev + curr);
+
+  if (arr1.length > arr2.length) {
+    return 1;
+  } else if (arr1.length < arr2.length) {
+    return -1;
+  } else {
+
+    if (total1 > total2) {
+      return 1;
+    } else if (total1 < total2) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+}
+```
+
+## [rny_string](https://school.programmers.co.kr/learn/courses/30/lessons/181863){: target="_blank" }
+
+```javascript
+const solution = (rny_string) => rny_string.split('').map((e) => e === 'm' ? 'rn' : e).join('');
+```
+
+## [문자열 바꿔서 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181864){: target="_blank" }
+
+```javascript
+const solution = (myString, pat) => {
+  const result = myString.split('').map((e) => e === 'A' ? 'B' : 'A').join('');
+
+  return result.includes(pat) ? 1 : 0;
+}
+```
+
+## [공백으로 구분하기 2](https://school.programmers.co.kr/learn/courses/30/lessons/181868){: target="_blank" }
+
+```javascript
+const solution = (my_string) =>  my_string.split(' ').filter(word => word);
+```
+
+js에서 빈 문자열은 `false`다.
+
+## [공백으로 구분하기 1](https://school.programmers.co.kr/learn/courses/30/lessons/181869){: target="_blank" }
+
+```javascript
+const solution = (my_string) => my_string.split(' ').filter((word) => word);
+```
+
+## [특정한 문자를 대문자로 바꾸기](https://school.programmers.co.kr/learn/courses/30/lessons/181873){: target="_blank" }
+
+```javascript
+const solution = (my_string, alp) => my_string.split('').map((word) => word === alp ? word.toUpperCase() : word).join('');
+```
+
+## [A 강조하기](https://school.programmers.co.kr/learn/courses/30/lessons/181874){: target="_blank" }
+
+```javascript
+// const solution = (myString) => myString.split('').map((word) => {
+//   return word === 'a' ? 'A' : word !== 'A' ? word.toLowerCase() : word;
+// }).join('');
+
+const solution = (myString) => myString.toLowerCase().replaceAll('a', 'A');
+```
+
+## [배열에서 문자열 대소문자 변환하기](https://school.programmers.co.kr/learn/courses/30/lessons/181875){: target="_blank" }
+
+```javascript
+const solution = (strArr) => strArr.map((value, index) => index % 2 !== 0 ? value.toUpperCase() : value.toLowerCase());
 ```
 
 ## [문자열 정수의 합](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
@@ -334,49 +502,7 @@ const solution = (s1, s2) => s1.filter((e) => s2.includes(e)).length;
 
 ```
 
-## [뒤에서 5등까지](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
-## [배열 비교하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
 ## [배열의 원소만큼 추가하기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
-## [rny_string](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
-## [문자열 바꿔서 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
-## [공백으로 구분하기 2](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
-## [공백으로 구분하기 1](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
-## [특정한 문자를 대문자로 바꾸기](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 
 ```javascript
 
