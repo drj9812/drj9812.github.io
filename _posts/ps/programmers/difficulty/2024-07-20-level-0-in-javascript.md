@@ -484,6 +484,48 @@ const solution = (myString) => myString.toLowerCase().replaceAll('a', 'A');
 const solution = (strArr) => strArr.map((value, index) => index % 2 !== 0 ? value.toUpperCase() : value.toLowerCase());
 ```
 
+## [문자열 뒤집기](https://school.programmers.co.kr/learn/courses/30/lessons/120822){: target="_blank" }
+
+```javascript
+const solution = (my_string) => my_string.split('').reverse().join('');
+```
+
+## [원하는 문자열 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181878){: target="_blank" }
+
+```javascript
+const solution = (myString, pat) => myString.toLowerCase().includes(pat.toLowerCase()) ? 1 : 0;
+```
+
+## [제곱수 판별하기](https://school.programmers.co.kr/learn/courses/30/lessons/120909){: target="_blank" }
+
+```javascript
+const solution = (n) => Number.isInteger(Math.sqrt(n)) ? 1 : 2;
+```
+
+## [삼각형의 완성조건 (1)](https://school.programmers.co.kr/learn/courses/30/lessons/120889){: target="_blank" }
+
+```javascript
+const solution = (sides) => {
+  sides.sort((a, b) => a - b);   
+
+  return sides[0] + sides[1] > sides[2] ? 1 : 2;
+}
+```
+
+## [조건에 맞게 수열 변환하기 1](https://school.programmers.co.kr/learn/courses/30/lessons/181882){: target="_blank" }
+
+```javascript
+const solution = (arr) => arr.map((value) => {
+  if (value >= 50 && value % 2 === 0) {
+    return value / 2;
+  } else if (value < 50 && value % 2 !== 0) {
+    return value * 2;
+  } else {
+    return value;
+  }
+});
+```
+
 ## [문자열 정수의 합](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 
 ```javascript

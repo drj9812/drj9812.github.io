@@ -529,41 +529,109 @@ const solution = (s, n) => {
 };
 ```
 
-## [가장 가까운 같은 글자](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [가장 가까운 같은 글자](https://school.programmers.co.kr/learn/courses/30/lessons/142086){: target="_blank" }
 
 ```javascript
+const solution = (s) => { // foobar, banana
+  const alphabet = new Array(26).fill(false);
+  const result = [];
 
+  for (let i = 0; i < s.length; i++) {
+    const charCode = s[i].charCodeAt(0) - 97;
+
+    if (alphabet[charCode] === false) {
+      alphabet[charCode] = true;
+      result.push(-1);
+
+    } else {            
+      const temp = s.slice(0, i);
+      result.push(i - temp.lastIndexOf(s[i]));
+    }
+  }
+
+  return result;
+};
 ```
 
-## [K번째수](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [K번째수](https://school.programmers.co.kr/learn/courses/30/lessons/42748){: target="_blank" }
 
 ```javascript
+const solution = (array, commands) => commands.map((command) => {
+  return array.slice(command[0] - 1, command[1]).sort((a, b) => a - b)[command[2] - 1];
+});
+```
 
+## [두 개 뽑아서 더하기](https://school.programmers.co.kr/learn/courses/30/lessons/68644){: target="_blank" }
+
+```javascript
+const solution = (numbers) => {
+  const result = [];
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+
+      sum = numbers[i] + numbers[j];
+      result.includes(sum) ? null : result.push(sum);
+    }
+  }
+  // result = [...new Set(temp)];
+  return result.sort((a, b) => a - b);
+};
+```
+
+`Set`을 사용해서 중복된 값은 제외시키는 코드를 없앨 수 있다.
+
+## [숫자 문자열과 영단어](https://school.programmers.co.kr/learn/courses/30/lessons/81301){: target="_blank" }
+
+```javascript
+const solution = (s) => {
+  const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+  for (const number of numbers) {
+
+    if (s.includes(number)) {
+      s = s.replaceAll(number, numbers.indexOf(number));
+    }
+  }
+
+  return Number(s);
+};
 ```
 
 ## [](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 
 ```javascript
+const solution = (food) => {
+  let result = '';
 
+  food.forEach((value, index) => {
+    if (index > 0) {
+      const count = Math.trunc(value / 2);
+      result += (index + '').repeat(count);
+    }
+  });
+
+  const reverse = result.split('').reverse().join('');
+  return result + '0' + reverse;
+};
 ```
 
-## [](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
+## [](https://school.programmers.co.kr/learn/courses/30/lessons/12915){: target="_blank" }
 
 ```javascript
+const solution = (strings, n) => {
+  return strings.sort((a, b) => {
+    if (a[n] === b[n]) {
+      return a.localeCompare(b);
+    }
 
+    return a[n].localeCompare(b[n]);
+  });
+};
 ```
 
-## [](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
-
-## [](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
-
-```javascript
-
-```
+```return strings.map(a => [...a][n] + a).sort().map(a => a.substring(1));` 한 줄로 끝낼 수도 있다...
 
 ## [](https://school.programmers.co.kr/learn/courses/30/lessons/){: target="_blank" }
 
